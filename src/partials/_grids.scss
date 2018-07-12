@@ -1,0 +1,121 @@
+.flexbox {
+    @include flexbox();
+}
+
+.row {
+    @include row();
+}
+
+.grid {
+    @include grid();
+}
+
+.flexbox,
+.grid {
+    &.flex-direction {
+        @each $value in $flex-direction-values {
+            &-#{$value} {
+                @include flex-direction(#{$value});
+            }
+        }
+    }
+
+    &.flex-wrap {
+        @each $value in $flex-wrap-values {
+            &-#{$value} {
+                @include flex-wrap(#{$value});
+            }
+        }
+    }
+
+    &.justify-content {
+        @each $value in $justify-content-values {
+            &-#{$value} {
+                @include justify-content(#{$value});
+            }
+        }
+    }
+
+    &.align-items {
+        @each $value in $align-items-values {
+            &-#{$value} {
+                @include align-items(#{$value});
+            }
+        }
+    }
+
+    &.align-content {
+        @each $value in $align-content-values {
+            &-#{$value} {
+                @include align-content(#{$value});
+            }
+        }
+    }
+
+    > * {
+        & {
+            @include layout-orders(native);
+
+            @each $key, $value in mapReverse($breakpoints) {
+                @include max($value) {
+                    @include layout-orders($key);
+                }
+            }
+        }
+
+        &.flex-grow {
+            @for $i from 1 through 8 {
+                &-#{$i} {
+                    @include flex-grow($i);
+                }
+            }
+        }
+
+        &.flex-shrink {
+            @for $i from 1 through 8 {
+                &-#{$i} {
+                    @include flex-shrink($i);
+                }
+            }
+        }
+
+        &.align-self {
+            @each $value in $align-self-values {
+                &-#{$value} {
+                    @include align-self(#{$value});
+                }
+            }
+        }
+    }
+}
+
+.row,
+.grid {
+    &.spaced {
+        @each $value in map_keys($spaced-values) {
+            &-#{$value} {
+                @include spaced(#{$value});
+            }
+        }
+    }
+}
+
+.grid-bound {
+    @include grid("bound");
+}
+
+.grid-narrow {
+    @include grid("narrow");
+}
+
+.grid-wide {
+    @include grid("wide");
+}
+
+@include layout-widths(native);
+
+@each $key, $value in mapReverse($breakpoints) {
+    @include max($value) {
+        @include layout-widths($key);
+    }
+}

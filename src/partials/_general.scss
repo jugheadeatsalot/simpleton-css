@@ -1,0 +1,124 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include control-margins(top);
+
+    margin-bottom:$margin * .75;
+    margin-top:$margin * 1.375;
+}
+
+p,
+figure,
+blockquote,
+ol,
+ul,
+pre,
+dl,
+dd,
+address,
+form,
+table,
+fieldset {
+    margin-bottom:$margin;
+}
+
+p {
+    &:empty {
+        display:none;
+    }
+}
+
+h1 {
+    font-size:$font-size-h1;
+    line-height:$line-height-h1;
+}
+
+h2 {
+    font-size:$font-size-h2;
+    line-height:$line-height-h2;
+}
+
+h3 {
+    font-size:$font-size-h3;
+    line-height:$line-height-h3;
+}
+
+h4 {
+    font-size:$font-size-h4;
+    line-height:$line-height-h4;
+}
+
+table {
+    border:none;
+    border-collapse:collapse;
+    border-spacing:0;
+    text-align:left;
+    width:100%;
+
+    &.fixed {
+        table-layout:fixed;
+    }
+}
+
+caption {
+    border:none;
+    font-weight:$font-weight-bold;
+    margin-bottom:$margin * .5;
+    text-align:left;
+    text-transform:uppercase;
+}
+
+tr,
+th,
+td {
+    font-weight:inherit;
+    text-align:left;
+}
+
+tr {
+    border-bottom:$border-size solid $color-border;
+    border-top:$border-size solid $color-border;
+    font-weight:inherit;
+    text-align:left;
+}
+
+thead,
+tfoot,
+th {
+    font-weight:$font-weight-bold;
+}
+
+th,
+td {
+    padding:$p-table-t $p-table-r $p-table-b $p-table-l;
+}
+
+figcaption {
+    font-size:$font-size-xsmall;
+    padding-top:$padding * .375;
+    text-align:center;
+}
+
+blockquote {
+    border-left:.25em solid $color-quote;
+    font-size:$font-size-h4;
+    line-height:$line-height-h4;
+    padding-left:1em;
+}
+
+ol,
+ul {
+    margin-left:1.25em;
+}
+
+hr {
+    margin-bottom:$margin * 1.5;
+    margin-top:$margin * 1.5;
+}
+
+a {
+    color:inherit;
+}

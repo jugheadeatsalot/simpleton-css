@@ -1,0 +1,94 @@
+label {
+    display:block;
+}
+
+fieldset {
+    border:$border-size solid $color-border;
+    padding:$padding-box;
+
+    ol,
+    ul {
+        list-style-type:none;
+        margin-left:0;
+    }
+}
+
+input {
+    &[type="text"],
+    &[type="email"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="search"],
+    &[type="number"],
+    &[type="date"],
+    &[type="month"],
+    &[type="week"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="password"] {
+        @include ie9plus() {
+            line-height:1;
+        }
+
+        border:$border-size solid $color-border;
+        color:inherit;
+        min-height:2.4rem;
+        padding:$padding-input;
+        width:100%;
+    }
+}
+
+input[type=radio],
+input[type=checkbox] {
+    margin:0;
+    vertical-align:-1px;
+}
+
+select,
+textarea {
+    border:$border-size solid $color-border;
+    color:inherit;
+    min-height:2.4rem;
+    padding:$padding-input;
+    width:100%;
+}
+
+select {
+    text-indent:0;
+
+    @-moz-document url-prefix() {
+        text-indent:-2.5px;
+    }
+
+    &[multiple] {
+        padding:($padding * .5) 0 ($padding * .5);
+    }
+
+    optgroup {
+        font-style:normal;
+        font-weight:$font-weight-bold;
+        padding:0;
+        text-indent:$p-input-l - .1;
+    }
+
+    option {
+        padding:0;
+        text-indent:$p-input-l - .1;
+    }
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.button {
+    @include button-colors();
+
+    display:inline-block;
+    margin-bottom:$margin * .25;
+    min-height:2.4rem;
+    padding:$padding-button;
+    text-align:center;
+    vertical-align:middle;
+    white-space:normal;
+}

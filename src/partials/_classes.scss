@@ -1,0 +1,230 @@
+.container {
+    @include container();
+}
+
+.group {
+    @include group();
+}
+
+.screen-reader-text {
+    @include screen-reader-text();
+}
+
+.video-container {
+    @include video-container();
+}
+
+.message {
+    @include message();
+}
+
+.controlled {
+    @include controlled();
+}
+
+.uppercase {
+    text-transform:uppercase;
+}
+
+.lowercase {
+    text-transform:lowercase;
+}
+
+.capitalize {
+    text-transform:capitalize;
+}
+
+.cover-height {
+    @include cover-height();
+}
+
+.text-xxsmall {
+    font-size:$font-size-xxsmall;
+}
+
+.text-xsmall {
+    font-size:$font-size-xsmall;
+}
+
+.text-small {
+    font-size:$font-size-small;
+}
+
+.text-big {
+    font-size:$font-size-big;
+}
+
+.text-xbig {
+    font-size:$font-size-xbig;
+}
+
+.text-xxbig {
+    font-size:$font-size-xxbig;
+}
+
+.text-dark {
+    color:$color-dark;
+}
+
+.text-light {
+    color:$color-light;
+}
+
+.text-primary {
+    color:$color-primary;
+}
+
+.text-secondary {
+    color:$color-secondary;
+}
+
+.text-idle {
+    color:$color-idle;
+}
+
+.text-success {
+    color:$color-success;
+}
+
+.text-alert {
+    color:$color-alert;
+}
+
+.text-warning {
+    color:$color-warning;
+}
+
+.bg-dark {
+    background-color:$color-dark;
+}
+
+.bg-light {
+    background-color:$color-light;
+}
+
+.bg-primary {
+    background-color:$color-primary;
+}
+
+.bg-secondary {
+    background-color:$color-secondary;
+}
+
+.bg-idle {
+    background-color:$color-idle;
+}
+
+.bg-success {
+    background-color:$color-success;
+}
+
+.bg-alert {
+    background-color:$color-alert;
+}
+
+.bg-warning {
+    background-color:$color-warning;
+}
+
+.border-dark {
+    border-color:$color-dark;
+}
+
+.border-light {
+    border-color:$color-light;
+}
+
+.border-primary {
+    border-color:$color-primary;
+}
+
+.border-secondary {
+    border-color:$color-secondary;
+}
+
+.border-idle {
+    border-color:$color-idle;
+}
+
+.border-success {
+    border-color:$color-success;
+}
+
+.border-alert {
+    border-color:$color-alert;
+}
+
+.border-warning {
+    border-color:$color-warning;
+}
+
+.text-center {
+    text-align:center;
+}
+
+.rounded-corners {
+    @include rounded-corners();
+}
+
+.push-up {
+    margin-bottom:auto;
+}
+
+.push-down {
+    margin-top:auto;
+}
+
+.push-left {
+    margin-right:auto;
+}
+
+.push-right {
+    margin-left:auto;
+}
+
+.pull-left {
+    float:left;
+}
+
+.pull-right {
+    float:right;
+}
+
+.full-width {
+    margin-left:0;
+    margin-right:0;
+    min-width:unset;
+    width:100%;
+}
+
+.button-group {
+    &.sized {
+        @include button-group-sized();
+    }
+}
+
+.middled {
+    @include middled();
+}
+
+.padded {
+    padding:$padding;
+
+    &-half {
+        padding:$padding * .5;
+    }
+
+    &-plus-half {
+        padding:$padding * 1.5;
+    }
+
+    &-double {
+        padding:$padding * 2;
+    }
+}
+
+@each $value in map-keys($button-sizes) {
+    .button-#{$value} {
+        @include button-size($value);
+    }
+}

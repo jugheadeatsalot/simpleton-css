@@ -1,0 +1,576 @@
+@mixin doTransition($value:all .3s $easing 0s) {
+    transition:$value;
+}
+
+@mixin control-margins($scope:all) {
+    $scope-y:$scope == vertical or $scope == all;
+    $scope-x:$scope == horizontal or $scope == all;
+
+    @if $scope-y or $scope == top {
+        &:first-child {
+            margin-top:0 !important;
+        }
+    }
+
+    @if $scope-x or $scope == right {
+        &:last-child {
+            margin-right:0 !important;
+        }
+    }
+
+    @if $scope-y or $scope == bottom {
+        &:last-child {
+            margin-bottom:0 !important;
+        }
+    }
+
+    @if $scope-x or $scope == left {
+        &:first-child {
+            margin-left:0 !important;
+        }
+    }
+}
+
+@mixin clearfix() {
+    &:after,
+    &:before {
+        clear:both;
+        content:"";
+        display:table;
+    }
+}
+
+@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $background: $color-bg) {
+    position:relative;
+
+    &:after {
+        border-color:$fold-color $background;
+        border-style:solid;
+        border-width:0 $size $size 0;
+        content:"";
+        position:absolute;
+        right:(-$border-size);
+        top:(-$border-size);
+    }
+}
+
+@mixin video-aspect-ratio($aspect-width:16, $aspect-height:9) {
+    padding-bottom:percentage($aspect-height / $aspect-width);
+}
+
+@mixin video-container() {
+    @include video-aspect-ratio();
+
+    display:block;
+    height:0;
+    padding-top:25px;
+    position:relative;
+
+    iframe,
+    object,
+    embed {
+        height:100%;
+        left:0;
+        position:absolute;
+        top:0;
+        width:100%;
+    }
+}
+
+@mixin message() {
+    @include message-colors();
+    @include folded-corner();
+
+    margin-bottom:$margin;
+    padding:$padding-message;
+
+    i {
+        line-height:inherit;
+        position:absolute;
+        right:$p-message-l;
+        top:$p-message-t;
+    }
+}
+
+@mixin screen-reader-text() {
+    clip:rect(1px, 1px, 1px, 1px);
+    height:1px;
+    overflow:hidden;
+    position:absolute !important;
+    width:1px;
+}
+
+@mixin button-group-sized($width:$width-button) {
+    > * {
+        width:$width;
+    }
+}
+
+@mixin cover-height() {
+    min-height:100vh;
+}
+
+@mixin bg-color($color) {
+    background-color:$color;
+}
+
+@mixin text-color($color) {
+    color:$color;
+}
+
+@mixin button-size($size:false) {
+    @if isInList($size, map-keys($button-sizes), true) {
+        font-size:nth(map-get($button-sizes, $size), 1);
+        padding:nth(map-get($button-sizes, $size), 2);
+    }
+}
+
+@mixin rounded-corners($radius:$border-radius) {
+    border-radius:$radius;
+}
+
+@mixin ellipsis() {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+@mixin headerize($type:false) {
+    font-family:$font-stack-head;
+    font-weight:$font-weight-head;
+
+    @if $type == h1 {
+        font-size:$font-size-h1;
+        line-height:$line-height-h1;
+    } @else if $type == h2 {
+        font-size:$font-size-h2;
+        line-height:$line-height-h2;
+    } @else if $type == h3 {
+        font-size:$font-size-h3;
+        line-height:$line-height-h3;
+    } @else if $type == h4 {
+        font-size:$font-size-h4;
+        line-height:$line-height-h4;
+    }
+}
+
+////////////////////////
+/// Media Queries
+////////////////////////
+
+@mixin xsmall() {
+    @media (max-width:$width-small - 1) {
+        @content;
+    }
+}
+
+@mixin small() {
+    @media (max-width:$width-medium - 1) {
+        @content;
+    }
+}
+
+@mixin medium() {
+    @media (max-width:$width-marge - 1) {
+        @content;
+    }
+}
+
+@mixin marge() {
+    @media (max-width:$width-960 - 1) {
+        @content;
+    }
+}
+
+@mixin _960() {
+    @media (max-width:$width-large - 1) {
+        @content;
+    }
+}
+
+@mixin large() {
+    @media (max-width:$width-xlarge - 1) {
+        @content;
+    }
+}
+
+@mixin xlarge() {
+    @media (max-width:$width-xxlarge - 1) {
+        @content;
+    }
+}
+
+@mixin min-xsmall() {
+    @media (min-width:$width-xsmall) {
+        @content;
+    }
+}
+
+@mixin min-small() {
+    @media (min-width:$width-small) {
+        @content;
+    }
+}
+
+@mixin min-medium() {
+    @media (min-width:$width-medium) {
+        @content;
+    }
+}
+
+@mixin min-marge() {
+    @media (min-width:$width-marge) {
+        @content;
+    }
+}
+
+@mixin min-_960() {
+    @media (min-width:$width-960) {
+        @content;
+    }
+}
+
+@mixin min-large() {
+    @media (min-width:$width-large) {
+        @content;
+    }
+}
+
+@mixin min-xlarge() {
+    @media (min-width:$width-xlarge) {
+        @content;
+    }
+}
+
+@mixin min-xxlarge() {
+    @media (min-width:$width-xxlarge) {
+        @content;
+    }
+}
+
+@mixin max($max-width) {
+    @media (max-width:$max-width) {
+        @content;
+    }
+}
+
+@mixin min($min-width) {
+    @media (min-width:$min-width) {
+        @content;
+    }
+}
+
+@mixin min-max($min-width, $max-width) {
+    @media (min-width:$min-width) and (max-width:$max-width) {
+        @content;
+    }
+}
+
+@mixin ie9plus() {
+    // @formatter:off
+    @media (min-width:0\0) and (min-resolution:+72dpi) {
+        @content;
+    }
+    // @formatter:on
+}
+
+@mixin ie10plus() {
+    // @formatter:off
+    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+    // @formatter:on
+}
+
+////////////////////////
+/// Colors
+////////////////////////
+
+@mixin shift-bg-colors($color-to-use) {
+    background:$color-to-use;
+    border:$border-size solid $color-to-use;
+
+    &:hover {
+        background:darken($color-to-use, $color-darken-by);
+        border:$border-size solid darken($color-to-use, $color-darken-by);
+    }
+
+    &.hollow {
+        background:transparent;
+        color:$color-to-use !important;
+
+        &:hover {
+            color:darken($color-to-use, $color-darken-by) !important;
+        }
+    }
+}
+
+@mixin button-colors() {
+    @include shift-bg-colors($color-text);
+
+    color:$color-bg !important;
+
+    &.primary {
+        @include shift-bg-colors($color-primary);
+    }
+
+    &.secondary {
+        @include shift-bg-colors($color-secondary);
+    }
+
+    &.idle,
+    &[disabled] {
+        @include shift-bg-colors($color-idle);
+    }
+
+    &.success {
+        @include shift-bg-colors($color-success);
+    }
+
+    &.alert {
+        @include shift-bg-colors($color-alert);
+    }
+
+    &.warning {
+        @include shift-bg-colors($color-warning);
+    }
+
+    &.highlight {
+        @include shift-bg-colors($color-highlight);
+    }
+}
+
+@mixin shift-message-colors($color-to-use, $color-for-text:$color-bg) {
+    background:$color-to-use;
+    border:$border-size solid $color-to-use;
+    color:#{$color-for-text};
+}
+
+@mixin message-colors() {
+    @include shift-message-colors($color-text);
+
+    &.success {
+        @include shift-message-colors($color-success);
+    }
+    &.alert {
+        @include shift-message-colors($color-alert);
+    }
+    &.warning {
+        @include shift-message-colors($color-warning);
+    }
+}
+
+////////////////////////
+/// Grids
+////////////////////////
+
+@mixin container() {
+    margin-left:auto;
+    margin-right:auto;
+    max-width:$width-max-container;
+    width:100%;
+}
+
+@mixin controlled() {
+    * {
+        @include control-margins(bottom);
+    }
+}
+
+@mixin group($max-width:$width-max-group) {
+    margin-left:auto;
+    margin-right:auto;
+    max-width:$max-width;
+    padding-left:$gutter * 2;
+    padding-right:$gutter * 2;
+    width:100%;
+}
+
+@mixin flexbox() {
+    display:flex;
+
+    flex-wrap:wrap;
+}
+
+@mixin flex-direction($value) {
+    @if isInList($value, $flex-direction-values, true) {
+        flex-direction:$value;
+    }
+}
+
+@mixin flex-wrap($value) {
+    @if isInList($value, $flex-wrap-values, true) {
+        flex-wrap:$value;
+    }
+}
+
+@mixin justify-content($value) {
+    @if isInList($value, $justify-content-values, true) {
+        justify-content:$value;
+    }
+}
+
+@mixin align-items($value) {
+    @if isInList($value, $align-items-values, true) {
+        align-items:$value;
+    }
+}
+
+@mixin align-content($value) {
+    @if isInList($value, $align-content-values, true) {
+        align-content:$value;
+    }
+}
+
+@mixin order($value) {
+    @if isUnitlessNumber($value, true) {
+        order:floor($value);
+    }
+}
+
+@mixin flex-grow($value) {
+    @if isAbsoluteUnitlessNumber($value, true) {
+        flex-grow:$value;
+    }
+}
+
+@mixin flex-shrink($value) {
+    @if isAbsoluteUnitlessNumber($value, true) {
+        flex-shrink:$value;
+    }
+}
+
+@mixin flex-basis($value) {
+    @if isValidFlexBasis($value, true) {
+        flex-basis:if(isString($value), $value, floor($value));
+    }
+}
+
+@mixin flex($value:0 1 auto) {
+    flex:$value;
+}
+
+@mixin align-self($value) {
+    @if isInList($value, $align-self-values, true) {
+        align-self:$value;
+    }
+}
+
+@mixin middled() {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+}
+
+@mixin row() {
+    @include clearfix();
+    @include gutters(row);
+
+    display:block;
+
+    > * {
+        @include gutters(col);
+
+        float:left;
+        width:100%;
+    }
+}
+
+@mixin grid($size:false) {
+    @include flexbox();
+    @include gutters(row, $size);
+
+    > * {
+        @include gutters(col, $size);
+    }
+}
+
+@mixin spaced($size:nth(map-keys($spaced-values), 1)) {
+    @if isInList($size, map_keys($spaced-values), true) {
+        $out:$margin * map_get($spaced-values, $size);
+
+        margin-bottom:(-$out) !important;
+
+        > * {
+            padding-bottom:$out;
+        }
+    }
+}
+
+@mixin gutters($type:row, $size:false) {
+    $multiplier:1;
+
+    @if isInList($size, map_keys($gutter-sizes)) {
+        $multiplier:map_get($gutter-sizes, $size);
+    } @else if isAbsoluteUnitlessNumber($size) {
+        $multiplier:$size;
+    }
+
+    @if $type == row {
+        margin-left:(-$gutter * $multiplier);
+        margin-right:(-$gutter * $multiplier);
+    } @else if $type == col {
+        padding-left:$gutter * $multiplier;
+        padding-right:$gutter * $multiplier;
+    }
+}
+
+@mixin layout-widths($selector-prefix) {
+    .#{$selector-prefix} {
+        @each $key, $width in $widths {
+            &-#{$key} {
+                width:$width;
+            }
+        }
+    }
+}
+
+@mixin layout-orders($selector-prefix) {
+    .#{$selector-prefix}-order {
+        @for $i from 1 through 8 {
+            &-#{$i} {
+                @include order($i);
+            }
+        }
+
+        @for $i from 1 through 8 {
+            &-n#{$i} {
+                @include order(-$i);
+            }
+        }
+    }
+}
+
+@mixin set-width($width:$max-layout-cols, $breakpoint:false) {
+    @if isInList($width, map_keys($widths), true) {
+        $width:map-get($widths, $width);
+
+        @if not $breakpoint {
+            width:$width;
+        } @else if isAbsoluteUnitNumber($breakpoint) {
+            @include max($breakpoint) {
+                width:$width;
+            }
+        } @else if isInList($breakpoint, map-keys($breakpoints)) {
+            @include max(map-get($breakpoints, $breakpoint)) {
+                width:$width;
+            }
+        }
+    }
+}
+
+@mixin set-order($order:0, $breakpoint:false) {
+    @if isUnitlessNumber($order, true) {
+        @if not $breakpoint {
+            order:$order;
+        } @else if isAbsoluteUnitNumber($breakpoint) {
+            @include max($breakpoint) {
+                order:$order;
+            }
+        } @else if isInList($breakpoint, map-keys($breakpoints)) {
+            @include max(map-get($breakpoints, $breakpoint)) {
+                order:$order;
+            }
+        }
+    }
+}

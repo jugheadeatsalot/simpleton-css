@@ -1,0 +1,221 @@
+////////////////////////
+/// Conditionals
+////////////////////////
+
+@function isNumber($value) {
+    @return type-of($value) == number;
+}
+
+@function isList($value) {
+    @return type-of($value) == list;
+}
+
+@function isMap($value) {
+    @return type-of($value) == map;
+}
+
+@function isString($value) {
+    @return type-of($value) == string;
+}
+
+@function isBool($value) {
+    @return type-of($value) == bool;
+}
+
+@function isColor($value) {
+    @return type-of($value) == color;
+}
+
+@function isUnitNumber($value, $warn:false) {
+    @if isNumber($value) and index($lengths, unit($value)) {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be a <length>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isUnitlessNumber($value, $warn:false) {
+    @if isNumber($value) and unitless($value) {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be a unitless <number>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isAbsoluteNumber($value, $warn:false) {
+    @if isNumber($value) and $value > -1 {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be an absolute <number>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isAbsoluteUnitNumber($value, $warn:false) {
+    @if isAbsoluteNumber($value) and index($lengths, unit($value)) {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be an absolute <length>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isAbsoluteUnitlessNumber($value, $warn:false) {
+    @if isAbsoluteNumber($value) and unitless($value) {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be an absolute, unitless <number>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isValidFlexBasis($value, $warn:false) {
+    @if isAbsoluteUnitNumber($value) or $value == auto {
+        @return true;
+    } @else if ($warn) {
+        @warn "`$value` must be \"auto\" or an absolute <length>. #{showParamVal($value)}";
+    }
+
+    @return false;
+}
+
+@function isInList($needle, $haystack, $warn:false) {
+    @if index($haystack, $needle) {
+        @return true;
+    } @else if ($warn) {
+        @warn "Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}";
+    }
+
+    @return false;
+}
+
+////////////////////////
+/// Numbers
+////////////////////////
+
+@function decRound($number, $digits:3, $mode: round) {
+    $n:1;
+
+    @if not isNumber($number) {
+        @return $number;
+    }
+
+    @if not isNumber($digits) {
+        @return $number;
+    } @else if not unitless($digits) {
+        @return $number;
+    }
+
+    @for $i from 1 through $digits {
+        $n:$n * 10;
+    }
+
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @return $number;
+    }
+}
+
+@function decCeil($number, $digits:3) {
+    @return decRound($number, $digits, ceil);
+}
+
+@function decFloor($number, $digits:3) {
+    @return decRound($number, $digits, floor);
+}
+
+@function strip($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@function remToPixels($size-in-rem) {
+    @return strip($size-in-rem) * $font-size-base;
+}
+
+////////////////////////
+/// Strings
+////////////////////////
+
+/// Joins `$list` items into a `$glue` separated string and
+/// inserts an optional `$closer` before the final item.
+/// @param {list} $list
+/// @param {string} $glue [""]
+/// @param {string} $closer [""]
+/// @param {bool} $quote-strings [false]
+@function implodeList($list, $glue:"", $closer:"", $quote-strings:false) {
+    $x:null;
+    $len:length($list);
+    $closer:if(str-length(#{$closer}) > 0 and $len > 1, #{$closer}, null);
+
+    @if type-of($list) != list {
+        @warn "`#{$list}` is not a valid list.";
+        @return $list;
+    }
+
+    @for $i from 1 through $len {
+        $item:nth($list, $i);
+        $item:if(type-of($item) == string and $quote-strings, "\"#{$item}\"", $item);
+        $x:if($i < length($list), #{$x}#{$item}#{$glue}, #{$x}#{$closer}#{$item});
+    }
+
+    @if $closer != null {
+        $find:#{$glue}#{$closer};
+        $index:str-index($x, $find);
+        $slice-a:str-slice($x, 1, $index - 1);
+        $slice-b:str-slice($x, $index + str-length($find) - str-length($closer));
+        $x:#{$slice-a}#{$slice-b};
+    }
+
+    @return $x;
+}
+
+////////////////////////
+/// Utilities
+////////////////////////
+
+@function validVals($list) {
+    @return "Valid values are #{implodeList($list, ", ", " and ", true)}.";
+}
+
+@function showParamVal($value) {
+    $value:if(isString($value), "\"#{$value}\"", $value);
+
+    @return "Received: <#{type-of($value)}: #{$value}>.";
+}
+
+/// Reverse map order
+/// @link https://gist.github.com/seanislegend/107ccf9c81ec9fd1aae0
+@function mapReverse ($map) {
+    $result:null;
+
+    @if type-of($map) == "map" {
+        $keys:map-keys($map);
+        $map-reversed:();
+
+        @for $i from length($keys) through 1 {
+            $map-reversed:map-merge($map-reversed, (nth($keys, $i): map-get($map, nth($keys, $i))));
+        }
+
+        @if type-of($map-reversed) == "map" {
+            $result:$map-reversed;
+        } @else {
+            @warn "There was an error reversing the order of \"#{$map}\"";
+        }
+    } @else {
+        @warn "\"#{$map}\" is not a valid map";
+    }
+
+    @return $result;
+}

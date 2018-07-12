@@ -1,0 +1,167 @@
+////////////////////////
+/// Fonts
+////////////////////////
+
+$font-stack-serif:Constantia, "Lucida Bright", Lucidabright, Georgia, serif;
+$font-stack-sans-serif:"Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-stack:$font-stack-sans-serif;
+$font-stack-head:$font-stack;
+$font-stack-mono:Consolas, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
+$font-size-base:16px;
+$font-size:1rem;
+$font-size-big:1.1em;
+$font-size-xbig:1.2em;
+$font-size-xxbig:1.3em;
+$font-size-small:.9em;
+$font-size-xsmall:.8em;
+$font-size-xxsmall:.7em;
+$font-size-h1:2em;
+$font-size-h2:1.6em;
+$font-size-h3:1.4em;
+$font-size-h4:1.2em;
+$font-weight-normal:400;
+$font-weight-bold:700;
+$font-weight-head:$font-weight-bold;
+$line-height:1.5;
+$line-height-h1:1.2;
+$line-height-h2:1.25;
+$line-height-h3:1.3;
+$line-height-h4:1.35;
+
+////////////////////////
+/// Colors
+////////////////////////
+
+$color-dark:#626262;
+$color-light:#ffffff;
+$color-gray:#7f8c8d;
+$color-gray-light:#e8e8e8;
+$color-gray-subtle:#f8f8f8;
+$color-primary:#2980b9;
+$color-secondary:$color-gray;
+$color-idle:$color-gray-light;
+$color-success:#27ae60;
+$color-alert:#c0392b;
+$color-warning:#d35400;
+$color-highlight:#f39c12;
+$color-darken-by:4%;
+$color-text:$color-dark;
+$color-bg:$color-light;
+$color-border:$color-gray-light;
+$color-quote:$color-gray-light;
+
+////////////////////////
+/// Borders
+////////////////////////
+
+$border-radius:4px;
+$border-size:1px;
+
+////////////////////////
+/// Spacing
+////////////////////////
+
+$margin:$font-size * $line-height;
+$padding:$font-size * $line-height;
+$gutter:15px;
+$p-inline-t:.0625rem;
+$p-inline-r:.25rem;
+$p-inline-b:.125rem;
+$p-inline-l:.25rem;
+$padding-inline:$p-inline-t $p-inline-r $p-inline-b $p-inline-l;
+$p-box-t:1rem;
+$p-box-r:1.25rem;
+$p-box-b:1.25rem;
+$p-box-l:1.25rem;
+$padding-box:$p-box-t $p-box-r $p-box-b $p-box-l;
+$p-message-t:.75rem;
+$p-message-r:3.25rem;
+$p-message-b:.875rem;
+$p-message-l:1rem;
+$padding-message:$p-message-t $p-message-r $p-message-b $p-message-l;
+$p-table-t:.75rem;
+$p-table-r:1.125rem;
+$p-table-b:.875rem;
+$p-table-l:.75rem;
+$padding-table:$p-table-t $p-table-r $p-table-b $p-table-l;
+$p-button-t:.375rem;
+$p-button-r:.75rem;
+$p-button-b:.375rem;
+$p-button-l:.75rem;
+$padding-button:$p-button-t $p-button-r $p-button-b $p-button-l;
+$padding-button-xsmall:($p-button-t * .8) ($p-button-r * .8) ($p-button-b * .8) ($p-button-l * .8);
+$padding-button-small:($p-button-t * .9) ($p-button-r * .9) ($p-button-b * .9) ($p-button-l * .9);
+$padding-button-large:($p-button-t * 1.1) ($p-button-r * 1.1) ($p-button-b * 1.1) ($p-button-l * 1.1);
+$padding-button-xlarge:($p-button-t * 1.2) ($p-button-r * 1.2) ($p-button-b * 1.2) ($p-button-l * 1.2);
+$p-input-t:.375rem;
+$p-input-r:.75rem;
+$p-input-b:.375rem;
+$p-input-l:.75rem;
+$padding-input:$p-input-t $p-input-r $p-input-b $p-input-l;
+
+////////////////////////
+/// Animations
+////////////////////////
+
+$ease-in-out-expo:cubic-bezier(1, 0, 0, 1);
+$easing:ease-in-out;
+
+////////////////////////
+/// Sizes
+////////////////////////
+
+$width-xsmall:320px;
+$width-small:480px;
+$width-medium:640px;
+$width-marge:800px;
+$width-960:960px;
+$width-large:1024px;
+$width-xlarge:1200px;
+$width-xxlarge:1440px;
+$width-max-group:$width-xlarge;
+$width-max-container:none;
+$width-button:180px;
+$lengths-absolute:(cm, mm, in, px, pt, pc);
+$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, "%");
+$lengths:join($lengths-absolute, $lengths-relative);
+$button-sizes:(
+    xsmall:(80%, $padding-button-xsmall),
+    small:(90%, $padding-button-small),
+    large:(110%, $padding-button-large),
+    xlarge:(120%, $padding-button-xlarge)
+);
+
+////////////////////////
+/// Grids
+////////////////////////
+
+$flex-direction-values:(row, row-reverse, column, column-reverse);
+$justify-content-values:(flex-start, flex-end, center, space-between, space-around);
+$flex-wrap-values:(nowrap, wrap, wrap-reverse);
+$align-items-values:(flex-start, flex-end, center, baseline, stretch);
+$align-content-values:(flex-start, flex-end, center, space-between, space-around, stretch);
+$align-self-values:(auto, flex-start, flex-end, center, baseline, stretch);
+$gutter-sizes:(bound: 0, narrow: .5, wide: 1.5);
+$spaced-values:(one: 1, half: .5, plus-half: 1.5, double: 2);
+$max-layout-cols:12;
+$widths:();
+$inc:0;
+
+@while $inc < 100 {
+    $inc:$inc + 5;
+    $widths:map-merge($widths, (#{$inc}p: $inc * 1%));
+}
+
+@for $i from 1 through $max-layout-cols {
+    $widths:map-merge($widths, ($i: percentage($i / $max-layout-cols)));
+}
+
+$breakpoints:(
+    xsmall:$width-small - 1,
+    small:$width-medium - 1,
+    medium:$width-marge - 1,
+    marge:$width-960 - 1,
+    _960:$width-large - 1,
+    large:$width-xlarge - 1,
+    xlarge:$width-xxlarge - 1
+);

@@ -1,0 +1,10 @@
+.idea/
+.sass-cache/
+.delete/
+node_modules/
+.env
+.DS_Store
+*.bak
+*.bat
+*.log
+npm-debug.*
