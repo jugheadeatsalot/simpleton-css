@@ -11,6 +11,10 @@ fieldset {
         list-style-type:none;
         margin-left:0;
     }
+
+    > div {
+        margin-bottom:$margin;
+    }
 }
 
 input {
