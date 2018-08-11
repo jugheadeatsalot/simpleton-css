@@ -1,3 +1,30 @@
+p,
+ol,
+ul,
+pre,
+address,
+blockquote,
+dl,
+fieldset,
+form,
+noscript,
+table,
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+label {
+    margin-bottom:$margin;
+}
+
 h1,
 h2,
 h3,
@@ -6,23 +33,13 @@ h5,
 h6 {
     @include control-margins(top);
 
-    margin-bottom:$margin * .75;
-    margin-top:$margin * 1.375;
+    margin-bottom:$margin * .5;
+    margin-top:$margin * 1.5;
 }
 
-p,
-figure,
-blockquote,
-ol,
-ul,
-pre,
-dl,
-dd,
-address,
-form,
-table,
-fieldset {
-    margin-bottom:$margin;
+hr {
+    margin-bottom:$margin * 1.75;
+    margin-top:$margin * 1.5;
 }
 
 p {
@@ -98,7 +115,7 @@ td {
 
 figcaption {
     font-size:$font-size-xsmall;
-    padding-top:$padding * .375;
+    padding-top:$padding * .625;
     text-align:center;
 }
 
@@ -112,11 +129,6 @@ blockquote {
 ol,
 ul {
     margin-left:1.25em;
-}
-
-hr {
-    margin-bottom:$margin * 1.5;
-    margin-top:$margin * 1.5;
 }
 
 a {

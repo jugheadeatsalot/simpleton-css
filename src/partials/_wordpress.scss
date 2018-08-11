@@ -46,7 +46,6 @@ img {
     }
 }
 
-.gallery,
 .tiled-gallery,
 .video-player {
     margin-bottom:$margin !important;
@@ -54,7 +53,7 @@ img {
 }
 
 .gallery {
-    @include grid("narrow");
+    @include grid(narrow);
     @include spaced(plus-half);
 
     padding-bottom:$padding * .25;
