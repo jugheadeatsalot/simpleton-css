@@ -141,7 +141,7 @@ $flex-wrap-values:(nowrap, wrap, wrap-reverse);
 $align-items-values:(flex-start, flex-end, center, baseline, stretch);
 $align-content-values:(flex-start, flex-end, center, space-between, space-around, stretch);
 $align-self-values:(auto, flex-start, flex-end, center, baseline, stretch);
-$gutter-sizes:(bound: 0, narrow: .5, wide: 1.5);
+$gutter-sizes:(bound: 0, narrow: .5, extended: 1.5, wide: 2, wider:2.5);
 $spaced-values:(one: 1, half: .5, plus-half: 1.5, double: 2);
 $max-layout-cols:12;
 $widths:();

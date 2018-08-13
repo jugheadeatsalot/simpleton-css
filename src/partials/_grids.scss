@@ -101,15 +101,15 @@
 }
 
 .grid-bound {
-    @include grid("bound");
+    @include grid(bound);
 }
 
 .grid-narrow {
-    @include grid("narrow");
+    @include grid(narrow);
 }
 
 .grid-wide {
-    @include grid("wide");
+    @include grid(wide);
 }
 
 @include layout-widths(native);
