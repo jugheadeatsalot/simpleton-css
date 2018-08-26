@@ -61,7 +61,6 @@ $border-size:1px;
 /// Spacing
 ////////////////////////
 
-// TODO: Work on paddings...
 $margin:$font-size * $line-height;
 $padding:$font-size * $line-height;
 $gutter:15px;
@@ -71,14 +70,14 @@ $p-inline-r:.25rem;
 $p-inline-b:.125rem;
 $p-inline-l:.25rem;
 $padding-inline:$p-inline-t $p-inline-r $p-inline-b $p-inline-l;
-$p-box-t:1rem;
+$p-box-t:.75rem;
 $p-box-r:1.25rem;
-$p-box-b:1.25rem;
-$p-box-l:1.25rem;
+$p-box-b:.75rem;
+$p-box-l:1rem;
 $padding-box:$p-box-t $p-box-r $p-box-b $p-box-l;
 $p-message-t:.75rem;
 $p-message-r:3.25rem;
-$p-message-b:.875rem;
+$p-message-b:.75rem;
 $p-message-l:1rem;
 $padding-message:$p-message-t $p-message-r $p-message-b $p-message-l;
 $p-table-t:.75rem;
