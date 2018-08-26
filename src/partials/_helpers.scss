@@ -565,3 +565,69 @@
         }
     }
 }
+
+@mixin hr-margins($bottom: $margin * 1.75, $top: $margin * 1.5) {
+    hr {
+        margin-bottom:$bottom;
+        margin-top:$top;
+    }
+}
+
+@mixin header-margins($bottom: $margin * .5, $top: $margin * 1.5) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include control-margins(top);
+
+        margin-bottom:$bottom;
+        margin-top:$top;
+    }
+}
+
+@mixin general-margins($bottom: $margin) {
+    p,
+    ol,
+    ul,
+    pre,
+    address,
+    blockquote,
+    dl,
+    fieldset,
+    form,
+    noscript,
+    main,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section,
+    label {
+        margin-bottom:$bottom;
+    }
+}
+
+@mixin table-margins(
+    $bottom: $margin * 1.5,
+    $top: $margin * 1.25,
+    $caption-bottom: $margin * .25
+) {
+    table {
+        @include control-margins(top);
+
+        margin-bottom:$bottom;
+        margin-top:$top;
+    }
+
+    caption {
+        margin-bottom:$caption-bottom;
+    }
+}

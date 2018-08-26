@@ -1,46 +1,7 @@
-p,
-ol,
-ul,
-pre,
-address,
-blockquote,
-dl,
-fieldset,
-form,
-noscript,
-table,
-main,
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-label {
-    margin-bottom:$margin;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @include control-margins(top);
-
-    margin-bottom:$margin * .5;
-    margin-top:$margin * 1.5;
-}
-
-hr {
-    margin-bottom:$margin * 1.75;
-    margin-top:$margin * 1.5;
-}
+@include hr-margins();
+@include header-margins();
+@include general-margins();
+@include table-margins();
 
 p {
     &:empty {
@@ -81,9 +42,10 @@ table {
 }
 
 caption {
-    border:none;
+    border-top:$border-size solid $color-border;
+    font-size:$font-size-xsmall;
     font-weight:$font-weight-bold;
-    margin-bottom:$margin * .5;
+    padding-top:$padding * .375;
     text-align:left;
     text-transform:uppercase;
 }
