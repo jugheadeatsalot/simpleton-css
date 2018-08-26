@@ -381,6 +381,7 @@
 
 @mixin flexbox() {
     display:flex;
+    flex-wrap:wrap;
 }
 
 @mixin flex-direction($value) {
