@@ -1,3 +1,85 @@
+////////////////////////
+/// Colors
+////////////////////////
+
+@mixin shift-bg-colors($color-to-use) {
+    background:$color-to-use;
+    border:$border-size solid $color-to-use;
+
+    &:hover {
+        background:darken($color-to-use, $color-darken-by);
+        border:$border-size solid darken($color-to-use, $color-darken-by);
+    }
+
+    &.hollow {
+        background:transparent;
+        color:$color-to-use !important;
+
+        &:hover {
+            color:darken($color-to-use, $color-darken-by) !important;
+        }
+    }
+}
+
+@mixin button-colors() {
+    @include shift-bg-colors($color-text);
+
+    color:$color-bg !important;
+
+    &.primary {
+        @include shift-bg-colors($color-primary);
+    }
+
+    &.secondary {
+        @include shift-bg-colors($color-secondary);
+    }
+
+    &.idle,
+    &[disabled] {
+        @include shift-bg-colors($color-idle);
+    }
+
+    &.success {
+        @include shift-bg-colors($color-success);
+    }
+
+    &.alert {
+        @include shift-bg-colors($color-alert);
+    }
+
+    &.warning {
+        @include shift-bg-colors($color-warning);
+    }
+
+    &.highlight {
+        @include shift-bg-colors($color-highlight);
+    }
+}
+
+@mixin shift-message-colors($color-to-use, $color-for-text:$color-bg) {
+    background:$color-to-use;
+    border:$border-size solid $color-to-use;
+    color:#{$color-for-text};
+}
+
+@mixin message-colors() {
+    @include shift-message-colors($color-text);
+
+    &.success {
+        @include shift-message-colors($color-success);
+    }
+    &.alert {
+        @include shift-message-colors($color-alert);
+    }
+    &.warning {
+        @include shift-message-colors($color-warning);
+    }
+}
+
+////////////////////////
+/// Workers
+////////////////////////
+
 @mixin doTransition($value:all .3s $easing 0s) {
     transition:$value;
 }
@@ -283,84 +365,6 @@
 }
 
 ////////////////////////
-/// Colors
-////////////////////////
-
-@mixin shift-bg-colors($color-to-use) {
-    background:$color-to-use;
-    border:$border-size solid $color-to-use;
-
-    &:hover {
-        background:darken($color-to-use, $color-darken-by);
-        border:$border-size solid darken($color-to-use, $color-darken-by);
-    }
-
-    &.hollow {
-        background:transparent;
-        color:$color-to-use !important;
-
-        &:hover {
-            color:darken($color-to-use, $color-darken-by) !important;
-        }
-    }
-}
-
-@mixin button-colors() {
-    @include shift-bg-colors($color-text);
-
-    color:$color-bg !important;
-
-    &.primary {
-        @include shift-bg-colors($color-primary);
-    }
-
-    &.secondary {
-        @include shift-bg-colors($color-secondary);
-    }
-
-    &.idle,
-    &[disabled] {
-        @include shift-bg-colors($color-idle);
-    }
-
-    &.success {
-        @include shift-bg-colors($color-success);
-    }
-
-    &.alert {
-        @include shift-bg-colors($color-alert);
-    }
-
-    &.warning {
-        @include shift-bg-colors($color-warning);
-    }
-
-    &.highlight {
-        @include shift-bg-colors($color-highlight);
-    }
-}
-
-@mixin shift-message-colors($color-to-use, $color-for-text:$color-bg) {
-    background:$color-to-use;
-    border:$border-size solid $color-to-use;
-    color:#{$color-for-text};
-}
-
-@mixin message-colors() {
-    @include shift-message-colors($color-text);
-
-    &.success {
-        @include shift-message-colors($color-success);
-    }
-    &.alert {
-        @include shift-message-colors($color-alert);
-    }
-    &.warning {
-        @include shift-message-colors($color-warning);
-    }
-}
-
-////////////////////////
 /// Grids
 ////////////////////////
 
@@ -374,14 +378,12 @@
     margin-left:auto;
     margin-right:auto;
     max-width:$max-width;
-    overflow-x:hidden;
     padding:0 30px;
     width:100%;
 }
 
 @mixin flexbox() {
     display:flex;
-    flex-wrap:wrap;
 }
 
 @mixin flex-direction($value) {
@@ -454,6 +456,24 @@
     @include justify-content(space-between);
 }
 
+@mixin gutters($type:row, $size:false) {
+    $multiplier:1;
+
+    @if isInList($size, map_keys($gutter-sizes)) {
+        $multiplier:map_get($gutter-sizes, $size);
+    } @else if isAbsoluteUnitlessNumber($size) {
+        $multiplier:$size;
+    }
+
+    @if $type == row {
+        margin-left:(-$gutter * $multiplier);
+        margin-right:(-$gutter * $multiplier);
+    } @else if $type == col {
+        padding-left:$gutter * $multiplier;
+        padding-right:$gutter * $multiplier;
+    }
+}
+
 @mixin row() {
     @include clearfix();
     @include gutters(row);
@@ -470,6 +490,7 @@
 
 @mixin grid($size:false) {
     @include flexbox();
+    @include flex-wrap(wrap);
     @include gutters(row, $size);
 
     > * {
@@ -486,24 +507,6 @@
         > * {
             padding-bottom:$out;
         }
-    }
-}
-
-@mixin gutters($type:row, $size:false) {
-    $multiplier:1;
-
-    @if isInList($size, map_keys($gutter-sizes)) {
-        $multiplier:map_get($gutter-sizes, $size);
-    } @else if isAbsoluteUnitlessNumber($size) {
-        $multiplier:$size;
-    }
-
-    @if $type == row {
-        margin-left:(-$gutter * $multiplier);
-        margin-right:(-$gutter * $multiplier);
-    } @else if $type == col {
-        padding-left:$gutter * $multiplier;
-        padding-right:$gutter * $multiplier;
     }
 }
 
@@ -567,14 +570,16 @@
     }
 }
 
-@mixin hr-margins($bottom: $margin * 1.75, $top: $margin * 1.5) {
+@mixin vertical-margins($multiplier: 1) {
     hr {
-        margin-bottom:$bottom;
-        margin-top:$top;
+        margin-bottom:($margin * 1.25) * $multiplier;
+        margin-top:($margin * 1.125) * $multiplier;
     }
-}
 
-@mixin header-margins($bottom: $margin * .5, $top: $margin * 1.5) {
+    caption {
+        margin-bottom:($margin * .25) * $multiplier;
+    }
+
     h1,
     h2,
     h3,
@@ -583,23 +588,23 @@
     h6 {
         @include control-margins(top);
 
-        margin-bottom:$bottom;
-        margin-top:$top;
+        margin-bottom:$margin * $multiplier;
+        margin-top:($margin * 1.5) * $multiplier;
     }
-}
 
-@mixin general-margins($bottom: $margin) {
     p,
     ol,
     ul,
-    pre,
     address,
     blockquote,
     dl,
+    dt,
+    dd,
     fieldset,
+    table,
+    pre,
     form,
     noscript,
-    main,
     article,
     aside,
     details,
@@ -612,23 +617,6 @@
     nav,
     section,
     label {
-        margin-bottom:$bottom;
-    }
-}
-
-@mixin table-margins(
-    $bottom: $margin * 1.5,
-    $top: $margin * 1.25,
-    $caption-bottom: $margin * .25
-) {
-    table {
-        @include control-margins(top);
-
-        margin-bottom:$bottom;
-        margin-top:$top;
-    }
-
-    caption {
-        margin-bottom:$caption-bottom;
+        margin-bottom:$margin * $multiplier;
     }
 }

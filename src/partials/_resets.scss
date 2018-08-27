@@ -124,6 +124,10 @@ dl {
     dt {
         font-weight:$font-weight-bold;
     }
+
+    dd {
+        margin-left:0;
+    }
 }
 
 hr {
@@ -238,8 +242,7 @@ mark {
     padding:$padding-inline;
 }
 
-code,
-tt {
+code {
     background:$color-gray-subtle;
     padding:$padding-inline;
 }

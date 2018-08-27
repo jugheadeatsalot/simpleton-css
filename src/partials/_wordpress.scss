@@ -54,9 +54,10 @@ img {
 
 .gallery {
     @include grid(narrow);
-    @include spaced(plus-half);
 
-    padding-bottom:$padding * .25;
+    > * {
+        padding-bottom:$padding;
+    }
 }
 
 .gallery-item {
@@ -99,4 +100,9 @@ img {
     &._4by3 {
         @include video-aspect-ratio(4, 3);
     }
+}
+
+twitterwidget,
+.mejs-container {
+    margin-bottom:$margin !important;
 }

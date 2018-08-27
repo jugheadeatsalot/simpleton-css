@@ -1,7 +1,4 @@
-@include hr-margins();
-@include header-margins();
-@include general-margins();
-@include table-margins();
+@include vertical-margins();
 
 p {
     &:empty {
