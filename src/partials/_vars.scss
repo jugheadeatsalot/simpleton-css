@@ -105,6 +105,7 @@ $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l;
 ////////////////////////
 
 $ease-in-out-expo:cubic-bezier(1, 0, 0, 1);
+$ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1);
 $easing:ease-in-out;
 
 ////////////////////////
