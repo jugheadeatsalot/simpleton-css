@@ -19,6 +19,13 @@ img {
     max-width:50% !important;
 }
 
+blockquote {
+    &.alignleft,
+    &.alignright {
+        max-width:40% !important;
+    }
+}
+
 .alignleft {
     float:left;
     margin-right:1.25rem;
