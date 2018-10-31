@@ -217,6 +217,24 @@
     white-space:nowrap;
 }
 
+@mixin fade-ellipsis($cutoff: 3, $line-height: $line-height, $fade-to-color:#ffffff) {
+    $height:($line-height * $cutoff) + 0rem;
+
+    position:relative;
+    height:$height;
+    overflow:hidden;
+
+    &:after {
+        content:"";
+        position:absolute;
+        bottom:0;
+        right:0;
+        width:50%;
+        height:$height / $cutoff;
+        background:linear-gradient(to right, transparent, $fade-to-color 50%);
+    }
+}
+
 @mixin headerize($type:false) {
     font-family:$font-stack-head;
     font-weight:$font-weight-head;
@@ -588,7 +606,7 @@
     h6 {
         @include control-margins(top);
 
-        margin-bottom:$margin * $multiplier;
+        margin-bottom:$margin * ($multiplier * .5);
         margin-top:($margin * 1.5) * $multiplier;
     }
 
@@ -615,8 +633,7 @@
     hgroup,
     menu,
     nav,
-    section,
-    label {
+    section {
         margin-bottom:$margin * $multiplier;
     }
 }

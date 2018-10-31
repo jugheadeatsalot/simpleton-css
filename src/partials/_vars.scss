@@ -76,7 +76,7 @@ $border-size:1px;
 $margin:$font-size * $line-height;
 $padding:$font-size * $line-height;
 $gutter:15px;
-$padding-group:20px;
+$padding-group:$gutter * 2;
 $p-inline-t:.125rem;
 $p-inline-r:.25rem;
 $p-inline-b:.125rem;
