@@ -62,8 +62,25 @@ blockquote {
 .gallery {
     @include grid(narrow);
 
+    $padding-bottom-gallery:$padding * 1.2;
+
     > * {
-        padding-bottom:$padding;
+        padding-bottom:$padding-bottom-gallery;
+    }
+
+    &:last-child {
+        body & {
+            margin-bottom:-$padding-bottom-gallery !important;
+        }
+    }
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
     }
 }
 
@@ -84,6 +101,22 @@ blockquote {
     .gallery-columns-#{$i} {
         .wp-caption-text {
             display:none;
+        }
+    }
+}
+
+.post-password-form {
+    p {
+        &:last-child {
+            display:flex;
+
+            input[type="password"] {
+                border-right:none;
+            }
+
+            input[type="submit"] {
+                padding:0 $padding;
+            }
         }
     }
 }

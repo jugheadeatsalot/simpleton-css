@@ -2,68 +2,36 @@
 /// Colors
 ////////////////////////
 
-@mixin shift-bg-colors($color-to-use) {
-    background:$color-to-use;
-    border:$border-size solid $color-to-use;
-
+@mixin lighten-bg-on-hover() {
     &:hover {
-        background:darken($color-to-use, $color-darken-by);
-        border:$border-size solid darken($color-to-use, $color-darken-by);
+        box-shadow:inset 0 500px 0 0 rgba(#fff, 0.05);
     }
+}
+
+@mixin darken-bg-on-hover() {
+    &:hover {
+        box-shadow:inset 0 500px 0 0 rgba(#000, 0.05);
+    }
+}
+
+@mixin button-colors($color-to-use) {
+    background:$color-to-use;
 
     &.hollow {
         background:transparent;
-        color:$color-to-use !important;
-
-        &:hover {
-            color:darken($color-to-use, $color-darken-by) !important;
-        }
+        border:$border-size solid $color-to-use;
+        color:$color-to-use;
     }
 }
 
-@mixin button-colors() {
-    @include shift-bg-colors($color-text);
-
-    color:$color-bg !important;
-
-    &.primary {
-        @include shift-bg-colors($color-primary);
-    }
-
-    &.secondary {
-        @include shift-bg-colors($color-secondary);
-    }
-
-    &.idle,
-    &[disabled] {
-        @include shift-bg-colors($color-idle);
-    }
-
-    &.success {
-        @include shift-bg-colors($color-success);
-    }
-
-    &.alert {
-        @include shift-bg-colors($color-alert);
-    }
-
-    &.warning {
-        @include shift-bg-colors($color-warning);
-    }
-
-    &.highlight {
-        @include shift-bg-colors($color-highlight);
-    }
-}
-
-@mixin shift-message-colors($color-to-use, $color-for-text:$color-bg) {
+@mixin shift-message-colors($color-to-use, $color-for-text:#ffffff) {
     background:$color-to-use;
     border:$border-size solid $color-to-use;
     color:#{$color-for-text};
 }
 
 @mixin message-colors() {
-    @include shift-message-colors($color-text);
+    @include shift-message-colors($color-dark);
 
     &.success {
         @include shift-message-colors($color-success);
@@ -122,7 +90,7 @@
     }
 }
 
-@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $background: $color-bg) {
+@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $background: #ffffff) {
     position:relative;
 
     &:after {
@@ -221,13 +189,13 @@
     $height:($line-height * $cutoff) + 0rem;
 
     position:relative;
-    height:$height;
+    max-height:$height;
     overflow:hidden;
 
     &:after {
         content:"";
         position:absolute;
-        bottom:0;
+        top:$height - ($line-height + 0rem);
         right:0;
         width:50%;
         height:$height / $cutoff;
@@ -606,8 +574,8 @@
     h6 {
         @include control-margins(top);
 
-        margin-bottom:$margin * ($multiplier * .5);
-        margin-top:($margin * 1.5) * $multiplier;
+        margin-bottom:$margin * ($multiplier * .75);
+        margin-top:$margin-top-h * $multiplier;
     }
 
     p,

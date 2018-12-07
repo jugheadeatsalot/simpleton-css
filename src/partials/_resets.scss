@@ -1,6 +1,6 @@
 html {
     -ms-text-size-adjust:100%;
-    background-color:$color-bg;
+    background:#ffffff;
     box-sizing:border-box;
     font-size:$font-size-base;
     overflow-y:scroll;
@@ -16,7 +16,7 @@ html {
 body {
     -moz-osx-font-smoothing:grayscale;
     -webkit-font-smoothing:antialiased;
-    color:$color-text;
+    color:$color-dark;
     font-family:$font-stack;
     font-size:inherit;
     font-weight:$font-weight-normal;
@@ -45,8 +45,7 @@ header,
 hgroup,
 menu,
 nav,
-section,
-label {
+section {
     display:block;
 }
 
@@ -80,8 +79,7 @@ header,
 hgroup,
 menu,
 nav,
-section,
-label {
+section {
     margin:0;
     padding:0;
 }
@@ -231,14 +229,14 @@ small {
 
 ins {
     background:$color-primary;
-    color:$color-light;
+    color:#ffffff;
     padding:$padding-inline;
     text-decoration:none;
 }
 
 mark {
     background:$color-highlight;
-    color:$color-light;
+    color:#ffffff;
     padding:$padding-inline;
 }
 
@@ -263,6 +261,8 @@ samp {
 }
 
 cite {
+    font-size:$font-size-xsmall;
+    font-weight:$font-weight-normal;
     font-style:italic;
 }
 

@@ -32,8 +32,8 @@ $line-height-h4:1.5;
 /// Colors
 ////////////////////////
 
-$color-dark:#626262;
-$color-light:#ffffff;
+$color-dark:#353535;
+$color-light:#ffffff; // only used in _classes.scss
 $color-gray:#7f8c8d;
 $color-gray-light:#e8e8e8;
 $color-gray-subtle:#f8f8f8;
@@ -44,9 +44,6 @@ $color-success:#27ae60;
 $color-alert:#c0392b;
 $color-warning:#d35400;
 $color-highlight:#f39c12;
-$color-darken-by:4%;
-$color-text:$color-dark;
-$color-bg:$color-light;
 $color-border:$color-gray-light;
 $color-quote:$color-gray-light;
 $color-social-dribbble:#ea4c89;
@@ -75,6 +72,7 @@ $border-size:1px;
 
 $margin:$font-size * $line-height;
 $padding:$font-size * $line-height;
+$margin-top-h:$margin * 1.5;
 $gutter:15px;
 $padding-group:$gutter * 2;
 $p-inline-t:.125rem;

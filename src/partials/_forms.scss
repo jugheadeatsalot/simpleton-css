@@ -32,7 +32,6 @@ input {
 
         border:$border-size solid $color-border;
         color:inherit;
-        min-height:2.4rem;
         padding:$padding-input;
         width:100%;
     }
@@ -40,7 +39,7 @@ input {
 
 input[type=radio],
 input[type=checkbox] {
-    margin:0;
+    margin:0 ($gutter * .3) 0 0;
     vertical-align:-1px;
 }
 
@@ -48,7 +47,6 @@ select,
 textarea {
     border:$border-size solid $color-border;
     color:inherit;
-    min-height:2.4rem;
     padding:$padding-input;
     width:100%;
 }
@@ -82,8 +80,11 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"],
 .button {
-    @include button-colors();
+    @include darken-bg-on-hover();
+    @include button-colors($color-dark);
 
+    border:none;
+    color:#ffffff;
     display:inline-block;
     margin-bottom:$margin * .25;
     min-height:2.4rem;
@@ -91,4 +92,33 @@ input[type="reset"],
     text-align:center;
     vertical-align:middle;
     white-space:normal;
+
+    &.primary {
+        @include button-colors($color-primary);
+    }
+
+    &.secondary {
+        @include button-colors($color-secondary);
+    }
+
+    &.idle,
+    &[disabled] {
+        @include button-colors($color-idle);
+    }
+
+    &.success {
+        @include button-colors($color-success);
+    }
+
+    &.alert {
+        @include button-colors($color-alert);
+    }
+
+    &.warning {
+        @include button-colors($color-warning);
+    }
+
+    &.highlight {
+        @include button-colors($color-highlight);
+    }
 }

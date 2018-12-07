@@ -73,8 +73,9 @@ td {
 }
 
 figcaption {
+    color:$color-gray;
     font-size:$font-size-xsmall;
-    padding-top:$padding * .625;
+    padding-top:$padding * .5;
     text-align:center;
 }
 
