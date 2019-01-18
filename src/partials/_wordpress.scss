@@ -60,16 +60,19 @@ blockquote {
 }
 
 .gallery {
-    @include grid(narrow);
+    @include grid(.5);
 
-    $padding-bottom-gallery:$padding * 1.2;
+    $padding-bottom-gallery:$margin * 1.2;
 
     > * {
-        padding-bottom:$padding-bottom-gallery;
+        html body & {
+            margin-bottom:0;
+            padding-bottom:$padding-bottom-gallery;
+        }
     }
 
     &:last-child {
-        body & {
+        html body & {
             margin-bottom:-$padding-bottom-gallery !important;
         }
     }
@@ -82,6 +85,10 @@ blockquote {
     + h6 {
         margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
     }
+}
+
+.gallery-row {
+    max-width:100%;
 }
 
 .gallery-item {
@@ -145,4 +152,11 @@ blockquote {
 twitterwidget,
 .mejs-container {
     margin-bottom:$margin !important;
+}
+
+.mejs-container {
+    a {
+        text-decoration:none !important;
+        border-bottom:none !important;
+    }
 }
