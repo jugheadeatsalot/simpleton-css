@@ -72,7 +72,6 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"],
 .button {
-    @include darken-bg-on-hover();
     @include button-colors($color-dark);
 
     border:none;

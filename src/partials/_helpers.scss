@@ -2,15 +2,15 @@
 /// Colors
 ////////////////////////
 
-@mixin lighten-bg-on-hover() {
+@mixin lighten-bg-on-hover($height-in-pixels: 100px, $amount:0.1) {
     &:hover {
-        box-shadow:inset 0 500px 0 0 rgba(#fff, 0.05);
+        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#fff, $amount);
     }
 }
 
-@mixin darken-bg-on-hover() {
+@mixin darken-bg-on-hover($height-in-pixels: 100px, $amount:0.1) {
     &:hover {
-        box-shadow:inset 0 500px 0 0 rgba(#000, 0.1);
+        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#000, $amount);
     }
 }
 
