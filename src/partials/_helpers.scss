@@ -15,17 +15,17 @@
 }
 
 @mixin button-colors($color-to-use) {
-    background:$color-to-use;
+    background-color:$color-to-use;
 
     &.hollow {
-        background:transparent;
+        background-color:transparent;
         border:$border-size solid $color-to-use;
         color:$color-to-use;
     }
 }
 
 @mixin shift-message-colors($color-to-use, $color-for-text:#ffffff) {
-    background:$color-to-use;
+    background-color:$color-to-use;
     border:$border-size solid $color-to-use;
     color:#{$color-for-text};
 }
@@ -86,11 +86,11 @@
     }
 }
 
-@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $background: #ffffff) {
+@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $bg-color: #ffffff) {
     position:relative;
 
     &:after {
-        border-color:$fold-color $background;
+        border-color:$fold-color $bg-color;
         border-style:solid;
         border-width:0 $size $size 0;
         content:"";
@@ -131,7 +131,6 @@
     padding:$padding-message;
 
     i {
-        line-height:inherit;
         position:absolute;
         right:$p-message-l;
         top:$p-message-t;

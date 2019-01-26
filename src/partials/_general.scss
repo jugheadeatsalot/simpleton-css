@@ -50,14 +50,12 @@ caption {
 tr,
 th,
 td {
-    font-weight:inherit;
     text-align:left;
 }
 
 tr {
     border-bottom:$border-size solid $color-border;
     border-top:$border-size solid $color-border;
-    font-weight:inherit;
     text-align:left;
 }
 
@@ -89,8 +87,4 @@ blockquote {
 ol,
 ul {
     margin-left:1.25em;
-}
-
-a {
-    color:inherit;
 }

@@ -15,7 +15,6 @@ body {
   -webkit-font-smoothing: antialiased;
   color: #353535;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: inherit;
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
@@ -29,6 +28,10 @@ body {
 *:before,
 *:after {
   box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 main,
@@ -94,7 +97,6 @@ h4,
 h5,
 h6 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: inherit;
   font-weight: 700;
 }
 
@@ -104,7 +106,7 @@ h3 strong,
 h4 strong,
 h5 strong,
 h6 strong {
-  font-weight: inherit;
+  font-weight: 700;
 }
 
 ul {
@@ -116,7 +118,7 @@ ol {
 }
 
 pre {
-  background: #f8f8f8;
+  background-color: #f8f8f8;
   border: 1px solid #f8f8f8;
   padding: 0.75rem 1.25rem 0.75rem 1rem;
   white-space: pre-wrap;
@@ -135,7 +137,7 @@ dl dd {
 }
 
 hr {
-  background: #e8e8e8;
+  background-color: #e8e8e8;
   border: 0;
   height: 1px;
 }
@@ -152,13 +154,6 @@ q:after {
   content: none;
 }
 
-form * {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -169,17 +164,11 @@ input[type="submit"], input[type="button"], input[type="reset"] {
 }
 
 textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
   resize: none;
 }
 
 button {
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
   overflow: visible;
 }
 
@@ -230,20 +219,20 @@ small {
 }
 
 ins {
-  background: #2980b9;
+  background-color: #2980b9;
   color: #ffffff;
   padding: 0.125rem 0.25rem 0.125rem 0.25rem;
   text-decoration: none;
 }
 
 mark {
-  background: #f39c12;
+  background-color: #f39c12;
   color: #ffffff;
   padding: 0.125rem 0.25rem 0.125rem 0.25rem;
 }
 
 code {
-  background: #f8f8f8;
+  background-color: #f8f8f8;
   padding: 0.125rem 0.25rem 0.125rem 0.25rem;
 }
 
@@ -409,14 +398,12 @@ caption {
 tr,
 th,
 td {
-  font-weight: inherit;
   text-align: left;
 }
 
 tr {
   border-bottom: 1px solid #e8e8e8;
   border-top: 1px solid #e8e8e8;
-  font-weight: inherit;
   text-align: left;
 }
 
@@ -454,10 +441,6 @@ ul {
   margin-left: 1.25em;
 }
 
-a {
-  color: inherit;
-}
-
 .group {
   margin-left: auto;
   margin-right: auto;
@@ -493,7 +476,7 @@ a {
 }
 
 .message {
-  background: #353535;
+  background-color: #353535;
   border: 1px solid #353535;
   color: #ffffff;
   position: relative;
@@ -502,19 +485,19 @@ a {
 }
 
 .message.success {
-  background: #27ae60;
+  background-color: #27ae60;
   border: 1px solid #27ae60;
   color: #ffffff;
 }
 
 .message.alert {
-  background: #c0392b;
+  background-color: #c0392b;
   border: 1px solid #c0392b;
   color: #ffffff;
 }
 
 .message.warning {
-  background: #d35400;
+  background-color: #d35400;
   border: 1px solid #d35400;
   color: #ffffff;
 }
@@ -530,7 +513,6 @@ a {
 }
 
 .message i {
-  line-height: inherit;
   position: absolute;
   right: 1rem;
   top: 0.75rem;
@@ -2655,15 +2637,6 @@ a {
   }
 }
 
-input,
-textarea,
-select,
-button {
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
-}
-
 fieldset {
   border: 1px solid #e8e8e8;
   padding: 0.75rem 1.25rem 0.75rem 1rem;
@@ -2718,7 +2691,7 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"],
 .button {
-  background: #353535;
+  background-color: #353535;
   border: none;
   color: #ffffff;
   display: inline-block;
@@ -2734,9 +2707,27 @@ input[type="submit"].hollow,
 input[type="button"].hollow,
 input[type="reset"].hollow,
 .button.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #353535;
   color: #353535;
+}
+
+button[disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled],
+input[type="reset"][disabled],
+.button[disabled] {
+  background-color: #e8e8e8;
+}
+
+button[disabled].hollow,
+input[type="submit"][disabled].hollow,
+input[type="button"][disabled].hollow,
+input[type="reset"][disabled].hollow,
+.button[disabled].hollow {
+  background-color: transparent;
+  border: 1px solid #e8e8e8;
+  color: #e8e8e8;
 }
 
 button.primary,
@@ -2744,7 +2735,7 @@ input[type="submit"].primary,
 input[type="button"].primary,
 input[type="reset"].primary,
 .button.primary {
-  background: #2980b9;
+  background-color: #2980b9;
 }
 
 button.primary.hollow,
@@ -2752,7 +2743,7 @@ input[type="submit"].primary.hollow,
 input[type="button"].primary.hollow,
 input[type="reset"].primary.hollow,
 .button.primary.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #2980b9;
   color: #2980b9;
 }
@@ -2762,7 +2753,7 @@ input[type="submit"].secondary,
 input[type="button"].secondary,
 input[type="reset"].secondary,
 .button.secondary {
-  background: #7f8c8d;
+  background-color: #7f8c8d;
 }
 
 button.secondary.hollow,
@@ -2770,33 +2761,25 @@ input[type="submit"].secondary.hollow,
 input[type="button"].secondary.hollow,
 input[type="reset"].secondary.hollow,
 .button.secondary.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #7f8c8d;
   color: #7f8c8d;
 }
 
-button.idle, button[disabled],
+button.idle,
 input[type="submit"].idle,
-input[type="submit"][disabled],
 input[type="button"].idle,
-input[type="button"][disabled],
 input[type="reset"].idle,
-input[type="reset"][disabled],
-.button.idle,
-.button[disabled] {
-  background: #e8e8e8;
+.button.idle {
+  background-color: #e8e8e8;
 }
 
-button.idle.hollow, button[disabled].hollow,
+button.idle.hollow,
 input[type="submit"].idle.hollow,
-input[type="submit"][disabled].hollow,
 input[type="button"].idle.hollow,
-input[type="button"][disabled].hollow,
 input[type="reset"].idle.hollow,
-input[type="reset"][disabled].hollow,
-.button.idle.hollow,
-.button[disabled].hollow {
-  background: transparent;
+.button.idle.hollow {
+  background-color: transparent;
   border: 1px solid #e8e8e8;
   color: #e8e8e8;
 }
@@ -2806,7 +2789,7 @@ input[type="submit"].success,
 input[type="button"].success,
 input[type="reset"].success,
 .button.success {
-  background: #27ae60;
+  background-color: #27ae60;
 }
 
 button.success.hollow,
@@ -2814,7 +2797,7 @@ input[type="submit"].success.hollow,
 input[type="button"].success.hollow,
 input[type="reset"].success.hollow,
 .button.success.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #27ae60;
   color: #27ae60;
 }
@@ -2824,7 +2807,7 @@ input[type="submit"].alert,
 input[type="button"].alert,
 input[type="reset"].alert,
 .button.alert {
-  background: #c0392b;
+  background-color: #c0392b;
 }
 
 button.alert.hollow,
@@ -2832,7 +2815,7 @@ input[type="submit"].alert.hollow,
 input[type="button"].alert.hollow,
 input[type="reset"].alert.hollow,
 .button.alert.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #c0392b;
   color: #c0392b;
 }
@@ -2842,7 +2825,7 @@ input[type="submit"].warning,
 input[type="button"].warning,
 input[type="reset"].warning,
 .button.warning {
-  background: #d35400;
+  background-color: #d35400;
 }
 
 button.warning.hollow,
@@ -2850,7 +2833,7 @@ input[type="submit"].warning.hollow,
 input[type="button"].warning.hollow,
 input[type="reset"].warning.hollow,
 .button.warning.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #d35400;
   color: #d35400;
 }
@@ -2860,7 +2843,7 @@ input[type="submit"].highlight,
 input[type="button"].highlight,
 input[type="reset"].highlight,
 .button.highlight {
-  background: #f39c12;
+  background-color: #f39c12;
 }
 
 button.highlight.hollow,
@@ -2868,7 +2851,7 @@ input[type="submit"].highlight.hollow,
 input[type="button"].highlight.hollow,
 input[type="reset"].highlight.hollow,
 .button.highlight.hollow {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #f39c12;
   color: #f39c12;
 }
