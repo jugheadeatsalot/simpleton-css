@@ -14,13 +14,68 @@
     }
 }
 
-@mixin button-colors($color-to-use) {
+@mixin button-colors($color-to-use, $color-for-text:#ffffff) {
     background-color:$color-to-use;
+    color:$color-for-text;
 
-    &.hollow {
-        background-color:transparent;
-        border:$border-size solid $color-to-use;
-        color:$color-to-use;
+    &:hover {
+        background-color:$color-to-use;
+        color:$color-for-text;
+        filter:opacity(.9);
+    }
+}
+
+@mixin button-styles() {
+    @include button-colors($color-dark);
+
+    border:none;
+    border-radius:$border-radius;
+    color:#ffffff;
+    display:inline-block;
+    font-weight:$font-weight-bold;
+    line-height:inherit;
+    padding:$padding-button;
+    text-align:center;
+    transition:filter .3s;
+    vertical-align:middle;
+    white-space:normal;
+
+    &[disabled] {
+        @include button-colors($color-idle, $color-dark);
+    }
+
+    @if $colorize-buttons == true {
+        &.dark {
+            @include button-colors($color-dark);
+        }
+
+        &.primary {
+            @include button-colors($color-primary);
+        }
+
+        &.secondary {
+            @include button-colors($color-secondary);
+        }
+
+        &.idle {
+            @include button-colors($color-idle, $color-dark);
+        }
+
+        &.success {
+            @include button-colors($color-success);
+        }
+
+        &.alert {
+            @include button-colors($color-alert);
+        }
+
+        &.warning {
+            @include button-colors($color-warning);
+        }
+
+        &.highlight {
+            @include button-colors($color-highlight);
+        }
     }
 }
 

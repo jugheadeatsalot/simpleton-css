@@ -95,18 +95,18 @@ $p-table-r:1.125rem;
 $p-table-b:.75rem;
 $p-table-l:0;
 $padding-table:$p-table-t $p-table-r $p-table-b $p-table-l;
-$p-button-t:.375rem;
-$p-button-r:.75rem;
-$p-button-b:.375rem;
-$p-button-l:.75rem;
+$p-button-t:.5rem;
+$p-button-r:1.25rem;
+$p-button-b:.5rem;
+$p-button-l:1.25rem;
 $padding-button:$p-button-t $p-button-r $p-button-b $p-button-l;
 $padding-button-xsmall:($p-button-t * .8) ($p-button-r * .8) ($p-button-b * .8) ($p-button-l * .8);
 $padding-button-small:($p-button-t * .9) ($p-button-r * .9) ($p-button-b * .9) ($p-button-l * .9);
 $padding-button-large:($p-button-t * 1.1) ($p-button-r * 1.1) ($p-button-b * 1.1) ($p-button-l * 1.1);
 $padding-button-xlarge:($p-button-t * 1.2) ($p-button-r * 1.2) ($p-button-b * 1.2) ($p-button-l * 1.2);
-$p-input-t:.375rem;
+$p-input-t:.5rem;
 $p-input-r:.75rem;
-$p-input-b:.375rem;
+$p-input-b:.5rem;
 $p-input-l:.75rem;
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l;
 
@@ -181,4 +181,4 @@ $breakpoints:(
 /// Booleans
 ////////////////////////
 
-$colorize-buttons: true;
+$colorize-buttons:true;

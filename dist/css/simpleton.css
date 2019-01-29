@@ -728,22 +728,22 @@ ul {
 
 .button-xsmall {
   font-size: 80%;
-  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+  padding: 0.4rem 1rem 0.4rem 1rem;
 }
 
 .button-small {
   font-size: 90%;
-  padding: 0.3375rem 0.675rem 0.3375rem 0.675rem;
+  padding: 0.45rem 1.125rem 0.45rem 1.125rem;
 }
 
 .button-large {
   font-size: 110%;
-  padding: 0.4125rem 0.825rem 0.4125rem 0.825rem;
+  padding: 0.55rem 1.375rem 0.55rem 1.375rem;
 }
 
 .button-xlarge {
   font-size: 120%;
-  padding: 0.45rem 0.9rem 0.45rem 0.9rem;
+  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
 }
 
 .flexbox {
@@ -2654,7 +2654,7 @@ fieldset > div {
 
 input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="search"], input[type="number"], input[type="date"], input[type="month"], input[type="week"], input[type="datetime"], input[type="datetime-local"], input[type="password"] {
   border: 1px solid #e8e8e8;
-  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   width: 100%;
 }
 
@@ -2672,7 +2672,7 @@ input[type=checkbox] {
 
 textarea {
   border: 1px solid #e8e8e8;
-  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   width: 100%;
 }
 
@@ -2680,8 +2680,8 @@ select {
   border: 1px solid #e8e8e8;
   background-color: transparent;
   width: 100%;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 0.46875rem;
   padding-right: 0.75rem;
 }
@@ -2692,24 +2692,31 @@ input[type="button"],
 input[type="reset"],
 .button {
   background-color: #353535;
+  color: #ffffff;
   border: none;
+  border-radius: 4px;
   color: #ffffff;
   display: inline-block;
-  margin-bottom: 0.4rem;
-  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+  font-weight: 700;
+  line-height: inherit;
+  padding: 0.5rem 1.25rem 0.5rem 1.25rem;
   text-align: center;
+  transition: -webkit-filter .3s;
+  transition: filter .3s;
+  transition: filter .3s, -webkit-filter .3s;
   vertical-align: middle;
   white-space: normal;
 }
 
-button.hollow,
-input[type="submit"].hollow,
-input[type="button"].hollow,
-input[type="reset"].hollow,
-.button.hollow {
-  background-color: transparent;
-  border: 1px solid #353535;
-  color: #353535;
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+.button:hover {
+  background-color: #353535;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button[disabled],
@@ -2718,16 +2725,38 @@ input[type="button"][disabled],
 input[type="reset"][disabled],
 .button[disabled] {
   background-color: #e8e8e8;
+  color: #353535;
 }
 
-button[disabled].hollow,
-input[type="submit"][disabled].hollow,
-input[type="button"][disabled].hollow,
-input[type="reset"][disabled].hollow,
-.button[disabled].hollow {
-  background-color: transparent;
-  border: 1px solid #e8e8e8;
-  color: #e8e8e8;
+button[disabled]:hover,
+input[type="submit"][disabled]:hover,
+input[type="button"][disabled]:hover,
+input[type="reset"][disabled]:hover,
+.button[disabled]:hover {
+  background-color: #e8e8e8;
+  color: #353535;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
+}
+
+button.dark,
+input[type="submit"].dark,
+input[type="button"].dark,
+input[type="reset"].dark,
+.button.dark {
+  background-color: #353535;
+  color: #ffffff;
+}
+
+button.dark:hover,
+input[type="submit"].dark:hover,
+input[type="button"].dark:hover,
+input[type="reset"].dark:hover,
+.button.dark:hover {
+  background-color: #353535;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.primary,
@@ -2736,16 +2765,18 @@ input[type="button"].primary,
 input[type="reset"].primary,
 .button.primary {
   background-color: #2980b9;
+  color: #ffffff;
 }
 
-button.primary.hollow,
-input[type="submit"].primary.hollow,
-input[type="button"].primary.hollow,
-input[type="reset"].primary.hollow,
-.button.primary.hollow {
-  background-color: transparent;
-  border: 1px solid #2980b9;
-  color: #2980b9;
+button.primary:hover,
+input[type="submit"].primary:hover,
+input[type="button"].primary:hover,
+input[type="reset"].primary:hover,
+.button.primary:hover {
+  background-color: #2980b9;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.secondary,
@@ -2754,16 +2785,18 @@ input[type="button"].secondary,
 input[type="reset"].secondary,
 .button.secondary {
   background-color: #7f8c8d;
+  color: #ffffff;
 }
 
-button.secondary.hollow,
-input[type="submit"].secondary.hollow,
-input[type="button"].secondary.hollow,
-input[type="reset"].secondary.hollow,
-.button.secondary.hollow {
-  background-color: transparent;
-  border: 1px solid #7f8c8d;
-  color: #7f8c8d;
+button.secondary:hover,
+input[type="submit"].secondary:hover,
+input[type="button"].secondary:hover,
+input[type="reset"].secondary:hover,
+.button.secondary:hover {
+  background-color: #7f8c8d;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.idle,
@@ -2772,16 +2805,18 @@ input[type="button"].idle,
 input[type="reset"].idle,
 .button.idle {
   background-color: #e8e8e8;
+  color: #353535;
 }
 
-button.idle.hollow,
-input[type="submit"].idle.hollow,
-input[type="button"].idle.hollow,
-input[type="reset"].idle.hollow,
-.button.idle.hollow {
-  background-color: transparent;
-  border: 1px solid #e8e8e8;
-  color: #e8e8e8;
+button.idle:hover,
+input[type="submit"].idle:hover,
+input[type="button"].idle:hover,
+input[type="reset"].idle:hover,
+.button.idle:hover {
+  background-color: #e8e8e8;
+  color: #353535;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.success,
@@ -2790,16 +2825,18 @@ input[type="button"].success,
 input[type="reset"].success,
 .button.success {
   background-color: #27ae60;
+  color: #ffffff;
 }
 
-button.success.hollow,
-input[type="submit"].success.hollow,
-input[type="button"].success.hollow,
-input[type="reset"].success.hollow,
-.button.success.hollow {
-  background-color: transparent;
-  border: 1px solid #27ae60;
-  color: #27ae60;
+button.success:hover,
+input[type="submit"].success:hover,
+input[type="button"].success:hover,
+input[type="reset"].success:hover,
+.button.success:hover {
+  background-color: #27ae60;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.alert,
@@ -2808,16 +2845,18 @@ input[type="button"].alert,
 input[type="reset"].alert,
 .button.alert {
   background-color: #c0392b;
+  color: #ffffff;
 }
 
-button.alert.hollow,
-input[type="submit"].alert.hollow,
-input[type="button"].alert.hollow,
-input[type="reset"].alert.hollow,
-.button.alert.hollow {
-  background-color: transparent;
-  border: 1px solid #c0392b;
-  color: #c0392b;
+button.alert:hover,
+input[type="submit"].alert:hover,
+input[type="button"].alert:hover,
+input[type="reset"].alert:hover,
+.button.alert:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.warning,
@@ -2826,16 +2865,18 @@ input[type="button"].warning,
 input[type="reset"].warning,
 .button.warning {
   background-color: #d35400;
+  color: #ffffff;
 }
 
-button.warning.hollow,
-input[type="submit"].warning.hollow,
-input[type="button"].warning.hollow,
-input[type="reset"].warning.hollow,
-.button.warning.hollow {
-  background-color: transparent;
-  border: 1px solid #d35400;
-  color: #d35400;
+button.warning:hover,
+input[type="submit"].warning:hover,
+input[type="button"].warning:hover,
+input[type="reset"].warning:hover,
+.button.warning:hover {
+  background-color: #d35400;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 button.highlight,
@@ -2844,16 +2885,18 @@ input[type="button"].highlight,
 input[type="reset"].highlight,
 .button.highlight {
   background-color: #f39c12;
+  color: #ffffff;
 }
 
-button.highlight.hollow,
-input[type="submit"].highlight.hollow,
-input[type="button"].highlight.hollow,
-input[type="reset"].highlight.hollow,
-.button.highlight.hollow {
-  background-color: transparent;
-  border: 1px solid #f39c12;
-  color: #f39c12;
+button.highlight:hover,
+input[type="submit"].highlight:hover,
+input[type="button"].highlight:hover,
+input[type="reset"].highlight:hover,
+.button.highlight:hover {
+  background-color: #f39c12;
+  color: #ffffff;
+  -webkit-filter: opacity(0.9);
+          filter: opacity(0.9);
 }
 
 figure.alignleft, figure.alignright,

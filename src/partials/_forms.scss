@@ -63,48 +63,5 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"],
 .button {
-    @include button-colors($color-dark);
-
-    border:none;
-    color:#ffffff;
-    display:inline-block;
-    margin-bottom:$margin * .25;
-    padding:$padding-button;
-    text-align:center;
-    vertical-align:middle;
-    white-space:normal;
-
-    &[disabled] {
-        @include button-colors($color-idle);
-    }
-
-    @if $colorize-buttons == true {
-        &.primary {
-            @include button-colors($color-primary);
-        }
-
-        &.secondary {
-            @include button-colors($color-secondary);
-        }
-
-        &.idle {
-            @include button-colors($color-idle);
-        }
-
-        &.success {
-            @include button-colors($color-success);
-        }
-
-        &.alert {
-            @include button-colors($color-alert);
-        }
-
-        &.warning {
-            @include button-colors($color-warning);
-        }
-
-        &.highlight {
-            @include button-colors($color-highlight);
-        }
-    }
+    @include button-styles();
 }
