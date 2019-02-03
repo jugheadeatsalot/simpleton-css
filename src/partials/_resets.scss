@@ -1,10 +1,11 @@
 html {
-    -ms-text-size-adjust:100%;
+    overflow-y:scroll;
     box-sizing:border-box;
     font-size:$font-size-base;
-    overflow-y:scroll;
 
-    > {
+    -ms-text-size-adjust:100%;
+
+     >  {
         div,
         span {
             display:none;
@@ -13,26 +14,27 @@ html {
 }
 
 body {
-    -moz-osx-font-smoothing:grayscale;
-    -webkit-font-smoothing:antialiased;
-    color:$color-dark;
-    font-family:$font-stack;
-    font-weight:$font-weight-normal;
-    line-height:$line-height;
     margin:0;
-    overflow-wrap:break-word;
     padding:0;
-    text-shadow:1px 1px 1px rgba(0, 0, 0, .05);
+    color:$color-dark;
+    text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
+    font-weight:$font-weight-normal;
+    font-family:$font-stack;
+    line-height:$line-height;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-wrap:break-word;
 }
 
 *,
 *:before,
 *:after {
     box-sizing:inherit;
-    font-family:inherit;
-    font-size:inherit;
     font-weight:inherit;
+    font-size:inherit;
+    font-family:inherit;
     line-height:inherit;
 }
 
@@ -92,8 +94,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family:$font-stack-head;
     font-weight:$font-weight-head;
+    font-family:$font-stack-head;
 
     strong {
         font-weight:$font-weight-head;
@@ -109,9 +111,9 @@ ol {
 }
 
 pre {
-    background-color:$color-gray-subtle;
-    border:$border-size solid $color-gray-subtle;
     padding:$padding-box;
+    border:$border-size solid $color-gray-subtle;
+    background-color:$color-gray-subtle;
     white-space:pre-wrap;
 
     code {
@@ -130,9 +132,9 @@ dl {
 }
 
 hr {
-    background-color:$color-border;
-    border:0;
     height:$border-size;
+    border:0;
+    background-color:$color-border;
 }
 
 blockquote,
@@ -153,9 +155,9 @@ a {
 }
 
 input {
-    &[type="submit"],
-    &[type="button"],
-    &[type="reset"] {
+    &[type='submit'],
+    &[type='button'],
+    &[type='reset'] {
         cursor:pointer;
     }
 }
@@ -165,8 +167,8 @@ textarea {
 }
 
 button {
-    cursor:pointer;
     overflow:visible;
+    cursor:pointer;
 }
 
 fieldset {
@@ -183,14 +185,14 @@ figure {
 }
 
 video {
-    height:auto;
     max-width:100%;
+    height:auto;
 }
 
 img {
-    border:0;
-    height:auto;
     max-width:100%;
+    height:auto;
+    border:0;
 }
 
 img,
@@ -216,26 +218,26 @@ small {
 }
 
 ins {
+    padding:$padding-inline;
     background-color:$color-primary;
     color:#ffffff;
-    padding:$padding-inline;
     text-decoration:none;
 }
 
 mark {
+    padding:$padding-inline;
     background-color:$color-highlight;
     color:#ffffff;
-    padding:$padding-inline;
 }
 
 code {
-    background-color:$color-gray-subtle;
     padding:$padding-inline;
+    background-color:$color-gray-subtle;
 }
 
 var {
-    font-style:normal;
     font-weight:$font-weight-bold;
+    font-style:normal;
 }
 
 pre,
@@ -244,20 +246,20 @@ tt,
 var,
 kbd,
 samp {
-    font-family:$font-stack-mono;
     font-size:$font-size-small;
+    font-family:$font-stack-mono;
 }
 
 cite {
-    font-size:$font-size-xsmall;
     font-weight:$font-weight-normal;
     font-style:italic;
+    font-size:$font-size-xsmall;
 }
 
 abbr,
 acronym {
-    cursor:help;
     text-decoration:underline;
+    cursor:help;
 }
 
 del,
@@ -266,23 +268,23 @@ strike {
 }
 
 sub {
-    bottom:-.25em;
+    bottom:-0.25em;
 }
 
 sup {
-    top:-.4em;
+    top:-0.4em;
 }
 
 sub,
 sup {
-    font-size:.75em;
     position:relative;
     vertical-align:baseline;
+    font-size:0.75em;
 }
 
 ::-moz-focus-inner {
-    border:0;
     padding:0;
+    border:0;
 }
 
 ::-webkit-search-cancel-button {

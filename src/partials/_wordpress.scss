@@ -3,7 +3,7 @@ img,
 .wp-caption {
     &.alignleft,
     &.alignright {
-        padding-top:$padding * .25;
+        padding-top:$padding * 0.25;
     }
 }
 
@@ -38,8 +38,8 @@ blockquote {
 
 .aligncenter {
     display:block;
-    margin-left:auto;
     margin-right:auto;
+    margin-left:auto;
 }
 
 .size {
@@ -48,8 +48,8 @@ blockquote {
     &-large,
     &-medium,
     &-thumbnail {
-        height:auto;
         max-width:100%;
+        height:auto;
     }
 }
 
@@ -60,11 +60,11 @@ blockquote {
 }
 
 .gallery {
-    @include grid(.5);
-
     $padding-bottom-gallery:$margin * 1.2;
 
-    > * {
+    @include grid(0.5);
+
+     > * {
         html body & {
             margin-bottom:0;
             padding-bottom:$padding-bottom-gallery;
@@ -77,12 +77,12 @@ blockquote {
         }
     }
 
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
+     + h1,
+     + h2,
+     + h3,
+     + h4,
+     + h5,
+     + h6 {
         margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
     }
 }
@@ -98,7 +98,7 @@ blockquote {
 
 @for $i from 1 through 10 {
     .gallery-columns-#{$i} {
-        > .gallery-item {
+         > .gallery-item {
             width:100 / $i * 1%;
         }
     }
@@ -117,11 +117,11 @@ blockquote {
         &:last-child {
             display:flex;
 
-            input[type="password"] {
+            input[type='password'] {
                 border-right:none;
             }
 
-            input[type="submit"] {
+            input[type='submit'] {
                 padding:0 $padding;
             }
         }
@@ -138,7 +138,7 @@ blockquote {
     @extend figcaption;
 }
 
-[class^="embed-"] {
+[class^='embed-'] {
     @include video-container();
 
     &._1by1 {
@@ -157,7 +157,7 @@ twitterwidget,
 
 .mejs-container {
     a {
-        text-decoration:none !important;
         border-bottom:none !important;
+        text-decoration:none !important;
     }
 }

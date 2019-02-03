@@ -30,7 +30,7 @@
     @if isNumber($value) and index($lengths, unit($value)) {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be a <length>. #{showParamVal($value)}";
+        @warn '`$value` must be a <length>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -40,7 +40,7 @@
     @if isNumber($value) and unitless($value) {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be a unitless <number>. #{showParamVal($value)}";
+        @warn '`$value` must be a unitless <number>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -50,7 +50,7 @@
     @if isNumber($value) and $value > -1 {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be an absolute <number>. #{showParamVal($value)}";
+        @warn '`$value` must be an absolute <number>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -60,7 +60,7 @@
     @if isAbsoluteNumber($value) and index($lengths, unit($value)) {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be an absolute <length>. #{showParamVal($value)}";
+        @warn '`$value` must be an absolute <length>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -70,7 +70,7 @@
     @if isAbsoluteNumber($value) and unitless($value) {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be an absolute, unitless <number>. #{showParamVal($value)}";
+        @warn '`$value` must be an absolute, unitless <number>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -80,7 +80,7 @@
     @if isAbsoluteUnitNumber($value) or $value == auto {
         @return true;
     } @else if ($warn) {
-        @warn "`$value` must be \"auto\" or an absolute <length>. #{showParamVal($value)}";
+        @warn '`$value` must be "auto" or an absolute <length>. #{showParamVal($value)}';
     }
 
     @return false;
@@ -90,7 +90,7 @@
     @if index($haystack, $needle) {
         @return true;
     } @else if ($warn) {
-        @warn "Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}";
+        @warn 'Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}';
     }
 
     @return false;
@@ -154,19 +154,19 @@
 /// @param {string} $glue [""]
 /// @param {string} $closer [""]
 /// @param {bool} $quote-strings [false]
-@function implodeList($list, $glue:"", $closer:"", $quote-strings:false) {
+@function implodeList($list, $glue:'', $closer:'', $quote-strings:false) {
     $x:null;
     $len:length($list);
     $closer:if(str-length(#{$closer}) > 0 and $len > 1, #{$closer}, null);
 
     @if type-of($list) != list {
-        @warn "`#{$list}` is not a valid list.";
+        @warn '`#{$list}` is not a valid list.';
         @return $list;
     }
 
     @for $i from 1 through $len {
         $item:nth($list, $i);
-        $item:if(type-of($item) == string and $quote-strings, "\"#{$item}\"", $item);
+        $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
         $x:if($i < length($list), #{$x}#{$item}#{$glue}, #{$x}#{$closer}#{$item});
     }
 
@@ -186,13 +186,13 @@
 ////////////////////////
 
 @function validVals($list) {
-    @return "Valid values are #{implodeList($list, ", ", " and ", true)}.";
+    @return 'Valid values are #{implodeList($list, ', ', ' and ', true)}.';
 }
 
 @function showParamVal($value) {
-    $value:if(isString($value), "\"#{$value}\"", $value);
+    $value:if(isString($value), '"#{$value}"', $value);
 
-    @return "Received: <#{type-of($value)}: #{$value}>.";
+    @return 'Received: <#{type-of($value)}: #{$value}>.';
 }
 
 /// Reverse map order
@@ -200,7 +200,7 @@
 @function mapReverse ($map) {
     $result:null;
 
-    @if type-of($map) == "map" {
+    @if type-of($map) == 'map' {
         $keys:map-keys($map);
         $map-reversed:();
 
@@ -208,13 +208,13 @@
             $map-reversed:map-merge($map-reversed, (nth($keys, $i): map-get($map, nth($keys, $i))));
         }
 
-        @if type-of($map-reversed) == "map" {
+        @if type-of($map-reversed) == 'map' {
             $result:$map-reversed;
         } @else {
-            @warn "There was an error reversing the order of \"#{$map}\"";
+            @warn 'There was an error reversing the order of "#{$map}"';
         }
     } @else {
-        @warn "\"#{$map}\" is not a valid map";
+        @warn '"#{$map}" is not a valid map';
     }
 
     @return $result;

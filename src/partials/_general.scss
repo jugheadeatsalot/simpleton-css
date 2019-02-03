@@ -27,11 +27,11 @@ h4 {
 }
 
 table {
-    border:none;
-    border-collapse:collapse;
-    border-spacing:0;
-    text-align:left;
     width:100%;
+    border:none;
+    border-spacing:0;
+    border-collapse:collapse;
+    text-align:left;
 
     &.fixed {
         table-layout:fixed;
@@ -39,12 +39,12 @@ table {
 }
 
 caption {
+    padding-top:$padding * 0.375;
     border-top:$border-size solid $color-border;
-    font-size:$font-size-xsmall;
-    font-weight:$font-weight-bold;
-    padding-top:$padding * .375;
     text-align:left;
     text-transform:uppercase;
+    font-weight:$font-weight-bold;
+    font-size:$font-size-xsmall;
 }
 
 tr,
@@ -54,8 +54,8 @@ td {
 }
 
 tr {
-    border-bottom:$border-size solid $color-border;
     border-top:$border-size solid $color-border;
+    border-bottom:$border-size solid $color-border;
     text-align:left;
 }
 
@@ -71,17 +71,17 @@ td {
 }
 
 figcaption {
+    padding-top:$padding * 0.4375;
     color:$color-gray;
-    font-size:$font-size-xsmall;
-    padding-top:$padding * .4375;
     text-align:center;
+    font-size:$font-size-xsmall;
 }
 
 blockquote {
-    border-left:.25em solid $color-quote;
+    padding-left:1em;
+    border-left:0.25em solid $color-quote;
     font-size:$font-size-h4;
     line-height:$line-height-h4;
-    padding-left:1em;
 }
 
 ol,

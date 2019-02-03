@@ -2,15 +2,15 @@
 /// Colors
 ////////////////////////
 
-@mixin lighten-bg-on-hover($height-in-pixels: 100px, $amount:0.1) {
+@mixin lighten-bg-on-hover($height-in-pixels:100px, $amount:0.1) {
     &:hover {
-        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#fff, $amount);
+        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#ffffff, $amount);
     }
 }
 
-@mixin darken-bg-on-hover($height-in-pixels: 100px, $amount:0.1) {
+@mixin darken-bg-on-hover($height-in-pixels:100px, $amount:0.1) {
     &:hover {
-        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#000, $amount);
+        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#000000, $amount);
     }
 }
 
@@ -21,24 +21,24 @@
     &:hover {
         background-color:$color-to-use;
         color:$color-for-text;
-        filter:opacity(.9);
+        filter:opacity(0.9);
     }
 }
 
 @mixin button-styles() {
     @include button-colors($color-dark);
 
+    display:inline-block;
+    padding:$padding-button;
     border:none;
     border-radius:$border-radius;
     color:#ffffff;
-    display:inline-block;
+    vertical-align:middle;
+    text-align:center;
+    white-space:normal;
     font-weight:$font-weight-bold;
     line-height:inherit;
-    padding:$padding-button;
-    text-align:center;
-    transition:filter .3s;
-    vertical-align:middle;
-    white-space:normal;
+    transition:filter 0.3s;
 
     &[disabled] {
         @include button-colors($color-idle, $color-dark);
@@ -80,8 +80,8 @@
 }
 
 @mixin shift-message-colors($color-to-use, $color-for-text:#ffffff) {
-    background-color:$color-to-use;
     border:$border-size solid $color-to-use;
+    background-color:$color-to-use;
     color:#{$color-for-text};
 }
 
@@ -91,9 +91,11 @@
     &.success {
         @include shift-message-colors($color-success);
     }
+
     &.alert {
         @include shift-message-colors($color-alert);
     }
+
     &.warning {
         @include shift-message-colors($color-warning);
     }
@@ -135,23 +137,23 @@
 @mixin clearfix() {
     &:after,
     &:before {
-        clear:both;
-        content:"";
         display:table;
+        clear:both;
+        content:'';
     }
 }
 
-@mixin folded-corner($size:$font-size * .75, $fold-color:rgba(white, .25), $bg-color: #ffffff) {
+@mixin folded-corner($size:$font-size * 0.75, $fold-color:rgba(white, 0.25), $bg-color: #ffffff) {
     position:relative;
 
     &:after {
-        border-color:$fold-color $bg-color;
-        border-style:solid;
-        border-width:0 $size $size 0;
-        content:"";
         position:absolute;
-        right:(-$border-size);
         top:(-$border-size);
+        right:(-$border-size);
+        border-width:0 $size $size 0;
+        border-style:solid;
+        border-color:$fold-color $bg-color;
+        content:'';
     }
 }
 
@@ -162,19 +164,19 @@
 @mixin video-container() {
     @include video-aspect-ratio();
 
-    display:block;
-    height:0;
-    padding-top:25px;
     position:relative;
+    display:block;
+    padding-top:25px;
+    height:0;
 
     iframe,
     object,
     embed {
-        height:100%;
-        left:0;
         position:absolute;
         top:0;
+        left:0;
         width:100%;
+        height:100%;
     }
 }
 
@@ -187,21 +189,21 @@
 
     i {
         position:absolute;
-        right:$p-message-l;
         top:$p-message-t;
+        right:$p-message-l;
     }
 }
 
 @mixin screen-reader-text() {
-    clip:rect(1px, 1px, 1px, 1px);
-    height:1px;
-    overflow:hidden;
     position:absolute !important;
+    overflow:hidden;
+    clip:rect(1px, 1px, 1px, 1px);
     width:1px;
+    height:1px;
 }
 
 @mixin button-group-sized($width:$width-button) {
-    > * {
+     > * {
         width:$width;
     }
 }
@@ -220,8 +222,8 @@
 
 @mixin button-size($size:false) {
     @if isInList($size, map-keys($button-sizes), true) {
-        font-size:nth(map-get($button-sizes, $size), 1);
         padding:nth(map-get($button-sizes, $size), 2);
+        font-size:nth(map-get($button-sizes, $size), 1);
     }
 }
 
@@ -235,27 +237,27 @@
     white-space:nowrap;
 }
 
-@mixin fade-ellipsis($cutoff: 3, $line-height: $line-height, $fade-to-color:#ffffff) {
+@mixin fade-ellipsis($cutoff:3, $line-height: $line-height, $fade-to-color:#ffffff) {
     $height:($line-height * $cutoff) + 0rem;
 
     position:relative;
-    max-height:$height;
     overflow:hidden;
+    max-height:$height;
 
     &:after {
-        content:"";
         position:absolute;
         top:$height - ($line-height + 0rem);
         right:0;
         width:50%;
         height:$height / $cutoff;
         background:linear-gradient(to right, transparent, $fade-to-color 50%);
+        content:'';
     }
 }
 
 @mixin headerize($type:false) {
-    font-family:$font-stack-head;
     font-weight:$font-weight-head;
+    font-family:$font-stack-head;
 
     @if $type == h1 {
         font-size:$font-size-h1;
@@ -411,10 +413,10 @@
 }
 
 @mixin group($max-width:$width-max-group) {
-    margin-left:auto;
     margin-right:auto;
-    max-width:$max-width;
+    margin-left:auto;
     padding:0 $padding-group;
+    max-width:$max-width;
     width:100%;
 }
 
@@ -502,11 +504,11 @@
     }
 
     @if $type == row {
-        margin-left:(-$gutter * $multiplier);
         margin-right:(-$gutter * $multiplier);
+        margin-left:(-$gutter * $multiplier);
     } @else if $type == col {
-        padding-left:$gutter * $multiplier;
         padding-right:$gutter * $multiplier;
+        padding-left:$gutter * $multiplier;
     }
 }
 
@@ -516,7 +518,7 @@
 
     display:block;
 
-    > * {
+     > * {
         @include gutters(col);
 
         float:left;
@@ -529,7 +531,7 @@
     @include flex-wrap(wrap);
     @include gutters(row, $size);
 
-    > * {
+     > * {
         @include gutters(col, $size);
     }
 }
@@ -540,7 +542,7 @@
 
         margin-bottom:(-$out) !important;
 
-        > * {
+         > * {
             padding-bottom:$out;
         }
     }
@@ -606,14 +608,14 @@
     }
 }
 
-@mixin vertical-margins($multiplier: 1) {
+@mixin vertical-margins($multiplier:1) {
     hr {
-        margin-bottom:($margin * 1.25) * $multiplier;
         margin-top:($margin * 1.125) * $multiplier;
+        margin-bottom:($margin * 1.25) * $multiplier;
     }
 
     caption {
-        margin-bottom:($margin * .25) * $multiplier;
+        margin-bottom:($margin * 0.25) * $multiplier;
     }
 
     h1,
@@ -624,8 +626,8 @@
     h6 {
         @include control-margins(top);
 
-        margin-bottom:$margin * ($multiplier * .75);
         margin-top:$margin-top-h * $multiplier;
+        margin-bottom:$margin * ($multiplier * 0.75);
     }
 
     p,

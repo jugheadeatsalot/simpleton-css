@@ -191,8 +191,8 @@
 }
 
 .full-width {
-    margin-left:0;
     margin-right:0;
+    margin-left:0;
     min-width:unset;
     width:100%;
 }
@@ -211,7 +211,7 @@
     padding:$padding;
 
     &-half {
-        padding:$padding * .5;
+        padding:$padding * 0.5;
     }
 
     &-plus-half {
