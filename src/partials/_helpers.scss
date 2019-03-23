@@ -203,7 +203,7 @@
 }
 
 @mixin button-group-sized($width:$width-button) {
-     > * {
+    > * {
         width:$width;
     }
 }
@@ -518,7 +518,7 @@
 
     display:block;
 
-     > * {
+    > * {
         @include gutters(col);
 
         float:left;
@@ -531,7 +531,7 @@
     @include flex-wrap(wrap);
     @include gutters(row, $size);
 
-     > * {
+    > * {
         @include gutters(col, $size);
     }
 }
@@ -542,7 +542,7 @@
 
         margin-bottom:(-$out) !important;
 
-         > * {
+        > * {
             padding-bottom:$out;
         }
     }
@@ -627,7 +627,7 @@
         @include control-margins(top);
 
         margin-top:$margin-top-h * $multiplier;
-        margin-bottom:$margin * ($multiplier * 0.75);
+        margin-bottom:$margin-bottom-h * $multiplier;
     }
 
     p,
