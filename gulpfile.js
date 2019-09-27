@@ -1,17 +1,17 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var cleanCSS = require('gulp-clean-css');
-var filter = require('gulp-filter');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const cleanCSS = require('gulp-clean-css');
+const filter = require('gulp-filter');
+const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
 
-var scssIn = ['src/**/*.scss'];
-var cssOut = 'dist/css';
+const scssIn = ['src/**/*.scss'];
+const cssOut = 'dist/css';
 
-var sassOpts = {
+const sassOpts = {
     errLogToConsole: true,
-    outputStyle: 'expanded'
+    outputStyle: 'expanded',
 };
 
 gulp.task('sass', function() {
@@ -32,7 +32,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', function() {
-    var msg = function(event) {
+    const msg = function(event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
     };
 

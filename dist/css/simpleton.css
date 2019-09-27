@@ -2703,9 +2703,7 @@ input[type='reset'],
   white-space: normal;
   font-weight: 700;
   line-height: inherit;
-  transition: -webkit-filter 0.3s;
   transition: filter 0.3s;
-  transition: filter 0.3s, -webkit-filter 0.3s;
 }
 
 button:hover,
@@ -2715,8 +2713,6 @@ input[type='reset']:hover,
 .button:hover {
   background-color: #353535;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button[disabled],
@@ -2735,8 +2731,6 @@ input[type='reset'][disabled]:hover,
 .button[disabled]:hover {
   background-color: #e8e8e8;
   color: #353535;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.dark,
@@ -2755,8 +2749,6 @@ input[type='reset'].dark:hover,
 .button.dark:hover {
   background-color: #353535;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.primary,
@@ -2775,8 +2767,6 @@ input[type='reset'].primary:hover,
 .button.primary:hover {
   background-color: #2980b9;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.secondary,
@@ -2795,8 +2785,6 @@ input[type='reset'].secondary:hover,
 .button.secondary:hover {
   background-color: #7f8c8d;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.idle,
@@ -2815,8 +2803,6 @@ input[type='reset'].idle:hover,
 .button.idle:hover {
   background-color: #e8e8e8;
   color: #353535;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.success,
@@ -2835,8 +2821,6 @@ input[type='reset'].success:hover,
 .button.success:hover {
   background-color: #27ae60;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.alert,
@@ -2855,8 +2839,6 @@ input[type='reset'].alert:hover,
 .button.alert:hover {
   background-color: #c0392b;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.warning,
@@ -2875,8 +2857,6 @@ input[type='reset'].warning:hover,
 .button.warning:hover {
   background-color: #d35400;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 button.highlight,
@@ -2895,8 +2875,6 @@ input[type='reset'].highlight:hover,
 .button.highlight:hover {
   background-color: #f39c12;
   color: #ffffff;
-  -webkit-filter: opacity(0.9);
-          filter: opacity(0.9);
 }
 
 figure.alignleft, figure.alignright,
