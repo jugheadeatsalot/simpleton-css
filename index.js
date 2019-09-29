@@ -1,1 +1,1 @@
-module.exports = 'Smile :)';
+exports.default = 'Smile :)';
