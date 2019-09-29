@@ -5,9 +5,10 @@ const filter = require('gulp-filter');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
+const debug = require('gulp-debug');
 
 const scssIn = ['simpleton/scss/**/*.scss'];
-const cssOut = 'dist/css/';
+const cssOut = 'dist/css';
 
 const sassOpts = {
     errLogToConsole: true,
@@ -17,6 +18,7 @@ const sassOpts = {
 gulp.task('sass', () => {
     gulp
         .src(scssIn)
+        .pipe(debug())
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(autoprefixer())
@@ -32,7 +34,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('watch', () => {
-    const msg = function (event) {
+    const msg = event => {
         console.log(`File ${event.path} was ${event.type}. Running tasks...`);
     };
 

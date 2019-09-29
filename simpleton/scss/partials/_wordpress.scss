@@ -1,0 +1,163 @@
+figure,
+img,
+.wp-caption {
+    &.alignleft,
+    &.alignright {
+        padding-top:$padding * 0.25;
+    }
+}
+
+img {
+    &.alignleft,
+    &.alignright {
+        padding-bottom:$padding;
+    }
+}
+
+.alignleft,
+.alignright {
+    max-width:50% !important;
+}
+
+blockquote {
+    &.alignleft,
+    &.alignright {
+        max-width:40% !important;
+    }
+}
+
+.alignleft {
+    float:left;
+    margin-right:1.25rem;
+}
+
+.alignright {
+    float:right;
+    margin-left:1.25rem;
+}
+
+.aligncenter {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.size {
+    &-auto,
+    &-full,
+    &-large,
+    &-medium,
+    &-thumbnail {
+        max-width:100%;
+        height:auto;
+    }
+}
+
+.tiled-gallery,
+.video-player {
+    margin-bottom:$margin !important;
+    max-width:100%;
+}
+
+.gallery {
+    $padding-bottom-gallery:$margin * 1.2;
+
+    @include grid(0.5);
+
+     > * {
+        html body & {
+            margin-bottom:0;
+            padding-bottom:$padding-bottom-gallery;
+        }
+    }
+
+    &:last-child {
+        html body & {
+            margin-bottom:-$padding-bottom-gallery !important;
+        }
+    }
+
+     + h1,
+     + h2,
+     + h3,
+     + h4,
+     + h5,
+     + h6 {
+        margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
+    }
+}
+
+.gallery-row {
+    max-width:100%;
+}
+
+.gallery-item {
+    margin-bottom:0;
+    text-align:center;
+}
+
+@for $i from 1 through 10 {
+    .gallery-columns-#{$i} {
+         > .gallery-item {
+            width:100 / $i * 1%;
+        }
+    }
+}
+
+@for $i from 7 through 10 {
+    .gallery-columns-#{$i} {
+        .wp-caption-text {
+            display:none;
+        }
+    }
+}
+
+.post-password-form {
+    p {
+        &:last-child {
+            display:flex;
+
+            input[type='password'] {
+                border-right:none;
+            }
+
+            input[type='submit'] {
+                padding:0 $padding;
+            }
+        }
+    }
+}
+
+.wp-caption {
+    margin-bottom:$margin;
+}
+
+.wp-caption-text,
+.wp-caption-dd,
+.gallery-caption {
+    @extend figcaption;
+}
+
+[class^='embed-'] {
+    @include video-container();
+
+    &._1by1 {
+        @include video-aspect-ratio(1, 1);
+    }
+
+    &._4by3 {
+        @include video-aspect-ratio(4, 3);
+    }
+}
+
+twitterwidget,
+.mejs-container {
+    margin-bottom:$margin !important;
+}
+
+.mejs-container {
+    a {
+        border-bottom:none !important;
+        text-decoration:none !important;
+    }
+}
