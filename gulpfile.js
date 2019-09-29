@@ -1,14 +1,20 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const cleanCSS = require('gulp-clean-css');
 const filter = require('gulp-filter');
 const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
-const debug = require('gulp-debug');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
-const scssIn = ['simpleton/scss/**/*.scss'];
-const cssOut = 'dist/css';
+const paths = {
+    js: ['simpleton/js/**/*.js'],
+    jsOut: 'dist/js',
+    scss: ['simpleton/scss/**/*.scss'],
+    scssOut: 'dist/css',
+};
 
 const sassOpts = {
     errLogToConsole: true,
@@ -16,29 +22,41 @@ const sassOpts = {
 };
 
 gulp.task('sass', () => {
-    gulp
-        .src(scssIn)
-        .pipe(debug())
+    return gulp
+        .src(paths.scss)
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(autoprefixer())
+        .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('sourcemaps'))
-        .pipe(gulp.dest(cssOut))
+        .pipe(gulp.dest(paths.scssOut))
         .pipe(filter('**/*.css'))
-        .pipe(cleanCSS())
+        .pipe(postcss([cssnano()]))
         .pipe(rename({
             suffix: '.min',
         }))
         .pipe(sourcemaps.write('sourcemaps'))
-        .pipe(gulp.dest(cssOut));
+        .pipe(gulp.dest(paths.scssOut));
+});
+
+gulp.task('js', () => {
+    return gulp
+        .src(paths.js)
+        .pipe(concat('simpleton.js'))
+        .pipe(gulp.dest(paths.jsOut))
+        .pipe(filter('**/*.js'))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(gulp.dest(paths.jsOut));
 });
 
 gulp.task('watch', () => {
-    const msg = event => {
-        console.log(`File ${event.path} was ${event.type}. Running tasks...`);
+    const msg = path => {
+        console.log(`File ${path} was changed. Running tasks...`);
     };
 
-    gulp.watch([scssIn], ['sass']).on('change', msg);
+    return gulp.watch([...paths.scss, ...paths.js], gulp.parallel('sass', 'js')).on('change', msg);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', gulp.series(gulp.parallel('sass', 'js'), 'watch'));

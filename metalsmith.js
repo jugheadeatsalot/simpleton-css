@@ -39,7 +39,7 @@ Metalsmith(__dirname)
         paths: {
             "${source}/**/*": true,
             "dist/**/*": "**/*",
-            "metalsmith/src/**/*": "**/*",
+            "metalsmith/layouts/**/*": "**/*",
         },
         livereload: false,
     }))

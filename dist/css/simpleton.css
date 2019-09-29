@@ -1,0 +1,431 @@
+html {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+}
+
+html > div,
+html > span {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #353535;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+  font-weight: 400;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+address,
+blockquote,
+dl,
+div,
+fieldset,
+form,
+hr,
+noscript,
+table,
+main,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  font-weight: 700;
+}
+
+ul {
+  list-style: square;
+}
+
+ol {
+  list-style: decimal;
+}
+
+pre {
+  padding: 0.75rem 1.25rem 0.75rem 1rem;
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+  white-space: pre-wrap;
+}
+
+pre code {
+  padding: 0;
+}
+
+dl dt {
+  font-weight: 700;
+}
+
+dl dd {
+  margin-left: 0;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-color: #e8e8e8;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type='submit'], input[type='button'], input[type='reset'] {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  overflow: visible;
+  cursor: pointer;
+}
+
+fieldset {
+  border: 0;
+}
+
+iframe {
+  display: block;
+}
+
+iframe,
+figure {
+  max-width: 100%;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+img,
+input,
+textarea {
+  vertical-align: top;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 700;
+}
+
+big {
+  font-size: 1.1em;
+}
+
+small {
+  font-size: 0.9em;
+}
+
+ins {
+  padding: 0.125rem 0.25rem 0.125rem 0.25rem;
+  background-color: #2980b9;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+mark {
+  padding: 0.125rem 0.25rem 0.125rem 0.25rem;
+  background-color: #f39c12;
+  color: #ffffff;
+}
+
+code {
+  padding: 0.125rem 0.25rem 0.125rem 0.25rem;
+  background-color: #f8f8f8;
+}
+
+var {
+  font-weight: 700;
+  font-style: normal;
+}
+
+pre,
+code,
+tt,
+var,
+kbd,
+samp {
+  font-size: 0.9em;
+  font-family: Consolas, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
+}
+
+cite {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+abbr,
+acronym {
+  text-decoration: underline;
+  cursor: help;
+}
+
+del,
+strike {
+  text-decoration: line-through;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.4em;
+}
+
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: 0.75em;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+::-webkit-search-cancel-button {
+  display: none;
+}
+
+hr {
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+caption {
+  margin-bottom: 0.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0 !important;
+}
+
+p,
+ol,
+ul,
+address,
+blockquote,
+dl,
+dt,
+dd,
+fieldset,
+table,
+pre,
+form,
+noscript,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin-bottom: 1.6rem;
+}
+
+p:empty {
+  display: none;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.6em;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+table {
+  width: 100%;
+  border: none;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table.fixed {
+  table-layout: fixed;
+}
+
+caption {
+  padding-top: 0.6rem;
+  border-top: 1px solid #e8e8e8;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8em;
+}
+
+tr,
+th,
+td {
+  text-align: left;
+}
+
+tr {
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  text-align: left;
+}
+
+thead,
+tfoot,
+th {
+  font-weight: 700;
+}
+
+th,
+td {
+  padding: 0.75rem 1.125rem 0.75rem 0;
+}
+
+figcaption {
+  padding-top: 0.7rem;
+  color: #7f8c8d;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+blockquote {
+  padding-left: 1em;
+  border-left: 0.25em solid #e8e8e8;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+ol,
+ul {
+  margin-left: 1.25em;
+}
+
+/*# sourceMappingURL=sourcemaps/simpleton.css.map */

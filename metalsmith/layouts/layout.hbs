@@ -4,14 +4,19 @@
     <meta charset="UTF-8"/>
     <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
     <meta name="description" content="{{ description }}">
-    <link rel="stylesheet" href="../dist/css/simpleton.min.css">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css">
+    <link rel="stylesheet" href="/assets/css/docs.min.css">
 </head>
 <body>
-<header>
-    <p><a href="/">Home</a></p>
-</header>
-<h1>{{ title }}</h1>
-<p>{{ description }}</p>
-{{{ contents }}}
+<div class="container">
+    <header>
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+        <p><a href="/">Home</a></p>
+    </header>
+    <main>
+        {{{ contents }}}
+    </main>
+</div>
 </body>
 </html>
