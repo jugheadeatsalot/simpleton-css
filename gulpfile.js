@@ -6,15 +6,15 @@ const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 
-const scssIn = ['src/**/*.scss'];
-const cssOut = 'dist/css';
+const scssIn = ['simpleton/scss/**/*.scss'];
+const cssOut = 'dist/css/';
 
 const sassOpts = {
     errLogToConsole: true,
     outputStyle: 'expanded',
 };
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
     gulp
         .src(scssIn)
         .pipe(sourcemaps.init())
@@ -25,15 +25,15 @@ gulp.task('sass', function() {
         .pipe(filter('**/*.css'))
         .pipe(cleanCSS())
         .pipe(rename({
-            suffix: '.min'
+            suffix: '.min',
         }))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(cssOut));
 });
 
-gulp.task('watch', function() {
-    const msg = function(event) {
-        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+gulp.task('watch', () => {
+    const msg = function (event) {
+        console.log(`File ${event.path} was ${event.type}. Running tasks...`);
     };
 
     gulp.watch([scssIn], ['sass']).on('change', msg);
