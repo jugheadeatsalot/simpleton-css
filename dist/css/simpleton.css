@@ -298,20 +298,12 @@ sup {
   background-color: #323232;
 }
 
-.simp.border-dark {
-  border-color: #323232;
-}
-
 .simp.light {
   color: #ffffff;
 }
 
 .simp.bg-light {
   background-color: #ffffff;
-}
-
-.simp.border-light {
-  border-color: #ffffff;
 }
 
 .simp.gray {
@@ -322,20 +314,12 @@ sup {
   background-color: gray;
 }
 
-.simp.border-gray {
-  border-color: gray;
-}
-
 .simp.graylight {
   color: #bfbfbf;
 }
 
 .simp.bg-graylight {
   background-color: #bfbfbf;
-}
-
-.simp.border-graylight {
-  border-color: #bfbfbf;
 }
 
 .simp.graylighter {
@@ -346,20 +330,12 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.border-graylighter {
-  border-color: #d9d9d9;
-}
-
 .simp.graylightest {
   color: #f2f2f2;
 }
 
 .simp.bg-graylightest {
   background-color: #f2f2f2;
-}
-
-.simp.border-graylightest {
-  border-color: #f2f2f2;
 }
 
 .simp.graydark {
@@ -370,20 +346,12 @@ sup {
   background-color: #737373;
 }
 
-.simp.border-graydark {
-  border-color: #737373;
-}
-
 .simp.graydarker {
   color: #666666;
 }
 
 .simp.bg-graydarker {
   background-color: #666666;
-}
-
-.simp.border-graydarker {
-  border-color: #666666;
 }
 
 .simp.graydarkest {
@@ -394,20 +362,12 @@ sup {
   background-color: #595959;
 }
 
-.simp.border-graydarkest {
-  border-color: #595959;
-}
-
 .simp.text {
   color: #323232;
 }
 
 .simp.bg-text {
   background-color: #323232;
-}
-
-.simp.border-text {
-  border-color: #323232;
 }
 
 .simp.primary {
@@ -418,20 +378,12 @@ sup {
   background-color: #2e86de;
 }
 
-.simp.border-primary {
-  border-color: #2e86de;
-}
-
 .simp.secondary {
   color: #576574;
 }
 
 .simp.bg-secondary {
   background-color: #576574;
-}
-
-.simp.border-secondary {
-  border-color: #576574;
 }
 
 .simp.accent {
@@ -442,20 +394,12 @@ sup {
   background-color: #ee5253;
 }
 
-.simp.border-accent {
-  border-color: #ee5253;
-}
-
 .simp.idle {
   color: #d9d9d9;
 }
 
 .simp.bg-idle {
   background-color: #d9d9d9;
-}
-
-.simp.border-idle {
-  border-color: #d9d9d9;
 }
 
 .simp.success {
@@ -466,20 +410,12 @@ sup {
   background-color: #10ac84;
 }
 
-.simp.border-success {
-  border-color: #10ac84;
-}
-
 .simp.alert {
   color: #ee5253;
 }
 
 .simp.bg-alert {
   background-color: #ee5253;
-}
-
-.simp.border-alert {
-  border-color: #ee5253;
 }
 
 .simp.warning {
@@ -490,20 +426,12 @@ sup {
   background-color: #ff9f43;
 }
 
-.simp.border-warning {
-  border-color: #ff9f43;
-}
-
 .simp.highlight {
   color: #feca57;
 }
 
 .simp.bg-highlight {
   background-color: #feca57;
-}
-
-.simp.border-highlight {
-  border-color: #feca57;
 }
 
 .simp.border {
@@ -514,20 +442,12 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.border-border {
-  border-color: #d9d9d9;
-}
-
 .simp.quote {
   color: #d9d9d9;
 }
 
 .simp.bg-quote {
   background-color: #d9d9d9;
-}
-
-.simp.border-quote {
-  border-color: #d9d9d9;
 }
 
 .simp.dribbble {
@@ -538,20 +458,12 @@ sup {
   background-color: #ea4c89;
 }
 
-.simp.border-dribbble {
-  border-color: #ea4c89;
-}
-
 .simp.facebook {
   color: #3b5998;
 }
 
 .simp.bg-facebook {
   background-color: #3b5998;
-}
-
-.simp.border-facebook {
-  border-color: #3b5998;
 }
 
 .simp.flickr {
@@ -562,20 +474,12 @@ sup {
   background-color: #ff0084;
 }
 
-.simp.border-flickr {
-  border-color: #ff0084;
-}
-
 .simp.instagram {
   color: #517fa4;
 }
 
 .simp.bg-instagram {
   background-color: #517fa4;
-}
-
-.simp.border-instagram {
-  border-color: #517fa4;
 }
 
 .simp.linkedin {
@@ -586,20 +490,12 @@ sup {
   background-color: #0077b5;
 }
 
-.simp.border-linkedin {
-  border-color: #0077b5;
-}
-
 .simp.medium {
   color: #00ab6b;
 }
 
 .simp.bg-medium {
   background-color: #00ab6b;
-}
-
-.simp.border-medium {
-  border-color: #00ab6b;
 }
 
 .simp.pinterest {
@@ -610,20 +506,12 @@ sup {
   background-color: #bd081c;
 }
 
-.simp.border-pinterest {
-  border-color: #bd081c;
-}
-
 .simp.rss {
   color: #f26522;
 }
 
 .simp.bg-rss {
   background-color: #f26522;
-}
-
-.simp.border-rss {
-  border-color: #f26522;
 }
 
 .simp.tumblr {
@@ -634,10 +522,6 @@ sup {
   background-color: #35465c;
 }
 
-.simp.border-tumblr {
-  border-color: #35465c;
-}
-
 .simp.twitter {
   color: #55acee;
 }
@@ -646,20 +530,12 @@ sup {
   background-color: #55acee;
 }
 
-.simp.border-twitter {
-  border-color: #55acee;
-}
-
 .simp.youtube {
   color: #b31217;
 }
 
 .simp.bg-youtube {
   background-color: #b31217;
-}
-
-.simp.border-youtube {
-  border-color: #b31217;
 }
 
 hr {
