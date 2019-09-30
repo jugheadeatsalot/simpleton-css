@@ -20,8 +20,8 @@ body {
     text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
     font-weight:$font-weight-normal;
-    font-family:$font-stack;
-    line-height:$line-height;
+    font-family:$font-stack-general;
+    line-height:$line-height-general;
 
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
@@ -94,11 +94,11 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight:$font-weight-head;
-    font-family:$font-stack-head;
+    font-weight:$font-weight-heading;
+    font-family:$font-stack-heading;
 
     strong {
-        font-weight:$font-weight-head;
+        font-weight:$font-weight-heading;
     }
 }
 
@@ -110,10 +110,14 @@ ol {
     list-style:decimal;
 }
 
+ol,
+ul {
+    margin-left:1em;
+}
+
 pre {
     padding:$padding-box;
-    border:$border-size solid $color-gray-subtle;
-    background-color:$color-gray-subtle;
+    background-color:$color-graylightest;
     white-space:pre-wrap;
 
     code {
@@ -150,7 +154,7 @@ q:after {
 }
 
 a {
-    color:inherit;
+    color:$color-primary;
     text-decoration:none;
 }
 
@@ -158,7 +162,9 @@ input {
     &[type='submit'],
     &[type='button'],
     &[type='reset'] {
-        cursor:pointer;
+        &:not(:disabled) {
+            cursor:pointer;
+        }
     }
 }
 
@@ -232,11 +238,10 @@ mark {
 
 code {
     padding:$padding-inline;
-    background-color:$color-gray-subtle;
+    background-color:$color-graylightest;
 }
 
 var {
-    font-weight:$font-weight-bold;
     font-style:normal;
 }
 
@@ -258,7 +263,8 @@ cite {
 
 abbr,
 acronym {
-    text-decoration:underline;
+    text-decoration:none;
+    border-bottom:1px dotted;
     cursor:help;
 }
 

@@ -2,140 +2,226 @@
 /// Fonts
 ////////////////////////
 
-$font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
-$font-stack-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
-$font-stack: $font-stack-sans-serif !default;
-$font-stack-head: $font-stack !default;
-$font-stack-mono: Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
-$font-size-base: 16px !default;
-$font-size: 1rem !default;
-$font-size-big: 1.1em !default;
-$font-size-xbig: 1.2em !default;
-$font-size-xxbig: 1.3em !default;
-$font-size-small: 0.9em !default;
-$font-size-xsmall: 0.8em !default;
-$font-size-xxsmall: 0.7em !default;
-$font-size-h1: 2em !default;
-$font-size-h2: 1.6em !default;
-$font-size-h3: 1.4em !default;
-$font-size-h4: 1.2em !default;
-$font-weight-normal: 400 !default;
-$font-weight-bold: 700 !default;
-$font-weight-head: $font-weight-bold !default;
-$line-height: 1.6 !default;
-$line-height-h1: 1.2 !default;
-$line-height-h2: 1.3 !default;
-$line-height-h3: 1.4 !default;
-$line-height-h4: 1.5 !default;
+/// font stacks
+$font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
+$font-stack-sansserif:'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-stack-general:$font-stack-sansserif !default;
+$font-stack-heading:$font-stack-general !default;
+$font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
+/// font stacks mapped
+$font-stacks:() !default;
+$font-stacks:map-merge((
+    serif:$font-stack-serif,
+    sans-serif:$font-stack-sansserif,
+    general:$font-stack-general,
+    heading:$font-stack-heading,
+    mono:$font-stack-mono,
+), $font-stacks);
+/// font sizes
+$font-size-base:16px !default;
+$font-size-general:1rem !default;
+$font-size-big:1.1em !default;
+$font-size-xbig:1.2em !default;
+$font-size-xxbig:1.3em !default;
+$font-size-small:0.9em !default;
+$font-size-xsmall:0.8em !default;
+$font-size-xxsmall:0.7em !default;
+$font-size-h1:2em !default;
+$font-size-h2:1.6em !default;
+$font-size-h3:1.4em !default;
+$font-size-h4:1.2em !default;
+/// font sizes mapped
+$font-sizes:() !default;
+$font-sizes:map-merge((
+    base:$font-size-base,
+    general:$font-size-general,
+    big:$font-size-big,
+    xbig:$font-size-xbig,
+    xxbig:$font-size-xxbig,
+    small:$font-size-small,
+    xsmall:$font-size-xsmall,
+    xxsmall:$font-size-xxsmall,
+    h1:$font-size-h1,
+    h2:$font-size-h2,
+    h3:$font-size-h3,
+    h4:$font-size-h4,
+), $font-sizes);
+/// font weights
+$font-weight-normal:400 !default;
+$font-weight-bold:700 !default;
+$font-weight-heading:$font-weight-bold !default;
+/// font weights mapped
+$font-weights:() !default;
+$font-weights:map-merge((
+    normal:$font-weight-normal,
+    bold:$font-weight-bold,
+    heading:$font-weight-heading,
+), $font-weights);
+/// line heights
+$line-height-general:1.5 !default;
+$line-height-h1:1.15 !default;
+$line-height-h2:1.25 !default;
+$line-height-h3:1.35 !default;
+$line-height-h4:1.45 !default;
+/// line heights mapped
+$line-heights:() !default;
+$line-heights:map-merge((
+    general:$line-height-general,
+    h1:$line-height-h1,
+    h2:$line-height-h2,
+    h3:$line-height-h3,
+    h4:$line-height-h4,
+), $line-heights);
 
 ////////////////////////
 /// Colors
 ////////////////////////
 
-$color-dark: #353535 !default;
-$color-light: #ffffff !default; // only used in _classes.scss
-$color-gray: #7f8c8d !default;
-$color-gray-light: #e8e8e8 !default;
-$color-gray-subtle: #f8f8f8 !default;
-$color-primary: #2980b9 !default;
-$color-secondary: $color-gray !default;
-$color-idle: $color-gray-light !default;
-$color-success: #27ae60 !default;
-$color-alert: #c0392b !default;
-$color-warning: #d35400 !default;
-$color-highlight: #f39c12 !default;
-$color-border: $color-gray-light !default;
-$color-quote: $color-gray-light !default;
-$color-social-dribbble: #ea4c89 !default;
-$color-social-facebook: #3b5998 !default;
-$color-social-flickr: #ff0084 !default;
-$color-social-google-plus: #dc4e41 !default;
-$color-social-instagram: #517fa4 !default;
-$color-social-linkedin: #0077b5 !default;
-$color-social-medium: #00ab6b !default;
-$color-social-pinterest: #bd081c !default;
-$color-social-rss: #f26522 !default;
-$color-social-tumblr: #35465c !default;
-$color-social-twitter: #55acee !default;
-$color-social-youtube: #b31217 !default;
+$color-dark:#323232 !default;
+$color-light:#ffffff !default; // only used in _classes.scss
+$color-gray:lighten(black, 50%) !default;
+$color-graylight:lighten($color-gray, 25%) !default;
+$color-graylighter:lighten($color-gray, 35%) !default;
+$color-graylightest:lighten($color-gray, 45%) !default;
+$color-graydark:darken($color-gray, 5%) !default;
+$color-graydarker:darken($color-gray, 10%) !default;
+$color-graydarkest:darken($color-gray, 15%) !default;
+$color-text:$color-dark !default;
+$color-primary:#2e86de !default;
+$color-secondary:#576574 !default;
+$color-accent:#ee5253 !default;
+$color-idle:$color-graylighter !default;
+$color-success:#10ac84 !default;
+$color-alert:#ee5253 !default;
+$color-warning:#ff9f43 !default;
+$color-highlight:#feca57 !default;
+$color-border:$color-graylighter !default;
+$color-quote:$color-graylighter !default;
+$color-dribbble:#ea4c89 !default;
+$color-facebook:#3b5998 !default;
+$color-flickr:#ff0084 !default;
+$color-instagram:#517fa4 !default;
+$color-linkedin:#0077b5 !default;
+$color-medium:#00ab6b !default;
+$color-pinterest:#bd081c !default;
+$color-rss:#f26522 !default;
+$color-tumblr:#35465c !default;
+$color-twitter:#55acee !default;
+$color-youtube:#b31217 !default;
+/// colors mapped
+$colors-defaults:(
+    dark: $color-dark,
+    light: $color-light,
+    gray: $color-gray,
+    graylight: $color-graylight,
+    graylighter: $color-graylighter,
+    graylightest: $color-graylightest,
+    graydark: $color-graydark,
+    graydarker: $color-graydarker,
+    graydarkest: $color-graydarkest,
+    text: $color-text,
+    primary: $color-primary,
+    secondary: $color-secondary,
+    accent: $color-accent,
+    idle: $color-idle,
+    success: $color-success,
+    alert: $color-alert,
+    warning: $color-warning,
+    highlight: $color-highlight,
+    border: $color-border,
+    quote: $color-quote,
+    dribbble: $color-dribbble,
+    facebook: $color-facebook,
+    flickr: $color-flickr,
+    instagram: $color-instagram,
+    linkedin: $color-linkedin,
+    medium: $color-medium,
+    pinterest: $color-pinterest,
+    rss: $color-rss,
+    tumblr: $color-tumblr,
+    twitter: $color-twitter,
+    youtube: $color-youtube,
+);
+$colors:() !default;
+$colors:map-merge($colors-defaults, $colors);
 
 ////////////////////////
 /// Borders
 ////////////////////////
 
-$border-radius: 4px !default;
-$border-size: 1px !default;
+$border-radius:4px !default;
+$border-size:1px !default;
 
 ////////////////////////
 /// Spacing
 ////////////////////////
 
-$margin: $font-size * $line-height !default;
-$padding: $font-size * $line-height !default;
-$margin-top-h: $margin * 1.5 !default;
-$margin-bottom-h: $margin * 0.75 !default;
-$gutter: $font-size * 2 !default;
-$padding-group: $gutter * 2 !default;
-$p-inline-t: 0.125rem !default;
-$p-inline-r: 0.25rem !default;
-$p-inline-b: 0.125rem !default;
-$p-inline-l: 0.25rem !default;
-$padding-inline: $p-inline-t $p-inline-r $p-inline-b $p-inline-l !default;
-$p-box-t: 0.75rem !default;
-$p-box-r: 1.25rem !default;
-$p-box-b: 0.75rem !default;
-$p-box-l: 1rem !default;
-$padding-box: $p-box-t $p-box-r $p-box-b $p-box-l !default;
-$p-message-t: 0.75rem !default;
-$p-message-r: 3.25rem !default;
-$p-message-b: 0.75rem !default;
-$p-message-l: 1rem !default;
-$padding-message: $p-message-t $p-message-r $p-message-b $p-message-l !default;
-$p-table-t: 0.75rem !default;
-$p-table-r: 1.125rem !default;
-$p-table-b: 0.75rem !default;
-$p-table-l: 0 !default;
-$padding-table: $p-table-t $p-table-r $p-table-b $p-table-l !default;
-$p-button-t: 0.5rem !default;
-$p-button-r: 1.25rem !default;
-$p-button-b: 0.5rem !default;
-$p-button-l: 1.25rem !default;
-$padding-button: $p-button-t $p-button-r $p-button-b $p-button-l !default;
-$padding-button-xsmall: ($p-button-t * 0.8) ($p-button-r * 0.8) ($p-button-b * 0.8) ($p-button-l * 0.8) !default;
-$padding-button-small: ($p-button-t * 0.9) ($p-button-r * 0.9) ($p-button-b * 0.9) ($p-button-l * 0.9) !default;
-$padding-button-large: ($p-button-t * 1.1) ($p-button-r * 1.1) ($p-button-b * 1.1) ($p-button-l * 1.1) !default;
-$padding-button-xlarge: ($p-button-t * 1.2) ($p-button-r * 1.2) ($p-button-b * 1.2) ($p-button-l * 1.2) !default;
-$p-input-t: 0.5rem !default;
-$p-input-r: 0.75rem !default;
-$p-input-b: 0.5rem !default;
-$p-input-l: 0.75rem !default;
-$padding-input: $p-input-t $p-input-r $p-input-b $p-input-l !default;
+$margin:$font-size-general * $line-height-general !default;
+$padding:$font-size-general * $line-height-general !default;
+$margin-top-h:$margin * 1.5 !default;
+$margin-bottom-h:$margin * 0.75 !default;
+$alley:$font-size-general * 2 !default;
+$padding-group:$alley * 2 !default;
+$p-inline-t:0.125rem !default;
+$p-inline-r:0.25rem !default;
+$p-inline-b:0.125rem !default;
+$p-inline-l:0.25rem !default;
+$padding-inline:$p-inline-t $p-inline-r $p-inline-b $p-inline-l !default;
+$p-box-t:0.75rem !default;
+$p-box-r:1.25rem !default;
+$p-box-b:0.75rem !default;
+$p-box-l:1rem !default;
+$padding-box:$p-box-t $p-box-r $p-box-b $p-box-l !default;
+$p-message-t:0.75rem !default;
+$p-message-r:3.25rem !default;
+$p-message-b:0.75rem !default;
+$p-message-l:1rem !default;
+$padding-message:$p-message-t $p-message-r $p-message-b $p-message-l !default;
+$p-table-t:0.75rem !default;
+$p-table-r:1.125rem !default;
+$p-table-b:0.75rem !default;
+$p-table-l:0 !default;
+$padding-table:$p-table-t $p-table-r $p-table-b $p-table-l !default;
+$p-button-t:0.5rem !default;
+$p-button-r:1.25rem !default;
+$p-button-b:0.5rem !default;
+$p-button-l:1.25rem !default;
+$padding-button:$p-button-t $p-button-r $p-button-b $p-button-l !default;
+$padding-button-xsmall:($p-button-t * 0.8) ($p-button-r * 0.8) ($p-button-b * 0.8) ($p-button-l * 0.8) !default;
+$padding-button-small:($p-button-t * 0.9) ($p-button-r * 0.9) ($p-button-b * 0.9) ($p-button-l * 0.9) !default;
+$padding-button-large:($p-button-t * 1.1) ($p-button-r * 1.1) ($p-button-b * 1.1) ($p-button-l * 1.1) !default;
+$padding-button-xlarge:($p-button-t * 1.2) ($p-button-r * 1.2) ($p-button-b * 1.2) ($p-button-l * 1.2) !default;
+$p-input-t:0.5rem !default;
+$p-input-r:0.75rem !default;
+$p-input-b:0.5rem !default;
+$p-input-l:0.75rem !default;
+$padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
 
 ////////////////////////
 /// Animations
 ////////////////////////
 
-$ease-in-out-expo: cubic-bezier(1, 0, 0, 1) !default;
-$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1) !default;
-$easing: ease-in-out !default;
+$ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
+$ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
+$easing:ease-in-out !default;
 
 ////////////////////////
 /// Sizes
 ////////////////////////
 
-$width-xsmall: 320px !default;
-$width-small: 480px !default;
-$width-medium: 640px !default;
-$width-marge: 800px !default;
-$width-960: 960px !default;
-$width-large: 1024px !default;
-$width-xlarge: 1280px !default;
-$width-xxlarge: 1440px !default;
-$width-max-group: $width-xxlarge !default;
-$width-button: 180px !default;
-//$lengths-absolute:(cm, mm, in, px, pt, pc) !default;
-//$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%') !default;
-//$lengths:join($lengths-absolute, $lengths-relative) !default;
+//$width-xsmall:320px !default;
+//$width-small:480px !default;
+//$width-medium:640px !default;
+//$width-marge:800px !default;
+//$width-960:960px !default;
+//$width-large:1024px !default;
+//$width-xlarge:1280px !default;
+//$width-xxlarge:1440px !default;
+//$width-max-group:$width-xxlarge !default;
+//$width-button:180px !default;
+$lengths-absolute:(cm, mm, in, px, pt, pc);
+$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
+$lengths:join($lengths-absolute, $lengths-relative);
 //$button-sizes:() !default;
 //$button-sizes:map-merge(
 //        (
@@ -159,33 +245,28 @@ $width-button: 180px !default;
 //$align-self-values:(auto, flex-start, flex-end, center, baseline, stretch) !default;
 //$gutter-sizes:(bound: 0, narrow: 0.5, extended: 1.5, wide: 2, wider:2.5) !default;
 //$spaced-values:(one: 1, half: 0.5, plus-half: 1.5, double: 2) !default;
-//$max-layout-cols:12 !default;
-//$widths:() !default;
-//$inc:0 !default;
+$max-layout-cols:12;
+$widths:();
+//$inc:0;
 //
 //@while $inc < 100 {
-//    $inc:$inc + 5 !default;
-//    $widths:map-merge($widths, (#{$inc}p: $inc * 1%)) !default;
+//    $inc:$inc + 5;
+//    $widths:map-merge($widths, (#{$inc}p: $inc * 1%));
 //}
-//
-//@for $i from 1 through $max-layout-cols {
-//    $widths:map-merge($widths, ($i: percentage($i / $max-layout-cols))) !default;
-//}
-//
-//$breakpoints:() !default;
-//$breakpoints:map-merge(
-//        (
-//            xsmall:$width-small - 1,
-//            small:$width-medium - 1,
-//            medium:$width-marge - 1,
-//            marge:$width-960 - 1,
-//            _960:$width-large - 1,
-//            large:$width-xlarge - 1,
-//            xlarge:$width-xxlarge - 1
-//        ),
-//        $breakpoints
-//);
-//
+
+@for $i from 1 through $max-layout-cols {
+    $widths:map-merge($widths, ($i: percentage($i / $max-layout-cols)));
+}
+
+//@debug $widths;
+
+$breakpoints:(
+    s:480px,
+    m:768px,
+    l:960px,
+    xl:1200px,
+);
+
 //////////////////////////
 ///// Booleans
 //////////////////////////

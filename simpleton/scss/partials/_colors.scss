@@ -1,0 +1,15 @@
+.simp {
+    @each $key, $value in $colors-defaults {
+        &.#{$key} {
+            color:$value;
+        }
+
+        &.bg-#{$key} {
+            background-color:$value;
+        }
+
+        &.border-#{$key} {
+            border-color:$value;
+        }
+    }
+}

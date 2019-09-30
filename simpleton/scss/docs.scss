@@ -9,8 +9,22 @@
 //@import "partials/wordpress";
 
 .container {
-  margin: 0 auto;
-  padding: ($gutter * 1.5) $gutter ($gutter * 2);
-  max-width: 800px;
-  width: 100%;
+    margin:0 auto;
+    padding:($padding * 1.5) $alley ($padding * 2);
+    max-width:960px;
+    width:100%;
+}
+
+.colorbox {
+    width:40px;
+    height:40px;
+    border:1px solid $color-graylighter;
+    border-radius:50%;
+    box-shadow:0 0 0 4px #ffffff inset;
+}
+
+.simp.grid.docs {
+    .inner {
+        padding:$padding * 0.5;
+    }
 }

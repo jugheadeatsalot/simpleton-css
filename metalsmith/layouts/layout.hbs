@@ -2,17 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
     <meta name="description" content="{{ description }}">
-    <link rel="stylesheet" href="/assets/css/simpleton.min.css">
-    <link rel="stylesheet" href="/assets/css/docs.min.css">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <header>
         <h1>{{ title }}</h1>
-        <p>{{ description }}</p>
-        <p><a href="/">Home</a></p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/markup/">Markup</a></li>
+                <li><a href="/colors/">Colors</a></li>
+                <li><a href="/buttons/">Buttons</a></li>
+                <li><a href="/grids/">Grids</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         {{{ contents }}}

@@ -1,0 +1,19 @@
+---
+pagetitle: Colors
+layout: layout.hbs
+---
+
+<h1>{{pagetitle}}</h1>
+
+<section class="simp card">
+    <header><h2>Colors</h2></header>
+    <div class="markup">
+        <div class="simp grid tighter">
+            {{#each colors}}
+                <div>
+                    <div class="simp bg-{{this}} colorbox" title="{{this}}"></div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

@@ -105,14 +105,14 @@
 //////////////////////////
 //
 //
-//@mixin clearfix() {
-//    &:after,
-//    &:before {
-//        display:table;
-//        clear:both;
-//        content:'';
-//    }
-//}
+@mixin clearfix() {
+    &:after,
+    &:before {
+        display:table;
+        clear:both;
+        content:'';
+    }
+}
 //
 //@mixin folded-corner($size:$font-size * 0.75, $fold-color:rgba(white, 0.25), $bg-color: #ffffff) {
 //    position:relative;
@@ -128,28 +128,29 @@
 //    }
 //}
 //
-//@mixin video-aspect-ratio($aspect-width:16, $aspect-height:9) {
-//    padding-bottom:percentage($aspect-height / $aspect-width);
-//}
-//
-//@mixin video-container() {
-//    @include video-aspect-ratio();
-//
-//    position:relative;
-//    display:block;
-//    padding-top:25px;
-//    height:0;
-//
-//    iframe,
-//    object,
-//    embed {
-//        position:absolute;
-//        top:0;
-//        left:0;
-//        width:100%;
-//        height:100%;
-//    }
-//}
+@mixin video-aspect-ratio($aspect-width:16, $aspect-height:9) {
+    padding-bottom:percentage($aspect-height / $aspect-width);
+}
+
+@mixin video-container() {
+    @include video-aspect-ratio();
+
+    position:relative;
+    display:block;
+    padding-top:25px;
+    height:0;
+
+    iframe,
+    object,
+    embed {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+
 //
 //@mixin message() {
 //    @include message-colors();
@@ -338,23 +339,24 @@
 //    }
 //}
 //
-//@mixin max($max-width) {
-//    @media (max-width:$max-width) {
-//        @content;
-//    }
-//}
-//
-//@mixin min($min-width) {
-//    @media (min-width:$min-width) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-max($min-width, $max-width) {
-//    @media (min-width:$min-width) and (max-width:$max-width) {
-//        @content;
-//    }
-//}
+@mixin max($max-width) {
+    @media (max-width: $max-width) {
+        @content;
+    }
+}
+
+@mixin min($min-width) {
+    @media (min-width: $min-width) {
+        @content;
+    }
+}
+
+@mixin min-max($min-width, $max-width) {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+        @content;
+    }
+}
+
 //
 //@mixin ie9plus() {
 //    // @formatter:off
@@ -579,80 +581,80 @@
 //}
 //
 @mixin control-margins($scope:all) {
-  $scope-y: $scope == vertical or $scope == all;
-  $scope-x: $scope == horizontal or $scope == all;
+    $scope-y:$scope == vertical or $scope == all;
+    $scope-x:$scope == horizontal or $scope == all;
 
-  @if $scope-y or $scope == top {
-    &:first-child {
-      margin-top: 0 !important;
+    @if $scope-y or $scope == top {
+        &:first-child {
+            margin-top:0 !important;
+        }
     }
-  }
 
-  @if $scope-x or $scope == right {
-    &:last-child {
-      margin-right: 0 !important;
+    @if $scope-x or $scope == right {
+        &:last-child {
+            margin-right:0 !important;
+        }
     }
-  }
 
-  @if $scope-y or $scope == bottom {
-    &:last-child {
-      margin-bottom: 0 !important;
+    @if $scope-y or $scope == bottom {
+        &:last-child {
+            margin-bottom:0 !important;
+        }
     }
-  }
 
-  @if $scope-x or $scope == left {
-    &:first-child {
-      margin-left: 0 !important;
+    @if $scope-x or $scope == left {
+        &:first-child {
+            margin-left:0 !important;
+        }
     }
-  }
 }
 
 @mixin vertical-margins($multiplier:1) {
-  hr {
-    margin-top: ($margin * 1.125) * $multiplier;
-    margin-bottom: ($margin * 1.25) * $multiplier;
-  }
+    hr {
+        margin-top:($margin * 1.125) * $multiplier;
+        margin-bottom:($margin * 1.25) * $multiplier;
+    }
 
-  caption {
-    margin-bottom: ($margin * 0.25) * $multiplier;
-  }
+    caption {
+        margin-bottom:($margin * 0.25) * $multiplier;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @include control-margins(top);
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @include control-margins(top);
 
-    margin-top: $margin-top-h * $multiplier;
-    margin-bottom: $margin-bottom-h * $multiplier;
-  }
+        margin-top:$margin-top-h * $multiplier;
+        margin-bottom:$margin-bottom-h * $multiplier;
+    }
 
-  p,
-  ol,
-  ul,
-  address,
-  blockquote,
-  dl,
-  dt,
-  dd,
-  fieldset,
-  table,
-  pre,
-  form,
-  noscript,
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section {
-    margin-bottom: $margin * $multiplier;
-  }
+    p,
+    ol,
+    ul,
+    address,
+    blockquote,
+    dl,
+    dt,
+    dd,
+    fieldset,
+    table,
+    pre,
+    form,
+    noscript,
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        margin-bottom:$margin * $multiplier;
+    }
 }
