@@ -4,21 +4,22 @@ $alley-sizes-defaults:(
     tightest: 0.25,
     tighter: 0.5,
     tight: 0.75,
+    comfy: 1,
     loose: 1.25,
     looser: 1.5,
     loosest: 1.75,
 );
 $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
 
-@mixin grid-alleys($type:row, $size:false) {
-    $multiplier:1;
+@mixin grid-alleys($type:row, $alley-multiplier:false) {
+    $multiplier:map_get($alley-sizes, comfy);
     $alley:$alley / 2;
 
-    @if ($size != false) {
-        @if index(map_keys($alley-sizes), $size) {
-            $multiplier:map_get($alley-sizes, $size);
-        } @else if isAbsoluteUnitlessNumber($size) {
-            $multiplier:$size;
+    @if ($alley-multiplier) {
+        @if index(map_keys($alley-sizes), $alley-multiplier) {
+            $multiplier:map_get($alley-sizes, $alley-multiplier);
+        } @else if isAbsoluteUnitlessNumber($alley-multiplier) {
+            $multiplier:$alley-multiplier;
         }
     }
 
@@ -31,14 +32,14 @@ $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
     }
 }
 
-@mixin grid($size:false) {
-    @include grid-alleys(row, $size);
+@mixin grid($alley-multiplier:false) {
+    @include grid-alleys(row, $alley-multiplier);
 
     display:flex;
     flex-wrap:wrap;
 
     > * {
-        @include grid-alleys(col, $size);
+        @include grid-alleys(col, $alley-multiplier);
 
         margin-bottom:$margin;
     }
@@ -47,20 +48,20 @@ $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
 .simp.grid {
     @include grid();
 
-    > .simp.d {
-        @each $width-key, $width-value in $widths {
-            &-#{$width-key} {
-                width:$width-value;
+    > .simp.xs {
+        @each $column-key, $column-value in $columns {
+            &-#{$column-key} {
+                width:$column-value;
             }
         }
     }
 
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
         > .simp.#{$breakpoint-key} {
-            @each $width-key, $width-value in $widths {
+            @each $column-key, $column-value in $columns {
                 @include min($breakpoint-value) {
-                    &-#{$width-key} {
-                        width:$width-value;
+                    &-#{$column-key} {
+                        width:$column-value;
                     }
                 }
             }
@@ -75,7 +76,9 @@ $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
                 @include grid-alleys(col, $alley-key);
             }
         }
+    }
 
+    @each $alley-key, $alley-value in $alley-sizes {
         @each $breakpoint-key, $breakpoint-value in $breakpoints {
             &.#{$breakpoint-key}-#{$alley-key} {
                 @include min($breakpoint-value) {

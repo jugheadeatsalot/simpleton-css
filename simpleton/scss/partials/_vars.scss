@@ -1,7 +1,6 @@
 ////////////////////////
 /// Fonts
 ////////////////////////
-
 /// font stacks
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
 $font-stack-sansserif:'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
@@ -10,13 +9,14 @@ $font-stack-heading:$font-stack-general !default;
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
 /// font stacks mapped
 $font-stacks:() !default;
-$font-stacks:map-merge((
+$font-stacks-defaults:(
     serif:$font-stack-serif,
     sans-serif:$font-stack-sansserif,
     general:$font-stack-general,
     heading:$font-stack-heading,
     mono:$font-stack-mono,
-), $font-stacks);
+);
+$font-stacks:map-merge($font-stacks-defaults, $font-stacks);
 /// font sizes
 $font-size-base:16px !default;
 $font-size-general:1rem !default;
@@ -76,7 +76,6 @@ $line-heights:map-merge((
 ////////////////////////
 /// Colors
 ////////////////////////
-
 $color-dark:#323232 !default;
 $color-light:#ffffff !default; // only used in _classes.scss
 $color-gray:lighten(black, 50%) !default;
@@ -148,14 +147,12 @@ $colors:map-merge($colors-defaults, $colors);
 ////////////////////////
 /// Borders
 ////////////////////////
-
 $border-radius:4px !default;
 $border-size:1px !default;
 
 ////////////////////////
 /// Spacing
 ////////////////////////
-
 $margin:$font-size-general * $line-height-general !default;
 $padding:$font-size-general * $line-height-general !default;
 $margin-top-h:$margin * 1.5 !default;
@@ -200,7 +197,6 @@ $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
 ////////////////////////
 /// Animations
 ////////////////////////
-
 $ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
 $ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
 $easing:ease-in-out !default;
@@ -208,67 +204,33 @@ $easing:ease-in-out !default;
 ////////////////////////
 /// Sizes
 ////////////////////////
-
-//$width-xsmall:320px !default;
-//$width-small:480px !default;
-//$width-medium:640px !default;
-//$width-marge:800px !default;
-//$width-960:960px !default;
-//$width-large:1024px !default;
-//$width-xlarge:1280px !default;
-//$width-xxlarge:1440px !default;
-//$width-max-group:$width-xxlarge !default;
-//$width-button:180px !default;
+/// units
 $lengths-absolute:(cm, mm, in, px, pt, pc);
 $lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
 $lengths:join($lengths-absolute, $lengths-relative);
-//$button-sizes:() !default;
-//$button-sizes:map-merge(
-//        (
-//            xsmall:(80%, $padding-button-xsmall),
-//            small:(90%, $padding-button-small),
-//            large:(110%, $padding-button-large),
-//            xlarge:(120%, $padding-button-xlarge)
-//        ),
-//        $button-sizes
-//);
-//
-//////////////////////////
-///// Grids
-//////////////////////////
-//
-//$flex-direction-values:(row, row-reverse, column, column-reverse) !default;
-//$justify-content-values:(flex-start, flex-end, center, space-between, space-around) !default;
-//$flex-wrap-values:(nowrap, wrap, wrap-reverse) !default;
-//$align-items-values:(flex-start, flex-end, center, baseline, stretch) !default;
-//$align-content-values:(flex-start, flex-end, center, space-between, space-around, stretch) !default;
-//$align-self-values:(auto, flex-start, flex-end, center, baseline, stretch) !default;
-//$gutter-sizes:(bound: 0, narrow: 0.5, extended: 1.5, wide: 2, wider:2.5) !default;
-//$spaced-values:(one: 1, half: 0.5, plus-half: 1.5, double: 2) !default;
-$max-layout-cols:12;
-$widths:();
-//$inc:0;
-//
-//@while $inc < 100 {
-//    $inc:$inc + 5;
-//    $widths:map-merge($widths, (#{$inc}p: $inc * 1%));
-//}
-
-@for $i from 1 through $max-layout-cols {
-    $widths:map-merge($widths, ($i: percentage($i / $max-layout-cols)));
+/// breakpoints
+$breakpoint-s:480px !default;
+$breakpoint-m:768px !default;
+$breakpoint-l:960px !default;
+$breakpoint-xl:1200px !default;
+/// breakpoints mapped
+$breakpoints:() !default;
+$breakpoints-defaults:(
+    s:$breakpoint-s,
+    m:$breakpoint-m,
+    l:$breakpoint-l,
+    xl:$breakpoint-xl,
+);
+$breakpoints:map_merge($breakpoints-defaults, $breakpoints);
+/// columns
+$columns:();
+$inc:0;
+@while $inc < 100 {
+    $inc:$inc + 5;
+    $widths:map-merge($columns, (#{$inc}p: $inc * 1%));
 }
 
-//@debug $widths;
-
-$breakpoints:(
-    s:480px,
-    m:768px,
-    l:960px,
-    xl:1200px,
-);
-
-//////////////////////////
-///// Booleans
-//////////////////////////
-//
-//$colorize-buttons:true !default;
+$max-layout-cols:12;
+@for $i from 1 through $max-layout-cols {
+    $widths:map-merge($columns, ($i: percentage($i / $max-layout-cols)));
+}

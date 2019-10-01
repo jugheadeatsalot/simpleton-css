@@ -688,342 +688,6 @@ blockquote {
   margin-bottom: 1.5rem;
 }
 
-.simp.grid > .simp.d-1 {
-  width: 8.33333%;
-}
-
-.simp.grid > .simp.d-2 {
-  width: 16.66667%;
-}
-
-.simp.grid > .simp.d-3 {
-  width: 25%;
-}
-
-.simp.grid > .simp.d-4 {
-  width: 33.33333%;
-}
-
-.simp.grid > .simp.d-5 {
-  width: 41.66667%;
-}
-
-.simp.grid > .simp.d-6 {
-  width: 50%;
-}
-
-.simp.grid > .simp.d-7 {
-  width: 58.33333%;
-}
-
-.simp.grid > .simp.d-8 {
-  width: 66.66667%;
-}
-
-.simp.grid > .simp.d-9 {
-  width: 75%;
-}
-
-.simp.grid > .simp.d-10 {
-  width: 83.33333%;
-}
-
-.simp.grid > .simp.d-11 {
-  width: 91.66667%;
-}
-
-.simp.grid > .simp.d-12 {
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-1 {
-    width: 8.33333%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-2 {
-    width: 16.66667%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-3 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-4 {
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-5 {
-    width: 41.66667%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-6 {
-    width: 50%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-7 {
-    width: 58.33333%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-8 {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-9 {
-    width: 75%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-10 {
-    width: 83.33333%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-11 {
-    width: 91.66667%;
-  }
-}
-
-@media (min-width: 480px) {
-  .simp.grid > .simp.s-12 {
-    width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-1 {
-    width: 8.33333%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-2 {
-    width: 16.66667%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-3 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-4 {
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-5 {
-    width: 41.66667%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-6 {
-    width: 50%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-7 {
-    width: 58.33333%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-8 {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-9 {
-    width: 75%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-10 {
-    width: 83.33333%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-11 {
-    width: 91.66667%;
-  }
-}
-
-@media (min-width: 768px) {
-  .simp.grid > .simp.m-12 {
-    width: 100%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-1 {
-    width: 8.33333%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-2 {
-    width: 16.66667%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-3 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-4 {
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-5 {
-    width: 41.66667%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-6 {
-    width: 50%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-7 {
-    width: 58.33333%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-8 {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-9 {
-    width: 75%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-10 {
-    width: 83.33333%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-11 {
-    width: 91.66667%;
-  }
-}
-
-@media (min-width: 960px) {
-  .simp.grid > .simp.l-12 {
-    width: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-1 {
-    width: 8.33333%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-2 {
-    width: 16.66667%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-3 {
-    width: 25%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-4 {
-    width: 33.33333%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-5 {
-    width: 41.66667%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-6 {
-    width: 50%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-7 {
-    width: 58.33333%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-8 {
-    width: 66.66667%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-9 {
-    width: 75%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-10 {
-    width: 83.33333%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-11 {
-    width: 91.66667%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .simp.grid > .simp.xl-12 {
-    width: 100%;
-  }
-}
-
 .simp.grid.noalley {
   margin-right: 0rem;
   margin-left: 0rem;
@@ -1032,6 +696,76 @@ blockquote {
 .simp.grid.noalley > * {
   padding-right: 0rem;
   padding-left: 0rem;
+}
+
+.simp.grid.tightest {
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+}
+
+.simp.grid.tightest > * {
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.simp.grid.tighter {
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+}
+
+.simp.grid.tighter > * {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.simp.grid.tight {
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+.simp.grid.tight > * {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.simp.grid.comfy {
+  margin-right: -1rem;
+  margin-left: -1rem;
+}
+
+.simp.grid.comfy > * {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.simp.grid.loose {
+  margin-right: -1.25rem;
+  margin-left: -1.25rem;
+}
+
+.simp.grid.loose > * {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.simp.grid.looser {
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+}
+
+.simp.grid.looser > * {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.simp.grid.loosest {
+  margin-right: -1.75rem;
+  margin-left: -1.75rem;
+}
+
+.simp.grid.loosest > * {
+  padding-right: 1.75rem;
+  padding-left: 1.75rem;
 }
 
 @media (min-width: 480px) {
@@ -1078,16 +812,6 @@ blockquote {
   }
 }
 
-.simp.grid.tightest {
-  margin-right: -0.25rem;
-  margin-left: -0.25rem;
-}
-
-.simp.grid.tightest > * {
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
-}
-
 @media (min-width: 480px) {
   .simp.grid.s-tightest {
     margin-right: -0.25rem;
@@ -1130,16 +854,6 @@ blockquote {
     padding-right: 0.25rem;
     padding-left: 0.25rem;
   }
-}
-
-.simp.grid.tighter {
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
-}
-
-.simp.grid.tighter > * {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
 }
 
 @media (min-width: 480px) {
@@ -1186,16 +900,6 @@ blockquote {
   }
 }
 
-.simp.grid.tight {
-  margin-right: -0.75rem;
-  margin-left: -0.75rem;
-}
-
-.simp.grid.tight > * {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-}
-
 @media (min-width: 480px) {
   .simp.grid.s-tight {
     margin-right: -0.75rem;
@@ -1240,14 +944,48 @@ blockquote {
   }
 }
 
-.simp.grid.loose {
-  margin-right: -1.25rem;
-  margin-left: -1.25rem;
+@media (min-width: 480px) {
+  .simp.grid.s-comfy {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  .simp.grid.s-comfy > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
-.simp.grid.loose > * {
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+@media (min-width: 768px) {
+  .simp.grid.m-comfy {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  .simp.grid.m-comfy > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .simp.grid.l-comfy {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  .simp.grid.l-comfy > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .simp.grid.xl-comfy {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+  .simp.grid.xl-comfy > * {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 @media (min-width: 480px) {
@@ -1294,16 +1032,6 @@ blockquote {
   }
 }
 
-.simp.grid.looser {
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
-}
-
-.simp.grid.looser > * {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-}
-
 @media (min-width: 480px) {
   .simp.grid.s-looser {
     margin-right: -1.5rem;
@@ -1346,16 +1074,6 @@ blockquote {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
-}
-
-.simp.grid.loosest {
-  margin-right: -1.75rem;
-  margin-left: -1.75rem;
-}
-
-.simp.grid.loosest > * {
-  padding-right: 1.75rem;
-  padding-left: 1.75rem;
 }
 
 @media (min-width: 480px) {
