@@ -3,12 +3,11 @@
 ////////////////////////
 /// font stacks
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
-$font-stack-sansserif:'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-stack-sansserif:Muli, 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $font-stack-general:$font-stack-sansserif !default;
 $font-stack-heading:$font-stack-general !default;
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
 /// font stacks mapped
-$font-stacks:() !default;
 $font-stacks-defaults:(
     serif:$font-stack-serif,
     sans-serif:$font-stack-sansserif,
@@ -16,6 +15,7 @@ $font-stacks-defaults:(
     heading:$font-stack-heading,
     mono:$font-stack-mono,
 );
+$font-stacks:() !default;
 $font-stacks:map-merge($font-stacks-defaults, $font-stacks);
 /// font sizes
 $font-size-base:16px !default;
@@ -31,8 +31,7 @@ $font-size-h2:1.6em !default;
 $font-size-h3:1.4em !default;
 $font-size-h4:1.2em !default;
 /// font sizes mapped
-$font-sizes:() !default;
-$font-sizes:map-merge((
+$font-sizes-defaults:(
     base:$font-size-base,
     general:$font-size-general,
     big:$font-size-big,
@@ -44,19 +43,21 @@ $font-sizes:map-merge((
     h1:$font-size-h1,
     h2:$font-size-h2,
     h3:$font-size-h3,
-    h4:$font-size-h4,
-), $font-sizes);
+    h4:$font-size-h4,);
+$font-sizes:() !default;
+$font-sizes:map-merge($font-sizes-defaults, $font-sizes);
 /// font weights
 $font-weight-normal:400 !default;
 $font-weight-bold:700 !default;
 $font-weight-heading:$font-weight-bold !default;
 /// font weights mapped
-$font-weights:() !default;
-$font-weights:map-merge((
+$font-weights-defaults:(
     normal:$font-weight-normal,
     bold:$font-weight-bold,
     heading:$font-weight-heading,
-), $font-weights);
+);
+$font-weights:() !default;
+$font-weights:map-merge($font-weights-defaults, $font-weights);
 /// line heights
 $line-height-general:1.5 !default;
 $line-height-h1:1.15 !default;
@@ -64,14 +65,15 @@ $line-height-h2:1.25 !default;
 $line-height-h3:1.35 !default;
 $line-height-h4:1.45 !default;
 /// line heights mapped
-$line-heights:() !default;
-$line-heights:map-merge((
+$line-heights-defaults:(
     general:$line-height-general,
     h1:$line-height-h1,
     h2:$line-height-h2,
     h3:$line-height-h3,
     h4:$line-height-h4,
-), $line-heights);
+);
+$line-heights:() !default;
+$line-heights:map-merge($line-heights-defaults, $line-heights);
 
 ////////////////////////
 /// Colors
@@ -204,33 +206,37 @@ $easing:ease-in-out !default;
 ////////////////////////
 /// Sizes
 ////////////////////////
-/// units
-$lengths-absolute:(cm, mm, in, px, pt, pc);
-$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
-$lengths:join($lengths-absolute, $lengths-relative);
 /// breakpoints
 $breakpoint-s:480px !default;
 $breakpoint-m:768px !default;
 $breakpoint-l:960px !default;
 $breakpoint-xl:1200px !default;
 /// breakpoints mapped
-$breakpoints:() !default;
 $breakpoints-defaults:(
     s:$breakpoint-s,
     m:$breakpoint-m,
     l:$breakpoint-l,
     xl:$breakpoint-xl,
 );
+$breakpoints:() !default;
 $breakpoints:map_merge($breakpoints-defaults, $breakpoints);
 /// columns
 $columns:();
 $inc:0;
 @while $inc < 100 {
     $inc:$inc + 5;
-    $widths:map-merge($columns, (#{$inc}p: $inc * 1%));
+    $columns:map-merge($columns, (#{$inc}p: $inc * 1%));
 }
 
 $max-layout-cols:12;
 @for $i from 1 through $max-layout-cols {
-    $widths:map-merge($columns, ($i: percentage($i / $max-layout-cols)));
+    $columns:map-merge($columns, ($i: percentage($i / $max-layout-cols)));
 }
+
+////////////////////////
+/// Etcetera
+////////////////////////
+/// units
+$lengths-absolute:(cm, mm, in, px, pt, pc);
+$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
+$lengths:join($lengths-absolute, $lengths-relative);

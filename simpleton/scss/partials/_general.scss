@@ -1,5 +1,11 @@
 @include vertical-margins();
 
+.simp.container {
+    * {
+        @include control-margins(bottom);
+    }
+}
+
 p {
     &:empty {
         display:none;

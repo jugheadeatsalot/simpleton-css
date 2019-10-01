@@ -113,6 +113,7 @@
         content:'';
     }
 }
+
 //
 //@mixin folded-corner($size:$font-size * 0.75, $fold-color:rgba(white, 0.25), $bg-color: #ffffff) {
 //    position:relative;
@@ -340,19 +341,19 @@
 //}
 //
 @mixin max($max-width) {
-    @media (max-width: $max-width) {
+    @media (max-width:$max-width) {
         @content;
     }
 }
 
 @mixin min($min-width) {
-    @media (min-width: $min-width) {
+    @media (min-width:$min-width) {
         @content;
     }
 }
 
 @mixin min-max($min-width, $max-width) {
-    @media (min-width: $min-width) and (max-width: $max-width) {
+    @media (min-width:$min-width) and (max-width:$max-width) {
         @content;
     }
 }
@@ -585,25 +586,25 @@
     $scope-x:$scope == horizontal or $scope == all;
 
     @if $scope-y or $scope == top {
-        &:first-child {
+        &:first-child:not(.f-margins) {
             margin-top:0 !important;
         }
     }
 
     @if $scope-x or $scope == right {
-        &:last-child {
+        &:last-child:not(.f-margins) {
             margin-right:0 !important;
         }
     }
 
     @if $scope-y or $scope == bottom {
-        &:last-child {
+        &:last-child:not(.f-margins) {
             margin-bottom:0 !important;
         }
     }
 
     @if $scope-x or $scope == left {
-        &:first-child {
+        &:first-child:not(.f-margins) {
             margin-left:0 !important;
         }
     }

@@ -1,11 +1,11 @@
 .simp {
-    @each $key, $value in $colors-defaults {
-        &.#{$key} {
-            color:$value;
+    @each $color-key, $color-value in $colors {
+        &.#{$color-key} {
+            color:$color-value;
         }
 
-        &.bg-#{$key} {
-            background-color:$value;
+        &.bg-#{$color-key} {
+            background-color:$color-value;
         }
     }
 }

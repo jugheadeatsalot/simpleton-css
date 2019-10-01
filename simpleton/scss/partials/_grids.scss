@@ -48,26 +48,6 @@ $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
 .simp.grid {
     @include grid();
 
-    > .simp.xs {
-        @each $column-key, $column-value in $columns {
-            &-#{$column-key} {
-                width:$column-value;
-            }
-        }
-    }
-
-    @each $breakpoint-key, $breakpoint-value in $breakpoints {
-        > .simp.#{$breakpoint-key} {
-            @each $column-key, $column-value in $columns {
-                @include min($breakpoint-value) {
-                    &-#{$column-key} {
-                        width:$column-value;
-                    }
-                }
-            }
-        }
-    }
-
     @each $alley-key, $alley-value in $alley-sizes {
         &.#{$alley-key} {
             @include grid-alleys(row, $alley-key);
@@ -86,6 +66,26 @@ $alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
 
                     > * {
                         @include grid-alleys(col, $alley-key);
+                    }
+                }
+            }
+        }
+    }
+
+    > .simp.xs {
+        @each $column-key, $column-value in $columns {
+            &-#{$column-key} {
+                width:$column-value;
+            }
+        }
+    }
+
+    @each $breakpoint-key, $breakpoint-value in $breakpoints {
+        > .simp.#{$breakpoint-key} {
+            @each $column-key, $column-value in $columns {
+                @include min($breakpoint-value) {
+                    &-#{$column-key} {
+                        width:$column-value;
                     }
                 }
             }
