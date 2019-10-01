@@ -112,7 +112,12 @@ ol {
 
 ol,
 ul {
-    margin-left:1em;
+    margin-left:calc(1em + 4px);
+
+    ol,
+    ul {
+        margin-left:1em;
+    }
 }
 
 pre {

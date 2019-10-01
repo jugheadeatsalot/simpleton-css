@@ -113,6 +113,13 @@ ol {
 
 ol,
 ul {
+  margin-left: calc(1em + 4px);
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
   margin-left: 1em;
 }
 
@@ -290,7 +297,7 @@ sup {
   display: none;
 }
 
-.simp.dark {
+.simp.text-dark {
   color: #323232;
 }
 
@@ -298,7 +305,7 @@ sup {
   background-color: #323232;
 }
 
-.simp.light {
+.simp.text-light {
   color: #ffffff;
 }
 
@@ -306,7 +313,7 @@ sup {
   background-color: #ffffff;
 }
 
-.simp.gray {
+.simp.text-gray {
   color: gray;
 }
 
@@ -314,7 +321,7 @@ sup {
   background-color: gray;
 }
 
-.simp.graylight {
+.simp.text-graylight {
   color: #bfbfbf;
 }
 
@@ -322,7 +329,7 @@ sup {
   background-color: #bfbfbf;
 }
 
-.simp.graylighter {
+.simp.text-graylighter {
   color: #d9d9d9;
 }
 
@@ -330,7 +337,7 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.graylightest {
+.simp.text-graylightest {
   color: #f2f2f2;
 }
 
@@ -338,7 +345,7 @@ sup {
   background-color: #f2f2f2;
 }
 
-.simp.graydark {
+.simp.text-graydark {
   color: #737373;
 }
 
@@ -346,7 +353,7 @@ sup {
   background-color: #737373;
 }
 
-.simp.graydarker {
+.simp.text-graydarker {
   color: #666666;
 }
 
@@ -354,7 +361,7 @@ sup {
   background-color: #666666;
 }
 
-.simp.graydarkest {
+.simp.text-graydarkest {
   color: #595959;
 }
 
@@ -362,7 +369,7 @@ sup {
   background-color: #595959;
 }
 
-.simp.text {
+.simp.text-text {
   color: #323232;
 }
 
@@ -370,7 +377,7 @@ sup {
   background-color: #323232;
 }
 
-.simp.primary {
+.simp.text-primary {
   color: #2e86de;
 }
 
@@ -378,7 +385,7 @@ sup {
   background-color: #2e86de;
 }
 
-.simp.secondary {
+.simp.text-secondary {
   color: #576574;
 }
 
@@ -386,7 +393,7 @@ sup {
   background-color: #576574;
 }
 
-.simp.accent {
+.simp.text-accent {
   color: #ee5253;
 }
 
@@ -394,7 +401,7 @@ sup {
   background-color: #ee5253;
 }
 
-.simp.idle {
+.simp.text-idle {
   color: #d9d9d9;
 }
 
@@ -402,7 +409,7 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.success {
+.simp.text-success {
   color: #10ac84;
 }
 
@@ -410,7 +417,7 @@ sup {
   background-color: #10ac84;
 }
 
-.simp.alert {
+.simp.text-alert {
   color: #ee5253;
 }
 
@@ -418,7 +425,7 @@ sup {
   background-color: #ee5253;
 }
 
-.simp.warning {
+.simp.text-warning {
   color: #ff9f43;
 }
 
@@ -426,7 +433,7 @@ sup {
   background-color: #ff9f43;
 }
 
-.simp.highlight {
+.simp.text-highlight {
   color: #feca57;
 }
 
@@ -434,7 +441,7 @@ sup {
   background-color: #feca57;
 }
 
-.simp.border {
+.simp.text-border {
   color: #d9d9d9;
 }
 
@@ -442,7 +449,7 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.quote {
+.simp.text-quote {
   color: #d9d9d9;
 }
 
@@ -450,7 +457,7 @@ sup {
   background-color: #d9d9d9;
 }
 
-.simp.dribbble {
+.simp.text-dribbble {
   color: #ea4c89;
 }
 
@@ -458,7 +465,7 @@ sup {
   background-color: #ea4c89;
 }
 
-.simp.facebook {
+.simp.text-facebook {
   color: #3b5998;
 }
 
@@ -466,7 +473,7 @@ sup {
   background-color: #3b5998;
 }
 
-.simp.flickr {
+.simp.text-flickr {
   color: #ff0084;
 }
 
@@ -474,7 +481,7 @@ sup {
   background-color: #ff0084;
 }
 
-.simp.instagram {
+.simp.text-instagram {
   color: #517fa4;
 }
 
@@ -482,7 +489,7 @@ sup {
   background-color: #517fa4;
 }
 
-.simp.linkedin {
+.simp.text-linkedin {
   color: #0077b5;
 }
 
@@ -490,7 +497,7 @@ sup {
   background-color: #0077b5;
 }
 
-.simp.medium {
+.simp.text-medium {
   color: #00ab6b;
 }
 
@@ -498,7 +505,7 @@ sup {
   background-color: #00ab6b;
 }
 
-.simp.pinterest {
+.simp.text-pinterest {
   color: #bd081c;
 }
 
@@ -506,7 +513,7 @@ sup {
   background-color: #bd081c;
 }
 
-.simp.rss {
+.simp.text-rss {
   color: #f26522;
 }
 
@@ -514,7 +521,7 @@ sup {
   background-color: #f26522;
 }
 
-.simp.tumblr {
+.simp.text-tumblr {
   color: #35465c;
 }
 
@@ -522,7 +529,7 @@ sup {
   background-color: #35465c;
 }
 
-.simp.twitter {
+.simp.text-twitter {
   color: #55acee;
 }
 
@@ -530,7 +537,7 @@ sup {
   background-color: #55acee;
 }
 
-.simp.youtube {
+.simp.text-youtube {
   color: #b31217;
 }
 
@@ -539,8 +546,8 @@ sup {
 }
 
 hr {
-  margin-top: 1.6875rem;
-  margin-bottom: 1.875rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.6875rem;
 }
 
 caption {
@@ -553,7 +560,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 2.25rem;
+  margin-top: 2.0625rem;
   margin-bottom: 1.125rem;
 }
 
@@ -680,447 +687,447 @@ blockquote {
 }
 
 .simp.grid {
-  margin-right: -1rem;
-  margin-left: -1rem;
+  margin-right: -15px;
+  margin-left: -15px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .simp.grid > * {
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-bottom: 1.5rem;
 }
 
 .simp.grid.noalley {
-  margin-right: 0rem;
-  margin-left: 0rem;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .simp.grid.noalley > * {
-  padding-right: 0rem;
-  padding-left: 0rem;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .simp.grid.tightest {
-  margin-right: -0.25rem;
-  margin-left: -0.25rem;
+  margin-right: -3.75px;
+  margin-left: -3.75px;
 }
 
 .simp.grid.tightest > * {
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
+  padding-right: 3.75px;
+  padding-left: 3.75px;
 }
 
 .simp.grid.tighter {
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
+  margin-right: -7.5px;
+  margin-left: -7.5px;
 }
 
 .simp.grid.tighter > * {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
 }
 
 .simp.grid.tight {
-  margin-right: -0.75rem;
-  margin-left: -0.75rem;
+  margin-right: -11.25px;
+  margin-left: -11.25px;
 }
 
 .simp.grid.tight > * {
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  padding-right: 11.25px;
+  padding-left: 11.25px;
 }
 
 .simp.grid.comfy {
-  margin-right: -1rem;
-  margin-left: -1rem;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .simp.grid.comfy > * {
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .simp.grid.loose {
-  margin-right: -1.25rem;
-  margin-left: -1.25rem;
+  margin-right: -18.75px;
+  margin-left: -18.75px;
 }
 
 .simp.grid.loose > * {
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
+  padding-right: 18.75px;
+  padding-left: 18.75px;
 }
 
 .simp.grid.looser {
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
+  margin-right: -22.5px;
+  margin-left: -22.5px;
 }
 
 .simp.grid.looser > * {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding-right: 22.5px;
+  padding-left: 22.5px;
 }
 
 .simp.grid.loosest {
-  margin-right: -1.75rem;
-  margin-left: -1.75rem;
+  margin-right: -26.25px;
+  margin-left: -26.25px;
 }
 
 .simp.grid.loosest > * {
-  padding-right: 1.75rem;
-  padding-left: 1.75rem;
+  padding-right: 26.25px;
+  padding-left: 26.25px;
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-noalley {
-    margin-right: 0rem;
-    margin-left: 0rem;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .simp.grid.s-noalley > * {
-    padding-right: 0rem;
-    padding-left: 0rem;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-noalley {
-    margin-right: 0rem;
-    margin-left: 0rem;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .simp.grid.m-noalley > * {
-    padding-right: 0rem;
-    padding-left: 0rem;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-noalley {
-    margin-right: 0rem;
-    margin-left: 0rem;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .simp.grid.l-noalley > * {
-    padding-right: 0rem;
-    padding-left: 0rem;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-noalley {
-    margin-right: 0rem;
-    margin-left: 0rem;
+    margin-right: 0px;
+    margin-left: 0px;
   }
   .simp.grid.xl-noalley > * {
-    padding-right: 0rem;
-    padding-left: 0rem;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-tightest {
-    margin-right: -0.25rem;
-    margin-left: -0.25rem;
+    margin-right: -3.75px;
+    margin-left: -3.75px;
   }
   .simp.grid.s-tightest > * {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    padding-right: 3.75px;
+    padding-left: 3.75px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-tightest {
-    margin-right: -0.25rem;
-    margin-left: -0.25rem;
+    margin-right: -3.75px;
+    margin-left: -3.75px;
   }
   .simp.grid.m-tightest > * {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    padding-right: 3.75px;
+    padding-left: 3.75px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-tightest {
-    margin-right: -0.25rem;
-    margin-left: -0.25rem;
+    margin-right: -3.75px;
+    margin-left: -3.75px;
   }
   .simp.grid.l-tightest > * {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    padding-right: 3.75px;
+    padding-left: 3.75px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-tightest {
-    margin-right: -0.25rem;
-    margin-left: -0.25rem;
+    margin-right: -3.75px;
+    margin-left: -3.75px;
   }
   .simp.grid.xl-tightest > * {
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
+    padding-right: 3.75px;
+    padding-left: 3.75px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-tighter {
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
   }
   .simp.grid.s-tighter > * {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-tighter {
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
   }
   .simp.grid.m-tighter > * {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-tighter {
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
   }
   .simp.grid.l-tighter > * {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-tighter {
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
   }
   .simp.grid.xl-tighter > * {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-tight {
-    margin-right: -0.75rem;
-    margin-left: -0.75rem;
+    margin-right: -11.25px;
+    margin-left: -11.25px;
   }
   .simp.grid.s-tight > * {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    padding-right: 11.25px;
+    padding-left: 11.25px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-tight {
-    margin-right: -0.75rem;
-    margin-left: -0.75rem;
+    margin-right: -11.25px;
+    margin-left: -11.25px;
   }
   .simp.grid.m-tight > * {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    padding-right: 11.25px;
+    padding-left: 11.25px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-tight {
-    margin-right: -0.75rem;
-    margin-left: -0.75rem;
+    margin-right: -11.25px;
+    margin-left: -11.25px;
   }
   .simp.grid.l-tight > * {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    padding-right: 11.25px;
+    padding-left: 11.25px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-tight {
-    margin-right: -0.75rem;
-    margin-left: -0.75rem;
+    margin-right: -11.25px;
+    margin-left: -11.25px;
   }
   .simp.grid.xl-tight > * {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    padding-right: 11.25px;
+    padding-left: 11.25px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-comfy {
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -15px;
+    margin-left: -15px;
   }
   .simp.grid.s-comfy > * {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-comfy {
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -15px;
+    margin-left: -15px;
   }
   .simp.grid.m-comfy > * {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-comfy {
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -15px;
+    margin-left: -15px;
   }
   .simp.grid.l-comfy > * {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-comfy {
-    margin-right: -1rem;
-    margin-left: -1rem;
+    margin-right: -15px;
+    margin-left: -15px;
   }
   .simp.grid.xl-comfy > * {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-loose {
-    margin-right: -1.25rem;
-    margin-left: -1.25rem;
+    margin-right: -18.75px;
+    margin-left: -18.75px;
   }
   .simp.grid.s-loose > * {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
+    padding-right: 18.75px;
+    padding-left: 18.75px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-loose {
-    margin-right: -1.25rem;
-    margin-left: -1.25rem;
+    margin-right: -18.75px;
+    margin-left: -18.75px;
   }
   .simp.grid.m-loose > * {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
+    padding-right: 18.75px;
+    padding-left: 18.75px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-loose {
-    margin-right: -1.25rem;
-    margin-left: -1.25rem;
+    margin-right: -18.75px;
+    margin-left: -18.75px;
   }
   .simp.grid.l-loose > * {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
+    padding-right: 18.75px;
+    padding-left: 18.75px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-loose {
-    margin-right: -1.25rem;
-    margin-left: -1.25rem;
+    margin-right: -18.75px;
+    margin-left: -18.75px;
   }
   .simp.grid.xl-loose > * {
-    padding-right: 1.25rem;
-    padding-left: 1.25rem;
+    padding-right: 18.75px;
+    padding-left: 18.75px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-looser {
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: -22.5px;
+    margin-left: -22.5px;
   }
   .simp.grid.s-looser > * {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 22.5px;
+    padding-left: 22.5px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-looser {
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: -22.5px;
+    margin-left: -22.5px;
   }
   .simp.grid.m-looser > * {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 22.5px;
+    padding-left: 22.5px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-looser {
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: -22.5px;
+    margin-left: -22.5px;
   }
   .simp.grid.l-looser > * {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 22.5px;
+    padding-left: 22.5px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-looser {
-    margin-right: -1.5rem;
-    margin-left: -1.5rem;
+    margin-right: -22.5px;
+    margin-left: -22.5px;
   }
   .simp.grid.xl-looser > * {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 22.5px;
+    padding-left: 22.5px;
   }
 }
 
 @media (min-width: 480px) {
   .simp.grid.s-loosest {
-    margin-right: -1.75rem;
-    margin-left: -1.75rem;
+    margin-right: -26.25px;
+    margin-left: -26.25px;
   }
   .simp.grid.s-loosest > * {
-    padding-right: 1.75rem;
-    padding-left: 1.75rem;
+    padding-right: 26.25px;
+    padding-left: 26.25px;
   }
 }
 
 @media (min-width: 768px) {
   .simp.grid.m-loosest {
-    margin-right: -1.75rem;
-    margin-left: -1.75rem;
+    margin-right: -26.25px;
+    margin-left: -26.25px;
   }
   .simp.grid.m-loosest > * {
-    padding-right: 1.75rem;
-    padding-left: 1.75rem;
+    padding-right: 26.25px;
+    padding-left: 26.25px;
   }
 }
 
 @media (min-width: 960px) {
   .simp.grid.l-loosest {
-    margin-right: -1.75rem;
-    margin-left: -1.75rem;
+    margin-right: -26.25px;
+    margin-left: -26.25px;
   }
   .simp.grid.l-loosest > * {
-    padding-right: 1.75rem;
-    padding-left: 1.75rem;
+    padding-right: 26.25px;
+    padding-left: 26.25px;
   }
 }
 
 @media (min-width: 1200px) {
   .simp.grid.xl-loosest {
-    margin-right: -1.75rem;
-    margin-left: -1.75rem;
+    margin-right: -26.25px;
+    margin-left: -26.25px;
   }
   .simp.grid.xl-loosest > * {
-    padding-right: 1.75rem;
-    padding-left: 1.75rem;
+    padding-right: 26.25px;
+    padding-left: 26.25px;
   }
 }
 

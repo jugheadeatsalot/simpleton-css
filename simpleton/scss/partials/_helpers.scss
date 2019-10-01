@@ -612,8 +612,8 @@
 
 @mixin vertical-margins($multiplier:1) {
     hr {
-        margin-top:($margin * 1.125) * $multiplier;
-        margin-bottom:($margin * 1.25) * $multiplier;
+        margin-top:($margin) * $multiplier;
+        margin-bottom:($margin * 1.125) * $multiplier;
     }
 
     caption {

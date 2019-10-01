@@ -1,6 +1,6 @@
 .simp {
     @each $color-key, $color-value in $colors {
-        &.#{$color-key} {
+        &.text-#{$color-key} {
             color:$color-value;
         }
 
