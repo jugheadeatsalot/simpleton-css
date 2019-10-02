@@ -1,5 +1,5 @@
 $alley-sizes:() !default;
-$alley-sizes-defaults:(
+$alley-sizes:map_merge((
     noalley: 0,
     tightest: 0.25,
     tighter: 0.5,
@@ -8,8 +8,7 @@ $alley-sizes-defaults:(
     loose: 1.25,
     looser: 1.5,
     loosest: 1.75,
-);
-$alley-sizes:map_merge($alley-sizes-defaults, $alley-sizes);
+), $alley-sizes);
 
 @mixin grid-alleys($type:row, $alley-multiplier:false) {
     $multiplier:map_get($alley-sizes, comfy);

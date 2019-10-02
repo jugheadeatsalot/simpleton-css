@@ -10,15 +10,14 @@ $font-stack-heading:$font-stack-general !default;
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
 
 /// font stacks mapped
-$font-stacks-defaults:(
+$font-stacks:() !default;
+$font-stacks:map-merge((
     serif:$font-stack-serif,
     sansserif:$font-stack-sansserif,
     general:$font-stack-general,
     heading:$font-stack-heading,
     mono:$font-stack-mono,
-);
-$font-stacks:() !default;
-$font-stacks:map-merge($font-stacks-defaults, $font-stacks);
+), $font-stacks);
 
 /// font sizes
 $font-size-base:16px !default;
@@ -35,7 +34,8 @@ $font-size-h3:1.4em !default;
 $font-size-h4:1.2em !default;
 
 /// font sizes mapped
-$font-sizes-defaults:(
+$font-sizes:() !default;
+$font-sizes:map-merge((
     base:$font-size-base,
     general:$font-size-general,
     big:$font-size-big,
@@ -47,9 +47,8 @@ $font-sizes-defaults:(
     h1:$font-size-h1,
     h2:$font-size-h2,
     h3:$font-size-h3,
-    h4:$font-size-h4,);
-$font-sizes:() !default;
-$font-sizes:map-merge($font-sizes-defaults, $font-sizes);
+    h4:$font-size-h4,
+), $font-sizes);
 
 /// font weights
 $font-weight-normal:400 !default;
@@ -57,13 +56,12 @@ $font-weight-bold:700 !default;
 $font-weight-heading:$font-weight-bold !default;
 
 /// font weights mapped
-$font-weights-defaults:(
+$font-weights:() !default;
+$font-weights:map-merge((
     normal:$font-weight-normal,
     bold:$font-weight-bold,
     heading:$font-weight-heading,
-);
-$font-weights:() !default;
-$font-weights:map-merge($font-weights-defaults, $font-weights);
+), $font-weights);
 
 /// line heights
 $line-height-general:1.5 !default;
@@ -73,15 +71,14 @@ $line-height-h3:1.35 !default;
 $line-height-h4:1.45 !default;
 
 /// line heights mapped
-$line-heights-defaults:(
+$line-heights:() !default;
+$line-heights:map-merge((
     general:$line-height-general,
     h1:$line-height-h1,
     h2:$line-height-h2,
     h3:$line-height-h3,
     h4:$line-height-h4,
-);
-$line-heights:() !default;
-$line-heights:map-merge($line-heights-defaults, $line-heights);
+), $line-heights);
 
 ////////////////////////
 /// Colors
@@ -121,7 +118,8 @@ $color-twitter:#55acee !default;
 $color-youtube:#b31217 !default;
 
 /// colors mapped
-$colors-defaults:(
+$colors:() !default;
+$colors:map-merge((
     dark: $color-dark,
     light: $color-light,
     gray: $color-gray,
@@ -153,9 +151,7 @@ $colors-defaults:(
     tumblr: $color-tumblr,
     twitter: $color-twitter,
     youtube: $color-youtube,
-);
-$colors:() !default;
-$colors:map-merge($colors-defaults, $colors);
+), $colors);
 
 ////////////////////////
 /// Borders
@@ -223,14 +219,13 @@ $breakpoint-l:960px !default;
 $breakpoint-xl:1200px !default;
 
 /// breakpoints mapped
-$breakpoints-defaults:(
+$breakpoints:() !default;
+$breakpoints:map_merge((
     s:$breakpoint-s,
     m:$breakpoint-m,
     l:$breakpoint-l,
     xl:$breakpoint-xl,
-);
-$breakpoints:() !default;
-$breakpoints:map_merge($breakpoints-defaults, $breakpoints);
+), $breakpoints);
 
 /// columns
 $columns:();

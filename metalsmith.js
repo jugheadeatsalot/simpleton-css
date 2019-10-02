@@ -7,47 +7,14 @@ const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
 const ignore = require('metalsmith-ignore');
-
-const colors = [
-    'dark',
-    'light',
-    'gray',
-    'graylight',
-    'graylighter',
-    'graylightest',
-    'graydark',
-    'graydarker',
-    'graydarkest',
-    'text',
-    'primary',
-    'secondary',
-    'accent',
-    'idle',
-    'success',
-    'alert',
-    'warning',
-    'highlight',
-    'border',
-    'quote',
-    'dribbble',
-    'facebook',
-    'flickr',
-    'instagram',
-    'linkedin',
-    'medium',
-    'pinterest',
-    'rss',
-    'tumblr',
-    'twitter',
-    'youtube',
-];
+const {sassVars} = require('./data');
 
 Metalsmith(__dirname)
     .metadata({
         version: '1.0.0',
         title: 'Simpleton CSS',
         description: 'Just a simple CSS starter.',
-        colors,
+        sassVars,
     })
     .clean(true)
     .source('metalsmith/src')
