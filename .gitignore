@@ -8,3 +8,4 @@ node_modules/
 *.bat
 *.log
 npm-debug.*
+docs-dev/

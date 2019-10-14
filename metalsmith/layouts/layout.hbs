@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
     <meta name="description" content="{{ description }}">
-    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
-    <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700,700i" rel="stylesheet">
+    {{#if isProduction}}
+        <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
+        <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
+    {{else}}
+        <script>
+            const simp = document.createElement('link');
+
+            simp.rel = 'stylesheet';
+            simp.href = `/assets/css/simpleton.min.css?v=${new Date().getTime()}`;
+
+            const docs = document.createElement('link');
+
+            docs.rel = 'stylesheet';
+            docs.href = `/assets/css/docs.min.css?v=${new Date().getTime()}`;
+
+            document.getElementsByTagName('head')[0].appendChild(simp);
+            document.getElementsByTagName('head')[0].appendChild(docs);
+        </script>
+    {{/if}}
 </head>
 <body>
 <div class="simp container">
@@ -27,5 +43,8 @@
         {{{ contents }}}
     </main>
 </div>
+{{#unless isProduction}}
+    <script src="http://localhost:35729/livereload.js"></script>
+{{/unless}}
 </body>
 </html>

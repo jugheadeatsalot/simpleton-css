@@ -9,16 +9,19 @@ const assets = require('metalsmith-static');
 const ignore = require('metalsmith-ignore');
 const {sassVars} = require('./data');
 
-Metalsmith(__dirname)
+const isProduction = process.env.NODE_ENV === 'production';
+
+const metalsmith = Metalsmith(__dirname)
     .metadata({
         version: '1.0.0',
         title: 'Simpleton CSS',
         description: 'Just a simple CSS starter.',
+        isProduction: isProduction,
         sassVars,
     })
     .clean(true)
     .source('metalsmith/src')
-    .destination('public')
+    .destination(isProduction ? 'docs' : 'docs-dev')
     .use(inPlace({
         suppressNoFilesError: true,
     }))
@@ -43,15 +46,20 @@ Metalsmith(__dirname)
     .use(assets({
         src: 'dist',
         dest: 'assets', // Relative to source directory
-    }))
-    .use(watch({
+    }));
+
+
+if(!isProduction) {
+    metalsmith.use(watch({
         paths: {
             '${source}/**/*': true,
             'dist/**/*': '**/*',
             'metalsmith/layouts/**/*': '**/*',
         },
-        livereload: false,
-    }))
-    .build(error => {
-        if(error) console.error(error);
-    });
+        livereload: true,
+    }));
+}
+
+metalsmith.build(err => {
+    if(err) console.error(err);
+});

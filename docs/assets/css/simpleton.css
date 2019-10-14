@@ -17,7 +17,7 @@ body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
   word-wrap: break-word;
   font-weight: 400;
-  font-family: Muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -91,7 +91,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: Muli, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1 strong,
@@ -251,7 +251,6 @@ tt,
 var,
 kbd,
 samp {
-  font-size: 0.9em;
   font-family: Consolas, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
 }
 
@@ -263,8 +262,8 @@ cite {
 
 abbr,
 acronym {
-  text-decoration: none;
   border-bottom: 1px dotted;
+  text-decoration: none;
   cursor: help;
 }
 

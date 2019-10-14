@@ -256,7 +256,6 @@ tt,
 var,
 kbd,
 samp {
-    font-size:$font-size-small;
     font-family:$font-stack-mono;
 }
 
@@ -268,8 +267,8 @@ cite {
 
 abbr,
 acronym {
-    text-decoration:none;
     border-bottom:1px dotted;
+    text-decoration:none;
     cursor:help;
 }
 
