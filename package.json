@@ -4,7 +4,7 @@
   "description": "Just a personal CSS starter.",
   "author": "John Romeral",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/css/simpleton.css",
   "repository": "git+https://github.com/jugheadeatsalot/simpleton-css.git",
   "scripts": {
     "build": "cross-env NODE_ENV=production node metalsmith.js",
