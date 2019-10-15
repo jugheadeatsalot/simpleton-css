@@ -1,12 +1,12 @@
-@import '../../../simpleton/scss/partials/vars';
-//@import "../../../simpleton/scss/partials/functions";
-@import '../../../simpleton/scss/partials/helpers';
-//@import "../../../simpleton/scss/partials/resets";
-//@import "../../../simpleton/scss/partials/general";
-//@import "../../../simpleton/scss/partials/classes";
-//@import "../../../simpleton/scss/partials/grids";
-//@import "../../../simpleton/scss/partials/forms";
-//@import "../../../simpleton/scss/partials/wordpress";
+@import '../../../simpleton/scss/vars';
+//@import "../../../simpleton/scss/functions";
+@import '../../../simpleton/scss/helpers';
+//@import "../../../simpleton/scss/resets";
+//@import "../../../simpleton/scss/general";
+//@import "../../../simpleton/scss/classes";
+//@import "../../../simpleton/scss/grids";
+//@import "../../../simpleton/scss/forms";
+//@import "../../../simpleton/scss/wordpress";
 
 .container {
     margin:0 auto;
@@ -14,7 +14,7 @@
     max-width:800px;
     width:100%;
 
-@include min($breakpoint-s) {
+    @include min($breakpoint-s) {
         padding-right:$alley;
         padding-left:$alley;
     }
@@ -36,8 +36,4 @@
 
 .output {
     margin-bottom:$margin;
-}
-
-.prism.test {
-    font-size:13px;
 }

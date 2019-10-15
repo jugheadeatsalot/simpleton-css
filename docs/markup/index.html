@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Markup &hyphen; Simpleton CSS</title>
     <meta name="description" content="Just a simple CSS starter.">
-    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=1.0.0">
-    <link rel="stylesheet" href="/assets/css/docs.min.css?v=1.0.0">
+    <link rel="stylesheet" href="/assets/vendor/prism.min.css?v=1571153973482">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=1571153973482">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v=1571153973482">
 </head>
 
 <body>
@@ -30,68 +31,105 @@
                 <header>
                     <h2>Headings</h2>
                 </header>
+                <div class="output">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                </div>
                 <div class="markup">
-                    <h1>Header one</h1>
-                    <h2>Header two</h2>
-                    <h3>Header three</h3>
-                    <h4>Header four</h4>
-                    <h5>Header five</h5>
-                    <h6>Header six</h6>
+                    <pre><code class="lang-html">&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
                 </div>
             </section>
             <section class="simp card">
                 <header>
                     <h2>Blockquotes</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <blockquote>
                         <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't
                             handle me at my worst, then you sure as hell don't deserve me at my best.</p>
                     </blockquote>
-                    <pre><code><p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p></code></pre>
+                </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;blockquote&gt;
+    &lt;p&gt;I&apos;m selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can&apos;t handle me at my worst, then you sure as hell don&apos;t deserve me at my best.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
                 </div>
             </section>
             <section class="simp card">
                 <header>
                     <h2>Tables</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <table>
                         <tbody>
                             <tr>
-                                <th>Employee</th>
-                                <th class="views">Salary</th>
-                                <th></th>
+                                <th>Level</th>
+                                <th>Name</th>
+                                <th>Points</th>
+                                <th>Username</th>
                             </tr>
-                            <tr class="odd">
-                                <td><a href="http://john.do/">John Saddington</a></td>
-                                <td>$1</td>
-                                <td>Because that’s all Steve Job’ needed for a salary.</td>
+                            <tr>
+                                <td>28</td>
+                                <td>Amy Santiago</td>
+                                <td>473678</td>
+                                <td><a href="">@smartcookie</a></td>
                             </tr>
-                            <tr class="even">
-                                <td><a href="http://tommcfarlin.com/">Tom McFarlin</a></td>
-                                <td>$100K</td>
-                                <td>For all the blogging he does.</td>
+                            <tr>
+                                <td>26</td>
+                                <td>Jacob Peralta</td>
+                                <td>342865</td>
+                                <td><a href="">@sillywabbit</a></td>
                             </tr>
-                            <tr class="odd">
-                                <td><a href="http://jarederickson.com/">Jared Erickson</a></td>
-                                <td>$100M</td>
-                                <td>Pictures are worth a thousand words, right? So Tom x 1,000.</td>
-                            </tr>
-                            <tr class="even">
-                                <td><a href="http://chrisam.es/">Chris Ames</a></td>
-                                <td>$100B</td>
-                                <td>With hair like that?! Enough said…</td>
+                            <tr>
+                                <td>23</td>
+                                <td>Terrence Jeffords</td>
+                                <td>327636</td>
+                                <td><a href="">@papabearofficial</a></td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;table&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Level&lt;/th&gt;
+        &lt;th&gt;Points&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;&quot;&gt;Amy Santiago&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+        &lt;td&gt;47367&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;&quot;&gt;Jacob Peralta&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;26&lt;/td&gt;
+        &lt;td&gt;34286&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href=&quot;&quot;&gt;Terrence Jeffords&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;23&lt;/td&gt;
+        &lt;td&gt;32763&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
                 </div>
             </section>
             <section class="simp card">
                 <header>
                     <h2>Definition Lists</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <dl>
                         <dt>Definition List Title</dt>
                         <dd>Definition list division.</dd>
@@ -110,7 +148,7 @@
                 <header>
                     <h2>Unordered Lists</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <ul>
                         <li>List item one <ul>
                                 <li>List item one <ul>
@@ -135,7 +173,7 @@
                 <header>
                     <h2>Ordered Lists</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <ol>
                         <li>List item one <ol>
                                 <li>List item one <ol>
@@ -160,7 +198,7 @@
                 <header>
                     <h2>HTML Tags</h2>
                 </header>
-                <div class="markup">
+                <div class="output">
                     <p>These supported tags come from the WordPress.com code <a title="Code" href="http://en.support.wordpress.com/code/">FAQ</a>.</p>
                     <p><strong>Address Tag</strong></p>
                     <address>1 Infinite Loop<br> Cupertino, CA 95014<br> United States</address>
@@ -209,6 +247,9 @@
             </section>
         </main>
     </div>
+    <script src='/assets/vendor/prism.min.js?v=1571153973482'></script>
+    <script src='/assets/js/simpleton.min.js?v=1571153973482'></script>
+    <script src='/assets/js/docs.min.js?v=1571153973482'></script>
 </body>
 
 </html>

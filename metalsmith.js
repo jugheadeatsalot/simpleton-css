@@ -47,9 +47,12 @@ const metalsmith = Metalsmith(__dirname)
         css: false,
     }))
     .use(assets({
-        src: dirs.dist,
-        dest: 'assets', // Must be relative to source directory
+        src: 'dist', // Must be relative to current directory
+        dest: 'assets', // Must be relative to destination directory
     }));
+
+console.log(metalsmith.directory());
+console.log(metalsmith.destination());
 
 if(!isProduction) {
     metalsmith.use(watch({

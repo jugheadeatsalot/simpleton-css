@@ -15,14 +15,11 @@ const dirs = exports.dirs = {
     metalsmithLayouts: path.resolve(__dirname, 'metalsmith/layouts'),
 };
 
-// console.log(dirs.dist);
-// console.log(dirs.docsAssets);
-
 const files = exports.files = {
     'timestamp': 'timestamp.tmp',
 };
 
 const sassVars = exports.sassVars = parse(
-    fs.readFileSync(`${dirs.simpletonScss}/partials/_vars.scss`, 'utf8'),
+    fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'),
     {camelCase: false},
 );
