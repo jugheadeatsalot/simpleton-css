@@ -23,7 +23,7 @@ const metalsmith = Metalsmith(__dirname)
     })
     .clean(true)
     .source(dirs.metalsmithSrc)
-    .destination(isProduction ? 'docs' : 'docs-dev')
+    .destination(isProduction ? dirs.docs : dirs.docsDev)
     .use(inPlace({
         suppressNoFilesError: true,
     }))
@@ -48,7 +48,7 @@ const metalsmith = Metalsmith(__dirname)
     }))
     .use(assets({
         src: dirs.dist,
-        dest: 'assets', // Relative to source directory
+        dest: 'assets', // Must be relative to source directory
     }));
 
 if(!isProduction) {
