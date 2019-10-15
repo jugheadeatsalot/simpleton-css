@@ -1,4 +1,3 @@
-const fs = require('fs');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const filter = require('gulp-filter');
