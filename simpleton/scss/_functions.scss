@@ -39,8 +39,8 @@
 /// Utilities
 ////////////////////////
 
-@function autoTextColor($bg-color) {
-    @if lightness($bg-color) > 84% {
+@function autoTextColor($bg-color, $gt-percentage: 60) {
+    @if lightness($bg-color) > $gt-percentage {
         @return $color-dark;
     } @else {
         @return $color-light;
@@ -55,31 +55,6 @@
     $value:if(type-of($value) == string, '"#{$value}"', $value);
 
     @return 'Received: <#{type-of($value)}: #{$value}>.';
-}
-
-/// Reverse map order
-/// @link https://gist.github.com/seanislegend/107ccf9c81ec9fd1aae0
-@function mapReverse ($map) {
-    $result:null;
-
-    @if type-of($map) == 'map' {
-        $keys:map-keys($map);
-        $map-reversed:();
-
-        @for $i from length($keys) through 1 {
-            $map-reversed:map-merge($map-reversed, (nth($keys, $i): map-get($map, nth($keys, $i))));
-        }
-
-        @if type-of($map-reversed) == 'map' {
-            $result:$map-reversed;
-        } @else {
-            @warn 'There was an error reversing the order of "#{$map}"';
-        }
-    } @else {
-        @warn '"#{$map}" is not a valid map';
-    }
-
-    @return $result;
 }
 
 ////////////////////////

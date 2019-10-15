@@ -1,6 +1,6 @@
 @mixin button-colors($bg-color) {
     background-color:$bg-color;
-    color:if(lightness($bg-color) > 84%, $color-dark, $color-light);
+    color:autoTextColor($bg-color, 84);
 
     &:hover {
         background-color:darken($bg-color, 5%);
@@ -13,6 +13,7 @@
     display:inline-block;
     margin-bottom:$margin * 0.175;
     padding:0.425em 1em;
+    min-height:2.5rem;
     border:none;
     border-radius:0.25em;
     cursor:pointer;
@@ -27,4 +28,18 @@
 
 .button {
     @include button-styles();
+
+    &.sq {
+        border-radius:0;
+    }
+}
+
+input {
+    &[type='text'],
+    &[type='email'],
+    &[type='password'] {
+        min-height:2.5rem;
+        border:none;
+        box-shadow:0 0 0 1px $color-border inset;
+    }
 }

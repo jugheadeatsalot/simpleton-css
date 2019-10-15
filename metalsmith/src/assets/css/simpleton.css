@@ -308,6 +308,70 @@ sup {
   display: none;
 }
 
+.text-primary {
+  color: #2e86de;
+}
+
+.bg-primary {
+  background-color: #2e86de;
+}
+
+.text-secondary {
+  color: #576574;
+}
+
+.bg-secondary {
+  background-color: #576574;
+}
+
+.text-accent {
+  color: #ee5253;
+}
+
+.bg-accent {
+  background-color: #ee5253;
+}
+
+.text-idle {
+  color: #d9d9d9;
+}
+
+.bg-idle {
+  background-color: #d9d9d9;
+}
+
+.text-success {
+  color: #10ac84;
+}
+
+.bg-success {
+  background-color: #10ac84;
+}
+
+.text-alert {
+  color: #ee5253;
+}
+
+.bg-alert {
+  background-color: #ee5253;
+}
+
+.text-warning {
+  color: #ff9f43;
+}
+
+.bg-warning {
+  background-color: #ff9f43;
+}
+
+.text-highlight {
+  color: #feca57;
+}
+
+.bg-highlight {
+  background-color: #feca57;
+}
+
 .text-dark {
   color: #323232;
 }
@@ -378,70 +442,6 @@ sup {
 
 .bg-graydarkest {
   background-color: #595959;
-}
-
-.text-primary {
-  color: #2e86de;
-}
-
-.bg-primary {
-  background-color: #2e86de;
-}
-
-.text-secondary {
-  color: #576574;
-}
-
-.bg-secondary {
-  background-color: #576574;
-}
-
-.text-accent {
-  color: #ee5253;
-}
-
-.bg-accent {
-  background-color: #ee5253;
-}
-
-.text-idle {
-  color: #d9d9d9;
-}
-
-.bg-idle {
-  background-color: #d9d9d9;
-}
-
-.text-success {
-  color: #10ac84;
-}
-
-.bg-success {
-  background-color: #10ac84;
-}
-
-.text-alert {
-  color: #ee5253;
-}
-
-.bg-alert {
-  background-color: #ee5253;
-}
-
-.text-warning {
-  color: #ff9f43;
-}
-
-.bg-warning {
-  background-color: #ff9f43;
-}
-
-.text-highlight {
-  color: #feca57;
-}
-
-.bg-highlight {
-  background-color: #feca57;
 }
 
 .text-dribbble {
@@ -2013,6 +2013,7 @@ figcaption {
   display: inline-block;
   margin-bottom: 0.2625rem;
   padding: 0.425em 1em;
+  min-height: 2.5rem;
   border: none;
   border-radius: 0.25em;
   cursor: pointer;
@@ -2021,6 +2022,78 @@ figcaption {
 
 .button:hover {
   background-color: #252525;
+}
+
+.button.primary {
+  background-color: #2e86de;
+  color: #ffffff;
+}
+
+.button.primary:hover {
+  background-color: #2179d1;
+}
+
+.button.secondary {
+  background-color: #576574;
+  color: #ffffff;
+}
+
+.button.secondary:hover {
+  background-color: #4c5865;
+}
+
+.button.accent {
+  background-color: #ee5253;
+  color: #ffffff;
+}
+
+.button.accent:hover {
+  background-color: #ec3b3c;
+}
+
+.button.idle {
+  background-color: #d9d9d9;
+  color: #323232;
+}
+
+.button.idle:hover {
+  background-color: #cccccc;
+}
+
+.button.success {
+  background-color: #10ac84;
+  color: #ffffff;
+}
+
+.button.success:hover {
+  background-color: #0e9572;
+}
+
+.button.alert {
+  background-color: #ee5253;
+  color: #ffffff;
+}
+
+.button.alert:hover {
+  background-color: #ec3b3c;
+}
+
+.button.warning {
+  background-color: #ff9f43;
+  color: #ffffff;
+}
+
+.button.warning:hover {
+  background-color: #ff922a;
+}
+
+.button.highlight {
+  background-color: #feca57;
+  color: #ffffff;
+}
+
+.button.highlight:hover {
+  background-color: #fec23e;
 }
 
 .button.dark {
@@ -2102,78 +2175,6 @@ figcaption {
 
 .button.graydarkest:hover {
   background-color: #4d4d4d;
-}
-
-.button.primary {
-  background-color: #2e86de;
-  color: #ffffff;
-}
-
-.button.primary:hover {
-  background-color: #2179d1;
-}
-
-.button.secondary {
-  background-color: #576574;
-  color: #ffffff;
-}
-
-.button.secondary:hover {
-  background-color: #4c5865;
-}
-
-.button.accent {
-  background-color: #ee5253;
-  color: #ffffff;
-}
-
-.button.accent:hover {
-  background-color: #ec3b3c;
-}
-
-.button.idle {
-  background-color: #d9d9d9;
-  color: #323232;
-}
-
-.button.idle:hover {
-  background-color: #cccccc;
-}
-
-.button.success {
-  background-color: #10ac84;
-  color: #ffffff;
-}
-
-.button.success:hover {
-  background-color: #0e9572;
-}
-
-.button.alert {
-  background-color: #ee5253;
-  color: #ffffff;
-}
-
-.button.alert:hover {
-  background-color: #ec3b3c;
-}
-
-.button.warning {
-  background-color: #ff9f43;
-  color: #ffffff;
-}
-
-.button.warning:hover {
-  background-color: #ff922a;
-}
-
-.button.highlight {
-  background-color: #feca57;
-  color: #ffffff;
-}
-
-.button.highlight:hover {
-  background-color: #fec23e;
 }
 
 .button.dribbble {
@@ -2273,6 +2274,16 @@ figcaption {
 
 .button.youtube:hover {
   background-color: #9c1014;
+}
+
+.button.sq {
+  border-radius: 0;
+}
+
+input[type='text'], input[type='email'], input[type='password'] {
+  min-height: 2.5rem;
+  border: none;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
 }
 
 /*# sourceMappingURL=sourcemaps/simpleton.css.map */
