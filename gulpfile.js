@@ -10,15 +10,17 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
+const {dirs, files} = require('./meta');
+
 const paths = {
-    js: ['simpleton/js/**/*.js'],
-    jsOut: 'dist/js',
-    scss: ['simpleton/scss/**/*.scss'],
-    scssOut: 'dist/css',
-    docsjs: ['metalsmith/raw/js/**/*.js'],
-    docsjsOut: ['metalsmith/src/assets/js'],
-    docsscss: ['metalsmith/raw/scss/**/*.scss'],
-    docsscssOut: ['metalsmith/src/assets/css'],
+    js: [`${dirs.simpletonJs}/**/*.js`],
+    jsOut: `${dirs.dist}/js`,
+    scss: [`${dirs.simpletonScss}/**/*.scss`],
+    scssOut: `${dirs.dist}/css`,
+    docsjs: [`${dirs.docsJs}/**/*.js`],
+    docsjsOut: [`${dirs.docsAssets}/js`],
+    docsscss: [`${dirs.docsScss}/**/*.scss`],
+    docsscssOut: [`${dirs.docsAssets}/css`],
 };
 
 const sassOpts = {
@@ -88,7 +90,7 @@ gulp.task('docsjs', async() => {
 
 gulp.task('timestamp', async() => {
     await fs.writeFile(
-        'timestamp.tmp',
+        files.timestamp,
         new Date().getTime(),
         err => {
             if(err) console.log(err);

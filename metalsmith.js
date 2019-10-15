@@ -8,7 +8,8 @@ const ignore = require('metalsmith-ignore');
 const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
-const {sassVars} = require('./data');
+
+const {dirs, sassVars, files} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -21,13 +22,13 @@ const metalsmith = Metalsmith(__dirname)
         sassVars,
     })
     .clean(true)
-    .source('metalsmith/src')
+    .source(dirs.metalsmithSrc)
     .destination(isProduction ? 'docs' : 'docs-dev')
     .use(inPlace({
         suppressNoFilesError: true,
     }))
     .use(layouts({
-        directory: 'metalsmith/layouts',
+        directory: dirs.metalsmithLayouts,
         suppressNoFilesError: true,
     }))
     .use(markdown())
@@ -46,17 +47,16 @@ const metalsmith = Metalsmith(__dirname)
         css: false,
     }))
     .use(assets({
-        src: 'dist',
+        src: dirs.dist,
         dest: 'assets', // Relative to source directory
     }));
-
 
 if(!isProduction) {
     metalsmith.use(watch({
         paths: {
             '${source}/**/*': true,
-            'timestamp.tmp': '**/*',
-            'metalsmith/layouts/**/*': '**/*',
+            [files.timestamp]: '**/*',
+            [`${dirs.metalsmithLayouts}/**/*`]: '**/*',
         },
         livereload: true,
     }));
