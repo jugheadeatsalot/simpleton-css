@@ -7,7 +7,7 @@
   "main": "dist/css/simpleton.css",
   "repository": "git+https://github.com/jugheadeatsalot/simpleton-css.git",
   "scripts": {
-    "build": "cross-env NODE_ENV=production node metalsmith.js",
+    "build": "gulp build && cross-env NODE_ENV=production node metalsmith.js",
     "dev": "concurrently \"yarn start\" \"yarn metal\" \"yarn dev-serve\"",
     "metal": "node metalsmith.js",
     "dev-serve": "node server.js",

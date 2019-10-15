@@ -1,10 +1,9 @@
-@mixin button-colors($bg-color, $content-color:#ffffff) {
+@mixin button-colors($bg-color) {
     background-color:$bg-color;
-    color:$content-color;
+    color:if(lightness($bg-color) > 84%, $color-dark, $color-light);
 
     &:hover {
         background-color:darken($bg-color, 5%);
-        color:$content-color;
     }
 }
 
@@ -12,47 +11,20 @@
     @include button-colors($color-dark);
 
     display:inline-block;
-    margin-bottom:$margin * 0.15;
+    margin-bottom:$margin * 0.175;
     padding:0.425em 1em;
     border:none;
     border-radius:0.25em;
     cursor:pointer;
     transition:background-color 0.2s;
 
-    &.dark {
-        @include button-colors($color-dark);
-    }
-
-    &.primary {
-        @include button-colors($color-primary);
-    }
-
-    &.secondary {
-        @include button-colors($color-secondary);
-    }
-
-    &.idle,
-    &[disabled] {
-        @include button-colors($color-idle, $color-dark);
-    }
-
-    &.success {
-        @include button-colors($color-success);
-    }
-
-    &.alert {
-        @include button-colors($color-alert);
-    }
-
-    &.warning {
-        @include button-colors($color-warning);
-    }
-
-    &.highlight {
-        @include button-colors($color-highlight);
+    @each $color-key, $color-value in $colors {
+        &.#{$color-key} {
+            @include button-colors($color-value);
+        }
     }
 }
 
-.simp.button {
+.button {
     @include button-styles();
 }

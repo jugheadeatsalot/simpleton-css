@@ -78,15 +78,8 @@ td {
 }
 
 figcaption {
-    padding-top:$padding * 0.4375;
+    padding-top:$padding * 0.375;
     color:$color-gray;
     text-align:center;
     font-size:$font-size-xsmall;
-}
-
-blockquote {
-    padding-left:1em;
-    border-left:0.25em solid $color-quote;
-    font-size:$font-size-h4;
-    line-height:$line-height-h4;
 }

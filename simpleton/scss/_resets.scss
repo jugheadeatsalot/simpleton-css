@@ -16,7 +16,8 @@ html {
 body {
     margin:0;
     padding:0;
-    color:$color-dark;
+    background-color:$color-body-bg;
+    color:$color-text;
     text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
     font-weight:$font-weight-normal;
@@ -220,20 +221,20 @@ small {
 
 ins {
     padding:$padding-inline;
-    background-color:$color-primary;
+    background-color:$color-ins-bg;
     color:#ffffff;
     text-decoration:none;
 }
 
 mark {
     padding:$padding-inline;
-    background-color:$color-highlight;
+    background-color:$color-mark-bg;
     color:#ffffff;
 }
 
 code {
     padding:$padding-inline;
-    background-color:$color-graylightest;
+    background-color:$color-code-bg;
 }
 
 var {
@@ -242,11 +243,9 @@ var {
 
 pre {
     overflow:auto;
-    padding:$p-box-t 0 $p-box-b;
-    border-right:$p-box-r solid $color-graylightest;
-    border-bottom:($p-box-b * 0.75) solid $color-graylightest;
-    border-left:$p-box-l solid $color-graylightest;
-    background-color:$color-graylightest;
+    padding:$padding-box;
+    border-left:0.25rem solid $color-pre-bl;
+    background-color:$color-pre-bg;
     font-size:$font-size-small;
     font-family:$font-stack-mono;
 
@@ -254,6 +253,13 @@ pre {
         padding:0;
         font-size:inherit;
     }
+}
+
+blockquote {
+    padding:$padding-box;
+    border-left:0.25rem solid $color-quote-bl;
+    font-size:$font-size-h4;
+    line-height:$line-height-h4;
 }
 
 code,

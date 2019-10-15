@@ -86,7 +86,7 @@ $line-heights:map-merge((
 
 /// colors
 $color-dark:#323232 !default;
-$color-light:#ffffff !default; // only used in _classes.scss
+$color-light:#ffffff !default;
 $color-gray:lighten(black, 50%) !default;
 $color-graylight:lighten($color-gray, 25%) !default;
 $color-graylighter:lighten($color-gray, 35%) !default;
@@ -94,7 +94,6 @@ $color-graylightest:lighten($color-gray, 45%) !default;
 $color-graydark:darken($color-gray, 5%) !default;
 $color-graydarker:darken($color-gray, 10%) !default;
 $color-graydarkest:darken($color-gray, 15%) !default;
-$color-text:$color-dark !default;
 $color-primary:#2e86de !default;
 $color-secondary:#576574 !default;
 $color-accent:#ee5253 !default;
@@ -103,8 +102,6 @@ $color-success:#10ac84 !default;
 $color-alert:#ee5253 !default;
 $color-warning:#ff9f43 !default;
 $color-highlight:#feca57 !default;
-$color-border:$color-graylighter !default;
-$color-quote:$color-graylighter !default;
 $color-dribbble:#ea4c89 !default;
 $color-facebook:#3b5998 !default;
 $color-flickr:#ff0084 !default;
@@ -116,6 +113,15 @@ $color-rss:#f26522 !default;
 $color-tumblr:#35465c !default;
 $color-twitter:#55acee !default;
 $color-youtube:#b31217 !default;
+$color-body-bg:$color-light !default;
+$color-text:$color-dark !default;
+$color-border:$color-graylighter !default;
+$color-quote-bl:$color-graylighter !default;
+$color-ins-bg:$color-primary !default;
+$color-mark-bg:$color-highlight !default;
+$color-pre-bg:$color-graylightest !default;
+$color-pre-bl:$color-primary !default;
+$color-code-bg:$color-graylightest !default;
 
 /// colors mapped
 $colors:() !default;
@@ -129,7 +135,6 @@ $colors:map-merge((
     graydark: $color-graydark,
     graydarker: $color-graydarker,
     graydarkest: $color-graydarkest,
-    text: $color-text,
     primary: $color-primary,
     secondary: $color-secondary,
     accent: $color-accent,
@@ -138,8 +143,6 @@ $colors:map-merge((
     alert: $color-alert,
     warning: $color-warning,
     highlight: $color-highlight,
-    border: $color-border,
-    quote: $color-quote,
     dribbble: $color-dribbble,
     facebook: $color-facebook,
     flickr: $color-flickr,

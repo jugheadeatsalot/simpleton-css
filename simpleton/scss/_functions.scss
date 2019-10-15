@@ -39,6 +39,14 @@
 /// Utilities
 ////////////////////////
 
+@function autoTextColor($bg-color) {
+    @if lightness($bg-color) > 84% {
+        @return $color-dark;
+    } @else {
+        @return $color-light;
+    }
+}
+
 @function validVals($list) {
     @return 'Valid values are #{implodeList($list, ', ', ' and ', true)}.';
 }

@@ -1,11 +1,11 @@
-.simp {
-    @each $color-key, $color-value in $colors {
-        &.text-#{$color-key} {
-            color:$color-value;
-        }
+@each $color-key, $color-value in $colors {
+    //@debug "#{$color-key}: #{ lightness($color-value)}";
 
-        &.bg-#{$color-key} {
-            background-color:$color-value;
-        }
+    .text-#{$color-key} {
+        color:$color-value;
+    }
+
+    .bg-#{$color-key} {
+        background-color:$color-value;
     }
 }

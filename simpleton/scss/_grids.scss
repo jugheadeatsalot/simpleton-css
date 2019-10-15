@@ -44,7 +44,7 @@ $alley-sizes:map_merge((
     }
 }
 
-.simp.grid {
+.row {
     @include grid();
 
     @each $alley-key, $alley-value in $alley-sizes {
@@ -71,7 +71,7 @@ $alley-sizes:map_merge((
         }
     }
 
-    > .simp.xs {
+    > .col {
         @each $column-key, $column-value in $columns {
             &-#{$column-key} {
                 width:$column-value;
@@ -80,7 +80,7 @@ $alley-sizes:map_merge((
     }
 
     @each $breakpoint-key, $breakpoint-value in $breakpoints {
-        > .simp.#{$breakpoint-key} {
+        > .#{$breakpoint-key} {
             @each $column-key, $column-value in $columns {
                 @include min($breakpoint-value) {
                     &-#{$column-key} {

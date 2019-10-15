@@ -10,7 +10,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
-const {dirs, files} = require('./meta');
+const {dirs} = require('./meta');
 
 const paths = {
     js: [`${dirs.simpletonJs}/**/*.js`],
@@ -36,7 +36,7 @@ gulp.task('sass', async() => {
         .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.scssOut))
-        .pipe(filter('**/*.css'))
+        .pipe(filter('**/simpleton!(*.min).css'))
         .pipe(postcss([cssnano()]))
         .pipe(rename({
             suffix: '.min',
@@ -50,12 +50,42 @@ gulp.task('js', async() => {
         .src(paths.js)
         .pipe(concat('simpleton.js'))
         .pipe(gulp.dest(paths.jsOut))
-        .pipe(filter('**/*.js'))
+        .pipe(filter('**/simpleton!(*.min).js'))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min',
         }))
         .pipe(gulp.dest(paths.jsOut));
+});
+
+gulp.task('devsass', async() => {
+    await gulp
+        .src(paths.scss)
+        .pipe(sourcemaps.init())
+        .pipe(sass(sassOpts).on('error', sass.logError))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(sourcemaps.write('sourcemaps'))
+        .pipe(gulp.dest(paths.docsscssOut))
+        .pipe(filter('**/simpleton!(*.min).css'))
+        .pipe(postcss([cssnano()]))
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(sourcemaps.write('sourcemaps'))
+        .pipe(gulp.dest(paths.docsscssOut));
+});
+
+gulp.task('devjs', async() => {
+    await gulp
+        .src(paths.js)
+        .pipe(concat('simpleton.js'))
+        .pipe(gulp.dest(paths.docsjsOut))
+        .pipe(filter('**/simpleton!(*.min).js'))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(gulp.dest(paths.docsjsOut));
 });
 
 gulp.task('docssass', async() => {
@@ -66,7 +96,7 @@ gulp.task('docssass', async() => {
         .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
-        .pipe(filter('**/*.css'))
+        .pipe(filter('**/docs!(*.min).css'))
         .pipe(postcss([cssnano()]))
         .pipe(rename({
             suffix: '.min',
@@ -80,7 +110,7 @@ gulp.task('docsjs', async() => {
         .src(paths.docsjs)
         .pipe(concat('docs.js'))
         .pipe(gulp.dest(paths.docsjsOut))
-        .pipe(filter('**/*.js'))
+        .pipe(filter('**/docs!(*.min).js'))
         .pipe(uglify())
         .pipe(rename({
             suffix: '.min',
@@ -88,31 +118,25 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
-gulp.task('timestamp', async() => {
-    await fs.writeFile(
-        files.timestamp,
-        new Date().getTime(),
-        err => {
-            if(err) console.log(err);
-        },
-    );
-});
-
 function doWatch(glob, task) {
     const msg = (filePath) => {
         console.log(`File ${filePath} changed. Working...`);
     };
 
-    gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', msg);
+    gulp.watch(glob, gulp.series(task)).on('change', msg);
 }
 
 gulp.task('watch', () => {
-    doWatch(paths.scss, 'sass');
-    doWatch(paths.js, 'js');
+    doWatch(paths.scss, 'devsass');
+    doWatch(paths.js, 'devjs');
     doWatch(paths.docsscss, 'docssass');
     doWatch(paths.docsjs, 'docsjs');
 });
 
 gulp.task('default',
-    gulp.series(gulp.parallel('sass', 'js', 'docssass', 'docsjs'), 'timestamp', 'watch'),
+    gulp.series(gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), 'watch'),
+);
+
+gulp.task('build',
+    gulp.series(gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), gulp.parallel('sass', 'js')),
 );

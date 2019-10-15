@@ -7,14 +7,17 @@ layout: layout.hbs
 
 <section class="simp card">
     <header><h2>Buttons</h2></header>
+    <div class="output">
+        <button class="button">default</button>
+        {{#each sassVars.colors}}
+            <button class="button {{@key}}">{{@key}}</button>
+        {{/each}}
+    </div>
     <div class="markup">
-        <button class="simp button">Default</button>
-        <a class="simp button primary">Primary</a>
-        <input type="button" class="simp button secondary" value="Secondary">
-        <button class="simp button idle">Idles</button>
-        <button class="simp button success">Success</button>
-        <button class="simp button alert">Alert</button>
-        <button class="simp button warning">Warning</button>
-        <button class="simp button highlight">Highlight</button>
+        <!--@formatter:off-->
+        <pre><code class="lang-html">```<button class="button">default</button>
+{{#each sassVars.colors}}<button class="button {{@key}}">{{@key}}</button>
+{{/each}}```</code></pre>
+        <!--@formatter:on-->
     </div>
 </section>

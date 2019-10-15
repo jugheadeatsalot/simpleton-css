@@ -8,9 +8,9 @@ layout: layout.hbs
 <section class="simp card">
     <header><h2>Theme</h2></header>
     <div class="markup">
-        <div class="simp grid tighter">
+        <div class="simp row tighter">
             {{#each sassVars.colors}}
-                <div>
+                <div class="col">
                     <div class="simp bg-{{@key}} colorbox" title="{{@key}}"></div>
                 </div>
             {{/each}}

@@ -9,7 +9,7 @@ const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
 
-const {dirs, sassVars, files} = require('./meta');
+const {dirs, sassVars} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -21,7 +21,7 @@ const metalsmith = Metalsmith(__dirname)
         isProduction: isProduction,
         sassVars,
     })
-    .clean(true)
+    .clean(isProduction)
     .source(dirs.metalsmithSrc)
     .destination(isProduction ? dirs.docs : dirs.docsDev)
     .use(inPlace({
@@ -47,18 +47,14 @@ const metalsmith = Metalsmith(__dirname)
         css: false,
     }))
     .use(assets({
-        src: 'dist', // Must be relative to current directory
-        dest: 'assets', // Must be relative to destination directory
+        src: dirs.simpletonJs, // Must be relative to current directory
+        dest: 'assets/js', // Must be relative to destination directory
     }));
-
-console.log(metalsmith.directory());
-console.log(metalsmith.destination());
 
 if(!isProduction) {
     metalsmith.use(watch({
         paths: {
             '${source}/**/*': true,
-            [files.timestamp]: '**/*',
             [`${dirs.metalsmithLayouts}/**/*`]: '**/*',
         },
         livereload: true,
