@@ -7,5 +7,6 @@ node_modules/
 *.bak
 *.bat
 *.log
+*.tmp
 npm-debug.*
 docs-dev/

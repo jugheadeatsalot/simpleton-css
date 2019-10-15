@@ -4,31 +4,32 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
-    <meta name="description" content="{{ description }}">
+    <meta name="description" content="{{description}}">
+    <link rel="stylesheet" href="/assets/vendor/prism.min.css?v={{version}}">
     {{#if isProduction}}
         <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
         <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
     {{else}}
         <script>
-            const simp = document.createElement('link');
+            const simpcss = document.createElement('link');
 
-            simp.rel = 'stylesheet';
-            simp.href = `/assets/css/simpleton.min.css?v=${new Date().getTime()}`;
+            simpcss.rel = 'stylesheet';
+            simpcss.href = `/assets/css/simpleton.css?v=${new Date().getTime()}`;
 
-            const docs = document.createElement('link');
+            const docscss = document.createElement('link');
 
-            docs.rel = 'stylesheet';
-            docs.href = `/assets/css/docs.min.css?v=${new Date().getTime()}`;
+            docscss.rel = 'stylesheet';
+            docscss.href = `/assets/css/docs.css?v=${new Date().getTime()}`;
 
-            document.getElementsByTagName('head')[0].appendChild(simp);
-            document.getElementsByTagName('head')[0].appendChild(docs);
+            document.getElementsByTagName('head')[0].appendChild(simpcss);
+            document.getElementsByTagName('head')[0].appendChild(docscss);
         </script>
     {{/if}}
 </head>
 <body>
 <div class="simp container">
     <header>
-        <h1>{{ title }}</h1>
+        <h1>{{title}}</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -40,11 +41,27 @@
         </nav>
     </header>
     <main>
-        {{{ contents }}}
+        {{{contents}}}
     </main>
 </div>
-{{#unless isProduction}}
+<script src='/assets/vendor/prism.min.js?v={{version}}'></script>
+{{#if isProduction}}
+    <script src='/assets/js/simpleton.min.js?v={{version}}'></script>
+    <script src='/assets/js/docs.min.js?v={{version}}'></script>
+{{else}}
     <script src="http://localhost:35729/livereload.js"></script>
-{{/unless}}
+    <script>
+        const simpjs = document.createElement('script');
+
+        simpjs.src = `/assets/js/simpleton.js?v=${new Date().getTime()}`;
+
+        const docsjs = document.createElement('script');
+
+        docsjs.src = `/assets/js/docs.js?v=${new Date().getTime()}`;
+
+        document.getElementsByTagName('body')[0].appendChild(simpjs);
+        document.getElementsByTagName('body')[0].appendChild(docsjs);
+    </script>
+{{/if}}
 </body>
 </html>

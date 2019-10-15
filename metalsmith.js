@@ -3,17 +3,18 @@ const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
 const markdown = require('metalsmith-markdown');
 const permalinks = require('metalsmith-permalinks');
+const encode = require('metalsmith-encode-html');
+const ignore = require('metalsmith-ignore');
 const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
-const ignore = require('metalsmith-ignore');
 const {sassVars} = require('./data');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 const metalsmith = Metalsmith(__dirname)
     .metadata({
-        version: '1.0.0',
+        version: new Date().getTime(),
         title: 'Simpleton CSS',
         description: 'Just a simple CSS starter.',
         isProduction: isProduction,
@@ -33,6 +34,7 @@ const metalsmith = Metalsmith(__dirname)
     .use(permalinks({
         relative: false,
     }))
+    .use(encode())
     .use(beautify({
         'indent_size': 4,
         'indent_char': ' ',
@@ -53,7 +55,7 @@ if(!isProduction) {
     metalsmith.use(watch({
         paths: {
             '${source}/**/*': true,
-            'dist/**/*': '**/*',
+            'timestamp.tmp': '**/*',
             'metalsmith/layouts/**/*': '**/*',
         },
         livereload: true,

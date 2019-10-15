@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const filter = require('gulp-filter');
@@ -14,6 +15,10 @@ const paths = {
     jsOut: 'dist/js',
     scss: ['simpleton/scss/**/*.scss'],
     scssOut: 'dist/css',
+    docsjs: ['metalsmith/raw/js/**/*.js'],
+    docsjsOut: ['metalsmith/src/assets/js'],
+    docsscss: ['metalsmith/raw/scss/**/*.scss'],
+    docsscssOut: ['metalsmith/src/assets/css'],
 };
 
 const sassOpts = {
@@ -21,8 +26,8 @@ const sassOpts = {
     outputStyle: 'expanded',
 };
 
-gulp.task('sass', () => {
-    return gulp
+gulp.task('sass', async() => {
+    await gulp
         .src(paths.scss)
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
@@ -38,8 +43,8 @@ gulp.task('sass', () => {
         .pipe(gulp.dest(paths.scssOut));
 });
 
-gulp.task('js', () => {
-    return gulp
+gulp.task('js', async() => {
+    await gulp
         .src(paths.js)
         .pipe(concat('simpleton.js'))
         .pipe(gulp.dest(paths.jsOut))
@@ -51,12 +56,61 @@ gulp.task('js', () => {
         .pipe(gulp.dest(paths.jsOut));
 });
 
-gulp.task('watch', () => {
-    const msg = path => {
-        console.log(`File ${path} was changed. Running tasks...`);
-    };
-
-    return gulp.watch([...paths.scss, ...paths.js], gulp.parallel('sass', 'js')).on('change', msg);
+gulp.task('docssass', async() => {
+    await gulp
+        .src(paths.docsscss)
+        .pipe(sourcemaps.init())
+        .pipe(sass(sassOpts).on('error', sass.logError))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(sourcemaps.write('sourcemaps'))
+        .pipe(gulp.dest(paths.docsscssOut))
+        .pipe(filter('**/*.css'))
+        .pipe(postcss([cssnano()]))
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(sourcemaps.write('sourcemaps'))
+        .pipe(gulp.dest(paths.docsscssOut));
 });
 
-gulp.task('default', gulp.series(gulp.parallel('sass', 'js'), 'watch'));
+gulp.task('docsjs', async() => {
+    await gulp
+        .src(paths.docsjs)
+        .pipe(concat('docs.js'))
+        .pipe(gulp.dest(paths.docsjsOut))
+        .pipe(filter('**/*.js'))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(gulp.dest(paths.docsjsOut));
+});
+
+gulp.task('timestamp', async() => {
+    await fs.writeFile(
+        'timestamp.tmp',
+        new Date().getTime(),
+        err => {
+            if(err) console.log(err);
+        },
+    );
+});
+
+function doWatch(glob, task) {
+    const msg = (filePath) => {
+        console.log(`File ${filePath} changed. Working...`);
+    };
+
+    gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', msg);
+}
+
+gulp.task('watch', () => {
+    doWatch(paths.scss, 'sass');
+    doWatch(paths.js, 'js');
+    doWatch(paths.docsscss, 'docssass');
+    doWatch(paths.docsjs, 'docsjs');
+});
+
+gulp.task('default',
+    gulp.series(gulp.parallel('sass', 'js', 'docssass', 'docsjs'), 'timestamp', 'watch'),
+);

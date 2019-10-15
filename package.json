@@ -31,6 +31,7 @@
     "jstransformer-handlebars": "^1.1.0",
     "metalsmith": "^2.3.0",
     "metalsmith-beautify": "^0.2.0",
+    "metalsmith-encode-html": "^0.0.2",
     "metalsmith-ignore": "^1.0.0",
     "metalsmith-in-place": "^4.4.1",
     "metalsmith-layouts": "^2.3.1",

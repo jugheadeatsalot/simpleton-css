@@ -1,0 +1,43 @@
+@import '../../../simpleton/scss/partials/vars';
+//@import "../../../simpleton/scss/partials/functions";
+@import '../../../simpleton/scss/partials/helpers';
+//@import "../../../simpleton/scss/partials/resets";
+//@import "../../../simpleton/scss/partials/general";
+//@import "../../../simpleton/scss/partials/classes";
+//@import "../../../simpleton/scss/partials/grids";
+//@import "../../../simpleton/scss/partials/forms";
+//@import "../../../simpleton/scss/partials/wordpress";
+
+.container {
+    margin:0 auto;
+    padding:($padding * 1.5) ($alley * 0.6) ($padding * 2);
+    max-width:800px;
+    width:100%;
+
+@include min($breakpoint-s) {
+        padding-right:$alley;
+        padding-left:$alley;
+    }
+}
+
+.colorbox {
+    width:40px;
+    height:40px;
+    border:1px solid $color-graylighter;
+    border-radius:50%;
+    box-shadow:0 0 0 4px #ffffff inset;
+}
+
+.simp.grid.docs {
+    .inner {
+        padding:$padding * 0.5;
+    }
+}
+
+.output {
+    margin-bottom:$margin;
+}
+
+.prism.test {
+    font-size:13px;
+}

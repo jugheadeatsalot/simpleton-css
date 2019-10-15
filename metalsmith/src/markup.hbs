@@ -7,64 +7,101 @@ layout: layout.hbs
 
 <section class="simp card">
     <header><h2>Headings</h2></header>
+    <div class="output">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+    </div>
     <div class="markup">
-        <h1>Header one</h1>
-        <h2>Header two</h2>
-        <h3>Header three</h3>
-        <h4>Header four</h4>
-        <h5>Header five</h5>
-        <h6>Header six</h6>
+<pre><code class="lang-html">```<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>```</code></pre>
     </div>
 </section>
 
 <section class="simp card">
     <header><h2>Blockquotes</h2></header>
-    <div class="markup">
+    <div class="output">
         <blockquote>
             <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p>
         </blockquote>
-        <pre><code><p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p></code></pre>
+    </div>
+    <div class="markup">
+<pre><code class="lang-html">```<blockquote>
+    <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p>
+</blockquote>```</code></pre>
     </div>
 </section>
 
 <section class="simp card">
     <header><h2>Tables</h2></header>
-    <div class="markup">
+    <div class="output">
         <table>
             <tbody>
             <tr>
-                <th>Employee</th>
-                <th class="views">Salary</th>
-                <th></th>
+                <th>Level</th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Username</th>
             </tr>
-            <tr class="odd">
-                <td><a href="http://john.do/">John Saddington</a></td>
-                <td>$1</td>
-                <td>Because that’s all Steve Job’ needed for a salary.</td>
+            <tr>
+                <td>28</td>
+                <td>Amy Santiago</td>
+                <td>473678</td>
+                <td><a href="">@smartcookie</a></td>
             </tr>
-            <tr class="even">
-                <td><a href="http://tommcfarlin.com/">Tom McFarlin</a></td>
-                <td>$100K</td>
-                <td>For all the blogging he does.</td>
+            <tr>
+                <td>26</td>
+                <td>Jacob Peralta</td>
+                <td>342865</td>
+                <td><a href="">@sillywabbit</a></td>
             </tr>
-            <tr class="odd">
-                <td><a href="http://jarederickson.com/">Jared Erickson</a></td>
-                <td>$100M</td>
-                <td>Pictures are worth a thousand words, right? So Tom x 1,000.</td>
-            </tr>
-            <tr class="even">
-                <td><a href="http://chrisam.es/">Chris Ames</a></td>
-                <td>$100B</td>
-                <td>With hair like that?! Enough said…</td>
+            <tr>
+                <td>23</td>
+                <td>Terrence Jeffords</td>
+                <td>327636</td>
+                <td><a href="">@papabearofficial</a></td>
             </tr>
             </tbody>
         </table>
+    </div>
+    <div class="markup">
+<pre><code class="lang-html">```<table>
+    <tbody>
+    <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Points</th>
+    </tr>
+    <tr>
+        <td><a href="">Amy Santiago</a></td>
+        <td>28</td>
+        <td>47367</td>
+    </tr>
+    <tr>
+        <td><a href="">Jacob Peralta</a></td>
+        <td>26</td>
+        <td>34286</td>
+    </tr>
+    <tr>
+        <td><a href="">Terrence Jeffords</a></td>
+        <td>23</td>
+        <td>32763</td>
+    </tr>
+    </tbody>
+</table>```</code></pre>
     </div>
 </section>
 
 <section class="simp card">
     <header><h2>Definition Lists</h2></header>
-    <div class="markup">
+    <div class="output">
         <dl>
             <dt>Definition List Title</dt>
             <dd>Definition list division.</dd>
@@ -82,7 +119,7 @@ layout: layout.hbs
 
 <section class="simp card">
     <header><h2>Unordered Lists</h2></header>
-    <div class="markup">
+    <div class="output">
         <ul>
             <li>List item one
                 <ul>
@@ -108,7 +145,7 @@ layout: layout.hbs
 
 <section class="simp card">
     <header><h2>Ordered Lists</h2></header>
-    <div class="markup">
+    <div class="output">
         <ol>
             <li>List item one
                 <ol>
@@ -134,7 +171,7 @@ layout: layout.hbs
 
 <section class="simp card">
     <header><h2>HTML Tags</h2></header>
-    <div class="markup">
+    <div class="output">
         <p>These supported tags come from the WordPress.com code
             <a title="Code" href="http://en.support.wordpress.com/code/">FAQ</a>.</p>
         <p><strong>Address Tag</strong></p>

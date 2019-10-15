@@ -123,16 +123,6 @@ ul ul {
   margin-left: 1em;
 }
 
-pre {
-  padding: 0.75rem 1.25rem 0.75rem 1rem;
-  background-color: #f2f2f2;
-  white-space: pre-wrap;
-}
-
-pre code {
-  padding: 0;
-}
-
 dl dt {
   font-weight: 700;
 }
@@ -245,12 +235,28 @@ var {
   font-style: normal;
 }
 
-pre,
+pre {
+  overflow: auto;
+  padding: 0.75rem 0 0.75rem;
+  border-right: 1.25rem solid #f2f2f2;
+  border-bottom: 0.5625rem solid #f2f2f2;
+  border-left: 1rem solid #f2f2f2;
+  background-color: #f2f2f2;
+  font-size: 0.9em;
+  font-family: Consolas, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
+}
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+}
+
 code,
 tt,
 var,
 kbd,
 samp {
+  font-size: 0.9em;
   font-family: Consolas, "Ubuntu Mono", "Lucida Console", "Courier New", Courier, monospace;
 }
 
@@ -559,8 +565,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 2.0625rem;
-  margin-bottom: 1.125rem;
+  margin-top: 1.6875rem;
+  margin-bottom: 0.9375rem;
 }
 
 h1:first-child:not(.f-margins),

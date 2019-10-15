@@ -120,16 +120,6 @@ ul {
     }
 }
 
-pre {
-    padding:$padding-box;
-    background-color:$color-graylightest;
-    white-space:pre-wrap;
-
-    code {
-        padding:0;
-    }
-}
-
 dl {
     dt {
         font-weight:$font-weight-bold;
@@ -250,12 +240,28 @@ var {
     font-style:normal;
 }
 
-pre,
+pre {
+    overflow:auto;
+    padding:$p-box-t 0 $p-box-b;
+    border-right:$p-box-r solid $color-graylightest;
+    border-bottom:($p-box-b * 0.75) solid $color-graylightest;
+    border-left:$p-box-l solid $color-graylightest;
+    background-color:$color-graylightest;
+    font-size:$font-size-small;
+    font-family:$font-stack-mono;
+
+    code {
+        padding:0;
+        font-size:inherit;
+    }
+}
+
 code,
 tt,
 var,
 kbd,
 samp {
+    font-size:$font-size-small;
     font-family:$font-stack-mono;
 }
 
