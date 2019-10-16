@@ -1,3 +1,3 @@
 # Simpleton CSS
 
-Just a personal CSS starter.
+A CSS framework so simple, you'll probably use something else.

@@ -98,6 +98,7 @@ h6 {
     font-weight:$font-weight-heading;
     font-family:$font-stack-heading;
 
+    b,
     strong {
         font-weight:$font-weight-heading;
     }
@@ -212,6 +213,7 @@ em {
     font-style:italic;
 }
 
+b,
 strong {
     font-weight:$font-weight-bold;
 }
@@ -289,6 +291,7 @@ acronym {
 }
 
 del,
+s,
 strike {
     text-decoration:line-through;
 }

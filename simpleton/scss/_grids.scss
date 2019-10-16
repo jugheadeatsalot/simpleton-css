@@ -55,20 +55,20 @@ $alley-sizes:map_merge((
         }
     }
 
-    .simp.container & {
-        $inc:0;
+    $inc:0;
 
-        @while $inc < 400 {
-            $inc:$inc + 25;
+    @while $inc < 400 {
+        $inc:$inc + 25;
 
-            &.mg-#{$inc} {
-                &:not(:last-child):after,
-                &.f-margins:last-child:after {
-                    margin-bottom:$margin * ($inc / 100);
-                }
+        &.mg-#{$inc} {
+            &:not(:last-child):after,
+            &.f-margins:last-child:after {
+                margin-bottom:$margin * ($inc / 100);
             }
+        }
 
-            &.mgch-#{$inc} {
+        &.mgch-#{$inc} {
+            .simp.container & {
                 margin-bottom:-$margin * ($inc / 100) !important;
 
                 > * {

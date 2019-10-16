@@ -5,9 +5,9 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card">
-    <header><h2>Headings</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Headings</h2>
+    <div class="output mg-175">
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>
@@ -16,7 +16,7 @@ layout: layout.hbs
         <h6>Heading 6</h6>
     </div>
     <div class="markup">
-<pre><code class="lang-html">```<h1>Heading 1</h1>
+        <pre><code class="lang-html">```<h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
 <h4>Heading 4</h4>
@@ -25,23 +25,35 @@ layout: layout.hbs
     </div>
 </section>
 
-<section class="simp card">
-    <header><h2>Blockquotes</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Paragraphs</h2>
+    <div class="output mg-175">
+        <p>You know when grown-ups tell you 'everything's going to be fine' and you think they're probably lying to make you feel better? I'm nobody's taxi service; I'm not gonna be there to catch you every time you feel like jumping out of a spaceship.</p>
+        <p>It's a fez. I wear a fez now. Fezes are cool. No, I'll fix it. I'm good at fixing rot. Call me the Rotmeister. No, I'm the Doctor. Don't call me the Rotmeister. You know when grown-ups tell you 'everything's going to be fine' and you think they're probably lying to make you feel better?</p>
+    </div>
+    <div class="markup">
+        <pre><code class="lang-html">```<p>You know when grown-ups tell you 'everything's going to be fine' and you think they're probably lying to make you feel better? I'm nobody's taxi service; I'm not gonna be there to catch you every time you feel like jumping out of a spaceship.</p>
+<p>It's a fez. I wear a fez now. Fezes are cool. No, I'll fix it. I'm good at fixing rot. Call me the Rotmeister. No, I'm the Doctor. Don't call me the Rotmeister. You know when grown-ups tell you 'everything's going to be fine' and you think they're probably lying to make you feel better?</p>```</code></pre>
+    </div>
+</section>
+
+<section class="simp card mg-300">
+    <h2>Blockquotes</h2>
+    <div class="output mg-175">
         <blockquote>
             <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p>
         </blockquote>
     </div>
     <div class="markup">
-<pre><code class="lang-html">```<blockquote>
+        <pre><code class="lang-html">```<blockquote>
     <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.</p>
 </blockquote>```</code></pre>
     </div>
 </section>
 
-<section class="simp card">
-    <header><h2>Tables</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Tables</h2>
+    <div class="output mg-175">
         <table>
             <tbody>
             <tr>
@@ -72,7 +84,7 @@ layout: layout.hbs
         </table>
     </div>
     <div class="markup">
-<pre><code class="lang-html">```<table>
+        <pre><code class="lang-html">```<table>
     <tbody>
     <tr>
         <th>Level</th>
@@ -103,130 +115,127 @@ layout: layout.hbs
     </div>
 </section>
 
-<section class="simp card">
-    <header><h2>Definition Lists</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Definition Lists</h2>
+    <div class="output mg-175">
         <dl>
-            <dt>Definition List Title</dt>
-            <dd>Definition list division.</dd>
-            <dt>Startup</dt>
-            <dd>A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.</dd>
-            <dt>#dowork</dt>
-            <dd>Coined by Rob Dyrdek and his personal body guard Christopher “Big Black” Boykins, “Do Work” works as a self motivator, to motivating your friends.</dd>
-            <dt>Do It Live</dt>
-            <dd>I’ll let Bill O’Reilly
-                <a title="We'll Do It Live" href="https://www.youtube.com/watch?v=O_HyZ5aW76c">explain</a> this one.
-            </dd>
+            <dt>Sanguine</dt>
+            <dd>Cheerfully optimistic, hopeful, or confident: a sanguine disposition.</dd>
+            <dt>Omphaloskepsis</dt>
+            <dd>Contemplation of one's navel as part of a mystical exercise; navel-gazing.</dd>
         </dl>
     </div>
+    <div class="markup">
+        <pre><code class="lang-html">```<dl>
+    <dt>Sanguine</dt>
+    <dd>Cheerfully optimistic, hopeful, or confident: a sanguine disposition.</dd>
+    <dt>Omphaloskepsis</dt>
+    <dd>Contemplation of one's navel as part of a mystical exercise; navel-gazing.</dd>
+</dl>```</code></pre>
+    </div>
 </section>
 
-<section class="simp card">
-    <header><h2>Unordered Lists</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Unordered Lists</h2>
+    <div class="output mg-175">
         <ul>
-            <li>List item one
-                <ul>
-                    <li>List item one
-                        <ul>
-                            <li>List item one</li>
-                            <li>List item two</li>
-                            <li>List item three</li>
-                            <li>List item four</li>
-                        </ul>
-                    </li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                    <li>List item four</li>
-                </ul>
-            </li>
-            <li>List item two</li>
-            <li>List item three</li>
-            <li>List item four</li>
+            <li>The Twilight Zone</li>
+            <li>Brooklyn Nine-Nine</li>
+            <li>Parks and Recreation</li>
+            <li>The Orville</li>
+            <li>Supernatural</li>
+            <li>The Big Bang Theory</li>
         </ul>
     </div>
-</section>
-
-<section class="simp card">
-    <header><h2>Ordered Lists</h2></header>
-    <div class="output">
-        <ol>
-            <li>List item one
-                <ol>
-                    <li>List item one
-                        <ol>
-                            <li>List item one</li>
-                            <li>List item two</li>
-                            <li>List item three</li>
-                            <li>List item four</li>
-                        </ol>
-                    </li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                    <li>List item four</li>
-                </ol>
-            </li>
-            <li>List item two</li>
-            <li>List item three</li>
-            <li>List item four</li>
-        </ol>
+    <div class="markup">
+        <pre><code class="lang-html">```<ul>
+    <li>The Twilight Zone</li>
+    <li>Brooklyn Nine-Nine</li>
+    <li>Parks and Recreation</li>
+    <li>The Orville</li>
+    <li>Supernatural</li>
+    <li>The Big Bang Theory</li>
+</ul>```</code></pre>
     </div>
 </section>
 
-<section class="simp card">
-    <header><h2>HTML Tags</h2></header>
-    <div class="output">
-        <p>These supported tags come from the WordPress.com code
-            <a title="Code" href="http://en.support.wordpress.com/code/">FAQ</a>.</p>
-        <p><strong>Address Tag</strong></p>
-        <address>1 Infinite Loop<br> Cupertino, CA 95014<br> United States</address>
-        <p><strong>Anchor Tag (aka. Link)</strong></p>
-        <p>This is an example of a <a title="Apple" href="http://apple.com">link</a>.</p>
-        <p><strong>Abbreviation Tag</strong></p>
+<section class="simp card mg-300">
+    <h2>Ordered Lists</h2>
+    <div class="output mg-175">
+        <ol>
+            <li>The Twilight Zone</li>
+            <li>Brooklyn Nine-Nine</li>
+            <li>Parks and Recreation</li>
+            <li>The Orville</li>
+            <li>Supernatural</li>
+            <li>The Big Bang Theory</li>
+        </ol>
+    </div>
+    <div class="markup">
+        <pre><code class="lang-html">```<ol>
+    <li>The Twilight Zone</li>
+    <li>Brooklyn Nine-Nine</li>
+    <li>Parks and Recreation</li>
+    <li>The Orville</li>
+    <li>Supernatural</li>
+    <li>The Big Bang Theory</li>
+</ol>```</code></pre>
+    </div>
+</section>
+
+<section class="simp card mg-300">
+    <h2>Etcetera, Etcetera</h2>
+    <p>Other commonly used HTML tags.</p>
+    <div class="output mg-175">
+        <p><strong>Abbreviation</strong> <code>```<```abbr```>```</code></p>
         <p>The abbreviation <abbr title="Seriously">srsly</abbr> stands for “seriously”.</p>
-        <p><strong>Acronym Tag</strong></p>
+        <p><strong>Acronym</strong> <code>```<```acronym```>```</code></p>
         <p>The acronym <acronym title="For The Win">ftw</acronym> stands for “for the win”.</p>
-        <p><strong>Big Tag</strong></p>
-        <p>These tests are a <big>big</big> deal, but this tag is no longer supported in HTML5.</p>
-        <p><strong>Cite Tag</strong></p>
-        <p>“Code is poetry.” <cite>–Automattic</cite></p>
-        <p><strong>Code Tag</strong></p>
+        <p><strong>Address</strong> <code>```<```address```>```</code></p>
+        <address>123 Sesame St.<br>Las Vegas, Nevada<br>United States 89104</address>
+        <p><strong>Anchor (aka. Link)</strong> <code>```<```a```>```</code></p>
+        <p>Here is an example of a <a href="https://github.com">link</a>.</p>
+        <p><strong>Big</strong> <code>```<```big```>```</code></p>
+        <p>Makes text <big>bigger</big>. Duh!</p>
+        <p><strong>Cite</strong> <code>```<```cite```>```</code></p>
+        <p>“Giggity, giggity, goo.” <cite>–Glenn Quagmire</cite></p>
+        <p><strong>Code</strong> <code>```<```code```>```</code></p>
         <p>You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend.</p>
-        <p><strong>Delete Tag</strong></p>
-        <p>This tag will let you
+        <p><strong>Delete</strong> <code>```<```del```>```</code></p>
+        <p>This tag will
             <del>strikeout text</del>
-           , but this tag is no longer supported in HTML5 (use the <code>&lt;strike&gt;</code> instead).
+           .
         </p>
-        <p><strong>Emphasize Tag</strong></p>
+        <p><strong>Emphasize</strong> <code>```<```em```>```</code></p>
         <p>The emphasize tag should <em>italicize</em> text.</p>
-        <p><strong>Insert Tag</strong></p>
+        <p><strong>Insert</strong> <code>```<```ins```>```</code></p>
         <p>This tag should denote
             <ins>inserted</ins>
            text.
         </p>
-        <p><strong>Keyboard Tag</strong></p>
+        <p><strong>Keyboard</strong> <code>```<```kbd```>```</code></p>
         <p>This scarsly known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the
             <code>&lt;code&gt;</code> tag.</p>
-        <p><strong>Preformatted Tag</strong></p>
+        <p><strong>Preformatted</strong> <code>```<```pre```>```</code></p>
         <p>This tag styles large blocks of code.</p>
-        <pre><code class="lang-css">```.post-title {
+        <pre><code>```.post-title {
     margin: 0 0 5px;
     font-weight: bold;
     font-size: 38px;
     line-height: 1.2;
 }```</code></pre>
-        <p><strong>Quote Tag</strong></p>
+        <p><strong>Quote</strong> <code>```<```q```>```</code></p>
         <p><q>Developers, developers, developers…</q> <cite>–Steve Ballmer</cite></p>
-        <p><strong>Strong Tag</strong></p>
+        <p><strong>Strong</strong> <code>```<```strong```>```</code></p>
         <p>This tag shows <strong>bold<strong> text.</strong></strong></p>
-        <p><strong>Subscript Tag</strong></p>
+        <p><strong>Subscript</strong> <code>```<```sub```>```</code></p>
         <p>Getting our science styling on with H<sub>2</sub>O, which should push the “2” down.</p>
-        <p><strong>Superscript Tag</strong></p>
+        <p><strong>Superscript</strong> <code>```<```sup```>```</code></p>
         <p>Still sticking with science and Albert Einstein’s&nbsp;E = MC<sup>2</sup>, which should lift the “2” up.</p>
-        <p><strong>Teletype Tag</strong></p>
+        <p><strong>Teletype</strong> <code>```<```tt```>```</code></p>
         <p>This rarely used tag emulates <tt>teletype text</tt>, which is usually styled like the
             <code>&lt;code&gt;</code> tag.</p>
-        <p><strong>Variable Tag</strong></p>
+        <p><strong>Variable</strong> <code>```<```var```>```</code></p>
         <p>This allows you to denote <var>variables</var>.</p>
     </div>
 </section>

@@ -635,8 +635,8 @@
 
 @mixin vertical-margins($multiplier:1) {
     hr {
-        margin-top:($margin) * $multiplier;
-        margin-bottom:($margin * 1.125) * $multiplier;
+        margin-top:$margin * $multiplier;
+        margin-bottom:$margin * $multiplier;
     }
 
     caption {
@@ -658,27 +658,25 @@
     p,
     ol,
     ul,
-    address,
     blockquote,
     dl,
-    dt,
     dd,
     fieldset,
     table,
-    pre,
-    form,
-    noscript,
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
+    pre /*form,
+        address,
+        noscript,
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav*/
+    {
         margin-bottom:$margin * $multiplier;
     }
 }

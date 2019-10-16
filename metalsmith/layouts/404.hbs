@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
+    {{#if description}}
+        <meta name="description" content="{{description}}">
+    {{/if}}
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
+</head>
+<body>
+<div class="simp container">
+    {{{contents}}}
+</div>
+<script src='/assets/js/simpleton.min.js?v={{version}}'></script>
+<script src='/assets/js/docs.min.js?v={{version}}'></script>
+</body>
+</html>

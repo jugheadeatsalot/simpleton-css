@@ -5,10 +5,10 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card">
-    <header><h2>Theme</h2></header>
+<section class="simp card mg-300">
+    <h2>Theme</h2>
     <div class="markup">
-        <div class="simp row tighter">
+        <div class="row tighter mgch-100">
             {{#each sassVars.colors}}
                 <div class="col">
                     <div class="simp bg-{{@key}} colorbox" title="{{@key}}"></div>

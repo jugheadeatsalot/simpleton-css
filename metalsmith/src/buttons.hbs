@@ -5,9 +5,9 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card mg-200">
-    <header><h2>Buttons</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Buttons</h2>
+    <div class="output mg-175">
         <button class="button">default</button>
         {{#each sassVars.colors}}
             <button class="button {{@key}}">{{@key}}</button>
@@ -22,9 +22,9 @@ layout: layout.hbs
     </div>
 </section>
 
-<section class="simp card mg-200">
-    <header><h2>Forms</h2></header>
-    <div class="output">
+<section class="simp card mg-300">
+    <h2>Forms</h2>
+    <div class="output mg-175">
         <form action="">
             <fieldset>
                 <div><label for="email">Email</label></div>
