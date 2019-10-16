@@ -5,7 +5,7 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card">
+<section class="simp card mg-200">
     <header><h2>Buttons</h2></header>
     <div class="output">
         <button class="button">default</button>
@@ -22,7 +22,7 @@ layout: layout.hbs
     </div>
 </section>
 
-<section class="simp card">
+<section class="simp card mg-200">
     <header><h2>Forms</h2></header>
     <div class="output">
         <form action="">
@@ -37,5 +37,17 @@ layout: layout.hbs
             </fieldset>
         </form>
     </div>
-    <div class="markup"></div>
+    <div class="markup">
+        <pre><code class="lang-html">```<form action="">
+    <fieldset>
+        <div><label for="email">Email</label></div>
+        <div class="row noalley">
+            <div><input type="email" id="email" name="email"></div>
+            <div>
+                <button class="button sq">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>```</code></pre>
+    </div>
 </section>

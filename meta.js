@@ -14,6 +14,10 @@ const dirs = exports.dirs = {
     metalsmithLayouts: 'metalsmith/layouts',
 };
 
+const files = exports.files = {
+    'timestamp': 'timestamp.tmp',
+};
+
 const sassVars = exports.sassVars = parse(
     fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'),
     {camelCase: false},

@@ -358,23 +358,46 @@
     }
 }
 
-//
-//@mixin ie9plus() {
-//    // @formatter:off
-//    @media (min-width:0\0) and (min-resolution:+72dpi) {
-//        @content;
-//    }
-//    // @formatter:on
-//}
-//
-//@mixin ie10plus() {
-//    // @formatter:off
-//    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
-//        @content;
-//    }
-//    // @formatter:on
-//}
-//
+@mixin min-s() {
+    @media (min-width:$breakpoint-s) {
+        @content;
+    }
+}
+
+@mixin min-m() {
+    @media (min-width:$breakpoint-m) {
+        @content;
+    }
+}
+
+@mixin min-l() {
+    @media (min-width:$breakpoint-l) {
+        @content;
+    }
+}
+
+@mixin min-xl() {
+    @media (min-width:$breakpoint-xl) {
+        @content;
+    }
+}
+
+@mixin ie9plus() {
+    // @formatter:off
+    @media (min-width:0\0) and (min-resolution:+72dpi) {
+        @content;
+    }
+    // @formatter:on
+}
+
+@mixin ie10plus() {
+    // @formatter:off
+    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+    // @formatter:on
+}
+
 //////////////////////////
 ///// Grids
 //////////////////////////

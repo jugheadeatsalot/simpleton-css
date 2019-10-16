@@ -30,7 +30,7 @@
 
 pre[class*=language-] {
   font-weight: 400;
-  color: #323232;
+  color: #1f1f20;
 }
 
 .token.cdata,
@@ -41,7 +41,7 @@ pre[class*=language-] {
 }
 
 .token.punctuation {
-  color: #323232;
+  color: #1f1f20;
 }
 
 .namespace {

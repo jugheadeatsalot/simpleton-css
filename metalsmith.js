@@ -9,7 +9,7 @@ const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
 
-const {dirs, sassVars} = require('./meta');
+const {dirs, files, sassVars} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -55,6 +55,7 @@ if(!isProduction) {
     metalsmith.use(watch({
         paths: {
             '${source}/**/*': true,
+            [files.timestamp]: '**/*',
             [`${dirs.metalsmithLayouts}/**/*`]: '**/*',
         },
         livereload: true,

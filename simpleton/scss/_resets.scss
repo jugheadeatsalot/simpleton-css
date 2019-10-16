@@ -152,6 +152,11 @@ q:after {
 a {
     color:$color-primary;
     text-decoration:none;
+    transition:color 200ms;
+
+    &:hover {
+        color:inherit;
+    }
 }
 
 input {
@@ -246,8 +251,6 @@ pre {
     padding:$padding-box;
     border-left:0.25rem solid $color-pre-bl;
     background-color:$color-pre-bg;
-    font-size:$font-size-small;
-    font-family:$font-stack-mono;
 
     code {
         padding:0;
@@ -262,6 +265,7 @@ blockquote {
     line-height:$line-height-h4;
 }
 
+pre,
 code,
 tt,
 var,
@@ -294,14 +298,14 @@ sub {
 }
 
 sup {
-    top:-0.4em;
+    top:-0.45em;
 }
 
 sub,
 sup {
     position:relative;
     vertical-align:baseline;
-    font-size:0.75em;
+    font-size:$font-size-xsmall;
 }
 
 ::-moz-focus-inner {

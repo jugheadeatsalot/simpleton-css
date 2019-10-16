@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const filter = require('gulp-filter');
@@ -9,7 +10,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
-const {dirs} = require('./meta');
+const {dirs, files} = require('./meta');
 
 const paths = {
     js: [`${dirs.simpletonJs}/**/*.js`],
@@ -117,12 +118,22 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
+gulp.task('timestamp', async() => {
+    await fs.writeFile(
+        files.timestamp,
+        new Date().getTime(),
+        err => {
+            if(err) console.log(err);
+        },
+    );
+});
+
 function doWatch(glob, task) {
     const msg = (filePath) => {
         console.log(`File ${filePath} changed. Working...`);
     };
 
-    gulp.watch(glob, gulp.series(task)).on('change', msg);
+    gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', msg);
 }
 
 gulp.task('watch', () => {
@@ -133,9 +144,14 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default',
-    gulp.series(gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), 'watch'),
+    gulp.series(
+        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), 'timestamp', 'watch',
+    ),
 );
 
 gulp.task('build',
-    gulp.series(gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), gulp.parallel('sass', 'js')),
+    gulp.series(
+        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
+        gulp.parallel('sass', 'js'),
+    ),
 );

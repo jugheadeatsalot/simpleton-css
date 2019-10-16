@@ -1,0 +1,15 @@
+$inc:0;
+
+@while $inc < 400 {
+    $inc:$inc + 25;
+
+    .mg-#{$inc} {
+        margin-bottom:$margin * ($inc / 100);
+    }
+
+    .mgch-#{$inc} {
+        > * {
+            margin-bottom:$margin * ($inc / 100);
+        }
+    }
+}

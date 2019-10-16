@@ -39,13 +39,44 @@ $alley-sizes:map_merge((
 
     > * {
         @include grid-alleys(col, $alley-multiplier);
-
-        margin-bottom:$margin;
     }
 }
 
 .row {
     @include grid();
+
+    &[class*='mg-'] {
+        &:not(:last-child):after,
+        &.f-margins:last-child:after {
+            display:block;
+            clear:both;
+            width:100%;
+            content:'';
+        }
+    }
+
+    .simp.container & {
+        $inc:0;
+
+        @while $inc < 400 {
+            $inc:$inc + 25;
+
+            &.mg-#{$inc} {
+                &:not(:last-child):after,
+                &.f-margins:last-child:after {
+                    margin-bottom:$margin * ($inc / 100);
+                }
+            }
+
+            &.mgch-#{$inc} {
+                margin-bottom:-$margin * ($inc / 100) !important;
+
+                > * {
+                    margin-bottom:$margin * ($inc / 100) !important;
+                }
+            }
+        }
+    }
 
     @each $alley-key, $alley-value in $alley-sizes {
         &.#{$alley-key} {

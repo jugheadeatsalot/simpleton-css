@@ -4,7 +4,7 @@
 
 /// font stacks
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
-$font-stack-sansserif:'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-stack-sansserif:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 $font-stack-general:$font-stack-sansserif !default;
 $font-stack-heading:$font-stack-general !default;
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
@@ -85,8 +85,8 @@ $line-heights:map-merge((
 ////////////////////////
 
 /// colors
-$color-dark:#323232 !default;
-$color-light:#ffffff !default;
+$color-dark:#1f1f20 !default;
+$color-light:#f5f2ef !default;
 $color-gray:lighten(black, 50%) !default;
 $color-graylight:lighten($color-gray, 25%) !default;
 $color-graylighter:lighten($color-gray, 35%) !default;
@@ -94,13 +94,13 @@ $color-graylightest:lighten($color-gray, 45%) !default;
 $color-graydark:darken($color-gray, 5%) !default;
 $color-graydarker:darken($color-gray, 10%) !default;
 $color-graydarkest:darken($color-gray, 15%) !default;
-$color-primary:#2e86de !default;
-$color-secondary:#576574 !default;
-$color-accent:#ee5253 !default;
+$color-primary:#c0392b !default;
+$color-secondary:#acb29d !default;
+$color-accent:#cb9556 !default;
 $color-idle:$color-graylighter !default;
-$color-success:#10ac84 !default;
-$color-alert:#ee5253 !default;
-$color-warning:#ff9f43 !default;
+$color-success:#708b45 !default;
+$color-alert:#f44336 !default;
+$color-warning:#ee7b0c !default;
 $color-highlight:#feca57 !default;
 $color-dribbble:#ea4c89 !default;
 $color-facebook:#3b5998 !default;
@@ -113,7 +113,7 @@ $color-rss:#f26522 !default;
 $color-tumblr:#35465c !default;
 $color-twitter:#55acee !default;
 $color-youtube:#b31217 !default;
-$color-body-bg:$color-light !default;
+$color-body-bg:#ffffff !default;
 $color-text:$color-dark !default;
 $color-border:$color-graylighter !default;
 $color-quote-bl:$color-graylighter !default;
@@ -187,9 +187,9 @@ $p-message-r:3.25rem !default;
 $p-message-b:0.75rem !default;
 $p-message-l:1rem !default;
 $padding-message:$p-message-t $p-message-r $p-message-b $p-message-l !default;
-$p-table-t:0.75rem !default;
-$p-table-r:1.125rem !default;
-$p-table-b:0.75rem !default;
+$p-table-t:0.65rem !default;
+$p-table-r:1rem !default;
+$p-table-b:0.65rem !default;
 $p-table-l:0 !default;
 $padding-table:$p-table-t $p-table-r $p-table-b $p-table-l !default;
 $p-button-t:0.5rem !default;
