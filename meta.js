@@ -16,9 +16,12 @@ const dirs = exports.dirs = {
 
 const files = exports.files = {
     'timestamp': 'timestamp.tmp',
+    'sassdocjson': 'sassdoc.json',
 };
 
 const sassVars = exports.sassVars = parse(
     fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'),
     {camelCase: false},
 );
+
+const sassdocData = exports.sassdocData = require(`./${files.sassdocjson}`);

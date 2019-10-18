@@ -1,0 +1,24 @@
+---
+pagetitle: Sass
+layout: layout.hbs
+---
+
+<h1>{{pagetitle}}</h1>
+
+{{#each sassdocData}}
+    <section class="simp card mgb-300">
+        <h2>{{context.name}}</h2>
+        <h3>Description</h3>
+        <p>{{#if description}}{{description}}{{else}}No description available.{{/if}}</p>
+        <h3>Group</h3>
+        <p>{{group.[0]}}</p>
+        <h3>Type</h3>
+        <p>{{context.type}}</p>
+        <div class="output mgb-175">
+            <div class="mgb-125">
+
+            </div>
+        </div>
+    </section>
+{{/each}}
+

@@ -9,7 +9,7 @@ const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
 
-const {dirs, files, sassVars} = require('./meta');
+const {dirs, files, sassVars, sassdocData} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -20,6 +20,7 @@ const metalsmith = Metalsmith(__dirname)
         description: 'Just a simple CSS starter.',
         isProduction: isProduction,
         sassVars,
+        sassdocData,
     })
     .clean(isProduction)
     .source(dirs.metalsmithSrc)

@@ -1,0 +1,585 @@
+[
+  {
+    "description": "Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.\n",
+    "commentRange": {
+      "start": 1,
+      "end": 6
+    },
+    "context": {
+      "type": "function",
+      "name": "list-to-string",
+      "code": "\n    $output:null;\n    $last-item:null;\n    $last-item-quoted:false;\n\n    @if type-of($list) != list {\n        @error '`#{$list}` is not a valid list.';\n    }\n\n    @for $i from 1 through length($list) {\n        $item:nth($list, $i);\n\n        @if type-of($item) == list {\n            @if $i == length($list) {\n                $last-item:nth($item, -1);\n                $is-nested-list:type-of($last-item) == list;\n\n                @while $is-nested-list {\n                    $last-item:nth($last-item, -1);\n\n                    @if type-of($last-item) != list {\n                        $is-nested-list:false;\n                        $last-item-quoted:type-of($last-item) == string and $quote-strings;\n                    }\n                }\n\n                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};\n            } @else {\n                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};\n            }\n        } @else {\n            $item:if(type-of($item) == string and $quote-strings, '\"#{$item}\"', $item);\n\n            @if $i == length($list) {\n                $last-item:$item;\n                $last-item-quoted:type-of($last-item) == string and $quote-strings;\n\n                $output:#{$output}#{$item}\n            } @else {\n                $output:#{$output}#{$item}#{$glue};\n            }\n        }\n    }\n\n    @if $closer != null {\n        $offset:if($last-item-quoted, 2, 0);\n        $find:#{$glue}#{$last-item};\n        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));\n        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));\n        $output:#{$slice-1}#{$closer}#{$slice-2};\n    }\n\n    @return $output;\n",
+      "line": {
+        "start": 7,
+        "end": 60
+      }
+    },
+    "group": [
+      "strings"
+    ],
+    "parameter": [
+      {
+        "type": "list",
+        "name": "list"
+      },
+      {
+        "type": "string",
+        "name": "glue",
+        "default": "''"
+      },
+      {
+        "type": "string",
+        "name": "closer",
+        "default": "null"
+      },
+      {
+        "type": "bool",
+        "name": "quote-strings",
+        "default": "false"
+      }
+    ],
+    "access": "public",
+    "require": [],
+    "throw": [
+      "`#{$list}` is not a valid list."
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Automatically selects text color based on how light the background color is\n",
+    "commentRange": {
+      "start": 177,
+      "end": 179
+    },
+    "context": {
+      "type": "function",
+      "name": "auto-text-color",
+      "code": "\n    @if type-of($bg-color) != color {\n        @error '`#{$bg-color}` is not a valid color.';\n    }\n\n    @if not is-absolute-number($gt-percentage) {\n        @error '`#{$gt-percentage}` is not an absolute number.';\n    }\n\n    @if lightness($bg-color) > $gt-percentage {\n        @return $color-dark;\n    } @else {\n        @return $color-light;\n    }\n",
+      "line": {
+        "start": 180,
+        "end": 194
+      }
+    },
+    "parameter": [
+      {
+        "type": "string",
+        "name": "bg-color"
+      },
+      {
+        "type": "number",
+        "name": "gt-percentage",
+        "default": "60"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "variable",
+        "name": "color-dark"
+      }
+    ],
+    "throw": [
+      "`#{$bg-color}` is not a valid color.",
+      "`#{$gt-percentage}` is not an absolute number."
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if value is a number\n",
+    "commentRange": {
+      "start": 80,
+      "end": 80
+    },
+    "context": {
+      "type": "function",
+      "name": "is-number",
+      "code": "\n    @return type-of($value) == number;\n",
+      "line": {
+        "start": 81,
+        "end": 83
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 268,
+      "end": 268
+    },
+    "context": {
+      "type": "mixin",
+      "name": "internal-row-alley-styles",
+      "code": "\n    @include row-alleys(row, $alley-multiplier);\n\n    > * {\n        @include row-alleys(col, $alley-multiplier);\n    }\n",
+      "line": {
+        "start": 269,
+        "end": 275
+      }
+    },
+    "access": "private",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_mixins.scss",
+      "name": "_mixins.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 29,
+      "end": 29
+    },
+    "context": {
+      "type": "mixin",
+      "name": "internal-video-aspect-ratio",
+      "code": "\n    padding-bottom:percentage($aspect-height / $aspect-width);\n",
+      "line": {
+        "start": 30,
+        "end": 32
+      }
+    },
+    "access": "private",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_mixins.scss",
+      "name": "_mixins.scss"
+    }
+  },
+  {
+    "description": "\n",
+    "commentRange": {
+      "start": 220,
+      "end": 221
+    },
+    "context": {
+      "type": "mixin",
+      "name": "mgb-row",
+      "code": "\n    &:not(:last-child):after,\n    &.f-margins:last-child:after {\n        @include mgb($multiplier, $important);\n    }\n",
+      "line": {
+        "start": 222,
+        "end": 227
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_mixins.scss",
+      "name": "_mixins.scss"
+    }
+  },
+  {
+    "description": "alleys\n",
+    "commentRange": {
+      "start": 206,
+      "end": 206
+    },
+    "context": {
+      "type": "variable",
+      "name": "alley-sizes",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 207,
+        "end": 207
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "breakpoints\n",
+    "commentRange": {
+      "start": 231,
+      "end": 231
+    },
+    "context": {
+      "type": "variable",
+      "name": "breakpoint-s",
+      "value": "480px",
+      "scope": "default",
+      "line": {
+        "start": 232,
+        "end": 232
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "breakpoints mapped\n",
+    "commentRange": {
+      "start": 237,
+      "end": 237
+    },
+    "context": {
+      "type": "variable",
+      "name": "breakpoints",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 238,
+        "end": 238
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "colors\n",
+    "commentRange": {
+      "start": 87,
+      "end": 87
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-dark",
+      "value": "#1f1f20",
+      "scope": "default",
+      "line": {
+        "start": 88,
+        "end": 88
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Automatically selects text color based on how light the background color is\n",
+        "context": {
+          "type": "function",
+          "name": "auto-text-color",
+          "code": "\n    @if type-of($bg-color) != color {\n        @error '`#{$bg-color}` is not a valid color.';\n    }\n\n    @if not is-absolute-number($gt-percentage) {\n        @error '`#{$gt-percentage}` is not an absolute number.';\n    }\n\n    @if lightness($bg-color) > $gt-percentage {\n        @return $color-dark;\n    } @else {\n        @return $color-light;\n    }\n",
+          "line": {
+            "start": 180,
+            "end": 194
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "colors mapped\n",
+    "commentRange": {
+      "start": 126,
+      "end": 126
+    },
+    "context": {
+      "type": "variable",
+      "name": "colors",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 127,
+        "end": 127
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "columns\n",
+    "commentRange": {
+      "start": 246,
+      "end": 246
+    },
+    "context": {
+      "type": "variable",
+      "name": "columns",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 247,
+        "end": 247
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font sizes\n",
+    "commentRange": {
+      "start": 22,
+      "end": 22
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-base",
+      "value": "16px",
+      "scope": "default",
+      "line": {
+        "start": 23,
+        "end": 23
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font sizes mapped\n",
+    "commentRange": {
+      "start": 36,
+      "end": 36
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-sizes",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 37,
+        "end": 37
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font stacks\n",
+    "commentRange": {
+      "start": 5,
+      "end": 5
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stack-serif",
+      "value": "Constantia, 'Lucida Bright', Lucidabright, Georgia, serif",
+      "scope": "default",
+      "line": {
+        "start": 6,
+        "end": 6
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font stacks mapped\n",
+    "commentRange": {
+      "start": 12,
+      "end": 12
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stacks",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 13,
+        "end": 13
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font weights\n",
+    "commentRange": {
+      "start": 53,
+      "end": 53
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-weight-normal",
+      "value": "400",
+      "scope": "default",
+      "line": {
+        "start": 54,
+        "end": 54
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "font weights mapped\n",
+    "commentRange": {
+      "start": 58,
+      "end": 58
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-weights",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 59,
+        "end": 59
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "units\n",
+    "commentRange": {
+      "start": 287,
+      "end": 287
+    },
+    "context": {
+      "type": "variable",
+      "name": "lengths-absolute",
+      "value": "(cm, mm, in, px, pt, pc)",
+      "scope": "private",
+      "line": {
+        "start": 288,
+        "end": 288
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "line heights\n",
+    "commentRange": {
+      "start": 66,
+      "end": 66
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-height-general",
+      "value": "1.5",
+      "scope": "default",
+      "line": {
+        "start": 67,
+        "end": 67
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "line heights mapped\n",
+    "commentRange": {
+      "start": 73,
+      "end": 73
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-heights",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 74,
+        "end": 74
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  }
+]

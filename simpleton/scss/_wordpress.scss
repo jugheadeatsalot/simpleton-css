@@ -62,9 +62,9 @@ blockquote {
 .gallery {
     $padding-bottom-gallery:$margin * 1.2;
 
-    @include row(0.5);
+    @include row(tighter);
 
-     > * {
+    > * {
         html body & {
             margin-bottom:0;
             padding-bottom:$padding-bottom-gallery;
@@ -77,12 +77,12 @@ blockquote {
         }
     }
 
-     + h1,
-     + h2,
-     + h3,
-     + h4,
-     + h5,
-     + h6 {
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
         margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
     }
 }
@@ -98,7 +98,7 @@ blockquote {
 
 @for $i from 1 through 10 {
     .gallery-columns-#{$i} {
-         > .gallery-item {
+        > .gallery-item {
             width:100 / $i * 1%;
         }
     }

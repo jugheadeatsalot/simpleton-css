@@ -1,57 +1,73 @@
-////////////////////////
-/// Strings
-////////////////////////
-
-/// Joins `$list` items into a `$glue` separated string and
-/// inserts an optional `$closer` before the final item.
+/// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
+/// @group strings
 /// @param {list} $list
-/// @param {string} $glue [""]
-/// @param {string} $closer [""]
+/// @param {string} $glue ['']
+/// @param {string} $closer [null]
 /// @param {bool} $quote-strings [false]
-@function implodeList($list, $glue:'', $closer:'', $quote-strings:false) {
-    $x:null;
-    $len:length($list);
-    $closer:if(str-length(#{$closer}) > 0 and $len > 1, #{$closer}, null);
+@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
+    $output:null;
+    $last-item:null;
+    $last-item-quoted:false;
 
     @if type-of($list) != list {
-        @warn '`#{$list}` is not a valid list.';
-        @return $list;
+        @error '`#{$list}` is not a valid list.';
     }
 
-    @for $i from 1 through $len {
+    @for $i from 1 through length($list) {
         $item:nth($list, $i);
-        $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
-        $x:if($i < length($list), #{$x}#{$item}#{$glue}, #{$x}#{$closer}#{$item});
+
+        @if type-of($item) == list {
+            @if $i == length($list) {
+                $last-item:nth($item, -1);
+                $is-nested-list:type-of($last-item) == list;
+
+                @while $is-nested-list {
+                    $last-item:nth($last-item, -1);
+
+                    @if type-of($last-item) != list {
+                        $is-nested-list:false;
+                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
+                    }
+                }
+
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
+            } @else {
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
+            }
+        } @else {
+            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
+
+            @if $i == length($list) {
+                $last-item:$item;
+                $last-item-quoted:type-of($last-item) == string and $quote-strings;
+
+                $output:#{$output}#{$item}
+            } @else {
+                $output:#{$output}#{$item}#{$glue};
+            }
+        }
     }
 
     @if $closer != null {
-        $find:#{$glue}#{$closer};
-        $index:str-index($x, $find);
-        $slice-a:str-slice($x, 1, $index - 1);
-        $slice-b:str-slice($x, $index + str-length($find) - str-length($closer));
-        $x:#{$slice-a}#{$slice-b};
+        $offset:if($last-item-quoted, 2, 0);
+        $find:#{$glue}#{$last-item};
+        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
+        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
+        $output:#{$slice-1}#{$closer}#{$slice-2};
     }
 
-    @return $x;
+    @return $output;
 }
 
 ////////////////////////
 /// Utilities
 ////////////////////////
 
-@function autoTextColor($bg-color, $gt-percentage: 60) {
-    @if lightness($bg-color) > $gt-percentage {
-        @return $color-dark;
-    } @else {
-        @return $color-light;
-    }
+@function show-valid-values($list) {
+    @return 'Valid values are #{list-to-string($list, ', ', ' and ')}.';
 }
 
-@function validVals($list) {
-    @return 'Valid values are #{implodeList($list, ', ', ' and ', true)}.';
-}
-
-@function showParamVal($value) {
+@function show-param-value($value) {
     $value:if(type-of($value) == string, '"#{$value}"', $value);
 
     @return 'Received: <#{type-of($value)}: #{$value}>.';
@@ -61,7 +77,8 @@
 /// Conditionals
 ////////////////////////
 
-@function isNumber($value) {
+/// Checks if value is a number
+@function is-number($value) {
     @return type-of($value) == number;
 }
 
@@ -86,89 +103,108 @@
 }
 
 @function isUnitNumber($value, $warn: false) {
-    @if isNumber($value) and index($lengths, unit($value)) {
+    @if is-number($value) and index($lengths, unit($value)) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be a <length>. #{showParamVal($value)}';
+        @warn '`$value` must be a <length>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
 @function isUnitlessNumber($value, $warn: false) {
-    @if isNumber($value) and unitless($value) {
+    @if is-number($value) and unitless($value) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be a unitless <number>. #{showParamVal($value)}';
+        @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-@function isAbsoluteNumber($value, $warn: false) {
-    @if isNumber($value) and $value > -1 {
+@function is-absolute-number($value, $warn: false) {
+    @if is-number($value) and $value > -1 {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute <number>. #{showParamVal($value)}';
+        @warn '`$value` must be an absolute <number>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-@function isAbsoluteUnitNumber($value, $warn: false) {
-    @if isAbsoluteNumber($value) and index($lengths, unit($value)) {
+@function is-absolute-unit-number($value, $warn: false) {
+    @if is-absolute-number($value) and index($lengths, unit($value)) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute <length>. #{showParamVal($value)}';
+        @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-@function isAbsoluteUnitlessNumber($value, $warn: false) {
-    @if isAbsoluteNumber($value) and unitless($value) {
+@function is-absolute-unitless-number($value, $warn: false) {
+    @if is-absolute-number($value) and unitless($value) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute, unitless <number>. #{showParamVal($value)}';
+        @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-@function isInList($needle, $haystack, $warn: false) {
+@function is-in-list($needle, $haystack, $warn: false) {
     @if index($haystack, $needle) {
         @return true;
     }
 
     @if $warn == true {
-        @warn 'Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}';
+        @warn 'Invalid `$needle`. #{show-param-value($needle)} #{show-valid-values($haystack)}';
     }
 
     @return false;
+}
+
+/// Automatically selects text color based on how light the background color is
+/// @param {string} $bg-color
+/// @param {number} $gt-percentage [60]
+@function auto-text-color($bg-color, $gt-percentage: 60) {
+    @if type-of($bg-color) != color {
+        @error '`#{$bg-color}` is not a valid color.';
+    }
+
+    @if not is-absolute-number($gt-percentage) {
+        @error '`#{$gt-percentage}` is not an absolute number.';
+    }
+
+    @if lightness($bg-color) > $gt-percentage {
+        @return $color-dark;
+    } @else {
+        @return $color-light;
+    }
 }
 
 ////////////////////////
 /// Numbers
 ////////////////////////
 
-@function decRound($number, $digits:3, $mode:round) {
+@function decimal-round($number, $digits:3, $mode:round) {
     $n:1;
 
-    @if not isNumber($number) {
+    @if not is-number($number) {
         @return $number;
     }
 
-    @if not isNumber($digits) {
+    @if not is-number($digits) {
         @return $number;
     } @else if not unitless($digits) {
         @return $number;
@@ -189,18 +225,18 @@
     }
 }
 
-@function decCeil($number, $digits:3) {
-    @return decRound($number, $digits, ceil);
+@function decimal-ceil($number, $digits:3) {
+    @return decimal-round($number, $digits, ceil);
 }
 
-@function decFloor($number, $digits:3) {
-    @return decRound($number, $digits, floor);
+@function decimal-floor($number, $digits:3) {
+    @return decimal-round($number, $digits, floor);
 }
 
-@function strip($number) {
+@function strip-unit($number) {
     @return $number / ($number * 0 + 1);
 }
 
-@function remToPixels($size-in-rem) {
-    @return strip($size-in-rem) * $font-size-base;
+@function rem-to-pixels($size-in-rem) {
+    @return strip-unit($size-in-rem) * $font-size-base;
 }

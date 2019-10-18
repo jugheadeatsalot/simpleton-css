@@ -9,6 +9,7 @@ const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const sassdoc = require('sassdoc');
 
 const {dirs, files} = require('./meta');
 
@@ -118,6 +119,39 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
+gulp.task('sassdoc', function() {
+    return gulp
+        .src(paths.scss)
+        .pipe(sassdoc.parse())
+        .on('data', async(data) => {
+            data.sort((a, b) => {
+                let aGrp = a.group[0].toUpperCase();
+                let bGrp = b.group[0].toUpperCase();
+                let aTyp = a.context.type.toUpperCase();
+                let bTyp = b.context.type.toUpperCase();
+                let aNme = a.context.name.toUpperCase();
+                let bNme = b.context.name.toUpperCase();
+
+                if(aGrp > bGrp) return 1;
+                if(aGrp < bGrp) return -1;
+
+                if(aTyp > bTyp) return 1;
+                if(aTyp < bTyp) return -1;
+
+                if(aNme > bNme) return 1;
+                if(aNme < bNme) return -1;
+            });
+
+            await fs.writeFile(
+                files.sassdocjson,
+                JSON.stringify(data, null, 2),
+                err => {
+                    if(err) console.log(err);
+                },
+            );
+        });
+});
+
 gulp.task('timestamp', async() => {
     await fs.writeFile(
         files.timestamp,
@@ -145,12 +179,16 @@ gulp.task('watch', () => {
 
 gulp.task('default',
     gulp.series(
-        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'), 'timestamp', 'watch',
+        'sassdoc',
+        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
+        'timestamp',
+        'watch',
     ),
 );
 
 gulp.task('build',
     gulp.series(
+        'sassdoc',
         gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
         gulp.parallel('sass', 'js'),
     ),

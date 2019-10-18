@@ -41,5 +41,8 @@
     "metalsmith-watch": "^1.0.3",
     "sass-variable-parser": "^1.2.2",
     "static-server": "^2.2.1"
+  },
+  "dependencies": {
+    "sassdoc": "^2.7.1"
   }
 }
