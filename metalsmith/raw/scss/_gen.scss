@@ -1,11 +1,9 @@
 $content-width:800px;
 $header-nav-height:3.4rem;
 
-.container {
-    margin:0 auto;
-    padding:($header-nav-height + ($padding * 1.75)) ($alley * 0.6) ($padding * 2);
-    max-width:$content-width;
-    width:100%;
+@mixin container-padding {
+    padding-right:$alley * 0.6;
+    padding-left:$alley * 0.6;
 
     @include min($breakpoint-s) {
         padding-right:$alley;
@@ -13,49 +11,73 @@ $header-nav-height:3.4rem;
     }
 }
 
+.container {
+    @include container-padding();
+
+    margin:0 auto;
+    padding-top:$header-nav-height + ($padding * 1.75);
+    max-width:$content-width;
+    width:100%;
+    display:flex;
+    min-height:100vh;
+    flex-direction:column;
+}
+
+main {
+    flex:1;
+}
+
 .site-header {
+    @include container-padding();
+
     position:fixed;
     top:0;
-    align-items:center;
-    max-width:calc(#{$content-width} - #{$alley});
+    left:0;
     width:100%;
-    height:$header-nav-height;
+    border-bottom:1px solid $color-secondary;
+    background-color:$color-light;
 
-    &:before {
-        position:fixed;
-        top:0;
-        left:0;
-        display:block;
+    nav {
+        display:flex;
+        align-items:center;
+        max-width:$content-width - ($alley * 0.6);
         width:100%;
+        margin:0 auto;
         height:$header-nav-height;
-        border-bottom:1px solid $color-light;
-        background-color:#ffffff;
-        content:'';
-    }
 
-    > * {
-        position:relative;
-        font-size:$font-size-small;
-        line-height:$line-height-general;
+        @include min($breakpoint-s) {
+            max-width:$content-width - ($alley * 2);
+        }
+
+        > * {
+            font-size:$font-size-small;
+            text-transform:uppercase;
+        }
     }
 
     .site-name {
         flex:1;
         margin:0;
-        text-transform:uppercase;
         font-weight:$font-weight-normal;
+        line-height:$line-height-general;
     }
 
-    .site-menu {
+    ul {
         margin-left:0;
         list-style-type:none;
-        text-transform:uppercase;
-
-        ul {
-            margin-left:0;
-            list-style-type:none;
-        }
     }
+}
+
+.site-footer {
+    align-items:center;
+    border-top:1px solid $color-secondary;
+    height:4.2rem;
+}
+
+.copyright {
+    flex:1;
+    font-size:$font-size-small;
+    text-transform:uppercase;
 }
 
 .colorbox {
@@ -67,7 +89,7 @@ $header-nav-height:3.4rem;
 }
 
 .decoy {
-    min-height:3rem;
+    min-height:4rem;
 }
 
 ._404 {
@@ -91,7 +113,7 @@ $header-nav-height:3.4rem;
     }
 
     p {
-        font-size:$font-size-small;
         text-transform:uppercase;
+        font-size:$font-size-small;
     }
 }

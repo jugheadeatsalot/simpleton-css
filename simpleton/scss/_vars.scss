@@ -20,7 +20,7 @@ $font-stacks:map-merge((
 ), $font-stacks);
 
 /// font sizes
-$font-size-base:16px !default;
+$font-size-base:16px !default; // must be in px
 $font-size-general:1rem !default;
 $font-size-big:1.1em !default;
 $font-size-xbig:1.2em !default;
@@ -203,6 +203,19 @@ $p-input-b:0.5rem !default;
 $p-input-l:0.75rem !default;
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
 
+/// alleys
+$alley-sizes:() !default;
+$alley-sizes:map_merge((
+    noalley: 0,
+    tightest: 25,
+    tighter: 50,
+    tight: 75,
+    comfy: 100,
+    loose: 125,
+    looser: 150,
+    loosest: 175,
+), $alley-sizes);
+
 ////////////////////////
 /// Animations
 ////////////////////////
@@ -231,20 +244,41 @@ $breakpoints:map_merge((
 ), $breakpoints);
 
 /// columns
-$columns:();
-$inc:0;
-$max-layout-cols:12;
-
-/// e.g. 5p = 5%, 20p = 20%, etc.
-@while $inc < 100 {
-    $inc:$inc + 5;
-    $columns:map-merge($columns, (#{$inc}p: $inc * 1%));
-}
-
-/// e.g. 12 = 12 out of 12 columns, 3 = 3 out of 12 columns, etc.
-@for $i from 1 through $max-layout-cols {
-    $columns:map-merge($columns, ($i: percentage($i / $max-layout-cols)));
-}
+$columns:() !default;
+$columns:(map_merge((
+    1:percentage(1/12),
+    2:percentage(2/12),
+    3:percentage(3/12),
+    4:percentage(4/12),
+    5:percentage(5/12),
+    6:percentage(6/12),
+    7:percentage(7/12),
+    8:percentage(8/12),
+    9:percentage(9/12),
+    10:percentage(10/12),
+    11:percentage(11/12),
+    12:percentage(12/12),
+    p5:5%,
+    p10:10%,
+    p15:15%,
+    p20:20%,
+    p25:25%,
+    p30:30%,
+    p35:35%,
+    p40:40%,
+    p45:45%,
+    p50:50%,
+    p55:55%,
+    p60:60%,
+    p65:65%,
+    p70:70%,
+    p75:75%,
+    p80:80%,
+    p85:85%,
+    p90:90%,
+    p95:95%,
+    p100:100%,
+), $columns));
 
 ////////////////////////
 /// Etcetera

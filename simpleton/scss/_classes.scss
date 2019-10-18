@@ -1,15 +1,23 @@
 $inc:0;
 
-@while $inc < 400 {
+@while $inc < 600 {
     $inc:$inc + 25;
 
-    .mg-#{$inc} {
-        margin-bottom:$margin * ($inc / 100);
+    .mgb-#{$inc} {
+        @include mgb($inc);
     }
 
-    .mgch-#{$inc} {
-        > * {
-            margin-bottom:$margin * ($inc / 100);
-        }
+    .mgbch-#{$inc} {
+        @include mgbch($inc);
+    }
+}
+
+.sq {
+    @include sq();
+}
+
+@each $breakpoint-key, $breakpoint-value in $breakpoints {
+    .hide-#{$breakpoint-key} {
+        @include hide($breakpoint-key);
     }
 }

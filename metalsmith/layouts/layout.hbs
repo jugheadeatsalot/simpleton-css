@@ -29,11 +29,11 @@
     {{/if}}
 </head>
 <body>
-<div class="simp container">
-    <header class="row site-header">
-        <h1 class="site-name">{{title}}</h1>
+<div class="container">
+    <header class="site-header">
         <nav>
-            <ul class="row site-menu">
+            <h1 class="site-name"><a href="/">{{title}}</a></h1>
+            <ul class="site-menu row tight">
                 <li><a href="/">Home</a></li>
                 <li><a href="/markup/">Markup</a></li>
                 <li><a href="/colors/">Colors</a></li>
@@ -42,9 +42,14 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="mgb-400">
         {{{contents}}}
     </main>
+    <footer class="site-footer row">
+        <div class="copyright">Built by <a href="https://johnromeral.com">John Romeral</a>. Released under the
+            <a href="https://opensource.org/licenses/MIT">MIT License</a>. Absolutely no warranties.
+        </div>
+    </footer>
 </div>
 <script src='/assets/vendor/prism.min.js?v={{version}}'></script>
 {{#if isProduction}}

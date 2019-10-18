@@ -62,7 +62,7 @@ blockquote {
 .gallery {
     $padding-bottom-gallery:$margin * 1.2;
 
-    @include grid(0.5);
+    @include row(0.5);
 
      > * {
         html body & {
@@ -142,11 +142,11 @@ blockquote {
     @include video-container();
 
     &._1by1 {
-        @include video-aspect-ratio(1, 1);
+        @include internal-video-aspect-ratio(1, 1);
     }
 
     &._4by3 {
-        @include video-aspect-ratio(4, 3);
+        @include internal-video-aspect-ratio(4, 3);
     }
 }
 

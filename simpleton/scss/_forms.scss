@@ -26,35 +26,89 @@
     }
 }
 
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button,
 .button {
     @include button-styles();
+}
 
-    &.sq {
-        border-radius:0;
+@mixin input-styles() {
+    padding:$padding-input;
+    min-height:2.5rem;
+    width:100%;
+    border:none;
+    box-shadow:0 0 0 $border-size $color-border inset;
+
+    &:focus {
+        outline:none;
+        border:none;
+        box-shadow:0 0 0 $border-size $color-primary inset;
     }
 }
 
-
 input {
-    &[type='text'],
-    &[type='email'],
-    &[type='tel'],
-    &[type='url'],
-    &[type='search'],
-    &[type='number'],
+    &[type='color'],
     &[type='date'],
-    &[type='month'],
-    &[type='week'],
     &[type='datetime'],
     &[type='datetime-local'],
-    &[type='password'] {
+    &[type='email'],
+    &[type='file'],
+    &[type='number'],
+    &[type='search'],
+    &[type='tel'],
+    &[type='text'],
+    &[type='month'],
+    &[type='password'],
+    &[type='url'],
+    &[type='week'] {
         @include ie9plus() {
             line-height:1;
         }
-
-        min-height:2.5rem;
-        width:100%;;
-        border:none;
-        box-shadow:0 0 0 1px $color-border inset;
+        @include input-styles();
     }
+}
+
+input[type=radio],
+input[type=checkbox] {
+    margin:0 ($alley * 0.25) 0 0;
+    vertical-align:-1px;
+}
+
+textarea {
+    @include input-styles();
+}
+
+select {
+    @include input-styles();
+}
+
+fieldset {
+    padding:$padding;
+    box-shadow:0 0 0 $border-size $color-border inset;
+
+    legend {
+        margin-left:-($alley * 0.25);
+        padding:0 ($alley * 0.25);
+        background-color:$color-body-bg;
+        text-transform:uppercase;
+        font-size:$font-size-xsmall;
+    }
+}
+
+form {
+    div {
+        margin-bottom:$margin;
+    }
+}
+
+label {
+    padding-right:$alley * 0.625;
+}
+
+input:not([type='radio']):not([type='checkbox']),
+select,
+textarea {
+    margin-bottom:$margin;
 }

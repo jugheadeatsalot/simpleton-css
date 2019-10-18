@@ -85,67 +85,76 @@
     @return type-of($value) == color;
 }
 
-@function isUnitNumber($value) {
+@function isUnitNumber($value, $warn: false) {
     @if isNumber($value) and index($lengths, unit($value)) {
         @return true;
-    } @else {
-        @warn '`$value` must be a <length>. #{showParamVal($value)}';
-        @return false;
     }
+
+    @if $warn == true {
+        @warn '`$value` must be a <length>. #{showParamVal($value)}';
+    }
+
+    @return false;
 }
 
-@function isUnitlessNumber($value) {
+@function isUnitlessNumber($value, $warn: false) {
     @if isNumber($value) and unitless($value) {
         @return true;
-    } @else {
-        @warn '`$value` must be a unitless <number>. #{showParamVal($value)}';
-        @return false;
     }
+
+    @if $warn == true {
+        @warn '`$value` must be a unitless <number>. #{showParamVal($value)}';
+    }
+
+    @return false;
 }
 
-@function isAbsoluteNumber($value) {
+@function isAbsoluteNumber($value, $warn: false) {
     @if isNumber($value) and $value > -1 {
         @return true;
-    } @else {
-        @warn '`$value` must be an absolute <number>. #{showParamVal($value)}';
-        @return false;
     }
+
+    @if $warn == true {
+        @warn '`$value` must be an absolute <number>. #{showParamVal($value)}';
+    }
+
+    @return false;
 }
 
-@function isAbsoluteUnitNumber($value) {
+@function isAbsoluteUnitNumber($value, $warn: false) {
     @if isAbsoluteNumber($value) and index($lengths, unit($value)) {
         @return true;
-    } @else {
-        @warn '`$value` must be an absolute <length>. #{showParamVal($value)}';
-        @return false;
     }
+
+    @if $warn == true {
+        @warn '`$value` must be an absolute <length>. #{showParamVal($value)}';
+    }
+
+    @return false;
 }
 
-@function isAbsoluteUnitlessNumber($value) {
+@function isAbsoluteUnitlessNumber($value, $warn: false) {
     @if isAbsoluteNumber($value) and unitless($value) {
         @return true;
-    } @else {
+    }
+
+    @if $warn == true {
         @warn '`$value` must be an absolute, unitless <number>. #{showParamVal($value)}';
-        @return false;
     }
+
+    @return false;
 }
 
-@function isValidFlexBasis($value) {
-    @if isAbsoluteUnitNumber($value) or $value == auto {
-        @return true;
-    } @else {
-        @warn '`$value` must be "auto" or an absolute <length>. #{showParamVal($value)}';
-        @return false;
-    }
-}
-
-@function isInList($needle, $haystack) {
+@function isInList($needle, $haystack, $warn: false) {
     @if index($haystack, $needle) {
         @return true;
-    } @else {
-        @warn 'Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}';
-        @return false;
     }
+
+    @if $warn == true {
+        @warn 'Invalid `$needle`. #{showParamVal($needle)} #{validVals($haystack)}';
+    }
+
+    @return false;
 }
 
 ////////////////////////

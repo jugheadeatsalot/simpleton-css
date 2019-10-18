@@ -5,9 +5,9 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card mg-300">
+<section class="simp card mgb-300">
     <h2>Buttons</h2>
-    <div class="output mg-175">
+    <div class="output mgb-175">
         <button class="button">default</button>
         {{#each sassVars.colors}}
             <button class="button {{@key}}">{{@key}}</button>
@@ -22,32 +22,64 @@ layout: layout.hbs
     </div>
 </section>
 
-<section class="simp card mg-300">
+<section class="simp card mgb-300">
     <h2>Forms</h2>
-    <div class="output mg-175">
-        <form action="">
+    <div class="output mgb-175">
+        <form>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email">
+            </div>
             <fieldset>
-                <div><label for="email">Email</label></div>
-                <div class="row noalley">
-                    <div><input type="email" id="email" name="email"></div>
-                    <div>
-                        <button class="button sq">Submit</button>
-                    </div>
-                </div>
+                <legend>Choose your partner</legend>
+                <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br class="hide-m">
+                <input type="radio" id="2" name="1"><label for="2">Leslie Knope</label><br class="hide-m">
+                <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br class="hide-m">
+                <input type="radio" id="4" name="1"><label for="4">Tyrion Lannister</label><br class="hide-m">
             </fieldset>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" id="agree"><label for="agree">I agree to serve the overlords to the best of my ability.</label>
+            </div>
+            <div>
+                <button class="button">Submit</button>
+            </div>
         </form>
     </div>
     <div class="markup">
-        <pre><code class="lang-html">```<form action="">
+        <pre><code class="lang-html">```<form>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email">
+    </div>
     <fieldset>
-        <div><label for="email">Email</label></div>
-        <div class="row noalley">
-            <div><input type="email" id="email" name="email"></div>
-            <div>
-                <button class="button sq">Submit</button>
-            </div>
-        </div>
+        <legend>Choose your partner</legend>
+        <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br class="hide-s">
+        <input type="radio" id="1" name="1"><label for="1">Leslie Knope</label><br class="hide-s">
+        <input type="radio" id="1" name="1"><label for="1">Dean Winchester</label><br class="hide-s">
+        <input type="radio" id="1" name="1"><label for="1">Tyrion Lannister</label><br class="hide-s">
     </fieldset>
+    <div>
+        <label for="message">Message</label>
+        <textarea id="message" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="checkbox" id="agree"><label for="agree">I agree to serve the overlords to the best of my ability.</label>
+    </div>
+    <div>
+        <button class="button">Submit</button>
+    </div>
 </form>```</code></pre>
     </div>
 </section>

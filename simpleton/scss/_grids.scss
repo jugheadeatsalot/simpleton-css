@@ -1,103 +1,30 @@
-$alley-sizes:() !default;
-$alley-sizes:map_merge((
-    noalley: 0,
-    tightest: 0.25,
-    tighter: 0.5,
-    tight: 0.75,
-    comfy: 1,
-    loose: 1.25,
-    looser: 1.5,
-    loosest: 1.75,
-), $alley-sizes);
-
-@mixin grid-alleys($type:row, $alley-multiplier:false) {
-    $multiplier:map_get($alley-sizes, comfy);
-    $alley:$alley / 2;
-
-    @if ($alley-multiplier) {
-        @if index(map_keys($alley-sizes), $alley-multiplier) {
-            $multiplier:map_get($alley-sizes, $alley-multiplier);
-        } @else if isAbsoluteUnitlessNumber($alley-multiplier) {
-            $multiplier:$alley-multiplier;
-        }
-    }
-
-    @if $type == row {
-        margin-right:-$alley * $multiplier;
-        margin-left:-$alley * $multiplier;
-    } @else if $type == col {
-        padding-right:$alley * $multiplier;
-        padding-left:$alley * $multiplier;
-    }
-}
-
-@mixin grid($alley-multiplier:false) {
-    @include grid-alleys(row, $alley-multiplier);
-
-    display:flex;
-    flex-wrap:wrap;
-
-    > * {
-        @include grid-alleys(col, $alley-multiplier);
-    }
-}
-
 .row {
-    @include grid();
-
-    &[class*='mg-'] {
-        &:not(:last-child):after,
-        &.f-margins:last-child:after {
-            display:block;
-            clear:both;
-            width:100%;
-            content:'';
-        }
-    }
-
     $inc:0;
 
-    @while $inc < 400 {
+    @include row();
+
+    @while $inc < 600 {
         $inc:$inc + 25;
 
-        &.mg-#{$inc} {
-            &:not(:last-child):after,
-            &.f-margins:last-child:after {
-                margin-bottom:$margin * ($inc / 100);
-            }
+        &.mgb-#{$inc} {
+            @include mgb-row($inc);
         }
 
-        &.mgch-#{$inc} {
-            .simp.container & {
-                margin-bottom:-$margin * ($inc / 100) !important;
-
-                > * {
-                    margin-bottom:$margin * ($inc / 100) !important;
-                }
-            }
+        &.mgbch-#{$inc} {
+            @include mgbch-row($inc, true);
         }
     }
 
     @each $alley-key, $alley-value in $alley-sizes {
         &.#{$alley-key} {
-            @include grid-alleys(row, $alley-key);
-
-            > * {
-                @include grid-alleys(col, $alley-key);
-            }
+            @include row-alley($alley-key);
         }
     }
 
-    @each $alley-key, $alley-value in $alley-sizes {
-        @each $breakpoint-key, $breakpoint-value in $breakpoints {
+    @each $breakpoint-key, $val in $breakpoints {
+        @each $alley-key, $alley-value in $alley-sizes {
             &.#{$breakpoint-key}-#{$alley-key} {
-                @include min($breakpoint-value) {
-                    @include grid-alleys(row, $alley-key);
-
-                    > * {
-                        @include grid-alleys(col, $alley-key);
-                    }
-                }
+                @include row-alley($alley-key, $breakpoint-key);
             }
         }
     }
@@ -105,19 +32,15 @@ $alley-sizes:map_merge((
     > .col {
         @each $column-key, $column-value in $columns {
             &-#{$column-key} {
-                width:$column-value;
+                @include col-width($column-key);
             }
         }
     }
 
-    @each $breakpoint-key, $breakpoint-value in $breakpoints {
-        > .#{$breakpoint-key} {
-            @each $column-key, $column-value in $columns {
-                @include min($breakpoint-value) {
-                    &-#{$column-key} {
-                        width:$column-value;
-                    }
-                }
+    @each $breakpoint-key, $val in $breakpoints {
+        @each $column-key, $column-value in $columns {
+            > .#{$breakpoint-key}-#{$column-key} {
+                @include col-width($column-key, $breakpoint-key);
             }
         }
     }
