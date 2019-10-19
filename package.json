@@ -35,12 +35,12 @@
     "metalsmith-ignore": "^1.0.0",
     "metalsmith-in-place": "^4.4.1",
     "metalsmith-layouts": "^2.3.1",
-    "metalsmith-markdown": "^1.2.0",
     "metalsmith-permalinks": "^2.2.0",
     "metalsmith-static": "^0.0.5",
     "metalsmith-watch": "^1.0.3",
     "sass-variable-parser": "^1.2.2",
-    "static-server": "^2.2.1"
+    "static-server": "^2.2.1",
+    "strip-indent": "^3.0.0"
   },
   "dependencies": {
     "sassdoc": "^2.7.1"

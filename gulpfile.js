@@ -9,6 +9,7 @@ const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const stripIndent = require('strip-indent');
 const sassdoc = require('sassdoc');
 
 const {dirs, files} = require('./meta');
@@ -124,6 +125,12 @@ gulp.task('sassdoc', function() {
         .src(paths.scss)
         .pipe(sassdoc.parse())
         .on('data', async(data) => {
+            data.forEach(val => {
+                if(typeof val.context.code === 'string') {
+                    val.context.code = stripIndent(val.context.code.replace(/^\n/, ''));
+                }
+            });
+
             data.sort((a, b) => {
                 let aGrp = a.group[0].toUpperCase();
                 let bGrp = b.group[0].toUpperCase();

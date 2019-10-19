@@ -8,7 +8,7 @@
     "context": {
       "type": "function",
       "name": "list-to-string",
-      "code": "\n    $output:null;\n    $last-item:null;\n    $last-item-quoted:false;\n\n    @if type-of($list) != list {\n        @error '`#{$list}` is not a valid list.';\n    }\n\n    @for $i from 1 through length($list) {\n        $item:nth($list, $i);\n\n        @if type-of($item) == list {\n            @if $i == length($list) {\n                $last-item:nth($item, -1);\n                $is-nested-list:type-of($last-item) == list;\n\n                @while $is-nested-list {\n                    $last-item:nth($last-item, -1);\n\n                    @if type-of($last-item) != list {\n                        $is-nested-list:false;\n                        $last-item-quoted:type-of($last-item) == string and $quote-strings;\n                    }\n                }\n\n                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};\n            } @else {\n                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};\n            }\n        } @else {\n            $item:if(type-of($item) == string and $quote-strings, '\"#{$item}\"', $item);\n\n            @if $i == length($list) {\n                $last-item:$item;\n                $last-item-quoted:type-of($last-item) == string and $quote-strings;\n\n                $output:#{$output}#{$item}\n            } @else {\n                $output:#{$output}#{$item}#{$glue};\n            }\n        }\n    }\n\n    @if $closer != null {\n        $offset:if($last-item-quoted, 2, 0);\n        $find:#{$glue}#{$last-item};\n        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));\n        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));\n        $output:#{$slice-1}#{$closer}#{$slice-2};\n    }\n\n    @return $output;\n",
+      "code": "$output:null;\n$last-item:null;\n$last-item-quoted:false;\n\n@if type-of($list) != list {\n    @error '`#{$list}` is not a valid list.';\n}\n\n@for $i from 1 through length($list) {\n    $item:nth($list, $i);\n\n    @if type-of($item) == list {\n        @if $i == length($list) {\n            $last-item:nth($item, -1);\n            $is-nested-list:type-of($last-item) == list;\n\n            @while $is-nested-list {\n                $last-item:nth($last-item, -1);\n\n                @if type-of($last-item) != list {\n                    $is-nested-list:false;\n                    $last-item-quoted:type-of($last-item) == string and $quote-strings;\n                }\n            }\n\n            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};\n        } @else {\n            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};\n        }\n    } @else {\n        $item:if(type-of($item) == string and $quote-strings, '\"#{$item}\"', $item);\n\n        @if $i == length($list) {\n            $last-item:$item;\n            $last-item-quoted:type-of($last-item) == string and $quote-strings;\n\n            $output:#{$output}#{$item}\n        } @else {\n            $output:#{$output}#{$item}#{$glue};\n        }\n    }\n}\n\n@if $closer != null {\n    $offset:if($last-item-quoted, 2, 0);\n    $find:#{$glue}#{$last-item};\n    $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));\n    $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));\n    $output:#{$slice-1}#{$closer}#{$slice-2};\n}\n\n@return $output;\n",
       "line": {
         "start": 7,
         "end": 60
@@ -57,7 +57,7 @@
     "context": {
       "type": "function",
       "name": "auto-text-color",
-      "code": "\n    @if type-of($bg-color) != color {\n        @error '`#{$bg-color}` is not a valid color.';\n    }\n\n    @if not is-absolute-number($gt-percentage) {\n        @error '`#{$gt-percentage}` is not an absolute number.';\n    }\n\n    @if lightness($bg-color) > $gt-percentage {\n        @return $color-dark;\n    } @else {\n        @return $color-light;\n    }\n",
+      "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($gt-percentage) {\n    @error '`#{$gt-percentage}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $gt-percentage {\n    @return $color-dark;\n} @else {\n    @return $color-light;\n}\n",
       "line": {
         "start": 180,
         "end": 194
@@ -102,7 +102,7 @@
     "context": {
       "type": "function",
       "name": "is-number",
-      "code": "\n    @return type-of($value) == number;\n",
+      "code": "@return type-of($value) == number;\n",
       "line": {
         "start": 81,
         "end": 83
@@ -127,7 +127,7 @@
     "context": {
       "type": "mixin",
       "name": "internal-row-alley-styles",
-      "code": "\n    @include row-alleys(row, $alley-multiplier);\n\n    > * {\n        @include row-alleys(col, $alley-multiplier);\n    }\n",
+      "code": "@include row-alleys(row, $alley-multiplier);\n\n> * {\n    @include row-alleys(col, $alley-multiplier);\n}\n",
       "line": {
         "start": 269,
         "end": 275
@@ -152,7 +152,7 @@
     "context": {
       "type": "mixin",
       "name": "internal-video-aspect-ratio",
-      "code": "\n    padding-bottom:percentage($aspect-height / $aspect-width);\n",
+      "code": "padding-bottom:percentage($aspect-height / $aspect-width);\n",
       "line": {
         "start": 30,
         "end": 32
@@ -177,7 +177,7 @@
     "context": {
       "type": "mixin",
       "name": "mgb-row",
-      "code": "\n    &:not(:last-child):after,\n    &.f-margins:last-child:after {\n        @include mgb($multiplier, $important);\n    }\n",
+      "code": "&:not(:last-child):after,\n&.f-margins:last-child:after {\n    @include mgb($multiplier, $important);\n}\n",
       "line": {
         "start": 222,
         "end": 227
@@ -298,7 +298,7 @@
         "context": {
           "type": "function",
           "name": "auto-text-color",
-          "code": "\n    @if type-of($bg-color) != color {\n        @error '`#{$bg-color}` is not a valid color.';\n    }\n\n    @if not is-absolute-number($gt-percentage) {\n        @error '`#{$gt-percentage}` is not an absolute number.';\n    }\n\n    @if lightness($bg-color) > $gt-percentage {\n        @return $color-dark;\n    } @else {\n        @return $color-light;\n    }\n",
+          "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($gt-percentage) {\n    @error '`#{$gt-percentage}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $gt-percentage {\n    @return $color-dark;\n} @else {\n    @return $color-light;\n}\n",
           "line": {
             "start": 180,
             "end": 194

@@ -1,7 +1,6 @@
 const Metalsmith = require('metalsmith');
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
-const markdown = require('metalsmith-markdown');
 const permalinks = require('metalsmith-permalinks');
 const encode = require('metalsmith-encode-html');
 const ignore = require('metalsmith-ignore');
@@ -32,7 +31,6 @@ const metalsmith = Metalsmith(__dirname)
         directory: dirs.metalsmithLayouts,
         suppressNoFilesError: true,
     }))
-    .use(markdown())
     .use(permalinks({
         relative: false,
     }))

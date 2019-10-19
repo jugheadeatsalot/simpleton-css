@@ -101,11 +101,9 @@
 }
 
 @mixin ie10plus() {
-    // @formatter:off
-    @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @media (-ms-high-contrast:none), (-ms-high-contrast:active) {
         @content;
     }
-    // @formatter:on
 }
 
 @mixin control-margins($scope:all) {

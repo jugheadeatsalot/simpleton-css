@@ -9,16 +9,14 @@ layout: layout.hbs
     <section class="simp card mgb-300">
         <h2>{{context.name}}</h2>
         <h3>Description</h3>
-        <p>{{#if description}}{{description}}{{else}}No description available.{{/if}}</p>
+        <p>{{#if description}}{{{description}}}{{else}}No description available.{{/if}}</p>
         <h3>Group</h3>
         <p>{{group.[0]}}</p>
         <h3>Type</h3>
         <p>{{context.type}}</p>
-        <div class="output mgb-175">
-            <div class="mgb-125">
-
-            </div>
-        </div>
+        {{#if context.code}}
+            <pre><code class="lang-html">{{context.code}}</code></pre>
+        {{/if}}
     </section>
 {{/each}}
 
