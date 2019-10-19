@@ -1,0 +1,68 @@
+---
+pagetitle: Sass
+layout: layout.hbs
+---
+
+<h1>{{pagetitle}}</h1>
+
+{{#each sassdocData}}
+    <section class="doc-block mgb-300">
+        <h2 class="title"><span>{{context.type}}</span><br>{{context.name}}</h2>
+        {{#if description}}
+            <div class="description">{{{description}}}</div>
+        {{/if}}
+        {{#ifnoteq group.[0] "undefined"}}
+            <h3>Group</h3>
+            <p>{{group.[0]}}</p>
+        {{/ifnoteq}}
+        {{#if parameter}}
+            <h3>Parameters</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each parameter}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{type}}</td>
+                        <td>{{#if default}}{{default}}{{else}}--{{/if}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+        {{#if require}}
+            <h3>Requires</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each require}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{type}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+        {{#if context.code}}
+            <h3>Code</h3>
+            <pre><code class="lang-scss">{{context.code}}</code></pre>
+        {{/if}}
+        {{#if context.value}}
+            <h3>Value</h3>
+            <pre><code class="lang-scss">{{context.value}}</code></pre>
+        {{/if}}
+    </section>
+{{/each}}
+

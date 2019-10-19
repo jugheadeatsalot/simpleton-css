@@ -1,6 +1,5 @@
 /// Joins `$list` items into a `$glue` separated string and uses
 /// an optional `$closer` before the final item.
-/// @group strings
 /// @param {list} $list
 /// @param {string} $glue ['']
 /// @param {string} $closer [null]
@@ -60,50 +59,72 @@
     @return $output;
 }
 
-////////////////////////
-/// Utilities
-////////////////////////
+/***
+ * Utilities
+ *
+ */
 
-@function show-valid-values($list) {
-    @return 'Valid values are #{list-to-string($list, ', ', ' and ')}.';
+/// Formats `$values` into a comma separated string.
+/// @param {list} $values
+/// @access private
+@function format-valid-values($values) {
+    @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }
 
+/// Returns `$value` and its type.
+/// @param {any} $value
+/// @access private
 @function show-param-value($value) {
     $value:if(type-of($value) == string, '"#{$value}"', $value);
 
     @return 'Received: <#{type-of($value)}: #{$value}>.';
 }
 
-////////////////////////
-/// Conditionals
-////////////////////////
+/***
+ * Conditionals
+ *
+ */
 
-/// Checks if value is a number
+/// Checks if `$value` is a number.
+/// @param {any} $value
 @function is-number($value) {
     @return type-of($value) == number;
 }
 
-@function isList($value) {
+/// Checks if `$value` is a list.
+/// @param {any} $value
+@function is-list($value) {
     @return type-of($value) == list;
 }
 
-@function isMap($value) {
+/// Checks if `$value` is a map.
+/// @param {any} $value
+@function is-map($value) {
     @return type-of($value) == map;
 }
 
-@function isString($value) {
+/// Checks if `$value` is a string.
+/// @param {any} $value
+@function is-string($value) {
     @return type-of($value) == string;
 }
 
-@function isBool($value) {
+/// Checks if `$value` is a boolean.
+/// @param {any} $value
+@function is-bool($value) {
     @return type-of($value) == bool;
 }
 
-@function isColor($value) {
+/// Checks if `$value` is a color.
+/// @param {any} $value
+@function is-color($value) {
     @return type-of($value) == color;
 }
 
-@function isUnitNumber($value, $warn: false) {
+/// Checks if `$value` is a number with a unit.
+/// @param {any} $value
+/// @warn {bool} $warn [false]
+@function is-unit-number($value, $warn: false) {
     @if is-number($value) and index($lengths, unit($value)) {
         @return true;
     }
@@ -115,7 +136,10 @@
     @return false;
 }
 
-@function isUnitlessNumber($value, $warn: false) {
+/// Checks if `$value` is a unitless number.
+/// @param {any} $value
+/// @warn {bool} $warn [false]
+@function is-unitless-number($value, $warn: false) {
     @if is-number($value) and unitless($value) {
         @return true;
     }
@@ -127,6 +151,9 @@
     @return false;
 }
 
+/// Checks if `$value` is an absolute number.
+/// @param {any} $value
+/// @warn {bool} $warn [false]
 @function is-absolute-number($value, $warn: false) {
     @if is-number($value) and $value > -1 {
         @return true;
@@ -139,6 +166,9 @@
     @return false;
 }
 
+/// Checks if `$value` is an absolute number with a unit.
+/// @param {any} $value
+/// @warn {bool} $warn [false]
 @function is-absolute-unit-number($value, $warn: false) {
     @if is-absolute-number($value) and index($lengths, unit($value)) {
         @return true;
@@ -151,68 +181,82 @@
     @return false;
 }
 
+/// Checks if `$value` is an absolute and unitless number.
+/// @param {any} $value
+/// @warn {bool} $warn [false]
 @function is-absolute-unitless-number($value, $warn: false) {
     @if is-absolute-number($value) and unitless($value) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($value)}';
+        @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($number)}';
     }
 
     @return false;
 }
 
+/// Checks if `$needle` is found in `$haystack`.
+/// @param {string|number} $needle
+/// @param {list} $haystack
+/// @warn {bool} $warn [false]
 @function is-in-list($needle, $haystack, $warn: false) {
     @if index($haystack, $needle) {
         @return true;
     }
 
     @if $warn == true {
-        @warn 'Invalid `$needle`. #{show-param-value($needle)} #{show-valid-values($haystack)}';
+        @warn 'Invalid `$needle`. #{show-param-value($needle)} #{format-valid-values($haystack)}';
     }
 
     @return false;
 }
 
-/// Automatically selects text color based on how light the background color is
-/// @param {string} $bg-color
-/// @param {number} $gt-percentage [60]
-@function auto-text-color($bg-color, $gt-percentage: 60) {
+/// Returns a `$dark` or `$light` color that contrasts with`$bg-color`.
+/// @param {color} $bg-color
+/// @param {number} $threshold [60]
+/// @param {color} $dark [$color-dark]
+/// @param {color} $light [$color-light]
+@function auto-text-color($bg-color, $threshold: 60, $dark:$color-dark, $light:$color-light) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
 
-    @if not is-absolute-number($gt-percentage) {
-        @error '`#{$gt-percentage}` is not an absolute number.';
+    @if not is-absolute-number($threshold) {
+        @error '`#{$threshold}` is not an absolute number.';
     }
 
-    @if lightness($bg-color) > $gt-percentage {
-        @return $color-dark;
+    @if lightness($bg-color) > $threshold {
+        @return $dark;
     } @else {
-        @return $color-light;
+        @return $light;
     }
 }
 
-////////////////////////
-/// Numbers
-////////////////////////
+/***
+ * Numbers
+ *
+ */
 
-@function decimal-round($number, $digits:3, $mode:round) {
+/// Rounds, ceils or floors `$number` to given decimal `$places`.
+/// @param {number} $number
+/// @param {number} $places
+/// @param {string (round, ceil, floor)} $mode [round]
+@function decimal-round($number, $places:3, $mode:round) {
     $n:1;
 
     @if not is-number($number) {
         @return $number;
     }
 
-    @if not is-number($digits) {
-        @return $number;
-    } @else if not unitless($digits) {
+    @if not is-number($places) {
         @return $number;
     }
 
-    @for $i from 1 through $digits {
-        $n:$n * 10;
+    @if $places > 0 {
+        @for $i from 1 through $places {
+            $n:$n * 10;
+        }
     }
 
     @if $mode == round {
@@ -226,18 +270,33 @@
     }
 }
 
-@function decimal-ceil($number, $digits:3) {
-    @return decimal-round($number, $digits, ceil);
+/// Ceils `$number` to given decimal `$places`.
+/// @param {number} $number
+/// @param {number} $places
+@function decimal-ceil($number, $places:3) {
+    @return decimal-round($number, $places, ceil);
 }
 
-@function decimal-floor($number, $digits:3) {
-    @return decimal-round($number, $digits, floor);
+/// Floors `$number` to given decimal `$places`.
+/// @param {number} $number
+/// @param {number} $places
+@function decimal-floor($number, $places:3) {
+    @return decimal-round($number, $places, floor);
 }
 
+/// Removes the unit from `$number`.
+/// @param {number} $number
 @function strip-unit($number) {
-    @return $number / ($number * 0 + 1);
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
 }
 
-@function rem-to-pixels($size-in-rem) {
+/// Converts `$size-in-rem` to pixels based on `$font-size-base`.
+/// @param {number} $size-in-rem
+/// @param {number} $font-size-base [$font-size-base]
+@function rem-to-pixels($size-in-rem, $font-size-base: $font-size-base) {
     @return strip-unit($size-in-rem) * $font-size-base;
 }

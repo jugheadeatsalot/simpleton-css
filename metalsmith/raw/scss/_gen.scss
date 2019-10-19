@@ -2,8 +2,8 @@ $content-width:800px;
 $header-nav-height:3.4rem;
 
 @mixin container-padding {
-    padding-right:$alley * 0.6;
-    padding-left:$alley * 0.6;
+    padding-right:$alley * 0.75;
+    padding-left:$alley * 0.75;
 
     @include min($breakpoint-s) {
         padding-right:$alley;
@@ -25,6 +25,16 @@ $header-nav-height:3.4rem;
 
 main {
     flex:1;
+}
+
+.doc-block {
+    .title {
+        span {
+            font-size:strip-unit($font-size-xsmall) * 1rem;
+            text-transform:uppercase;
+            font-weight:$font-weight-normal;
+        }
+    }
 }
 
 .site-header {

@@ -1,3 +1,15 @@
+/***
+ * Utilities
+ *
+ */
+/***
+ * Conditionals
+ *
+ */
+/***
+ * Numbers
+ *
+ */
 html {
   overflow-y: scroll;
   box-sizing: border-box;
@@ -335,7 +347,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 1.6875rem;
+  margin-top: 1.875rem;
   margin-bottom: 0.9375rem;
 }
 

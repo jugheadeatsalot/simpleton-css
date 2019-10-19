@@ -1,16 +1,19 @@
 ////////////////////////
 /// Fonts
 ////////////////////////
-
-/// font stacks
+///
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
+///
 $font-stack-sansserif:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+///
 $font-stack-general:$font-stack-sansserif !default;
+///
 $font-stack-heading:$font-stack-general !default;
+///
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
-
-/// font stacks mapped
+///
 $font-stacks:() !default;
+///
 $font-stacks:map-merge((
     serif:$font-stack-serif,
     sansserif:$font-stack-sansserif,
@@ -18,23 +21,33 @@ $font-stacks:map-merge((
     heading:$font-stack-heading,
     mono:$font-stack-mono,
 ), $font-stacks);
-
-/// font sizes
+///
 $font-size-base:16px !default; // must be in px
+///
 $font-size-general:1rem !default;
+///
 $font-size-big:1.1em !default;
+///
 $font-size-xbig:1.2em !default;
+///
 $font-size-xxbig:1.3em !default;
+///
 $font-size-small:0.9em !default;
+///
 $font-size-xsmall:0.8em !default;
+///
 $font-size-xxsmall:0.7em !default;
+///
 $font-size-h1:2em !default;
+///
 $font-size-h2:1.6em !default;
+///
 $font-size-h3:1.4em !default;
+///
 $font-size-h4:1.2em !default;
-
-/// font sizes mapped
+///
 $font-sizes:() !default;
+///
 $font-sizes:map-merge((
     base:$font-size-base,
     general:$font-size-general,
@@ -49,29 +62,34 @@ $font-sizes:map-merge((
     h3:$font-size-h3,
     h4:$font-size-h4,
 ), $font-sizes);
-
-/// font weights
+///
 $font-weight-normal:400 !default;
+///
 $font-weight-bold:700 !default;
+///
 $font-weight-heading:$font-weight-bold !default;
-
-/// font weights mapped
+///
 $font-weights:() !default;
+///
 $font-weights:map-merge((
     normal:$font-weight-normal,
     bold:$font-weight-bold,
     heading:$font-weight-heading,
 ), $font-weights);
-
-/// line heights
+///
 $line-height-general:1.5 !default;
+///
 $line-height-h1:1.15 !default;
+///
 $line-height-h2:1.25 !default;
+///
 $line-height-h3:1.35 !default;
+///
 $line-height-h4:1.45 !default;
 
-/// line heights mapped
+///
 $line-heights:() !default;
+///
 $line-heights:map-merge((
     general:$line-height-general,
     h1:$line-height-h1,
@@ -79,52 +97,83 @@ $line-heights:map-merge((
     h3:$line-height-h3,
     h4:$line-height-h4,
 ), $line-heights);
-
-////////////////////////
-/// Colors
-////////////////////////
-
-/// colors
+///
 $color-dark:#1f1f20 !default;
+///
 $color-light:#f5f2ef !default;
+///
 $color-gray:lighten(black, 50%) !default;
+///
 $color-graylight:lighten($color-gray, 25%) !default;
+///
 $color-graylighter:lighten($color-gray, 35%) !default;
+///
 $color-graylightest:lighten($color-gray, 45%) !default;
+///
 $color-graydark:darken($color-gray, 5%) !default;
+///
 $color-graydarker:darken($color-gray, 10%) !default;
+///
 $color-graydarkest:darken($color-gray, 15%) !default;
+///
 $color-primary:#c0392b !default;
+///
 $color-secondary:#acb29d !default;
+///
 $color-accent:#cb9556 !default;
+///
 $color-idle:$color-graylighter !default;
+///
 $color-success:#708b45 !default;
+///
 $color-alert:#f44336 !default;
+///
 $color-warning:#ee7b0c !default;
+///
 $color-highlight:#feca57 !default;
+///
 $color-dribbble:#ea4c89 !default;
+///
 $color-facebook:#3b5998 !default;
+///
 $color-flickr:#ff0084 !default;
+///
 $color-instagram:#517fa4 !default;
+///
 $color-linkedin:#0077b5 !default;
+///
 $color-medium:#00ab6b !default;
+///
 $color-pinterest:#bd081c !default;
+///
 $color-rss:#f26522 !default;
+///
 $color-tumblr:#35465c !default;
+///
 $color-twitter:#55acee !default;
+///
 $color-youtube:#b31217 !default;
+///
 $color-body-bg:#ffffff !default;
+///
 $color-text:$color-dark !default;
+///
 $color-border:$color-graylighter !default;
+///
 $color-quote-bl:$color-graylighter !default;
+///
 $color-ins-bg:$color-primary !default;
+///
 $color-mark-bg:$color-highlight !default;
+///
 $color-pre-bg:$color-graylightest !default;
+///
 $color-pre-bl:$color-primary !default;
+///
 $color-code-bg:$color-graylightest !default;
-
-/// colors mapped
+///
 $colors:() !default;
+///
 $colors:map-merge((
     primary: $color-primary,
     secondary: $color-secondary,
@@ -155,56 +204,83 @@ $colors:map-merge((
     twitter: $color-twitter,
     youtube: $color-youtube,
 ), $colors);
-
-////////////////////////
-/// Borders
-////////////////////////
-
+///
 $border-radius:4px !default;
+///
 $border-size:1px !default;
-
-////////////////////////
-/// Spacing
-////////////////////////
-
+///
 $margin:$font-size-general * $line-height-general !default;
+///
 $padding:$font-size-general * $line-height-general !default;
-$margin-top-h:$margin * 1.125 !default;
+///
+$margin-top-h:$margin * 1.25 !default;
+///
 $margin-bottom-h:$margin * 0.625 !default;
+///
 $alley:30px !default;
+///
 $p-inline-t:0.125rem !default;
+///
 $p-inline-r:0.25rem !default;
+///
 $p-inline-b:0.125rem !default;
+///
 $p-inline-l:0.25rem !default;
+///
 $padding-inline:$p-inline-t $p-inline-r $p-inline-b $p-inline-l !default;
+///
 $p-box-t:0.75rem !default;
+///
 $p-box-r:1.25rem !default;
+///
 $p-box-b:0.75rem !default;
+///
 $p-box-l:1rem !default;
+///
 $padding-box:$p-box-t $p-box-r $p-box-b $p-box-l !default;
+///
 $p-message-t:0.75rem !default;
+///
 $p-message-r:3.25rem !default;
+///
 $p-message-b:0.75rem !default;
+///
 $p-message-l:1rem !default;
+///
 $padding-message:$p-message-t $p-message-r $p-message-b $p-message-l !default;
+///
 $p-table-t:0.65rem !default;
+///
 $p-table-r:1rem !default;
+///
 $p-table-b:0.65rem !default;
+///
 $p-table-l:0 !default;
+///
 $padding-table:$p-table-t $p-table-r $p-table-b $p-table-l !default;
+///
 $p-button-t:0.5rem !default;
+///
 $p-button-r:1.25rem !default;
+///
 $p-button-b:0.5rem !default;
+///
 $p-button-l:1.25rem !default;
+///
 $padding-button:$p-button-t $p-button-r $p-button-b $p-button-l !default;
+///
 $p-input-t:0.5rem !default;
+///
 $p-input-r:0.75rem !default;
+///
 $p-input-b:0.5rem !default;
+///
 $p-input-l:0.75rem !default;
+///
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
-
-/// alleys
+///
 $alley-sizes:() !default;
+///
 $alley-sizes:map_merge((
     noalley: 0,
     tightest: 25,
@@ -215,36 +291,38 @@ $alley-sizes:map_merge((
     looser: 150,
     loosest: 175,
 ), $alley-sizes);
-
 ////////////////////////
 /// Animations
 ////////////////////////
-
+///
 $ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
+///
 $ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
+///
 $easing:$ease-in-out-expo !default;
-
 ////////////////////////
 /// Sizes
 ////////////////////////
-
-/// breakpoints
+///
 $breakpoint-s:480px !default;
+///
 $breakpoint-m:768px !default;
+///
 $breakpoint-l:960px !default;
+///
 $breakpoint-xl:1200px !default;
-
-/// breakpoints mapped
+///
 $breakpoints:() !default;
+///
 $breakpoints:map_merge((
     s:$breakpoint-s,
     m:$breakpoint-m,
     l:$breakpoint-l,
     xl:$breakpoint-xl,
 ), $breakpoints);
-
-/// columns
+///
 $columns:() !default;
+///
 $columns:(map_merge((
     1:percentage(1/12),
     2:percentage(2/12),
@@ -279,12 +357,12 @@ $columns:(map_merge((
     p95:95%,
     p100:100%,
 ), $columns));
-
 ////////////////////////
 /// Etcetera
 ////////////////////////
-
-/// units
+///
 $lengths-absolute:(cm, mm, in, px, pt, pc);
+///
 $lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
+///
 $lengths:join($lengths-absolute, $lengths-relative);

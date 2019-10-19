@@ -1,7 +1,4 @@
-//////////////////////////
-///// Workers
-//////////////////////////
-
+///
 @mixin clearfix() {
     &:before,
     &:after {
@@ -215,7 +212,6 @@
     }
 }
 
-///
 ///
 @mixin mgb-row($multiplier:100, $important:false) {
     &:not(:last-child):after,

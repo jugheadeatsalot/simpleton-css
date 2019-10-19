@@ -129,6 +129,10 @@ gulp.task('sassdoc', function() {
                 if(typeof val.context.code === 'string') {
                     val.context.code = stripIndent(val.context.code.replace(/^\n/, ''));
                 }
+
+                val.description = val.description
+                    .replace(/^\n/, '')
+                    .replace(/`(.*?)`/g, '<code>$1</code>');
             });
 
             data.sort((a, b) => {

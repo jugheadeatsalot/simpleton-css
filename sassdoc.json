@@ -1,6 +1,804 @@
 [
   {
-    "description": "Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.\n",
+    "description": "Returns a <code>$dark</code> or <code>$light</code> color that contrasts with<code>$bg-color</code>.\n",
+    "commentRange": {
+      "start": 215,
+      "end": 219
+    },
+    "context": {
+      "type": "function",
+      "name": "auto-text-color",
+      "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($threshold) {\n    @error '`#{$threshold}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $threshold {\n    @return $dark;\n} @else {\n    @return $light;\n}\n",
+      "line": {
+        "start": 220,
+        "end": 234
+      }
+    },
+    "parameter": [
+      {
+        "type": "color",
+        "name": "bg-color"
+      },
+      {
+        "type": "number",
+        "name": "threshold",
+        "default": "60"
+      },
+      {
+        "type": "color",
+        "name": "dark",
+        "default": "$color-dark"
+      },
+      {
+        "type": "color",
+        "name": "light",
+        "default": "$color-light"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-absolute-number"
+      }
+    ],
+    "throw": [
+      "`#{$bg-color}` is not a valid color.",
+      "`#{$threshold}` is not an absolute number."
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Ceils <code>$number</code> to given decimal <code>$places</code>.\n",
+    "commentRange": {
+      "start": 273,
+      "end": 275
+    },
+    "context": {
+      "type": "function",
+      "name": "decimal-ceil",
+      "code": "@return decimal-round($number, $places, ceil);\n",
+      "line": {
+        "start": 276,
+        "end": 278
+      }
+    },
+    "parameter": [
+      {
+        "type": "number",
+        "name": "number"
+      },
+      {
+        "type": "number",
+        "name": "places"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "decimal-round"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Floors <code>$number</code> to given decimal <code>$places</code>.\n",
+    "commentRange": {
+      "start": 280,
+      "end": 282
+    },
+    "context": {
+      "type": "function",
+      "name": "decimal-floor",
+      "code": "@return decimal-round($number, $places, floor);\n",
+      "line": {
+        "start": 283,
+        "end": 285
+      }
+    },
+    "parameter": [
+      {
+        "type": "number",
+        "name": "number"
+      },
+      {
+        "type": "number",
+        "name": "places"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "decimal-round"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Rounds, ceils or floors <code>$number</code> to given decimal <code>$places</code>.\n",
+    "commentRange": {
+      "start": 241,
+      "end": 244
+    },
+    "context": {
+      "type": "function",
+      "name": "decimal-round",
+      "code": "$n:1;\n\n@if not is-number($number) {\n    @return $number;\n}\n\n@if not is-number($places) {\n    @return $number;\n}\n\n@if $places > 0 {\n    @for $i from 1 through $places {\n        $n:$n * 10;\n    }\n}\n\n@if $mode == round {\n    @return round($number * $n) / $n;\n} @else if $mode == ceil {\n    @return ceil($number * $n) / $n;\n} @else if $mode == floor {\n    @return floor($number * $n) / $n;\n} @else {\n    @return $number;\n}\n",
+      "line": {
+        "start": 245,
+        "end": 271
+      }
+    },
+    "parameter": [
+      {
+        "type": "number",
+        "name": "number"
+      },
+      {
+        "type": "number",
+        "name": "places"
+      },
+      {
+        "type": "string (round, ceil, floor)",
+        "name": "mode",
+        "default": "round"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-number"
+      },
+      {
+        "type": "function",
+        "name": "is-number"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Ceils <code>$number</code> to given decimal <code>$places</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "decimal-ceil",
+          "code": "@return decimal-round($number, $places, ceil);\n",
+          "line": {
+            "start": 276,
+            "end": 278
+          }
+        }
+      },
+      {
+        "description": "Floors <code>$number</code> to given decimal <code>$places</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "decimal-floor",
+          "code": "@return decimal-round($number, $places, floor);\n",
+          "line": {
+            "start": 283,
+            "end": 285
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Formats <code>$values</code> into a comma separated string.\n",
+    "commentRange": {
+      "start": 67,
+      "end": 69
+    },
+    "context": {
+      "type": "function",
+      "name": "format-valid-values",
+      "code": "@return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';\n",
+      "line": {
+        "start": 70,
+        "end": 72
+      }
+    },
+    "parameter": [
+      {
+        "type": "list",
+        "name": "values"
+      }
+    ],
+    "access": "private",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "list-to-string"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Checks if <code>$needle</code> is found in <code>$haystack</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "is-in-list",
+          "code": "@if index($haystack, $needle) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn 'Invalid `$needle`. #{show-param-value($needle)} #{format-valid-values($haystack)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 203,
+            "end": 213
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Checks if <code>$value</code> is an absolute number.\n",
+    "commentRange": {
+      "start": 154,
+      "end": 156
+    },
+    "context": {
+      "type": "function",
+      "name": "is-absolute-number",
+      "code": "@if is-number($value) and $value > -1 {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 157,
+        "end": 167
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-number"
+      },
+      {
+        "type": "function",
+        "name": "show-param-value"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Checks if <code>$value</code> is an absolute number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-unit-number",
+          "code": "@if is-absolute-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 172,
+            "end": 182
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute and unitless number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-unitless-number",
+          "code": "@if is-absolute-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($number)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 187,
+            "end": 197
+          }
+        }
+      },
+      {
+        "description": "Returns a <code>$dark</code> or <code>$light</code> color that contrasts with<code>$bg-color</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "auto-text-color",
+          "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($threshold) {\n    @error '`#{$threshold}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $threshold {\n    @return $dark;\n} @else {\n    @return $light;\n}\n",
+          "line": {
+            "start": 220,
+            "end": 234
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Checks if <code>$value</code> is an absolute number with a unit.\n",
+    "commentRange": {
+      "start": 169,
+      "end": 171
+    },
+    "context": {
+      "type": "function",
+      "name": "is-absolute-unit-number",
+      "code": "@if is-absolute-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 172,
+        "end": 182
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-absolute-number"
+      },
+      {
+        "type": "function",
+        "name": "show-param-value"
+      },
+      {
+        "type": "variable",
+        "name": "lengths"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is an absolute and unitless number.\n",
+    "commentRange": {
+      "start": 184,
+      "end": 186
+    },
+    "context": {
+      "type": "function",
+      "name": "is-absolute-unitless-number",
+      "code": "@if is-absolute-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($number)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 187,
+        "end": 197
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-absolute-number"
+      },
+      {
+        "type": "function",
+        "name": "show-param-value"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a boolean.\n",
+    "commentRange": {
+      "start": 112,
+      "end": 113
+    },
+    "context": {
+      "type": "function",
+      "name": "is-bool",
+      "code": "@return type-of($value) == bool;\n",
+      "line": {
+        "start": 114,
+        "end": 116
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a color.\n",
+    "commentRange": {
+      "start": 118,
+      "end": 119
+    },
+    "context": {
+      "type": "function",
+      "name": "is-color",
+      "code": "@return type-of($value) == color;\n",
+      "line": {
+        "start": 120,
+        "end": 122
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$needle</code> is found in <code>$haystack</code>.\n",
+    "commentRange": {
+      "start": 199,
+      "end": 202
+    },
+    "context": {
+      "type": "function",
+      "name": "is-in-list",
+      "code": "@if index($haystack, $needle) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn 'Invalid `$needle`. #{show-param-value($needle)} #{format-valid-values($haystack)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 203,
+        "end": 213
+      }
+    },
+    "parameter": [
+      {
+        "type": "string|number",
+        "name": "needle"
+      },
+      {
+        "type": "list",
+        "name": "haystack"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "show-param-value"
+      },
+      {
+        "type": "function",
+        "name": "format-valid-values"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a list.\n",
+    "commentRange": {
+      "start": 94,
+      "end": 95
+    },
+    "context": {
+      "type": "function",
+      "name": "is-list",
+      "code": "@return type-of($value) == list;\n",
+      "line": {
+        "start": 96,
+        "end": 98
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a map.\n",
+    "commentRange": {
+      "start": 100,
+      "end": 101
+    },
+    "context": {
+      "type": "function",
+      "name": "is-map",
+      "code": "@return type-of($value) == map;\n",
+      "line": {
+        "start": 102,
+        "end": 104
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a number.\n",
+    "commentRange": {
+      "start": 88,
+      "end": 89
+    },
+    "context": {
+      "type": "function",
+      "name": "is-number",
+      "code": "@return type-of($value) == number;\n",
+      "line": {
+        "start": 90,
+        "end": 92
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Checks if <code>$value</code> is a number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-unit-number",
+          "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 127,
+            "end": 137
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is a unitless number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-unitless-number",
+          "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 142,
+            "end": 152
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-number",
+          "code": "@if is-number($value) and $value > -1 {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 157,
+            "end": 167
+          }
+        }
+      },
+      {
+        "description": "Rounds, ceils or floors <code>$number</code> to given decimal <code>$places</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "decimal-round",
+          "code": "$n:1;\n\n@if not is-number($number) {\n    @return $number;\n}\n\n@if not is-number($places) {\n    @return $number;\n}\n\n@if $places > 0 {\n    @for $i from 1 through $places {\n        $n:$n * 10;\n    }\n}\n\n@if $mode == round {\n    @return round($number * $n) / $n;\n} @else if $mode == ceil {\n    @return ceil($number * $n) / $n;\n} @else if $mode == floor {\n    @return floor($number * $n) / $n;\n} @else {\n    @return $number;\n}\n",
+          "line": {
+            "start": 245,
+            "end": 271
+          }
+        }
+      },
+      {
+        "description": "Rounds, ceils or floors <code>$number</code> to given decimal <code>$places</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "decimal-round",
+          "code": "$n:1;\n\n@if not is-number($number) {\n    @return $number;\n}\n\n@if not is-number($places) {\n    @return $number;\n}\n\n@if $places > 0 {\n    @for $i from 1 through $places {\n        $n:$n * 10;\n    }\n}\n\n@if $mode == round {\n    @return round($number * $n) / $n;\n} @else if $mode == ceil {\n    @return ceil($number * $n) / $n;\n} @else if $mode == floor {\n    @return floor($number * $n) / $n;\n} @else {\n    @return $number;\n}\n",
+          "line": {
+            "start": 245,
+            "end": 271
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Checks if <code>$value</code> is a string.\n",
+    "commentRange": {
+      "start": 106,
+      "end": 107
+    },
+    "context": {
+      "type": "function",
+      "name": "is-string",
+      "code": "@return type-of($value) == string;\n",
+      "line": {
+        "start": 108,
+        "end": 110
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a number with a unit.\n",
+    "commentRange": {
+      "start": 124,
+      "end": 126
+    },
+    "context": {
+      "type": "function",
+      "name": "is-unit-number",
+      "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 127,
+        "end": 137
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-number"
+      },
+      {
+        "type": "function",
+        "name": "show-param-value"
+      },
+      {
+        "type": "variable",
+        "name": "lengths"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Checks if <code>$value</code> is a unitless number.\n",
+    "commentRange": {
+      "start": 139,
+      "end": 141
+    },
+    "context": {
+      "type": "function",
+      "name": "is-unitless-number",
+      "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+      "line": {
+        "start": 142,
+        "end": 152
+      }
+    },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "require": [
+      {
+        "type": "function",
+        "name": "is-number"
+      },
+      {
+        "type": "function",
+        "name": "show-param-value"
+      }
+    ],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    }
+  },
+  {
+    "description": "Joins <code>$list</code> items into a <code>$glue</code> separated string and uses\nan optional <code>$closer</code> before the final item.\n",
     "commentRange": {
       "start": 1,
       "end": 6
@@ -14,9 +812,6 @@
         "end": 60
       }
     },
-    "group": [
-      "strings"
-    ],
     "parameter": [
       {
         "type": "list",
@@ -39,6 +834,9 @@
       }
     ],
     "access": "public",
+    "group": [
+      "undefined"
+    ],
     "require": [],
     "throw": [
       "`#{$list}` is not a valid list."
@@ -46,32 +844,46 @@
     "file": {
       "path": "_funcs.scss",
       "name": "_funcs.scss"
-    }
+    },
+    "usedBy": [
+      {
+        "description": "Formats <code>$values</code> into a comma separated string.\n",
+        "context": {
+          "type": "function",
+          "name": "format-valid-values",
+          "code": "@return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';\n",
+          "line": {
+            "start": 70,
+            "end": 72
+          }
+        }
+      }
+    ]
   },
   {
-    "description": "Automatically selects text color based on how light the background color is\n",
+    "description": "Converts <code>$size-in-rem</code> to pixels based on <code>$font-size-base</code>.\n",
     "commentRange": {
-      "start": 177,
-      "end": 179
+      "start": 297,
+      "end": 299
     },
     "context": {
       "type": "function",
-      "name": "auto-text-color",
-      "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($gt-percentage) {\n    @error '`#{$gt-percentage}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $gt-percentage {\n    @return $color-dark;\n} @else {\n    @return $color-light;\n}\n",
+      "name": "rem-to-pixels",
+      "code": "@return strip-unit($size-in-rem) * $font-size-base;\n",
       "line": {
-        "start": 180,
-        "end": 194
+        "start": 300,
+        "end": 302
       }
     },
     "parameter": [
       {
-        "type": "string",
-        "name": "bg-color"
+        "type": "number",
+        "name": "size-in-rem"
       },
       {
         "type": "number",
-        "name": "gt-percentage",
-        "default": "60"
+        "name": "font-size-base",
+        "default": "$font-size-base"
       }
     ],
     "access": "public",
@@ -80,13 +892,13 @@
     ],
     "require": [
       {
+        "type": "function",
+        "name": "strip-unit"
+      },
+      {
         "type": "variable",
-        "name": "color-dark"
+        "name": "font-size-base"
       }
-    ],
-    "throw": [
-      "`#{$bg-color}` is not a valid color.",
-      "`#{$gt-percentage}` is not an absolute number."
     ],
     "file": {
       "path": "_funcs.scss",
@@ -94,20 +906,131 @@
     }
   },
   {
-    "description": "Checks if value is a number\n",
+    "description": "Returns <code>$value</code> and its type.\n",
     "commentRange": {
-      "start": 80,
-      "end": 80
+      "start": 74,
+      "end": 76
     },
     "context": {
       "type": "function",
-      "name": "is-number",
-      "code": "@return type-of($value) == number;\n",
+      "name": "show-param-value",
+      "code": "$value:if(type-of($value) == string, '\"#{$value}\"', $value);\n\n@return 'Received: <#{type-of($value)}: #{$value}>.';\n",
       "line": {
-        "start": 81,
-        "end": 83
+        "start": 77,
+        "end": 81
       }
     },
+    "parameter": [
+      {
+        "type": "any",
+        "name": "value"
+      }
+    ],
+    "access": "private",
+    "group": [
+      "undefined"
+    ],
+    "require": [],
+    "file": {
+      "path": "_funcs.scss",
+      "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Checks if <code>$value</code> is a number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-unit-number",
+          "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 127,
+            "end": 137
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is a unitless number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-unitless-number",
+          "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 142,
+            "end": 152
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-number",
+          "code": "@if is-number($value) and $value > -1 {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 157,
+            "end": 167
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-unit-number",
+          "code": "@if is-absolute-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 172,
+            "end": 182
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute and unitless number.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-unitless-number",
+          "code": "@if is-absolute-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($number)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 187,
+            "end": 197
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$needle</code> is found in <code>$haystack</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "is-in-list",
+          "code": "@if index($haystack, $needle) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn 'Invalid `$needle`. #{show-param-value($needle)} #{format-valid-values($haystack)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 203,
+            "end": 213
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "Removes the unit from <code>$number</code>.\n",
+    "commentRange": {
+      "start": 287,
+      "end": 288
+    },
+    "context": {
+      "type": "function",
+      "name": "strip-unit",
+      "code": "@if type-of($number) == 'number' and not unitless($number) {\n    @return $number / ($number * 0 + 1);\n}\n\n@return $number;\n",
+      "line": {
+        "start": 289,
+        "end": 295
+      }
+    },
+    "parameter": [
+      {
+        "type": "number",
+        "name": "number"
+      }
+    ],
     "access": "public",
     "group": [
       "undefined"
@@ -116,21 +1039,59 @@
     "file": {
       "path": "_funcs.scss",
       "name": "_funcs.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Converts <code>$size-in-rem</code> to pixels based on <code>$font-size-base</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "rem-to-pixels",
+          "code": "@return strip-unit($size-in-rem) * $font-size-base;\n",
+          "line": {
+            "start": 300,
+            "end": 302
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 1,
+      "end": 1
+    },
+    "context": {
+      "type": "mixin",
+      "name": "clearfix",
+      "code": "&:before,\n&:after {\n    display:table;\n    clear:both;\n    width:100%;\n    content:'';\n}\n",
+      "line": {
+        "start": 2,
+        "end": 10
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_mixins.scss",
+      "name": "_mixins.scss"
     }
   },
   {
     "description": "",
     "commentRange": {
-      "start": 268,
-      "end": 268
+      "start": 262,
+      "end": 262
     },
     "context": {
       "type": "mixin",
       "name": "internal-row-alley-styles",
       "code": "@include row-alleys(row, $alley-multiplier);\n\n> * {\n    @include row-alleys(col, $alley-multiplier);\n}\n",
       "line": {
-        "start": 269,
-        "end": 275
+        "start": 263,
+        "end": 269
       }
     },
     "access": "private",
@@ -146,16 +1107,16 @@
   {
     "description": "",
     "commentRange": {
-      "start": 29,
-      "end": 29
+      "start": 26,
+      "end": 26
     },
     "context": {
       "type": "mixin",
       "name": "internal-video-aspect-ratio",
       "code": "padding-bottom:percentage($aspect-height / $aspect-width);\n",
       "line": {
-        "start": 30,
-        "end": 32
+        "start": 27,
+        "end": 29
       }
     },
     "access": "private",
@@ -169,18 +1130,18 @@
     }
   },
   {
-    "description": "\n",
+    "description": "",
     "commentRange": {
-      "start": 220,
-      "end": 221
+      "start": 215,
+      "end": 215
     },
     "context": {
       "type": "mixin",
       "name": "mgb-row",
       "code": "&:not(:last-child):after,\n&.f-margins:last-child:after {\n    @include mgb($multiplier, $important);\n}\n",
       "line": {
-        "start": 222,
-        "end": 227
+        "start": 216,
+        "end": 221
       }
     },
     "access": "public",
@@ -194,10 +1155,35 @@
     }
   },
   {
-    "description": "alleys\n",
+    "description": "",
     "commentRange": {
-      "start": 206,
-      "end": 206
+      "start": 219,
+      "end": 219
+    },
+    "context": {
+      "type": "variable",
+      "name": "alley",
+      "value": "30px",
+      "scope": "default",
+      "line": {
+        "start": 220,
+        "end": 220
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 281,
+      "end": 281
     },
     "context": {
       "type": "variable",
@@ -205,8 +1191,8 @@
       "value": "()",
       "scope": "default",
       "line": {
-        "start": 207,
-        "end": 207
+        "start": 282,
+        "end": 282
       }
     },
     "access": "public",
@@ -219,19 +1205,19 @@
     }
   },
   {
-    "description": "breakpoints\n",
+    "description": "",
     "commentRange": {
-      "start": 231,
-      "end": 231
+      "start": 283,
+      "end": 283
     },
     "context": {
       "type": "variable",
-      "name": "breakpoint-s",
-      "value": "480px",
-      "scope": "default",
+      "name": "alley-sizes",
+      "value": "map_merge((\n    noalley: 0,\n    tightest: 25,\n    tighter: 50,\n    tight: 75,\n    comfy: 100,\n    loose: 125,\n    looser: 150,\n    loosest: 175,\n), $alley-sizes)",
+      "scope": "private",
       "line": {
-        "start": 232,
-        "end": 232
+        "start": 284,
+        "end": 293
       }
     },
     "access": "public",
@@ -244,10 +1230,135 @@
     }
   },
   {
-    "description": "breakpoints mapped\n",
+    "description": "",
     "commentRange": {
-      "start": 237,
-      "end": 237
+      "start": 207,
+      "end": 207
+    },
+    "context": {
+      "type": "variable",
+      "name": "border-radius",
+      "value": "4px",
+      "scope": "default",
+      "line": {
+        "start": 208,
+        "end": 208
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 209,
+      "end": 209
+    },
+    "context": {
+      "type": "variable",
+      "name": "border-size",
+      "value": "1px",
+      "scope": "default",
+      "line": {
+        "start": 210,
+        "end": 210
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 310,
+      "end": 310
+    },
+    "context": {
+      "type": "variable",
+      "name": "breakpoint-l",
+      "value": "960px",
+      "scope": "default",
+      "line": {
+        "start": 311,
+        "end": 311
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 308,
+      "end": 308
+    },
+    "context": {
+      "type": "variable",
+      "name": "breakpoint-m",
+      "value": "768px",
+      "scope": "default",
+      "line": {
+        "start": 309,
+        "end": 309
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 312,
+      "end": 312
+    },
+    "context": {
+      "type": "variable",
+      "name": "breakpoint-xl",
+      "value": "1200px",
+      "scope": "default",
+      "line": {
+        "start": 313,
+        "end": 313
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 314,
+      "end": 314
     },
     "context": {
       "type": "variable",
@@ -255,8 +1366,8 @@
       "value": "()",
       "scope": "default",
       "line": {
-        "start": 238,
-        "end": 238
+        "start": 315,
+        "end": 315
       }
     },
     "access": "public",
@@ -269,19 +1380,19 @@
     }
   },
   {
-    "description": "colors\n",
+    "description": "",
     "commentRange": {
-      "start": 87,
-      "end": 87
+      "start": 316,
+      "end": 316
     },
     "context": {
       "type": "variable",
-      "name": "color-dark",
-      "value": "#1f1f20",
-      "scope": "default",
+      "name": "breakpoints",
+      "value": "map_merge((\n    s:$breakpoint-s,\n    m:$breakpoint-m,\n    l:$breakpoint-l,\n    xl:$breakpoint-xl,\n), $breakpoints)",
+      "scope": "private",
       "line": {
-        "start": 88,
-        "end": 88
+        "start": 317,
+        "end": 322
       }
     },
     "access": "public",
@@ -291,32 +1402,793 @@
     "file": {
       "path": "_vars.scss",
       "name": "_vars.scss"
-    },
-    "usedBy": [
-      {
-        "description": "Automatically selects text color based on how light the background color is\n",
-        "context": {
-          "type": "function",
-          "name": "auto-text-color",
-          "code": "@if type-of($bg-color) != color {\n    @error '`#{$bg-color}` is not a valid color.';\n}\n\n@if not is-absolute-number($gt-percentage) {\n    @error '`#{$gt-percentage}` is not an absolute number.';\n}\n\n@if lightness($bg-color) > $gt-percentage {\n    @return $color-dark;\n} @else {\n    @return $color-light;\n}\n",
-          "line": {
-            "start": 180,
-            "end": 194
-          }
-        }
-      }
-    ]
+    }
   },
   {
-    "description": "colors mapped\n",
+    "description": "",
+    "commentRange": {
+      "start": 122,
+      "end": 122
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-accent",
+      "value": "#cb9556",
+      "scope": "default",
+      "line": {
+        "start": 123,
+        "end": 123
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 128,
+      "end": 128
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-alert",
+      "value": "#f44336",
+      "scope": "default",
+      "line": {
+        "start": 129,
+        "end": 129
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 156,
+      "end": 156
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-body-bg",
+      "value": "#ffffff",
+      "scope": "default",
+      "line": {
+        "start": 157,
+        "end": 157
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 160,
+      "end": 160
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-border",
+      "value": "$color-graylighter",
+      "scope": "default",
+      "line": {
+        "start": 161,
+        "end": 161
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 172,
+      "end": 172
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-code-bg",
+      "value": "$color-graylightest",
+      "scope": "default",
+      "line": {
+        "start": 173,
+        "end": 173
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 100,
+      "end": 100
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-dark",
+      "value": "#1f1f20",
+      "scope": "default",
+      "line": {
+        "start": 101,
+        "end": 101
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 134,
+      "end": 134
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-dribbble",
+      "value": "#ea4c89",
+      "scope": "default",
+      "line": {
+        "start": 135,
+        "end": 135
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 136,
+      "end": 136
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-facebook",
+      "value": "#3b5998",
+      "scope": "default",
+      "line": {
+        "start": 137,
+        "end": 137
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 138,
+      "end": 138
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-flickr",
+      "value": "#ff0084",
+      "scope": "default",
+      "line": {
+        "start": 139,
+        "end": 139
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 104,
+      "end": 104
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-gray",
+      "value": "lighten(black, 50%)",
+      "scope": "default",
+      "line": {
+        "start": 105,
+        "end": 105
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 112,
+      "end": 112
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graydark",
+      "value": "darken($color-gray, 5%)",
+      "scope": "default",
+      "line": {
+        "start": 113,
+        "end": 113
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 114,
+      "end": 114
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graydarker",
+      "value": "darken($color-gray, 10%)",
+      "scope": "default",
+      "line": {
+        "start": 115,
+        "end": 115
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 116,
+      "end": 116
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graydarkest",
+      "value": "darken($color-gray, 15%)",
+      "scope": "default",
+      "line": {
+        "start": 117,
+        "end": 117
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 106,
+      "end": 106
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graylight",
+      "value": "lighten($color-gray, 25%)",
+      "scope": "default",
+      "line": {
+        "start": 107,
+        "end": 107
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 108,
+      "end": 108
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graylighter",
+      "value": "lighten($color-gray, 35%)",
+      "scope": "default",
+      "line": {
+        "start": 109,
+        "end": 109
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 110,
+      "end": 110
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-graylightest",
+      "value": "lighten($color-gray, 45%)",
+      "scope": "default",
+      "line": {
+        "start": 111,
+        "end": 111
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 132,
+      "end": 132
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-highlight",
+      "value": "#feca57",
+      "scope": "default",
+      "line": {
+        "start": 133,
+        "end": 133
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 124,
+      "end": 124
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-idle",
+      "value": "$color-graylighter",
+      "scope": "default",
+      "line": {
+        "start": 125,
+        "end": 125
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 164,
+      "end": 164
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-ins-bg",
+      "value": "$color-primary",
+      "scope": "default",
+      "line": {
+        "start": 165,
+        "end": 165
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 140,
+      "end": 140
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-instagram",
+      "value": "#517fa4",
+      "scope": "default",
+      "line": {
+        "start": 141,
+        "end": 141
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 102,
+      "end": 102
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-light",
+      "value": "#f5f2ef",
+      "scope": "default",
+      "line": {
+        "start": 103,
+        "end": 103
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 142,
+      "end": 142
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-linkedin",
+      "value": "#0077b5",
+      "scope": "default",
+      "line": {
+        "start": 143,
+        "end": 143
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 166,
+      "end": 166
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-mark-bg",
+      "value": "$color-highlight",
+      "scope": "default",
+      "line": {
+        "start": 167,
+        "end": 167
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 144,
+      "end": 144
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-medium",
+      "value": "#00ab6b",
+      "scope": "default",
+      "line": {
+        "start": 145,
+        "end": 145
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 146,
+      "end": 146
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-pinterest",
+      "value": "#bd081c",
+      "scope": "default",
+      "line": {
+        "start": 147,
+        "end": 147
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 168,
+      "end": 168
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-pre-bg",
+      "value": "$color-graylightest",
+      "scope": "default",
+      "line": {
+        "start": 169,
+        "end": 169
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 170,
+      "end": 170
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-pre-bl",
+      "value": "$color-primary",
+      "scope": "default",
+      "line": {
+        "start": 171,
+        "end": 171
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 118,
+      "end": 118
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-primary",
+      "value": "#c0392b",
+      "scope": "default",
+      "line": {
+        "start": 119,
+        "end": 119
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 162,
+      "end": 162
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-quote-bl",
+      "value": "$color-graylighter",
+      "scope": "default",
+      "line": {
+        "start": 163,
+        "end": 163
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 148,
+      "end": 148
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-rss",
+      "value": "#f26522",
+      "scope": "default",
+      "line": {
+        "start": 149,
+        "end": 149
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 120,
+      "end": 120
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-secondary",
+      "value": "#acb29d",
+      "scope": "default",
+      "line": {
+        "start": 121,
+        "end": 121
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
     "commentRange": {
       "start": 126,
       "end": 126
     },
     "context": {
       "type": "variable",
-      "name": "colors",
-      "value": "()",
+      "name": "color-success",
+      "value": "#708b45",
       "scope": "default",
       "line": {
         "start": 127,
@@ -333,10 +2205,185 @@
     }
   },
   {
-    "description": "columns\n",
+    "description": "",
     "commentRange": {
-      "start": 246,
-      "end": 246
+      "start": 158,
+      "end": 158
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-text",
+      "value": "$color-dark",
+      "scope": "default",
+      "line": {
+        "start": 159,
+        "end": 159
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 150,
+      "end": 150
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-tumblr",
+      "value": "#35465c",
+      "scope": "default",
+      "line": {
+        "start": 151,
+        "end": 151
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 152,
+      "end": 152
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-twitter",
+      "value": "#55acee",
+      "scope": "default",
+      "line": {
+        "start": 153,
+        "end": 153
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 130,
+      "end": 130
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-warning",
+      "value": "#ee7b0c",
+      "scope": "default",
+      "line": {
+        "start": 131,
+        "end": 131
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 154,
+      "end": 154
+    },
+    "context": {
+      "type": "variable",
+      "name": "color-youtube",
+      "value": "#b31217",
+      "scope": "default",
+      "line": {
+        "start": 155,
+        "end": 155
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 176,
+      "end": 176
+    },
+    "context": {
+      "type": "variable",
+      "name": "colors",
+      "value": "map-merge((\n    primary: $color-primary,\n    secondary: $color-secondary,\n    accent: $color-accent,\n    idle: $color-idle,\n    success: $color-success,\n    alert: $color-alert,\n    warning: $color-warning,\n    highlight: $color-highlight,\n    dark: $color-dark,\n    light: $color-light,\n    gray: $color-gray,\n    graylight: $color-graylight,\n    graylighter: $color-graylighter,\n    graylightest: $color-graylightest,\n    graydark: $color-graydark,\n    graydarker: $color-graydarker,\n    graydarkest: $color-graydarkest,\n    dribbble: $color-dribbble,\n    facebook: $color-facebook,\n    flickr: $color-flickr,\n    instagram: $color-instagram,\n    linkedin: $color-linkedin,\n    medium: $color-medium,\n    pinterest: $color-pinterest,\n    rss: $color-rss,\n    tumblr: $color-tumblr,\n    twitter: $color-twitter,\n    youtube: $color-youtube,\n), $colors)",
+      "scope": "private",
+      "line": {
+        "start": 177,
+        "end": 206
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 174,
+      "end": 174
+    },
+    "context": {
+      "type": "variable",
+      "name": "colors",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 175,
+        "end": 175
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 323,
+      "end": 323
     },
     "context": {
       "type": "variable",
@@ -344,8 +2391,8 @@
       "value": "()",
       "scope": "default",
       "line": {
-        "start": 247,
-        "end": 247
+        "start": 324,
+        "end": 324
       }
     },
     "access": "public",
@@ -358,10 +2405,85 @@
     }
   },
   {
-    "description": "font sizes\n",
+    "description": "",
     "commentRange": {
-      "start": 22,
-      "end": 22
+      "start": 325,
+      "end": 325
+    },
+    "context": {
+      "type": "variable",
+      "name": "columns",
+      "value": "(map_merge((\n    1:percentage(1/12),\n    2:percentage(2/12),\n    3:percentage(3/12),\n    4:percentage(4/12),\n    5:percentage(5/12),\n    6:percentage(6/12),\n    7:percentage(7/12),\n    8:percentage(8/12),\n    9:percentage(9/12),\n    10:percentage(10/12),\n    11:percentage(11/12),\n    12:percentage(12/12),\n    p5:5%,\n    p10:10%,\n    p15:15%,\n    p20:20%,\n    p25:25%,\n    p30:30%,\n    p35:35%,\n    p40:40%,\n    p45:45%,\n    p50:50%,\n    p55:55%,\n    p60:60%,\n    p65:65%,\n    p70:70%,\n    p75:75%,\n    p80:80%,\n    p85:85%,\n    p90:90%,\n    p95:95%,\n    p100:100%,\n), $columns))",
+      "scope": "private",
+      "line": {
+        "start": 326,
+        "end": 359
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 299,
+      "end": 299
+    },
+    "context": {
+      "type": "variable",
+      "name": "ease-in-out-quart",
+      "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+      "scope": "default",
+      "line": {
+        "start": 300,
+        "end": 300
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 301,
+      "end": 301
+    },
+    "context": {
+      "type": "variable",
+      "name": "easing",
+      "value": "$ease-in-out-expo",
+      "scope": "default",
+      "line": {
+        "start": 302,
+        "end": 302
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 24,
+      "end": 24
     },
     "context": {
       "type": "variable",
@@ -369,8 +2491,47 @@
       "value": "16px",
       "scope": "default",
       "line": {
-        "start": 23,
-        "end": 23
+        "start": 25,
+        "end": 25
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Converts <code>$size-in-rem</code> to pixels based on <code>$font-size-base</code>.\n",
+        "context": {
+          "type": "function",
+          "name": "rem-to-pixels",
+          "code": "@return strip-unit($size-in-rem) * $font-size-base;\n",
+          "line": {
+            "start": 300,
+            "end": 302
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 28,
+      "end": 28
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-big",
+      "value": "1.1em",
+      "scope": "default",
+      "line": {
+        "start": 29,
+        "end": 29
       }
     },
     "access": "public",
@@ -383,15 +2544,190 @@
     }
   },
   {
-    "description": "font sizes mapped\n",
+    "description": "",
+    "commentRange": {
+      "start": 26,
+      "end": 26
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-general",
+      "value": "1rem",
+      "scope": "default",
+      "line": {
+        "start": 27,
+        "end": 27
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 40,
+      "end": 40
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-h1",
+      "value": "2em",
+      "scope": "default",
+      "line": {
+        "start": 41,
+        "end": 41
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 42,
+      "end": 42
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-h2",
+      "value": "1.6em",
+      "scope": "default",
+      "line": {
+        "start": 43,
+        "end": 43
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 44,
+      "end": 44
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-h3",
+      "value": "1.4em",
+      "scope": "default",
+      "line": {
+        "start": 45,
+        "end": 45
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 46,
+      "end": 46
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-h4",
+      "value": "1.2em",
+      "scope": "default",
+      "line": {
+        "start": 47,
+        "end": 47
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 34,
+      "end": 34
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-small",
+      "value": "0.9em",
+      "scope": "default",
+      "line": {
+        "start": 35,
+        "end": 35
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 30,
+      "end": 30
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-xbig",
+      "value": "1.2em",
+      "scope": "default",
+      "line": {
+        "start": 31,
+        "end": 31
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
     "commentRange": {
       "start": 36,
       "end": 36
     },
     "context": {
       "type": "variable",
-      "name": "font-sizes",
-      "value": "()",
+      "name": "font-size-xsmall",
+      "value": "0.8em",
       "scope": "default",
       "line": {
         "start": 37,
@@ -408,19 +2744,19 @@
     }
   },
   {
-    "description": "font stacks\n",
+    "description": "",
     "commentRange": {
-      "start": 5,
-      "end": 5
+      "start": 32,
+      "end": 32
     },
     "context": {
       "type": "variable",
-      "name": "font-stack-serif",
-      "value": "Constantia, 'Lucida Bright', Lucidabright, Georgia, serif",
+      "name": "font-size-xxbig",
+      "value": "1.3em",
       "scope": "default",
       "line": {
-        "start": 6,
-        "end": 6
+        "start": 33,
+        "end": 33
       }
     },
     "access": "public",
@@ -433,15 +2769,140 @@
     }
   },
   {
-    "description": "font stacks mapped\n",
+    "description": "",
+    "commentRange": {
+      "start": 38,
+      "end": 38
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-size-xxsmall",
+      "value": "0.7em",
+      "scope": "default",
+      "line": {
+        "start": 39,
+        "end": 39
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 50,
+      "end": 50
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-sizes",
+      "value": "map-merge((\n    base:$font-size-base,\n    general:$font-size-general,\n    big:$font-size-big,\n    xbig:$font-size-xbig,\n    xxbig:$font-size-xxbig,\n    small:$font-size-small,\n    xsmall:$font-size-xsmall,\n    xxsmall:$font-size-xxsmall,\n    h1:$font-size-h1,\n    h2:$font-size-h2,\n    h3:$font-size-h3,\n    h4:$font-size-h4,\n), $font-sizes)",
+      "scope": "private",
+      "line": {
+        "start": 51,
+        "end": 64
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 48,
+      "end": 48
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-sizes",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 49,
+        "end": 49
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 8,
+      "end": 8
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stack-general",
+      "value": "$font-stack-sansserif",
+      "scope": "default",
+      "line": {
+        "start": 9,
+        "end": 9
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 10,
+      "end": 10
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stack-heading",
+      "value": "$font-stack-general",
+      "scope": "default",
+      "line": {
+        "start": 11,
+        "end": 11
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
     "commentRange": {
       "start": 12,
       "end": 12
     },
     "context": {
       "type": "variable",
-      "name": "font-stacks",
-      "value": "()",
+      "name": "font-stack-mono",
+      "value": "Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace",
       "scope": "default",
       "line": {
         "start": 13,
@@ -458,10 +2919,135 @@
     }
   },
   {
-    "description": "font weights\n",
+    "description": "",
     "commentRange": {
-      "start": 53,
-      "end": 53
+      "start": 6,
+      "end": 6
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stack-sansserif",
+      "value": "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+      "scope": "default",
+      "line": {
+        "start": 7,
+        "end": 7
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 14,
+      "end": 14
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stacks",
+      "value": "()",
+      "scope": "default",
+      "line": {
+        "start": 15,
+        "end": 15
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 16,
+      "end": 16
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-stacks",
+      "value": "map-merge((\n    serif:$font-stack-serif,\n    sansserif:$font-stack-sansserif,\n    general:$font-stack-general,\n    heading:$font-stack-heading,\n    mono:$font-stack-mono,\n), $font-stacks)",
+      "scope": "private",
+      "line": {
+        "start": 17,
+        "end": 23
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 67,
+      "end": 67
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-weight-bold",
+      "value": "700",
+      "scope": "default",
+      "line": {
+        "start": 68,
+        "end": 68
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 69,
+      "end": 69
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-weight-heading",
+      "value": "$font-weight-bold",
+      "scope": "default",
+      "line": {
+        "start": 70,
+        "end": 70
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 65,
+      "end": 65
     },
     "context": {
       "type": "variable",
@@ -469,8 +3055,8 @@
       "value": "400",
       "scope": "default",
       "line": {
-        "start": 54,
-        "end": 54
+        "start": 66,
+        "end": 66
       }
     },
     "access": "public",
@@ -483,10 +3069,35 @@
     }
   },
   {
-    "description": "font weights mapped\n",
+    "description": "",
     "commentRange": {
-      "start": 58,
-      "end": 58
+      "start": 73,
+      "end": 73
+    },
+    "context": {
+      "type": "variable",
+      "name": "font-weights",
+      "value": "map-merge((\n    normal:$font-weight-normal,\n    bold:$font-weight-bold,\n    heading:$font-weight-heading,\n), $font-weights)",
+      "scope": "private",
+      "line": {
+        "start": 74,
+        "end": 78
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 71,
+      "end": 71
     },
     "context": {
       "type": "variable",
@@ -494,8 +3105,8 @@
       "value": "()",
       "scope": "default",
       "line": {
-        "start": 59,
-        "end": 59
+        "start": 72,
+        "end": 72
       }
     },
     "access": "public",
@@ -508,19 +3119,70 @@
     }
   },
   {
-    "description": "units\n",
+    "description": "",
     "commentRange": {
-      "start": 287,
-      "end": 287
+      "start": 367,
+      "end": 367
     },
     "context": {
       "type": "variable",
-      "name": "lengths-absolute",
-      "value": "(cm, mm, in, px, pt, pc)",
+      "name": "lengths",
+      "value": "join($lengths-absolute, $lengths-relative)",
       "scope": "private",
       "line": {
-        "start": 288,
-        "end": 288
+        "start": 368,
+        "end": 368
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    },
+    "usedBy": [
+      {
+        "description": "Checks if <code>$value</code> is a number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-unit-number",
+          "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 127,
+            "end": 137
+          }
+        }
+      },
+      {
+        "description": "Checks if <code>$value</code> is an absolute number with a unit.\n",
+        "context": {
+          "type": "function",
+          "name": "is-absolute-unit-number",
+          "code": "@if is-absolute-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
+          "line": {
+            "start": 172,
+            "end": 182
+          }
+        }
+      }
+    ]
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 365,
+      "end": 365
+    },
+    "context": {
+      "type": "variable",
+      "name": "lengths-relative",
+      "value": "(em, ex, ch, rem, vw, vh, vmin, vmax, '%')",
+      "scope": "private",
+      "line": {
+        "start": 366,
+        "end": 366
       }
     },
     "access": "public",
@@ -533,10 +3195,10 @@
     }
   },
   {
-    "description": "line heights\n",
+    "description": "",
     "commentRange": {
-      "start": 66,
-      "end": 66
+      "start": 79,
+      "end": 79
     },
     "context": {
       "type": "variable",
@@ -544,8 +3206,8 @@
       "value": "1.5",
       "scope": "default",
       "line": {
-        "start": 67,
-        "end": 67
+        "start": 80,
+        "end": 80
       }
     },
     "access": "public",
@@ -558,10 +3220,110 @@
     }
   },
   {
-    "description": "line heights mapped\n",
+    "description": "",
     "commentRange": {
-      "start": 73,
-      "end": 73
+      "start": 81,
+      "end": 81
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-height-h1",
+      "value": "1.15",
+      "scope": "default",
+      "line": {
+        "start": 82,
+        "end": 82
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 83,
+      "end": 83
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-height-h2",
+      "value": "1.25",
+      "scope": "default",
+      "line": {
+        "start": 84,
+        "end": 84
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 85,
+      "end": 85
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-height-h3",
+      "value": "1.35",
+      "scope": "default",
+      "line": {
+        "start": 86,
+        "end": 86
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 87,
+      "end": 87
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-height-h4",
+      "value": "1.45",
+      "scope": "default",
+      "line": {
+        "start": 88,
+        "end": 88
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 90,
+      "end": 90
     },
     "context": {
       "type": "variable",
@@ -569,8 +3331,883 @@
       "value": "()",
       "scope": "default",
       "line": {
-        "start": 74,
-        "end": 74
+        "start": 91,
+        "end": 91
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 92,
+      "end": 92
+    },
+    "context": {
+      "type": "variable",
+      "name": "line-heights",
+      "value": "map-merge((\n    general:$line-height-general,\n    h1:$line-height-h1,\n    h2:$line-height-h2,\n    h3:$line-height-h3,\n    h4:$line-height-h4,\n), $line-heights)",
+      "scope": "private",
+      "line": {
+        "start": 93,
+        "end": 99
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 211,
+      "end": 211
+    },
+    "context": {
+      "type": "variable",
+      "name": "margin",
+      "value": "$font-size-general * $line-height-general",
+      "scope": "default",
+      "line": {
+        "start": 212,
+        "end": 212
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 217,
+      "end": 217
+    },
+    "context": {
+      "type": "variable",
+      "name": "margin-bottom-h",
+      "value": "$margin * 0.625",
+      "scope": "default",
+      "line": {
+        "start": 218,
+        "end": 218
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 215,
+      "end": 215
+    },
+    "context": {
+      "type": "variable",
+      "name": "margin-top-h",
+      "value": "$margin * 1.25",
+      "scope": "default",
+      "line": {
+        "start": 216,
+        "end": 216
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 235,
+      "end": 235
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-box-b",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 236,
+        "end": 236
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 237,
+      "end": 237
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-box-l",
+      "value": "1rem",
+      "scope": "default",
+      "line": {
+        "start": 238,
+        "end": 238
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 233,
+      "end": 233
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-box-r",
+      "value": "1.25rem",
+      "scope": "default",
+      "line": {
+        "start": 234,
+        "end": 234
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 231,
+      "end": 231
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-box-t",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 232,
+        "end": 232
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 265,
+      "end": 265
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-button-b",
+      "value": "0.5rem",
+      "scope": "default",
+      "line": {
+        "start": 266,
+        "end": 266
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 267,
+      "end": 267
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-button-l",
+      "value": "1.25rem",
+      "scope": "default",
+      "line": {
+        "start": 268,
+        "end": 268
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 263,
+      "end": 263
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-button-r",
+      "value": "1.25rem",
+      "scope": "default",
+      "line": {
+        "start": 264,
+        "end": 264
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 261,
+      "end": 261
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-button-t",
+      "value": "0.5rem",
+      "scope": "default",
+      "line": {
+        "start": 262,
+        "end": 262
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 225,
+      "end": 225
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-inline-b",
+      "value": "0.125rem",
+      "scope": "default",
+      "line": {
+        "start": 226,
+        "end": 226
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 227,
+      "end": 227
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-inline-l",
+      "value": "0.25rem",
+      "scope": "default",
+      "line": {
+        "start": 228,
+        "end": 228
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 223,
+      "end": 223
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-inline-r",
+      "value": "0.25rem",
+      "scope": "default",
+      "line": {
+        "start": 224,
+        "end": 224
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 221,
+      "end": 221
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-inline-t",
+      "value": "0.125rem",
+      "scope": "default",
+      "line": {
+        "start": 222,
+        "end": 222
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 275,
+      "end": 275
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-input-b",
+      "value": "0.5rem",
+      "scope": "default",
+      "line": {
+        "start": 276,
+        "end": 276
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 277,
+      "end": 277
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-input-l",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 278,
+        "end": 278
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 273,
+      "end": 273
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-input-r",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 274,
+        "end": 274
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 271,
+      "end": 271
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-input-t",
+      "value": "0.5rem",
+      "scope": "default",
+      "line": {
+        "start": 272,
+        "end": 272
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 245,
+      "end": 245
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-message-b",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 246,
+        "end": 246
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 247,
+      "end": 247
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-message-l",
+      "value": "1rem",
+      "scope": "default",
+      "line": {
+        "start": 248,
+        "end": 248
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 243,
+      "end": 243
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-message-r",
+      "value": "3.25rem",
+      "scope": "default",
+      "line": {
+        "start": 244,
+        "end": 244
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 241,
+      "end": 241
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-message-t",
+      "value": "0.75rem",
+      "scope": "default",
+      "line": {
+        "start": 242,
+        "end": 242
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 255,
+      "end": 255
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-table-b",
+      "value": "0.65rem",
+      "scope": "default",
+      "line": {
+        "start": 256,
+        "end": 256
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 257,
+      "end": 257
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-table-l",
+      "value": "0",
+      "scope": "default",
+      "line": {
+        "start": 258,
+        "end": 258
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 253,
+      "end": 253
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-table-r",
+      "value": "1rem",
+      "scope": "default",
+      "line": {
+        "start": 254,
+        "end": 254
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 251,
+      "end": 251
+    },
+    "context": {
+      "type": "variable",
+      "name": "p-table-t",
+      "value": "0.65rem",
+      "scope": "default",
+      "line": {
+        "start": 252,
+        "end": 252
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 213,
+      "end": 213
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding",
+      "value": "$font-size-general * $line-height-general",
+      "scope": "default",
+      "line": {
+        "start": 214,
+        "end": 214
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 239,
+      "end": 239
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-box",
+      "value": "$p-box-t $p-box-r $p-box-b $p-box-l",
+      "scope": "default",
+      "line": {
+        "start": 240,
+        "end": 240
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 269,
+      "end": 269
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-button",
+      "value": "$p-button-t $p-button-r $p-button-b $p-button-l",
+      "scope": "default",
+      "line": {
+        "start": 270,
+        "end": 270
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 229,
+      "end": 229
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-inline",
+      "value": "$p-inline-t $p-inline-r $p-inline-b $p-inline-l",
+      "scope": "default",
+      "line": {
+        "start": 230,
+        "end": 230
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 279,
+      "end": 279
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-input",
+      "value": "$p-input-t $p-input-r $p-input-b $p-input-l",
+      "scope": "default",
+      "line": {
+        "start": 280,
+        "end": 280
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 249,
+      "end": 249
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-message",
+      "value": "$p-message-t $p-message-r $p-message-b $p-message-l",
+      "scope": "default",
+      "line": {
+        "start": 250,
+        "end": 250
+      }
+    },
+    "access": "public",
+    "group": [
+      "undefined"
+    ],
+    "file": {
+      "path": "_vars.scss",
+      "name": "_vars.scss"
+    }
+  },
+  {
+    "description": "",
+    "commentRange": {
+      "start": 259,
+      "end": 259
+    },
+    "context": {
+      "type": "variable",
+      "name": "padding-table",
+      "value": "$p-table-t $p-table-r $p-table-b $p-table-l",
+      "scope": "default",
+      "line": {
+        "start": 260,
+        "end": 260
       }
     },
     "access": "public",
