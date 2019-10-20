@@ -1,64 +1,3 @@
-/// Joins `$list` items into a `$glue` separated string and uses
-/// an optional `$closer` before the final item.
-/// @param {list} $list
-/// @param {string} $glue ['']
-/// @param {string} $closer [null]
-/// @param {bool} $quote-strings [false]
-@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
-    $output:null;
-    $last-item:null;
-    $last-item-quoted:false;
-
-    @if type-of($list) != list {
-        @error '`#{$list}` is not a valid list.';
-    }
-
-    @for $i from 1 through length($list) {
-        $item:nth($list, $i);
-
-        @if type-of($item) == list {
-            @if $i == length($list) {
-                $last-item:nth($item, -1);
-                $is-nested-list:type-of($last-item) == list;
-
-                @while $is-nested-list {
-                    $last-item:nth($last-item, -1);
-
-                    @if type-of($last-item) != list {
-                        $is-nested-list:false;
-                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
-                    }
-                }
-
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
-            } @else {
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
-            }
-        } @else {
-            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
-
-            @if $i == length($list) {
-                $last-item:$item;
-                $last-item-quoted:type-of($last-item) == string and $quote-strings;
-
-                $output:#{$output}#{$item}
-            } @else {
-                $output:#{$output}#{$item}#{$glue};
-            }
-        }
-    }
-
-    @if $closer != null {
-        $offset:if($last-item-quoted, 2, 0);
-        $find:#{$glue}#{$last-item};
-        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
-        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
-        $output:#{$slice-1}#{$closer}#{$slice-2};
-    }
-
-    @return $output;
-}
-
 /***
  * Utilities
  *
@@ -123,7 +62,7 @@
 
 /// Checks if `$value` is a number with a unit.
 /// @param {any} $value
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-unit-number($value, $warn: false) {
     @if is-number($value) and index($lengths, unit($value)) {
         @return true;
@@ -138,7 +77,7 @@
 
 /// Checks if `$value` is a unitless number.
 /// @param {any} $value
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-unitless-number($value, $warn: false) {
     @if is-number($value) and unitless($value) {
         @return true;
@@ -153,7 +92,7 @@
 
 /// Checks if `$value` is an absolute number.
 /// @param {any} $value
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-absolute-number($value, $warn: false) {
     @if is-number($value) and $value > -1 {
         @return true;
@@ -168,7 +107,7 @@
 
 /// Checks if `$value` is an absolute number with a unit.
 /// @param {any} $value
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-absolute-unit-number($value, $warn: false) {
     @if is-absolute-number($value) and index($lengths, unit($value)) {
         @return true;
@@ -183,7 +122,7 @@
 
 /// Checks if `$value` is an absolute and unitless number.
 /// @param {any} $value
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-absolute-unitless-number($value, $warn: false) {
     @if is-absolute-number($value) and unitless($value) {
         @return true;
@@ -199,7 +138,7 @@
 /// Checks if `$needle` is found in `$haystack`.
 /// @param {string|number} $needle
 /// @param {list} $haystack
-/// @warn {bool} $warn [false]
+/// @param {bool} $warn [false]
 @function is-in-list($needle, $haystack, $warn: false) {
     @if index($haystack, $needle) {
         @return true;
@@ -212,7 +151,77 @@
     @return false;
 }
 
-/// Returns a `$dark` or `$light` color that contrasts with`$bg-color`.
+/***
+ * Strings
+ *
+ */
+
+/// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
+/// @param {list} $list
+/// @param {string} $glue ['']
+/// @param {string} $closer [null]
+/// @param {bool} $quote-strings [false]
+@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
+    $output:null;
+    $last-item:null;
+    $last-item-quoted:false;
+
+    @if type-of($list) != list {
+        @error '`#{$list}` is not a valid list.';
+    }
+
+    @for $i from 1 through length($list) {
+        $item:nth($list, $i);
+
+        @if type-of($item) == list {
+            @if $i == length($list) {
+                $last-item:nth($item, -1);
+                $is-nested-list:type-of($last-item) == list;
+
+                @while $is-nested-list {
+                    $last-item:nth($last-item, -1);
+
+                    @if type-of($last-item) != list {
+                        $is-nested-list:false;
+                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
+                    }
+                }
+
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
+            } @else {
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
+            }
+        } @else {
+            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
+
+            @if $i == length($list) {
+                $last-item:$item;
+                $last-item-quoted:type-of($last-item) == string and $quote-strings;
+
+                $output:#{$output}#{$item}
+            } @else {
+                $output:#{$output}#{$item}#{$glue};
+            }
+        }
+    }
+
+    @if $closer != null {
+        $offset:if($last-item-quoted, 2, 0);
+        $find:#{$glue}#{$last-item};
+        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
+        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
+        $output:#{$slice-1}#{$closer}#{$slice-2};
+    }
+
+    @return $output;
+}
+
+/***
+ * Colors
+ *
+ */
+
+/// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
 /// @param {color} $bg-color
 /// @param {number} $threshold [60]
 /// @param {color} $dark [$color-dark]
@@ -253,7 +262,7 @@
         @return $number;
     }
 
-    @if $places > 0 {
+    @if $places > 0 and $places < 20 {
         @for $i from 1 through $places {
             $n:$n * 10;
         }

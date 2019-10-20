@@ -1,4 +1,4 @@
-$content-width:800px;
+$content-width:640px;
 $header-nav-height:3.4rem;
 
 @mixin container-padding {
@@ -86,7 +86,7 @@ main {
 
 .copyright {
     flex:1;
-    font-size:$font-size-small;
+    font-size:$font-size-xxsmall;
     text-transform:uppercase;
 }
 

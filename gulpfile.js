@@ -120,47 +120,73 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
+const sassdocProcessor = async sassdocData => {
+    const output = JSON.parse(JSON.stringify(sassdocData));
+
+    output.forEach(doc => {
+        // Normalize indents and remove first leading line break
+        if(typeof doc.context.code === 'string') {
+            doc.context.code = stripIndent(doc.context.code.replace(/^\n/, ''));
+        }
+
+        // Normalize indents and remove first leading line break
+        if(Array.isArray(doc.usedBy)) {
+            doc.usedBy.forEach(user => {
+                user.context.code = stripIndent(user.context.code.replace(/^\n/, ''));
+            });
+        }
+
+        // Remove leading line break and wrap backticked strings in `<code>`
+        if(typeof doc.description === 'string') {
+            doc.description = doc.description
+                .replace(/^\n/, '')
+                .replace(/`(.*?)`/g, '<code>$1</code>');
+        }
+
+        // Remove duplicate requires
+        if(Array.isArray(doc.require)) {
+            doc.require = doc.require.filter((require, index, self) => {
+                return index === self.findIndex((r) => (
+                    r.type === require.type && r.name === require.name
+                ));
+            });
+        }
+    });
+
+    output.sort((a, b) => {
+        const aTyp = a.context.type.toUpperCase();
+        const bTyp = b.context.type.toUpperCase();
+
+        if(aTyp > bTyp) return 1;
+        if(aTyp < bTyp) return -1;
+
+        const aGrp = a.group[0].toUpperCase();
+        const bGrp = b.group[0].toUpperCase();
+
+        if(aGrp > bGrp) return 1;
+        if(aGrp < bGrp) return -1;
+
+        const aNme = a.context.name.toUpperCase();
+        const bNme = b.context.name.toUpperCase();
+
+        if(aNme > bNme) return 1;
+        if(aNme < bNme) return -1;
+    });
+
+    await fs.writeFile(
+        files.sassdocjson,
+        JSON.stringify(output, null, 2),
+        err => {
+            if(err) console.log(err);
+        },
+    );
+};
+
 gulp.task('sassdoc', function() {
     return gulp
         .src(paths.scss)
         .pipe(sassdoc.parse())
-        .on('data', async(data) => {
-            data.forEach(val => {
-                if(typeof val.context.code === 'string') {
-                    val.context.code = stripIndent(val.context.code.replace(/^\n/, ''));
-                }
-
-                val.description = val.description
-                    .replace(/^\n/, '')
-                    .replace(/`(.*?)`/g, '<code>$1</code>');
-            });
-
-            data.sort((a, b) => {
-                let aGrp = a.group[0].toUpperCase();
-                let bGrp = b.group[0].toUpperCase();
-                let aTyp = a.context.type.toUpperCase();
-                let bTyp = b.context.type.toUpperCase();
-                let aNme = a.context.name.toUpperCase();
-                let bNme = b.context.name.toUpperCase();
-
-                if(aGrp > bGrp) return 1;
-                if(aGrp < bGrp) return -1;
-
-                if(aTyp > bTyp) return 1;
-                if(aTyp < bTyp) return -1;
-
-                if(aNme > bNme) return 1;
-                if(aNme < bNme) return -1;
-            });
-
-            await fs.writeFile(
-                files.sassdocjson,
-                JSON.stringify(data, null, 2),
-                err => {
-                    if(err) console.log(err);
-                },
-            );
-        });
+        .on('data', sassdocProcessor);
 });
 
 gulp.task('timestamp', async() => {
@@ -173,13 +199,13 @@ gulp.task('timestamp', async() => {
     );
 });
 
-function doWatch(glob, task) {
+const doWatch = (glob, task) => {
     const msg = (filePath) => {
         console.log(`File ${filePath} changed. Working...`);
     };
 
     gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', msg);
-}
+};
 
 gulp.task('watch', () => {
     doWatch(paths.scss, 'devsass');

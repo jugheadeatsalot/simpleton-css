@@ -1,4 +1,4 @@
-///
+/// Utility to clear floats
 @mixin clearfix() {
     &:before,
     &:after {
@@ -9,27 +9,14 @@
     }
 }
 
-//@mixin folded-corner($size:$font-size * 0.75, $fold-color:rgba(white, 0.25), $bg-color: #ffffff) {
-//    position:relative;
-//
-//    &:after {
-//        position:absolute;
-//        top:(-$border-size);
-//        right:(-$border-size);
-//        border-width:0 $size $size 0;
-//        border-style:solid;
-//        border-color:$fold-color $bg-color;
-//        content:'';
-//    }
-//}
-
 /// @access private
-@mixin internal-video-aspect-ratio($aspect-width:16, $aspect-height:9) {
+@mixin aspect-ratio-to-padding($aspect-width:16, $aspect-height:9) {
     padding-bottom:percentage($aspect-height / $aspect-width);
 }
 
+///
 @mixin video-container($aspect-width:16, $aspect-height:9) {
-    @include internal-video-aspect-ratio($aspect-width, $aspect-height);
+    @include aspect-ratio-to-padding($aspect-width, $aspect-height);
 
     position:relative;
     display:block;
@@ -47,48 +34,56 @@
     }
 }
 
+///
 @mixin max($max-width) {
     @media (max-width:$max-width) {
         @content;
     }
 }
 
+///
 @mixin min($min-width) {
     @media (min-width:$min-width) {
         @content;
     }
 }
 
+///
 @mixin min-max($min-width, $max-width) {
     @media (min-width:$min-width) and (max-width:$max-width) {
         @content;
     }
 }
 
+///
 @mixin min-s() {
     @media (min-width:$breakpoint-s) {
         @content;
     }
 }
 
+///
 @mixin min-m() {
     @media (min-width:$breakpoint-m) {
         @content;
     }
 }
 
+///
 @mixin min-l() {
     @media (min-width:$breakpoint-l) {
         @content;
     }
 }
 
+///
 @mixin min-xl() {
     @media (min-width:$breakpoint-xl) {
         @content;
     }
 }
 
+///
 @mixin ie9plus() {
     // @formatter:off
     @media (min-width:0\0) and (min-resolution:+72dpi) {
@@ -97,12 +92,14 @@
     // @formatter:on
 }
 
+///
 @mixin ie10plus() {
     @media (-ms-high-contrast:none), (-ms-high-contrast:active) {
         @content;
     }
 }
 
+///
 @mixin control-margins($scope:all) {
     $scope-y:$scope == vertical or $scope == all;
     $scope-x:$scope == horizontal or $scope == all;
@@ -132,6 +129,7 @@
     }
 }
 
+///
 @mixin vertical-margins($multiplier:1) {
     hr {
         margin-top:$margin * $multiplier;
@@ -182,10 +180,12 @@
     }
 }
 
+///
 @mixin sq() {
     border-radius:0;
 }
 
+///
 @mixin hide($breakpoint:s) {
     @if index(map_keys($breakpoints), $breakpoint) {
         @include min(map_get($breakpoints, $breakpoint)) {
@@ -198,6 +198,7 @@
     }
 }
 
+///
 @mixin mgb($multiplier:100, $important:false) {
     @if $important == true {
         margin-bottom:$margin * ($multiplier / 100) !important;
@@ -206,6 +207,7 @@
     }
 }
 
+///
 @mixin mgbch($multiplier:100, $important:false) {
     > * {
         @include mgb($multiplier, $important);
@@ -220,6 +222,7 @@
     }
 }
 
+///
 @mixin mgbch-row($multiplier:100, $important:false) {
     @include mgb(-$multiplier, $important);
 
@@ -228,6 +231,7 @@
     }
 }
 
+///
 @mixin row-alleys($type:row, $alley-multiplier:false) {
     $multiplier:map_get($alley-sizes, comfy);
     $alley:$alley / 2;
@@ -247,6 +251,7 @@
     }
 }
 
+///
 @mixin row($alley-multiplier:false) {
     @include row-alleys(row, $alley-multiplier);
     @include clearfix();
@@ -260,7 +265,7 @@
 }
 
 /// @access private
-@mixin internal-row-alley-styles($alley-multiplier) {
+@mixin row-alley-styles($alley-multiplier) {
     @include row-alleys(row, $alley-multiplier);
 
     > * {
@@ -268,22 +273,24 @@
     }
 }
 
+///
 @mixin row-alley($alley-multiplier, $breakpoint:false) {
     @if index(map_keys($alley-sizes), $alley-multiplier) or is-absolute-unitless-number($alley-multiplier) {
         @if index(map_keys($breakpoints), $breakpoint) {
             @include min(map_get($breakpoints, $breakpoint)) {
-                @include internal-row-alley-styles($alley-multiplier);
+                @include row-alley-styles($alley-multiplier);
             }
         } @else if is-absolute-unit-number($breakpoint) {
             @include min($breakpoint) {
-                @include internal-row-alley-styles($alley-multiplier);
+                @include row-alley-styles($alley-multiplier);
             }
         } @else {
-            @include internal-row-alley-styles($alley-multiplier);
+            @include row-alley-styles($alley-multiplier);
         }
     }
 }
 
+///
 @mixin col-width($column-width, $breakpoint:false) {
     @if index(map_keys($columns), $column-width) {
         @if index(map_keys($breakpoints), $breakpoint) {
@@ -311,503 +318,3 @@
         }
     }
 }
-
-
-//////////////////////////
-///// Grids
-//////////////////////////
-//
-//@mixin controlled() {
-//    * {
-//        @include control-margins(bottom);
-//    }
-//}
-//
-//@mixin group($max-width:$width-max-group) {
-//    margin-right:auto;
-//    margin-left:auto;
-//    padding:0 $padding-group;
-//    max-width:$max-width;
-//    width:100%;
-//}
-//
-//@mixin flexbox() {
-//    display:flex;
-//}
-//
-//@mixin flex-direction($value) {
-//    @if isInList($value, $flex-direction-values, true) {
-//        flex-direction:$value;
-//    }
-//}
-//
-//@mixin flex-wrap($value) {
-//    @if isInList($value, $flex-wrap-values, true) {
-//        flex-wrap:$value;
-//    }
-//}
-//
-//@mixin justify-content($value) {
-//    @if isInList($value, $justify-content-values, true) {
-//        justify-content:$value;
-//    }
-//}
-//
-//@mixin align-items($value) {
-//    @if isInList($value, $align-items-values, true) {
-//        align-items:$value;
-//    }
-//}
-//
-//@mixin align-content($value) {
-//    @if isInList($value, $align-content-values, true) {
-//        align-content:$value;
-//    }
-//}
-//
-//@mixin order($value) {
-//    @if isUnitlessNumber($value, true) {
-//        order:floor($value);
-//    }
-//}
-//
-//@mixin flex-grow($value) {
-//    @if isAbsoluteUnitlessNumber($value, true) {
-//        flex-grow:$value;
-//    }
-//}
-//
-//@mixin flex-shrink($value) {
-//    @if isAbsoluteUnitlessNumber($value, true) {
-//        flex-shrink:$value;
-//    }
-//}
-//
-//@mixin flex-basis($value) {
-//    @if isValidFlexBasis($value, true) {
-//        flex-basis:if(isString($value), $value, floor($value));
-//    }
-//}
-//
-//@mixin flex($value:0 1 auto) {
-//    flex:$value;
-//}
-//
-//@mixin align-self($value) {
-//    @if isInList($value, $align-self-values, true) {
-//        align-self:$value;
-//    }
-//}
-//
-//@mixin middled() {
-//    @include flexbox();
-//    @include align-items(center);
-//    @include justify-content(space-between);
-//}
-//
-//@mixin gutters($type:row, $size:false) {
-//    $multiplier:1;
-//
-//    @if isInList($size, map_keys($gutter-sizes)) {
-//        $multiplier:map_get($gutter-sizes, $size);
-//    } @else if isAbsoluteUnitlessNumber($size) {
-//        $multiplier:$size;
-//    }
-//
-//    @if $type == row {
-//        margin-right:(-$gutter * $multiplier);
-//        margin-left:(-$gutter * $multiplier);
-//    } @else if $type == col {
-//        padding-right:$gutter * $multiplier;
-//        padding-left:$gutter * $multiplier;
-//    }
-//}
-//
-//@mixin row() {
-//    @include clearfix();
-//    @include gutters(row);
-//
-//    display:block;
-//
-//    > * {
-//        @include gutters(col);
-//
-//        float:left;
-//        width:100%;
-//    }
-//}
-//
-//@mixin grid($size:false) {
-//    @include flexbox();
-//    @include flex-wrap(wrap);
-//    @include gutters(row, $size);
-//
-//    > * {
-//        @include gutters(col, $size);
-//    }
-//}
-//
-//@mixin spaced($size:nth(map-keys($spaced-values), 1)) {
-//    @if isInList($size, map_keys($spaced-values), true) {
-//        $out:$margin * map_get($spaced-values, $size);
-//
-//        margin-bottom:(-$out) !important;
-//
-//        > * {
-//            padding-bottom:$out;
-//        }
-//    }
-//}
-//
-//@mixin layout-widths($selector-prefix) {
-//    .#{$selector-prefix} {
-//        @each $key, $width in $widths {
-//            &-#{$key} {
-//                width:$width;
-//            }
-//        }
-//    }
-//}
-//
-//@mixin layout-orders($selector-prefix) {
-//    .#{$selector-prefix}-order {
-//        @for $i from 1 through 8 {
-//            &-#{$i} {
-//                @include order($i);
-//            }
-//        }
-//
-//        @for $i from 1 through 8 {
-//            &-n#{$i} {
-//                @include order(-$i);
-//            }
-//        }
-//    }
-//}
-//
-//@mixin set-width($width:$max-layout-cols, $breakpoint:false) {
-//    @if isInList($width, map_keys($widths), true) {
-//        $width:map-get($widths, $width);
-//
-//        @if not $breakpoint {
-//            width:$width;
-//        } @else if isAbsoluteUnitNumber($breakpoint) {
-//            @include max($breakpoint) {
-//                width:$width;
-//            }
-//        } @else if isInList($breakpoint, map-keys($breakpoints)) {
-//            @include max(map-get($breakpoints, $breakpoint)) {
-//                width:$width;
-//            }
-//        }
-//    }
-//}
-//
-//@mixin set-order($order:0, $breakpoint:false) {
-//    @if isUnitlessNumber($order, true) {
-//        @if not $breakpoint {
-//            order:$order;
-//        } @else if isAbsoluteUnitNumber($breakpoint) {
-//            @include max($breakpoint) {
-//                order:$order;
-//            }
-//        } @else if isInList($breakpoint, map-keys($breakpoints)) {
-//            @include max(map-get($breakpoints, $breakpoint)) {
-//                order:$order;
-//            }
-//        }
-//    }
-//}
-//
-
-//////////////////////////
-///// Colors
-//////////////////////////
-//
-//@mixin lighten-bg-on-hover($height-in-pixels:100px, $amount:0.1) {
-//    &:hover {
-//        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#ffffff, $amount);
-//    }
-//}
-//
-//@mixin darken-bg-on-hover($height-in-pixels:100px, $amount:0.1) {
-//    &:hover {
-//        box-shadow:inset 0 $height-in-pixels 0 0 rgba(#000000, $amount);
-//    }
-//}
-//
-//@mixin button-colors($color-to-use, $color-for-text:#ffffff) {
-//    background-color:$color-to-use;
-//    color:$color-for-text;
-//
-//    &:hover {
-//        background-color:$color-to-use;
-//        color:$color-for-text;
-//    }
-//}
-//
-//@mixin button-styles() {
-//    @include button-colors($color-dark);
-//
-//    display:inline-block;
-//    padding:$padding-button;
-//    border:none;
-//    border-radius:$border-radius;
-//    color:#ffffff;
-//    vertical-align:middle;
-//    text-align:center;
-//    white-space:normal;
-//    font-weight:$font-weight-bold;
-//    line-height:inherit;
-//    transition:filter 0.3s;
-//
-//    &[disabled] {
-//        @include button-colors($color-idle, $color-dark);
-//    }
-//
-//    @if $colorize-buttons == true {
-//        &.dark {
-//            @include button-colors($color-dark);
-//        }
-//
-//        &.primary {
-//            @include button-colors($color-primary);
-//        }
-//
-//        &.secondary {
-//            @include button-colors($color-secondary);
-//        }
-//
-//        &.idle {
-//            @include button-colors($color-idle, $color-dark);
-//        }
-//
-//        &.success {
-//            @include button-colors($color-success);
-//        }
-//
-//        &.alert {
-//            @include button-colors($color-alert);
-//        }
-//
-//        &.warning {
-//            @include button-colors($color-warning);
-//        }
-//
-//        &.highlight {
-//            @include button-colors($color-highlight);
-//        }
-//    }
-//}
-//
-//@mixin shift-message-colors($color-to-use, $color-for-text:#ffffff) {
-//    border:$border-size solid $color-to-use;
-//    background-color:$color-to-use;
-//    color:#{$color-for-text};
-//}
-//
-//@mixin message-colors() {
-//    @include shift-message-colors($color-dark);
-//
-//    &.success {
-//        @include shift-message-colors($color-success);
-//    }
-//
-//    &.alert {
-//        @include shift-message-colors($color-alert);
-//    }
-//
-//    &.warning {
-//        @include shift-message-colors($color-warning);
-//    }
-//}
-//
-
-//
-//@mixin message() {
-//    @include message-colors();
-//
-//    margin-bottom:$margin;
-//    padding:$padding-message;
-//
-//    i {
-//        position:absolute;
-//        top:$p-message-t;
-//        right:$p-message-l;
-//    }
-//}
-//
-//@mixin screen-reader-text() {
-//    position:absolute !important;
-//    overflow:hidden;
-//    clip:rect(1px, 1px, 1px, 1px);
-//    width:1px;
-//    height:1px;
-//}
-//
-//@mixin button-group-sized($width:$width-button) {
-//    > * {
-//        width:$width;
-//    }
-//}
-//
-//@mixin cover-height() {
-//    min-height:100vh;
-//}
-//
-//@mixin bg-color($color) {
-//    background-color:$color;
-//}
-//
-//@mixin text-color($color) {
-//    color:$color;
-//}
-//
-//@mixin button-size($size:false) {
-//    @if isInList($size, map-keys($button-sizes), true) {
-//        padding:nth(map-get($button-sizes, $size), 2);
-//        font-size:nth(map-get($button-sizes, $size), 1);
-//    }
-//}
-//
-//@mixin rounded-corners($radius:$border-radius) {
-//    border-radius:$radius;
-//}
-//
-//@mixin ellipsis() {
-//    overflow:hidden;
-//    text-overflow:ellipsis;
-//    white-space:nowrap;
-//}
-//
-//@mixin fade-ellipsis($cutoff:3, $line-height: $line-height, $fade-to-color:#ffffff) {
-//    $height:($line-height * $cutoff) + 0rem;
-//
-//    position:relative;
-//    overflow:hidden;
-//    max-height:$height;
-//
-//    &:after {
-//        position:absolute;
-//        top:$height - ($line-height + 0rem);
-//        right:0;
-//        width:50%;
-//        height:$height / $cutoff;
-//        background:linear-gradient(to right, transparent, $fade-to-color 50%);
-//        content:'';
-//    }
-//}
-//
-//@mixin headerize($type:false) {
-//    font-weight:$font-weight-head;
-//    font-family:$font-stack-head;
-//
-//    @if $type == h1 {
-//        font-size:$font-size-h1;
-//        line-height:$line-height-h1;
-//    } @else if $type == h2 {
-//        font-size:$font-size-h2;
-//        line-height:$line-height-h2;
-//    } @else if $type == h3 {
-//        font-size:$font-size-h3;
-//        line-height:$line-height-h3;
-//    } @else if $type == h4 {
-//        font-size:$font-size-h4;
-//        line-height:$line-height-h4;
-//    }
-//}
-//
-//////////////////////////
-///// Media Queries
-//////////////////////////
-//
-//@mixin xsmall() {
-//    @media (max-width:$width-small - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin small() {
-//    @media (max-width:$width-medium - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin medium() {
-//    @media (max-width:$width-marge - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin marge() {
-//    @media (max-width:$width-960 - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin _960() {
-//    @media (max-width:$width-large - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin large() {
-//    @media (max-width:$width-xlarge - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin xlarge() {
-//    @media (max-width:$width-xxlarge - 1) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-xsmall() {
-//    @media (min-width:$width-xsmall) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-small() {
-//    @media (min-width:$width-small) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-medium() {
-//    @media (min-width:$width-medium) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-marge() {
-//    @media (min-width:$width-marge) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-_960() {
-//    @media (min-width:$width-960) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-large() {
-//    @media (min-width:$width-large) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-xlarge() {
-//    @media (min-width:$width-xlarge) {
-//        @content;
-//    }
-//}
-//
-//@mixin min-xxlarge() {
-//    @media (min-width:$width-xxlarge) {
-//        @content;
-//    }
-//}
-//

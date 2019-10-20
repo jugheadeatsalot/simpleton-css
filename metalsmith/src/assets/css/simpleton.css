@@ -1,9 +1,33 @@
 /***
+ * Fonts
+ *
+ */
+/***
+ * Transitions and Animations
+ *
+ */
+/***
+ * Sizes
+ *
+ */
+/***
+ * Etcetera
+ *
+ */
+/***
  * Utilities
  *
  */
 /***
  * Conditionals
+ *
+ */
+/***
+ * Strings
+ *
+ */
+/***
+ * Colors
  *
  */
 /***
@@ -456,7 +480,7 @@ th {
 
 th,
 td {
-  padding: 0.65rem 1rem 0.65rem 0;
+  padding: 0.5rem 1rem 0.5rem 0;
 }
 
 figcaption {

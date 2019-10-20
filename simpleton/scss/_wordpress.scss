@@ -142,11 +142,11 @@ blockquote {
     @include video-container();
 
     &._1by1 {
-        @include internal-video-aspect-ratio(1, 1);
+        @include aspect-ratio-to-padding(1, 1);
     }
 
     &._4by3 {
-        @include internal-video-aspect-ratio(4, 3);
+        @include aspect-ratio-to-padding(4, 3);
     }
 }
 

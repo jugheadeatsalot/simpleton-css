@@ -6,7 +6,7 @@ layout: layout.hbs
 <h1>{{pagetitle}}</h1>
 
 {{#each sassdocData}}
-    <section class="doc-block mgb-300">
+    <section id="{{context.type}}-{{context.name}}" class="doc-block mgb-300">
         <h2 class="title"><span>{{context.type}}</span><br>{{context.name}}</h2>
         {{#if description}}
             <div class="description">{{{description}}}</div>
@@ -16,7 +16,7 @@ layout: layout.hbs
             <p>{{group.[0]}}</p>
         {{/ifnoteq}}
         {{#if parameter}}
-            <h3>Parameters</h3>
+            <h3>Params</h3>
             <table>
                 <thead>
                 <tr>
@@ -28,9 +28,9 @@ layout: layout.hbs
                 <tbody>
                 {{#each parameter}}
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{type}}</td>
-                        <td>{{#if default}}{{default}}{{else}}--{{/if}}</td>
+                        <td><code>{{name}}</code></td>
+                        <td><code>{{type}}</code></td>
+                        <td><code>{{#if default}}{{default}}{{else}}--{{/if}}</code></td>
                     </tr>
                 {{/each}}
                 </tbody>
@@ -48,8 +48,8 @@ layout: layout.hbs
                 <tbody>
                 {{#each require}}
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{type}}</td>
+                        <td><code>{{name}}</code></td>
+                        <td><code>{{type}}</code></td>
                     </tr>
                 {{/each}}
                 </tbody>
@@ -57,10 +57,12 @@ layout: layout.hbs
         {{/if}}
         {{#if context.code}}
             <h3>Code</h3>
+            <p>{{{viewsourcelink file.path context.line.start context.line.end}}}</p>
             <pre><code class="lang-scss">{{context.code}}</code></pre>
         {{/if}}
         {{#if context.value}}
             <h3>Value</h3>
+            <p>{{{viewsourcelink file.path context.line.start context.line.end}}}</p>
             <pre><code class="lang-scss">{{context.value}}</code></pre>
         {{/if}}
     </section>

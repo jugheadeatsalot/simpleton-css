@@ -1,6 +1,8 @@
-////////////////////////
-/// Fonts
-////////////////////////
+/***
+ * Fonts
+ *
+ */
+
 ///
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
 ///
@@ -11,8 +13,9 @@ $font-stack-general:$font-stack-sansserif !default;
 $font-stack-heading:$font-stack-general !default;
 ///
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
-///
+
 $font-stacks:() !default;
+
 ///
 $font-stacks:map-merge((
     serif:$font-stack-serif,
@@ -45,8 +48,9 @@ $font-size-h2:1.6em !default;
 $font-size-h3:1.4em !default;
 ///
 $font-size-h4:1.2em !default;
-///
+
 $font-sizes:() !default;
+
 ///
 $font-sizes:map-merge((
     base:$font-size-base,
@@ -68,8 +72,9 @@ $font-weight-normal:400 !default;
 $font-weight-bold:700 !default;
 ///
 $font-weight-heading:$font-weight-bold !default;
-///
+
 $font-weights:() !default;
+
 ///
 $font-weights:map-merge((
     normal:$font-weight-normal,
@@ -87,8 +92,8 @@ $line-height-h3:1.35 !default;
 ///
 $line-height-h4:1.45 !default;
 
-///
 $line-heights:() !default;
+
 ///
 $line-heights:map-merge((
     general:$line-height-general,
@@ -171,8 +176,9 @@ $color-pre-bg:$color-graylightest !default;
 $color-pre-bl:$color-primary !default;
 ///
 $color-code-bg:$color-graylightest !default;
-///
+
 $colors:() !default;
+
 ///
 $colors:map-merge((
     primary: $color-primary,
@@ -249,11 +255,11 @@ $p-message-l:1rem !default;
 ///
 $padding-message:$p-message-t $p-message-r $p-message-b $p-message-l !default;
 ///
-$p-table-t:0.65rem !default;
+$p-table-t:0.5rem !default;
 ///
 $p-table-r:1rem !default;
 ///
-$p-table-b:0.65rem !default;
+$p-table-b:0.5rem !default;
 ///
 $p-table-l:0 !default;
 ///
@@ -278,8 +284,9 @@ $p-input-b:0.5rem !default;
 $p-input-l:0.75rem !default;
 ///
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
-///
+
 $alley-sizes:() !default;
+
 ///
 $alley-sizes:map_merge((
     noalley: 0,
@@ -291,18 +298,24 @@ $alley-sizes:map_merge((
     looser: 150,
     loosest: 175,
 ), $alley-sizes);
-////////////////////////
-/// Animations
-////////////////////////
+
+/***
+ * Transitions and Animations
+ *
+ */
+
 ///
 $ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
 ///
 $ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
 ///
 $easing:$ease-in-out-expo !default;
-////////////////////////
-/// Sizes
-////////////////////////
+
+/***
+ * Sizes
+ *
+ */
+
 ///
 $breakpoint-s:480px !default;
 ///
@@ -311,8 +324,9 @@ $breakpoint-m:768px !default;
 $breakpoint-l:960px !default;
 ///
 $breakpoint-xl:1200px !default;
-///
+
 $breakpoints:() !default;
+
 ///
 $breakpoints:map_merge((
     s:$breakpoint-s,
@@ -320,8 +334,9 @@ $breakpoints:map_merge((
     l:$breakpoint-l,
     xl:$breakpoint-xl,
 ), $breakpoints);
-///
+
 $columns:() !default;
+
 ///
 $columns:(map_merge((
     1:percentage(1/12),
@@ -357,12 +372,15 @@ $columns:(map_merge((
     p95:95%,
     p100:100%,
 ), $columns));
-////////////////////////
-/// Etcetera
-////////////////////////
-///
+
+/***
+ * Etcetera
+ *
+ */
+
+/// @access private
 $lengths-absolute:(cm, mm, in, px, pt, pc);
-///
+/// @access private
 $lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
-///
+/// @access private
 $lengths:join($lengths-absolute, $lengths-relative);

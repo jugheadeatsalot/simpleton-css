@@ -7,14 +7,39 @@ const ignore = require('metalsmith-ignore');
 const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
+const Handlebars = require('jstransformer-handlebars').handlebars;
 
 const {dirs, files, sassVars, sassdocData} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const hbsHelpers = {
+    'ifeq': function(a, b, options) {
+        if(a === b) return options.fn(this);
+        return options.inverse(this);
+    },
+    'ifnoteq': function(a, b, options) {
+        if(a !== b) return options.fn(this);
+        return options.inverse(this);
+    },
+    'viewsourcelink': (path, start, end, anchor) => {
+        if(typeof anchor !== 'string') anchor = 'View Source';
+
+        path = Handlebars.escapeExpression(path);
+        start = Handlebars.escapeExpression(start);
+        end = Handlebars.escapeExpression(end);
+        anchor = Handlebars.escapeExpression(anchor);
+
+        const sassBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/simpleton/scss';
+        const link = `<a href="${sassBase}/${path}#L${start}-L${end}" target="_blank">${anchor}</a>`;
+
+        return new Handlebars.SafeString(link);
+    },
+};
+
 const metalsmith = Metalsmith(__dirname)
     .metadata({
-        version: new Date().getTime(),
+        version: '0.2.0',
         title: 'Simpleton CSS',
         description: 'Just a simple CSS starter.',
         isProduction: isProduction,
@@ -26,6 +51,9 @@ const metalsmith = Metalsmith(__dirname)
     .destination(isProduction ? dirs.docs : dirs.docsDev)
     .use(inPlace({
         suppressNoFilesError: true,
+        engineOptions: {
+            helpers: hbsHelpers,
+        },
     }))
     .use(layouts({
         directory: dirs.metalsmithLayouts,

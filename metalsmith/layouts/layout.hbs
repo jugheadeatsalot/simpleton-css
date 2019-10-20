@@ -7,25 +7,18 @@
     {{#if description}}
         <meta name="description" content="{{description}}">
     {{/if}}
+    {{#unless isProduction}}
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+    {{/unless}}
     <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     {{#if isProduction}}
         <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
         <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
     {{else}}
-        <script>
-            const simpcss = document.createElement('link');
-
-            simpcss.rel = 'stylesheet';
-            simpcss.href = `/assets/css/simpleton.css?v=${new Date().getTime()}`;
-
-            const docscss = document.createElement('link');
-
-            docscss.rel = 'stylesheet';
-            docscss.href = `/assets/css/docs.css?v=${new Date().getTime()}`;
-
-            document.getElementsByTagName('head')[0].appendChild(simpcss);
-            document.getElementsByTagName('head')[0].appendChild(docscss);
-        </script>
+        <link rel="stylesheet" href="/assets/css/simpleton.css?v={{version}}">
+        <link rel="stylesheet" href="/assets/css/docs.css?v={{version}}">
     {{/if}}
 </head>
 <body>
@@ -57,18 +50,8 @@
     <script src='/assets/js/docs.min.js?v={{version}}'></script>
 {{else}}
     <script src="http://localhost:35729/livereload.js"></script>
-    <script>
-        const simpjs = document.createElement('script');
-
-        simpjs.src = `/assets/js/simpleton.js?v=${new Date().getTime()}`;
-
-        const docsjs = document.createElement('script');
-
-        docsjs.src = `/assets/js/docs.js?v=${new Date().getTime()}`;
-
-        document.getElementsByTagName('body')[0].appendChild(simpjs);
-        document.getElementsByTagName('body')[0].appendChild(docsjs);
-    </script>
+    <script src='/assets/js/simpleton.js?v={{version}}'></script>
+    <script src='/assets/js/docs.js?v={{version}}'></script>
 {{/if}}
 </body>
 </html>

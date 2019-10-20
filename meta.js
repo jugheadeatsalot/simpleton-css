@@ -1,16 +1,5 @@
 const fs = require('fs');
 const {parse} = require('sass-variable-parser');
-const Handlebars = require('jstransformer-handlebars').handlebars;
-
-Handlebars.registerHelper('ifeq', function(a, b, options) {
-    if(a === b) return options.fn(this);
-    return options.inverse(this);
-});
-
-Handlebars.registerHelper('ifnoteq', function(a, b, options) {
-    if(a !== b) return options.fn(this);
-    return options.inverse(this);
-});
 
 const dirs = exports.dirs = {
     dist: 'dist',
