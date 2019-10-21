@@ -11,6 +11,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const stripIndent = require('strip-indent');
 const sassdoc = require('sassdoc');
+const pluralize = require('pluralize');
 
 const {dirs, files} = require('./meta');
 
@@ -120,10 +121,10 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
-const sassdocProcessor = async sassdocData => {
-    const output = JSON.parse(JSON.stringify(sassdocData));
+const processSassdocData = async sassdocData => {
+    const output = {};
 
-    output.forEach(doc => {
+    sassdocData.forEach(doc => {
         // Normalize indents and remove first leading line break
         if(typeof doc.context.code === 'string') {
             doc.context.code = stripIndent(doc.context.code.replace(/^\n/, ''));
@@ -151,26 +152,14 @@ const sassdocProcessor = async sassdocData => {
                 ));
             });
         }
-    });
 
-    output.sort((a, b) => {
-        const aTyp = a.context.type.toUpperCase();
-        const bTyp = b.context.type.toUpperCase();
+        const type = pluralize(doc.context.type);
 
-        if(aTyp > bTyp) return 1;
-        if(aTyp < bTyp) return -1;
+        // Create array if it doesn't exist
+        if(!Array.isArray(output[type])) output[type] = [];
 
-        const aGrp = a.group[0].toUpperCase();
-        const bGrp = b.group[0].toUpperCase();
-
-        if(aGrp > bGrp) return 1;
-        if(aGrp < bGrp) return -1;
-
-        const aNme = a.context.name.toUpperCase();
-        const bNme = b.context.name.toUpperCase();
-
-        if(aNme > bNme) return 1;
-        if(aNme < bNme) return -1;
+        // Push doc to output
+        output[type].push(doc);
     });
 
     await fs.writeFile(
@@ -186,7 +175,7 @@ gulp.task('sassdoc', function() {
     return gulp
         .src(paths.scss)
         .pipe(sassdoc.parse())
-        .on('data', sassdocProcessor);
+        .on('data', processSassdocData);
 });
 
 gulp.task('timestamp', async() => {

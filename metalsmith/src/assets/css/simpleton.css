@@ -245,7 +245,8 @@ textarea {
   vertical-align: top;
 }
 
-em {
+em,
+dfn {
   font-style: italic;
 }
 
@@ -480,7 +481,7 @@ th {
 
 th,
 td {
-  padding: 0.5rem 1rem 0.5rem 0;
+  padding: 0.5rem 2rem 0.5rem 0;
 }
 
 figcaption {
@@ -488,6 +489,27 @@ figcaption {
   color: gray;
   text-align: center;
   font-size: 0.8em;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.video-container {
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
+  height: 0;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .mgb-25 {
@@ -708,6 +730,230 @@ figcaption {
   .hide-xl {
     display: none;
   }
+}
+
+.bg-primary {
+  background-color: #c0392b;
+}
+
+.text-primary {
+  color: #c0392b;
+}
+
+.bg-secondary {
+  background-color: #acb29d;
+}
+
+.text-secondary {
+  color: #acb29d;
+}
+
+.bg-accent {
+  background-color: #cb9556;
+}
+
+.text-accent {
+  color: #cb9556;
+}
+
+.bg-idle {
+  background-color: #d9d9d9;
+}
+
+.text-idle {
+  color: #d9d9d9;
+}
+
+.bg-success {
+  background-color: #708b45;
+}
+
+.text-success {
+  color: #708b45;
+}
+
+.bg-alert {
+  background-color: #f44336;
+}
+
+.text-alert {
+  color: #f44336;
+}
+
+.bg-warning {
+  background-color: #ee7b0c;
+}
+
+.text-warning {
+  color: #ee7b0c;
+}
+
+.bg-highlight {
+  background-color: #feca57;
+}
+
+.text-highlight {
+  color: #feca57;
+}
+
+.bg-dark {
+  background-color: #1f1f20;
+}
+
+.text-dark {
+  color: #1f1f20;
+}
+
+.bg-light {
+  background-color: #f5f2ef;
+}
+
+.text-light {
+  color: #f5f2ef;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.text-gray {
+  color: gray;
+}
+
+.bg-graylight {
+  background-color: #bfbfbf;
+}
+
+.text-graylight {
+  color: #bfbfbf;
+}
+
+.bg-graylighter {
+  background-color: #d9d9d9;
+}
+
+.text-graylighter {
+  color: #d9d9d9;
+}
+
+.bg-graylightest {
+  background-color: #f2f2f2;
+}
+
+.text-graylightest {
+  color: #f2f2f2;
+}
+
+.bg-graydark {
+  background-color: #737373;
+}
+
+.text-graydark {
+  color: #737373;
+}
+
+.bg-graydarker {
+  background-color: #666666;
+}
+
+.text-graydarker {
+  color: #666666;
+}
+
+.bg-graydarkest {
+  background-color: #595959;
+}
+
+.text-graydarkest {
+  color: #595959;
+}
+
+.bg-dribbble {
+  background-color: #ea4c89;
+}
+
+.text-dribbble {
+  color: #ea4c89;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+}
+
+.text-facebook {
+  color: #3b5998;
+}
+
+.bg-flickr {
+  background-color: #ff0084;
+}
+
+.text-flickr {
+  color: #ff0084;
+}
+
+.bg-instagram {
+  background-color: #517fa4;
+}
+
+.text-instagram {
+  color: #517fa4;
+}
+
+.bg-linkedin {
+  background-color: #0077b5;
+}
+
+.text-linkedin {
+  color: #0077b5;
+}
+
+.bg-medium {
+  background-color: #00ab6b;
+}
+
+.text-medium {
+  color: #00ab6b;
+}
+
+.bg-pinterest {
+  background-color: #bd081c;
+}
+
+.text-pinterest {
+  color: #bd081c;
+}
+
+.bg-rss {
+  background-color: #f26522;
+}
+
+.text-rss {
+  color: #f26522;
+}
+
+.bg-tumblr {
+  background-color: #35465c;
+}
+
+.text-tumblr {
+  color: #35465c;
+}
+
+.bg-twitter {
+  background-color: #55acee;
+}
+
+.text-twitter {
+  color: #55acee;
+}
+
+.bg-youtube {
+  background-color: #b31217;
+}
+
+.text-youtube {
+  color: #b31217;
 }
 
 input[type='button'],
@@ -2925,230 +3171,6 @@ textarea {
   .row > .xl-p100 {
     width: 100%;
   }
-}
-
-.bg-primary {
-  background-color: #c0392b;
-}
-
-.text-primary {
-  color: #c0392b;
-}
-
-.bg-secondary {
-  background-color: #acb29d;
-}
-
-.text-secondary {
-  color: #acb29d;
-}
-
-.bg-accent {
-  background-color: #cb9556;
-}
-
-.text-accent {
-  color: #cb9556;
-}
-
-.bg-idle {
-  background-color: #d9d9d9;
-}
-
-.text-idle {
-  color: #d9d9d9;
-}
-
-.bg-success {
-  background-color: #708b45;
-}
-
-.text-success {
-  color: #708b45;
-}
-
-.bg-alert {
-  background-color: #f44336;
-}
-
-.text-alert {
-  color: #f44336;
-}
-
-.bg-warning {
-  background-color: #ee7b0c;
-}
-
-.text-warning {
-  color: #ee7b0c;
-}
-
-.bg-highlight {
-  background-color: #feca57;
-}
-
-.text-highlight {
-  color: #feca57;
-}
-
-.bg-dark {
-  background-color: #1f1f20;
-}
-
-.text-dark {
-  color: #1f1f20;
-}
-
-.bg-light {
-  background-color: #f5f2ef;
-}
-
-.text-light {
-  color: #f5f2ef;
-}
-
-.bg-gray {
-  background-color: gray;
-}
-
-.text-gray {
-  color: gray;
-}
-
-.bg-graylight {
-  background-color: #bfbfbf;
-}
-
-.text-graylight {
-  color: #bfbfbf;
-}
-
-.bg-graylighter {
-  background-color: #d9d9d9;
-}
-
-.text-graylighter {
-  color: #d9d9d9;
-}
-
-.bg-graylightest {
-  background-color: #f2f2f2;
-}
-
-.text-graylightest {
-  color: #f2f2f2;
-}
-
-.bg-graydark {
-  background-color: #737373;
-}
-
-.text-graydark {
-  color: #737373;
-}
-
-.bg-graydarker {
-  background-color: #666666;
-}
-
-.text-graydarker {
-  color: #666666;
-}
-
-.bg-graydarkest {
-  background-color: #595959;
-}
-
-.text-graydarkest {
-  color: #595959;
-}
-
-.bg-dribbble {
-  background-color: #ea4c89;
-}
-
-.text-dribbble {
-  color: #ea4c89;
-}
-
-.bg-facebook {
-  background-color: #3b5998;
-}
-
-.text-facebook {
-  color: #3b5998;
-}
-
-.bg-flickr {
-  background-color: #ff0084;
-}
-
-.text-flickr {
-  color: #ff0084;
-}
-
-.bg-instagram {
-  background-color: #517fa4;
-}
-
-.text-instagram {
-  color: #517fa4;
-}
-
-.bg-linkedin {
-  background-color: #0077b5;
-}
-
-.text-linkedin {
-  color: #0077b5;
-}
-
-.bg-medium {
-  background-color: #00ab6b;
-}
-
-.text-medium {
-  color: #00ab6b;
-}
-
-.bg-pinterest {
-  background-color: #bd081c;
-}
-
-.text-pinterest {
-  color: #bd081c;
-}
-
-.bg-rss {
-  background-color: #f26522;
-}
-
-.text-rss {
-  color: #f26522;
-}
-
-.bg-tumblr {
-  background-color: #35465c;
-}
-
-.text-tumblr {
-  color: #35465c;
-}
-
-.bg-twitter {
-  background-color: #55acee;
-}
-
-.text-twitter {
-  color: #55acee;
-}
-
-.bg-youtube {
-  background-color: #b31217;
-}
-
-.text-youtube {
-  color: #b31217;
 }
 
 /*# sourceMappingURL=sourcemaps/simpleton.css.map */

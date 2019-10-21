@@ -1,9 +1,0 @@
-@each $color-key, $color-value in $colors {
-    .bg-#{$color-key} {
-        background-color:$color-value;
-    }
-
-    .text-#{$color-key} {
-        color:$color-value;
-    }
-}

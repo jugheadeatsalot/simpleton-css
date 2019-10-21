@@ -3,12 +3,12 @@ const {parse} = require('sass-variable-parser');
 
 const dirs = exports.dirs = {
     dist: 'dist',
-    simpletonJs: 'simpleton/js',
-    simpletonScss: 'simpleton/scss',
+    simpletonJs: 'js',
+    simpletonScss: 'scss',
     docs: 'docs',
     docsDev: 'docs-dev',
-    docsJs: 'metalsmith/raw/js',
-    docsScss: 'metalsmith/raw/scss',
+    docsJs: 'metalsmith/js',
+    docsScss: 'metalsmith/scss',
     docsAssets: 'metalsmith/src/assets',
     metalsmithSrc: 'metalsmith/src',
     metalsmithLayouts: 'metalsmith/layouts',
@@ -19,11 +19,10 @@ const files = exports.files = {
     'sassdocjson': 'sassdoc.json',
 };
 
-const sassVars = exports.sassVars = parse(
-    fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'),
-    {camelCase: false},
-);
+exports.sassVars = parse(fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'), {camelCase: false});
+exports.sassdocData = JSON.parse(fs.readFileSync(files.sassdocjson, 'utf8'));
 
-delete require.cache[require.resolve(`./${files.sassdocjson}`)];
+const packageInfo = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
-const sassdocData = exports.sassdocData = require(`./${files.sassdocjson}`);
+exports.version = packageInfo.version;
+exports.description = packageInfo.description;

@@ -13,9 +13,7 @@ $font-stack-general:$font-stack-sansserif !default;
 $font-stack-heading:$font-stack-general !default;
 ///
 $font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
-
 $font-stacks:() !default;
-
 ///
 $font-stacks:map-merge((
     serif:$font-stack-serif,
@@ -48,9 +46,7 @@ $font-size-h2:1.6em !default;
 $font-size-h3:1.4em !default;
 ///
 $font-size-h4:1.2em !default;
-
 $font-sizes:() !default;
-
 ///
 $font-sizes:map-merge((
     base:$font-size-base,
@@ -72,9 +68,7 @@ $font-weight-normal:400 !default;
 $font-weight-bold:700 !default;
 ///
 $font-weight-heading:$font-weight-bold !default;
-
 $font-weights:() !default;
-
 ///
 $font-weights:map-merge((
     normal:$font-weight-normal,
@@ -91,9 +85,7 @@ $line-height-h2:1.25 !default;
 $line-height-h3:1.35 !default;
 ///
 $line-height-h4:1.45 !default;
-
 $line-heights:() !default;
-
 ///
 $line-heights:map-merge((
     general:$line-height-general,
@@ -165,7 +157,7 @@ $color-text:$color-dark !default;
 ///
 $color-border:$color-graylighter !default;
 ///
-$color-quote-bl:$color-graylighter !default;
+$color-quote-bdl:$color-graylighter !default;
 ///
 $color-ins-bg:$color-primary !default;
 ///
@@ -173,12 +165,10 @@ $color-mark-bg:$color-highlight !default;
 ///
 $color-pre-bg:$color-graylightest !default;
 ///
-$color-pre-bl:$color-primary !default;
+$color-pre-bdl:$color-primary !default;
 ///
 $color-code-bg:$color-graylightest !default;
-
 $colors:() !default;
-
 ///
 $colors:map-merge((
     primary: $color-primary,
@@ -211,7 +201,7 @@ $colors:map-merge((
     youtube: $color-youtube,
 ), $colors);
 ///
-$border-radius:4px !default;
+$border-radius:0.25rem !default;
 ///
 $border-size:1px !default;
 ///
@@ -257,7 +247,7 @@ $padding-message:$p-message-t $p-message-r $p-message-b $p-message-l !default;
 ///
 $p-table-t:0.5rem !default;
 ///
-$p-table-r:1rem !default;
+$p-table-r:2rem !default;
 ///
 $p-table-b:0.5rem !default;
 ///
@@ -284,9 +274,7 @@ $p-input-b:0.5rem !default;
 $p-input-l:0.75rem !default;
 ///
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
-
 $alley-sizes:() !default;
-
 ///
 $alley-sizes:map_merge((
     noalley: 0,
@@ -324,9 +312,7 @@ $breakpoint-m:768px !default;
 $breakpoint-l:960px !default;
 ///
 $breakpoint-xl:1200px !default;
-
 $breakpoints:() !default;
-
 ///
 $breakpoints:map_merge((
     s:$breakpoint-s,
@@ -334,9 +320,7 @@ $breakpoints:map_merge((
     l:$breakpoint-l,
     xl:$breakpoint-xl,
 ), $breakpoints);
-
 $columns:() !default;
-
 ///
 $columns:(map_merge((
     1:percentage(1/12),

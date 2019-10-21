@@ -7,9 +7,10 @@ const ignore = require('metalsmith-ignore');
 const watch = require('metalsmith-watch');
 const beautify = require('metalsmith-beautify');
 const assets = require('metalsmith-static');
+const pluralize = require('pluralize');
 const Handlebars = require('jstransformer-handlebars').handlebars;
 
-const {dirs, files, sassVars, sassdocData} = require('./meta');
+const {dirs, files, sassVars, sassdocData, version, description} = require('./meta');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -22,16 +23,25 @@ const hbsHelpers = {
         if(a !== b) return options.fn(this);
         return options.inverse(this);
     },
-    'viewsourcelink': (path, start, end, anchor) => {
-        if(typeof anchor !== 'string') anchor = 'View Source';
+    'crosslink': function(type, contextType, name, options) {
+        type = Handlebars.escapeExpression(pluralize(type));
+        contextType = Handlebars.escapeExpression(pluralize(contextType));
+        name = Handlebars.escapeExpression(name);
 
+        const anchor = options.fn(this);
+        const onClick = (type === contextType) ? ' onclick="function(e){e.preventDefault();}"' : '';
+        const link = `<a href="/${type}#${name}"${onClick}>${anchor}</a>`;
+
+        return new Handlebars.SafeString(link);
+    },
+    'sourcelink': function(path, start, end, options) {
         path = Handlebars.escapeExpression(path);
         start = Handlebars.escapeExpression(start);
         end = Handlebars.escapeExpression(end);
-        anchor = Handlebars.escapeExpression(anchor);
 
-        const sassBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/simpleton/scss';
-        const link = `<a href="${sassBase}/${path}#L${start}-L${end}" target="_blank">${anchor}</a>`;
+        const codeBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/simpleton/scss';
+        const anchor = options.fn(this);
+        const link = `<a href="${codeBase}/${path}#L${start}-L${end}" target="_blank">${anchor}</a>`;
 
         return new Handlebars.SafeString(link);
     },
@@ -39,9 +49,9 @@ const hbsHelpers = {
 
 const metalsmith = Metalsmith(__dirname)
     .metadata({
-        version: '0.2.0',
         title: 'Simpleton CSS',
-        description: 'Just a simple CSS starter.',
+        description,
+        version,
         isProduction: isProduction,
         sassVars,
         sassdocData,
@@ -74,8 +84,8 @@ const metalsmith = Metalsmith(__dirname)
         css: false,
     }))
     .use(assets({
-        src: dirs.simpletonJs, // Must be relative to current directory
-        dest: 'assets/js', // Must be relative to destination directory
+        src: dirs.simpletonJs, // Relative to current directory
+        dest: 'assets/js', // Relative to destination directory
     }));
 
 if(!isProduction) {

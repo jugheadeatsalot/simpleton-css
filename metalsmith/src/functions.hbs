@@ -1,13 +1,13 @@
 ---
-pagetitle: Sass
+pagetitle: Functions
 layout: layout.hbs
 ---
 
 <h1>{{pagetitle}}</h1>
 
-{{#each sassdocData}}
-    <section id="{{context.type}}-{{context.name}}" class="doc-block mgb-300">
-        <h2 class="title"><span>{{context.type}}</span><br>{{context.name}}</h2>
+{{#each sassdocData.functions}}
+    <section id="{{context.name}}" class="doc-block">
+        <h2>{{context.name}} {{#crosslink context.type context.type context.name}}#{{/crosslink}}</h2>
         {{#if description}}
             <div class="description">{{{description}}}</div>
         {{/if}}
@@ -48,7 +48,7 @@ layout: layout.hbs
                 <tbody>
                 {{#each require}}
                     <tr>
-                        <td><code>{{name}}</code></td>
+                        <td><code>{{#crosslink type ../context.type name}}{{name}}{{/crosslink}}</code></td>
                         <td><code>{{type}}</code></td>
                     </tr>
                 {{/each}}
@@ -57,12 +57,12 @@ layout: layout.hbs
         {{/if}}
         {{#if context.code}}
             <h3>Code</h3>
-            <p>{{{viewsourcelink file.path context.line.start context.line.end}}}</p>
+            <p>{{#sourcelink file.path context.line.start context.line.end}}Source{{/sourcelink}}</p>
             <pre><code class="lang-scss">{{context.code}}</code></pre>
         {{/if}}
         {{#if context.value}}
             <h3>Value</h3>
-            <p>{{{viewsourcelink file.path context.line.start context.line.end}}}</p>
+            <p>{{#sourcelink file.path context.line.start context.line.end}}Source{{/sourcelink}}</p>
             <pre><code class="lang-scss">{{context.value}}</code></pre>
         {{/if}}
     </section>

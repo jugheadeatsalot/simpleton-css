@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>{{#if pagetitle}}{{pagetitle}} &hyphen; {{/if}}{{ title }}</title>
     {{#if description}}
@@ -26,16 +26,18 @@
     <header class="site-header">
         <nav>
             <h1 class="site-name"><a href="/">{{title}}</a></h1>
-            <ul class="site-menu row tight">
+            <ul class="site-menu">
                 <li><a href="/markup">Markup</a></li>
-                <li><a href="/colors">Colors</a></li>
-                <li><a href="/buttons">Buttons</a></li>
+                <!--<li><a href="/colors">Colors</a></li>
+                <li><a href="/buttons">Buttons</a></li>-->
                 <li><a href="/grids">Grids</a></li>
-                <li><a href="/sass">Sass</a></li>
+                <li><a href="/functions">Functions</a></li>
+                <li><a href="/mixins">Mixins</a></li>
+                <li><a href="/variables">Variables</a></li>
             </ul>
         </nav>
     </header>
-    <main class="mgb-400">
+    <main>
         {{{contents}}}
     </main>
     <footer class="site-footer row">

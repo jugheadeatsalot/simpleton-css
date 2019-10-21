@@ -209,7 +209,8 @@ textarea {
     vertical-align:top;
 }
 
-em {
+em,
+dfn {
     font-style:italic;
 }
 
@@ -251,7 +252,7 @@ var {
 pre {
     overflow:auto;
     padding:$padding-box;
-    border-left:0.25rem solid $color-pre-bl;
+    border-left:0.25rem solid $color-pre-bdl;
     background-color:$color-pre-bg;
 
     code {
@@ -262,7 +263,7 @@ pre {
 
 blockquote {
     padding:$padding-box;
-    border-left:0.25rem solid $color-quote-bl;
+    border-left:0.25rem solid $color-quote-bdl;
     font-size:$font-size-h4;
     line-height:$line-height-h4;
 }

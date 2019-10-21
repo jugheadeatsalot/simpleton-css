@@ -1,6 +1,6 @@
 @mixin button-colors($bg-color) {
     background-color:$bg-color;
-    color:auto-text-color($bg-color, 84);
+    color:auto-color($bg-color, 84);
 
     &:hover {
         background-color:darken($bg-color, 5%);

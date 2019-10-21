@@ -20,7 +20,6 @@
 
     position:relative;
     display:block;
-    padding-top:25px;
     height:0;
 
     iframe,
@@ -83,7 +82,7 @@
     }
 }
 
-///
+/// Includes styles for ie9 and above.
 @mixin ie9plus() {
     // @formatter:off
     @media (min-width:0\0) and (min-resolution:+72dpi) {
@@ -92,14 +91,14 @@
     // @formatter:on
 }
 
-///
+/// Includes styles for ie10 and above.
 @mixin ie10plus() {
     @media (-ms-high-contrast:none), (-ms-high-contrast:active) {
         @content;
     }
 }
 
-///
+/// Removes margins from last children.
 @mixin control-margins($scope:all) {
     $scope-y:$scope == vertical or $scope == all;
     $scope-x:$scope == horizontal or $scope == all;
@@ -129,8 +128,10 @@
     }
 }
 
-///
-@mixin vertical-margins($multiplier:1) {
+/// Sets default vertical margins for selected elements
+@mixin vertical-margins($multiplier:100) {
+    $multiplier:$multiplier / 100;
+
     hr {
         margin-top:$margin * $multiplier;
         margin-bottom:$margin * $multiplier;
@@ -181,6 +182,22 @@
 }
 
 ///
+@mixin h($type:1, $margins-multiplier:100) {
+    font-size:map_get($font-sizes, h#{$type});
+    font-family:$font-stack-heading;
+    line-height:map_get($line-heights, h#{$type});
+
+    @if $margins-multiplier {
+        $margins-multiplier:$margins-multiplier / 100;
+
+        @include control-margins(top);
+
+        margin-top:$margin-top-h * $margins-multiplier;
+        margin-bottom:$margin-bottom-h * $margins-multiplier;
+    }
+}
+
+/// Removes border radius
 @mixin sq() {
     border-radius:0;
 }
@@ -191,7 +208,7 @@
         @include min(map_get($breakpoints, $breakpoint)) {
             display:none;
         }
-    } @else if is-absolute-unit-number($breakpoint) {
+    } @else if is-nonneg-unit-number($breakpoint) {
         @include min($breakpoint) {
             display:none;
         }
@@ -238,7 +255,7 @@
 
     @if index(map_keys($alley-sizes), $alley-multiplier) {
         $multiplier:map_get($alley-sizes, $alley-multiplier);
-    } @else if is-absolute-unitless-number($alley-multiplier) {
+    } @else if is-nonneg-unitless-number($alley-multiplier) {
         $multiplier:$alley-multiplier;
     }
 
@@ -275,12 +292,12 @@
 
 ///
 @mixin row-alley($alley-multiplier, $breakpoint:false) {
-    @if index(map_keys($alley-sizes), $alley-multiplier) or is-absolute-unitless-number($alley-multiplier) {
+    @if index(map_keys($alley-sizes), $alley-multiplier) or is-nonneg-unitless-number($alley-multiplier) {
         @if index(map_keys($breakpoints), $breakpoint) {
             @include min(map_get($breakpoints, $breakpoint)) {
                 @include row-alley-styles($alley-multiplier);
             }
-        } @else if is-absolute-unit-number($breakpoint) {
+        } @else if is-nonneg-unit-number($breakpoint) {
             @include min($breakpoint) {
                 @include row-alley-styles($alley-multiplier);
             }
@@ -297,19 +314,19 @@
             @include min(map_get($breakpoints, $breakpoint)) {
                 width:map_get($columns, $column-width);
             }
-        } @else if is-absolute-unit-number($breakpoint) {
+        } @else if is-nonneg-unit-number($breakpoint) {
             @include min($breakpoint) {
                 width:map_get($columns, $column-width);
             }
         } @else {
             width:map_get($columns, $column-width);
         }
-    } @else if is-absolute-unitless-number($column-width) {
+    } @else if is-nonneg-unitless-number($column-width) {
         @if index(map_keys($breakpoints), $breakpoint) {
             @include min(map_get($breakpoints, $breakpoint)) {
                 width:percentage($column-width);
             }
-        } @else if is-absolute-unit-number($breakpoint) {
+        } @else if is-nonneg-unit-number($breakpoint) {
             @include min($breakpoint) {
                 width:percentage($column-width);
             }

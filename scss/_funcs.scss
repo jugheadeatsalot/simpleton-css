@@ -3,14 +3,14 @@
  *
  */
 
-/// Formats `$values` into a comma separated string.
+/// Returns a formatted string of valid `$values`.
 /// @param {list} $values
 /// @access private
 @function format-valid-values($values) {
     @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }
 
-/// Returns `$value` and its type.
+/// Returns a formatted string of `$value` and its type.
 /// @param {any} $value
 /// @access private
 @function show-param-value($value) {
@@ -90,46 +90,46 @@
     @return false;
 }
 
-/// Checks if `$value` is an absolute number.
+/// Checks if `$value` is a nonnegative number.
 /// @param {any} $value
 /// @param {bool} $warn [false]
-@function is-absolute-number($value, $warn: false) {
+@function is-nonneg-number($value, $warn: false) {
     @if is-number($value) and $value > -1 {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute <number>. #{show-param-value($value)}';
+        @warn '`$value` must be a nonnegative <number>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-/// Checks if `$value` is an absolute number with a unit.
+/// Checks if `$value` is a nonnegative number with a unit.
 /// @param {any} $value
 /// @param {bool} $warn [false]
-@function is-absolute-unit-number($value, $warn: false) {
-    @if is-absolute-number($value) and index($lengths, unit($value)) {
+@function is-nonneg-unit-number($value, $warn: false) {
+    @if is-nonneg-number($value) and index($lengths, unit($value)) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute <length>. #{show-param-value($value)}';
+        @warn '`$value` must be a nonnegative <length>. #{show-param-value($value)}';
     }
 
     @return false;
 }
 
-/// Checks if `$value` is an absolute and unitless number.
+/// Checks if `$value` is a nonnegative, unitless number.
 /// @param {any} $value
 /// @param {bool} $warn [false]
-@function is-absolute-unitless-number($value, $warn: false) {
-    @if is-absolute-number($value) and unitless($value) {
+@function is-nonneg-unitless-number($value, $warn: false) {
+    @if is-nonneg-number($value) and unitless($value) {
         @return true;
     }
 
     @if $warn == true {
-        @warn '`$value` must be an absolute, unitless <number>. #{show-param-value($number)}';
+        @warn '`$value` must be a nonnegative, unitless <number>. #{show-param-value($number)}';
     }
 
     @return false;
@@ -226,13 +226,13 @@
 /// @param {number} $threshold [60]
 /// @param {color} $dark [$color-dark]
 /// @param {color} $light [$color-light]
-@function auto-text-color($bg-color, $threshold: 60, $dark:$color-dark, $light:$color-light) {
+@function auto-color($bg-color, $threshold: 60, $dark:$color-dark, $light:$color-light) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
 
-    @if not is-absolute-number($threshold) {
-        @error '`#{$threshold}` is not an absolute number.';
+    @if not is-nonneg-number($threshold) {
+        @error '`#{$threshold}` is not a nonnegative number.';
     }
 
     @if lightness($bg-color) > $threshold {
