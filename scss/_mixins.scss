@@ -9,12 +9,17 @@
     }
 }
 
+/// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
+/// @param {number} $aspect-width [16]
+/// @param {number} $aspect-height [9]
 /// @access private
 @mixin aspect-ratio-to-padding($aspect-width:16, $aspect-height:9) {
     padding-bottom:percentage($aspect-height / $aspect-width);
 }
 
-///
+/// Adds styles for a responsive video container.
+/// @param {number} $aspect-width [16]
+/// @param {number} $aspect-height [9]
 @mixin video-container($aspect-width:16, $aspect-height:9) {
     @include aspect-ratio-to-padding($aspect-width, $aspect-height);
 
@@ -33,7 +38,8 @@
     }
 }
 
-///
+/// Includes `@content` on screens up to `$max-width` wide.
+/// @param {number} $max-width
 @mixin max($max-width) {
     @media (max-width:$max-width) {
         @content;
@@ -82,7 +88,7 @@
     }
 }
 
-/// Includes styles for ie9 and above.
+/// Includes `@content` for ie9 and above.
 @mixin ie9plus() {
     // @formatter:off
     @media (min-width:0\0) and (min-resolution:+72dpi) {
@@ -91,7 +97,7 @@
     // @formatter:on
 }
 
-/// Includes styles for ie10 and above.
+/// Includes `@content` for ie10 and above.
 @mixin ie10plus() {
     @media (-ms-high-contrast:none), (-ms-high-contrast:active) {
         @content;
@@ -99,6 +105,7 @@
 }
 
 /// Removes margins from last children.
+/// @param {string} $scope [all]
 @mixin control-margins($scope:all) {
     $scope-y:$scope == vertical or $scope == all;
     $scope-x:$scope == horizontal or $scope == all;
@@ -195,6 +202,13 @@
         margin-top:$margin-top-h * $margins-multiplier;
         margin-bottom:$margin-bottom-h * $margins-multiplier;
     }
+}
+
+///
+@mixin ellipsis() {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 /// Removes border radius

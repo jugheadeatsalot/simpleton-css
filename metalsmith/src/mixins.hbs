@@ -1,0 +1,64 @@
+---
+pagetitle: Mixins
+layout: layout.hbs
+---
+
+<header>
+    <h1>{{pagetitle}}</h1>
+</header>
+
+{{#each sassdocData.mixins}}
+    <section class="doc-block">
+        <h2>{{context.name}} {{#anchorlink context.name}}{{context.name}}{{/anchorlink}}</h2>
+        {{#if description}}
+            <div class="description">{{{description}}}</div>
+        {{/if}}
+        {{#if parameter}}
+            <h3>Params</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each parameter}}
+                    <tr>
+                        <td><code>{{name}}</code></td>
+                        <td><code>{{type}}</code></td>
+                        <td><code>{{#if default}}{{default}}{{else}}--{{/if}}</code></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+        {{#if require}}
+            <h3>Requires</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each require}}
+                    <tr>
+                        <td><code>{{#crosslink type ../context.type name}}{{name}}{{/crosslink}}</code></td>
+                        <td><code>{{type}}</code></td>
+                        <td></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/if}}
+        {{#if context.code}}
+            <h3>Code {{sourcelinkicon file.path context.line.start context.line.end}}</h3>
+            <pre><code class="lang-scss">{{context.code}}</code></pre>
+        {{/if}}
+    </section>
+{{/each}}
+

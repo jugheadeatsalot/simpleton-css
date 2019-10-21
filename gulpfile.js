@@ -12,6 +12,7 @@ const cssnano = require('cssnano');
 const stripIndent = require('strip-indent');
 const sassdoc = require('sassdoc');
 const pluralize = require('pluralize');
+const {spawn} = require('child_process');
 
 const {dirs, files} = require('./meta');
 
@@ -165,17 +166,24 @@ const processSassdocData = async sassdocData => {
     await fs.writeFile(
         files.sassdocjson,
         JSON.stringify(output, null, 2),
-        err => {
-            if(err) console.log(err);
-        },
-    );
+        (err) => {
+            if(err) throw err;
+        });
 };
 
-gulp.task('sassdoc', function() {
-    return gulp
+gulp.task('sassdoc', async() => {
+    await gulp
         .src(paths.scss)
         .pipe(sassdoc.parse())
         .on('data', processSassdocData);
+});
+
+gulp.task('devmetal', async() => {
+    await spawn('node', ['metalsmith.js'], {stdio: 'inherit'});
+});
+
+gulp.task('devserve', async() => {
+    await spawn('node', ['server.js'], {stdio: 'inherit'});
 });
 
 gulp.task('timestamp', async() => {
@@ -189,11 +197,9 @@ gulp.task('timestamp', async() => {
 });
 
 const doWatch = (glob, task) => {
-    const msg = (filePath) => {
+    gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', (filePath) => {
         console.log(`File ${filePath} changed. Working...`);
-    };
-
-    gulp.watch(glob, gulp.series(task, 'timestamp')).on('change', msg);
+    });
 };
 
 gulp.task('watch', () => {
@@ -207,7 +213,8 @@ gulp.task('default',
     gulp.series(
         'sassdoc',
         gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
-        'timestamp',
+        'devmetal',
+        'devserve',
         'watch',
     ),
 );

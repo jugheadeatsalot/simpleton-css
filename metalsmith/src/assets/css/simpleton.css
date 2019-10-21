@@ -512,6 +512,20 @@ figcaption {
   height: 100%;
 }
 
+.screen-reader-text {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  word-wrap: normal;
+}
+
 .mgb-25 {
   margin-bottom: 0.375rem;
 }

@@ -1,17 +1,17 @@
 $content-width:640px;
 
-@mixin container-padding {
-    padding-right:$alley * 0.75;
-    padding-left:$alley * 0.75;
+@mixin container-padding-x {
+    padding-right:$padding;
+    padding-left:$padding;
 
     @include min($breakpoint-s) {
-        padding-right:$alley;
-        padding-left:$alley;
+        padding-right:$padding * 2;
+        padding-left:$padding * 2;
     }
 }
 
 .container {
-    @include container-padding();
+    @include container-padding-x();
 
     display:flex;
     flex-direction:column;
@@ -21,11 +21,21 @@ $content-width:640px;
     width:100%;
 }
 
+.icon {
+    display:inline-block;
+    width:1em;
+    height:1em;
+    fill:$color-text;
+    stroke:$color-text;
+    stroke-width:0;
+}
+
 .site-header {
-    padding:($padding * 2) ($padding * 1.5) ($padding * 3);
     position:fixed;
     top:0;
     left:0;
+    overflow-y:auto;
+    padding:($padding * 2) $padding ($padding * 3);
     width:200px;
     height:100%;
     background-color:$color-light;
@@ -56,11 +66,45 @@ $content-width:640px;
 main {
     flex:1;
     margin-top:$margin * 4;
-    margin-bottom:$margin * 6;
+    margin-bottom:$margin * 5;
+
+    > header {
+        margin-bottom:$margin * 1.75;
+    }
 }
 
 .doc-block {
-    padding-top:$padding * 3;
+    margin-bottom:$margin * 2;
+
+    h3 {
+        text-transform:uppercase;
+        font-weight:$font-weight-normal;
+        font-size:$font-size-general;
+        line-height:$line-height-general;
+
+        .icon {
+            float:right;
+        }
+    }
+
+    table {
+        table-layout:fixed;
+
+        th,
+        td {
+            @include ellipsis();
+        }
+
+        code {
+            padding:0;
+            background-color:transparent;
+        }
+    }
+
+    .anchor {
+        padding-top:$padding * 1.75;
+        font-weight:$font-weight-normal;
+    }
 }
 
 .site-footer {

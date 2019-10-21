@@ -20,7 +20,7 @@ const files = exports.files = {
 };
 
 exports.sassVars = parse(fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'), {camelCase: false});
-exports.sassdocData = JSON.parse(fs.readFileSync(files.sassdocjson, 'utf8'));
+exports.sassdocData = require(`./${files.sassdocjson}`);
 
 const packageInfo = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 

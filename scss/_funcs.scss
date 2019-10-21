@@ -10,7 +10,7 @@
     @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }
 
-/// Returns a formatted string of `$value` and its type.
+/// Returns a formatted string containing `$value` and its type.
 /// @param {any} $value
 /// @access private
 @function show-param-value($value) {

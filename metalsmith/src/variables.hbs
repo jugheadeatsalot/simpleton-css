@@ -1,0 +1,22 @@
+---
+pagetitle: Variables
+layout: layout.hbs
+---
+
+<header>
+    <h1>{{pagetitle}}</h1>
+</header>
+
+{{#each sassdocData.variables}}
+    <section class="doc-block">
+        <h2>{{context.name}} {{#anchorlink context.name}}{{context.name}}{{/anchorlink}}</h2>
+        {{#if description}}
+            <div class="description">{{{description}}}</div>
+        {{/if}}
+        {{#if context.value}}
+            <h3>Value {{sourcelinkicon file.path context.line.start context.line.end}}</h3>
+            <pre><code class="lang-scss">{{context.value}}</code></pre>
+        {{/if}}
+    </section>
+{{/each}}
+

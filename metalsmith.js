@@ -23,25 +23,50 @@ const hbsHelpers = {
         if(a !== b) return options.fn(this);
         return options.inverse(this);
     },
-    'crosslink': function(type, contextType, name, options) {
-        type = Handlebars.escapeExpression(pluralize(type));
-        contextType = Handlebars.escapeExpression(pluralize(contextType));
-        name = Handlebars.escapeExpression(name);
-
-        const anchor = options.fn(this);
-        const onClick = (type === contextType) ? ' onclick="function(e){e.preventDefault();}"' : '';
-        const link = `<a href="/${type}#${name}"${onClick}>${anchor}</a>`;
-
-        return new Handlebars.SafeString(link);
-    },
     'sourcelink': function(path, start, end, options) {
         path = Handlebars.escapeExpression(path);
         start = Handlebars.escapeExpression(start);
         end = Handlebars.escapeExpression(end);
 
-        const codeBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/simpleton/scss';
-        const anchor = options.fn(this);
-        const link = `<a href="${codeBase}/${path}#L${start}-L${end}" target="_blank">${anchor}</a>`;
+        const codeBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss';
+        const content = options.fn(this);
+        const link = `<a href="${codeBase}/${path}#L${start}-L${end}" target="_blank">${content}</a>`;
+
+        return new Handlebars.SafeString(link);
+    },
+    'sourcelinkicon': function(path, start, end) {
+        path = Handlebars.escapeExpression(path);
+        start = Handlebars.escapeExpression(start);
+        end = Handlebars.escapeExpression(end);
+
+        const codeBase = 'https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss';
+        const srt = '<span class="screen-reader-text">View Source</span>';
+        const iconPath = '/assets/img/symbols.svg#icon-new-tab';
+        const svg = `<svg class="icon" aria-hidden="true"><use xlink:href="${iconPath}"></use></svg>`;
+        const link = `${codeBase}/${path}#L${start}-L${end}`;
+        const output = `<a href="${link}" target="_blank">${srt}${svg}</a>`;
+
+        return new Handlebars.SafeString(output);
+    },
+    'crosslink': function(type, contextType, name, options) {
+        type = Handlebars.escapeExpression(pluralize(type));
+        contextType = Handlebars.escapeExpression(pluralize(contextType));
+        name = Handlebars.escapeExpression(name);
+
+        const href = (type === contextType) ? `#${name}` : `/${type}#${name}`;
+        const content = options.fn(this);
+        const link = `<a href="${href}">${content}</a>`;
+
+        return new Handlebars.SafeString(link);
+    },
+    'anchorlink': function(name, options) {
+        name = Handlebars.escapeExpression(name);
+
+        const href = `#${name}`;
+        const hidden = '<span aria-hidden="true">#</span>';
+        const screenReader = `<span class="screen-reader-text">${options.fn(this)}</span>`;
+        const content = `${hidden}${screenReader}`;
+        const link = `<a id="${name}" class="anchor" href="${href}">${content}</a>`;
 
         return new Handlebars.SafeString(link);
     },
@@ -80,6 +105,8 @@ const metalsmith = Metalsmith(__dirname)
         'eol': '\n',
         'end_with_newline': true,
         'preserve_newlines': false,
+        'wrap_line_length': 100,
+        'wrap-attributes': 'auto',
         js: false,
         css: false,
     }))
@@ -100,5 +127,9 @@ if(!isProduction) {
 }
 
 metalsmith.build(err => {
-    if(err) console.error(err);
+    if(err) {
+        console.error(err);
+
+        throw err;
+    }
 });
