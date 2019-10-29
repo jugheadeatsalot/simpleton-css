@@ -205,6 +205,16 @@
 }
 
 ///
+@mixin c($color) {
+    color:$color;
+}
+
+///
+@mixin bgc($bg-color) {
+    background-color:$bg-color;
+}
+
+///
 @mixin ellipsis() {
     overflow:hidden;
     text-overflow:ellipsis;

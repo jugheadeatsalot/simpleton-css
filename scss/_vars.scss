@@ -95,39 +95,39 @@ $line-heights:map-merge((
     h4:$line-height-h4,
 ), $line-heights);
 ///
-$color-dark:#1f1f20 !default;
+$color-dark:#2c3e50 !default;
 ///
-$color-light:#f5f2ef !default;
+$color-light:#ffffff !default;
 ///
 $color-gray:lighten(black, 50%) !default;
 ///
-$color-graylight:lighten($color-gray, 25%) !default;
+$color-graylight:lighten(black, 60%) !default;
 ///
-$color-graylighter:lighten($color-gray, 35%) !default;
+$color-graylighter:lighten(black, 70%) !default;
 ///
-$color-graylightest:lighten($color-gray, 45%) !default;
+$color-graylightest:lighten(black, 80%) !default;
 ///
-$color-graydark:darken($color-gray, 5%) !default;
+$color-graydark:lighten(black, 40%) !default;
 ///
-$color-graydarker:darken($color-gray, 10%) !default;
+$color-graydarker:lighten(black, 30%) !default;
 ///
-$color-graydarkest:darken($color-gray, 15%) !default;
+$color-graydarkest:lighten(black, 20%) !default;
 ///
-$color-primary:#c0392b !default;
+$color-primary:#2980b9 !default;
 ///
-$color-secondary:#acb29d !default;
+$color-secondary:#3498db !default;
 ///
-$color-accent:#cb9556 !default;
+$color-accent:#8e44ad !default;
 ///
 $color-idle:$color-graylighter !default;
 ///
-$color-success:#708b45 !default;
+$color-success:#27ae60 !default;
 ///
-$color-alert:#f44336 !default;
+$color-alert:#c0392b !default;
 ///
-$color-warning:#ee7b0c !default;
+$color-warning:#d35400 !default;
 ///
-$color-highlight:#feca57 !default;
+$color-highlight:#f1c40f !default;
 ///
 $color-dribbble:#ea4c89 !default;
 ///
