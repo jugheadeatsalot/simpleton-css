@@ -16,7 +16,7 @@ html {
 body {
     margin:0;
     padding:0;
-    background-color:$color-body-bg;
+    background-color:$color-background;
     color:$color-text;
     text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
@@ -114,7 +114,7 @@ ol {
 
 ol,
 ul {
-    margin-left:calc(1em + 4px);
+    margin-left:calc(1em + 2px);
 
     ol,
     ul {
@@ -128,7 +128,7 @@ dl {
     }
 
     dd {
-        margin-left:calc(1em + 4px);
+        margin-left:calc(1em + 2px);
     }
 }
 
@@ -229,20 +229,20 @@ small {
 
 ins {
     padding:$padding-inline;
-    background-color:$color-ins-bg;
-    color:#ffffff;
+    background-color:$color-primary;
+    color:$color-background;
     text-decoration:none;
 }
 
 mark {
     padding:$padding-inline;
-    background-color:$color-mark-bg;
-    color:#ffffff;
+    background-color:$color-primary;
+    color:$color-background;
 }
 
 code {
     padding:$padding-inline;
-    background-color:$color-code-bg;
+    background-color:$color-subtle;
 }
 
 var {
@@ -252,8 +252,8 @@ var {
 pre {
     overflow:auto;
     padding:$padding-box;
-    border-left:0.25rem solid $color-pre-bdl;
-    background-color:$color-pre-bg;
+    border-left:0.25rem solid $color-primary;
+    background-color:$color-subtle;
 
     code {
         padding:0;
@@ -263,7 +263,7 @@ pre {
 
 blockquote {
     padding:$padding-box;
-    border-left:0.25rem solid $color-quote-bdl;
+    border-left:0.25rem solid $color-border;
     font-size:$font-size-h4;
     line-height:$line-height-h4;
 }
@@ -275,7 +275,7 @@ var,
 kbd,
 samp {
     font-size:$font-size-small;
-    font-family:$font-stack-mono;
+    font-family:$font-stack-monospace;
 }
 
 cite {

@@ -1,5 +1,5 @@
 pre[class*=language-] {
-    color:$color-dark;
+    color:$color-text;
     font-weight:$font-weight-normal;
 }
 
@@ -11,7 +11,7 @@ pre[class*=language-] {
 }
 
 .token.punctuation {
-    color:$color-dark;
+    color:$color-text;
 }
 
 .namespace {

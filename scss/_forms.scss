@@ -1,29 +1,14 @@
-@mixin button-colors($bg-color) {
-    background-color:$bg-color;
-    color:auto-color($bg-color, 84);
-
-    &:hover {
-        background-color:darken($bg-color, 5%);
-    }
-}
-
 @mixin button-styles() {
-    @include button-colors($color-dark);
-
     display:inline-block;
     margin-bottom:$margin * 0.2;
     padding:0.425em 1em;
     min-height:2.5rem;
     border:none;
-    border-radius:0.25em;
+    border-radius:4px;
+    background-color:$color-text;
+    color:$color-background;
     cursor:pointer;
     transition:background-color 0.2s, color 0.2s;
-
-    @each $color-key, $color-value in $colors {
-        &.#{$color-key} {
-            @include button-colors($color-value);
-        }
-    }
 }
 
 input[type='button'],
@@ -35,11 +20,6 @@ button,
 
     &[disabled] {
         background-color:$color-idle;
-        color:auto-color($color-idle, 84);
-
-        &:hover {
-            background-color:$color-idle;
-        }
     }
 }
 
@@ -79,8 +59,8 @@ input {
     }
 }
 
-input[type=radio],
-input[type=checkbox] {
+input[type='radio'],
+input[type='checkbox'] {
     margin:0 ($alley * 0.25) 0 0;
     vertical-align:-1px;
 }
@@ -99,8 +79,9 @@ fieldset {
 
     legend {
         margin-left:-($alley * 0.25);
+        margin-bottom:-($margin * 0.3);
         padding:0 ($alley * 0.25);
-        background-color:$color-body-bg;
+        background-color:$color-background;
         text-transform:uppercase;
         font-size:$font-size-xsmall;
     }
@@ -110,10 +91,6 @@ form {
     div {
         margin-bottom:$margin;
     }
-}
-
-label {
-    padding-right:$alley * 0.625;
 }
 
 input:not([type='radio']):not([type='checkbox']),

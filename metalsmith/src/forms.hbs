@@ -1,12 +1,12 @@
 ---
-pagetitle: Buttons
+pagetitle: Forms
 layout: layout.hbs
 ---
 
 <h1>{{pagetitle}}</h1>
 
 <section class="simp card mgb-300">
-    <h2>Buttons</h2>
+    <h2>Forms</h2>
     <div class="output mgb-175">
         <button class="button">default</button>
         {{#each sassVars.colors}}
@@ -36,6 +36,10 @@ layout: layout.hbs
             </div>
             <fieldset>
                 <legend>Choose your partner</legend>
+                <div>
+                    <label for="emails">Emails Address</label>
+                    <input type="email" id="emails">
+                </div>
                 <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br>
                 <input type="radio" id="2" name="1"><label for="2">Leslie Knope</label><br>
                 <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br>
@@ -50,6 +54,7 @@ layout: layout.hbs
             </div>
             <div>
                 <button class="button">Submit</button>
+                <button disabled class="button">Disabled</button>
             </div>
         </form>
     </div>

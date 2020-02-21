@@ -12,16 +12,20 @@ $font-stack-general:$font-stack-sansserif !default;
 ///
 $font-stack-heading:$font-stack-general !default;
 ///
-$font-stack-mono:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
+$font-stack-monospace:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
+///
 $font-stacks:() !default;
 ///
-$font-stacks:map-merge((
-    serif:$font-stack-serif,
-    sansserif:$font-stack-sansserif,
-    general:$font-stack-general,
-    heading:$font-stack-heading,
-    mono:$font-stack-mono,
-), $font-stacks);
+$font-stacks:map-merge(
+        (
+            serif: $font-stack-serif,
+            sansserif: $font-stack-sansserif,
+            general: $font-stack-general,
+            heading: $font-stack-heading,
+            monospace: $font-stack-monospace,
+        ),
+        $font-stacks
+);
 ///
 $font-size-base:16px !default; // must be in px
 ///
@@ -46,35 +50,43 @@ $font-size-h2:1.6em !default;
 $font-size-h3:1.4em !default;
 ///
 $font-size-h4:1.2em !default;
+///
 $font-sizes:() !default;
 ///
-$font-sizes:map-merge((
-    base:$font-size-base,
-    general:$font-size-general,
-    big:$font-size-big,
-    xbig:$font-size-xbig,
-    xxbig:$font-size-xxbig,
-    small:$font-size-small,
-    xsmall:$font-size-xsmall,
-    xxsmall:$font-size-xxsmall,
-    h1:$font-size-h1,
-    h2:$font-size-h2,
-    h3:$font-size-h3,
-    h4:$font-size-h4,
-), $font-sizes);
+$font-sizes:map-merge(
+        (
+            base: $font-size-base,
+            general: $font-size-general,
+            big: $font-size-big,
+            xbig: $font-size-xbig,
+            xxbig: $font-size-xxbig,
+            small: $font-size-small,
+            xsmall: $font-size-xsmall,
+            xxsmall: $font-size-xxsmall,
+            h1: $font-size-h1,
+            h2: $font-size-h2,
+            h3: $font-size-h3,
+            h4: $font-size-h4,
+        ),
+        $font-sizes
+);
 ///
 $font-weight-normal:400 !default;
 ///
 $font-weight-bold:700 !default;
 ///
 $font-weight-heading:$font-weight-bold !default;
+///
 $font-weights:() !default;
 ///
-$font-weights:map-merge((
-    normal:$font-weight-normal,
-    bold:$font-weight-bold,
-    heading:$font-weight-heading,
-), $font-weights);
+$font-weights:map-merge(
+        (
+            normal: $font-weight-normal,
+            bold: $font-weight-bold,
+            heading: $font-weight-heading,
+        ),
+        $font-weights
+);
 ///
 $line-height-general:1.5 !default;
 ///
@@ -85,15 +97,27 @@ $line-height-h2:1.25 !default;
 $line-height-h3:1.35 !default;
 ///
 $line-height-h4:1.45 !default;
+///
 $line-heights:() !default;
 ///
-$line-heights:map-merge((
-    general:$line-height-general,
-    h1:$line-height-h1,
-    h2:$line-height-h2,
-    h3:$line-height-h3,
-    h4:$line-height-h4,
-), $line-heights);
+$line-heights:map-merge(
+        (
+            general: $line-height-general,
+            h1: $line-height-h1,
+            h2: $line-height-h2,
+            h3: $line-height-h3,
+            h4: $line-height-h4,
+        ),
+        $line-heights
+);
+
+/***
+ * Colors
+ *
+ */
+
+///
+$colorize-buttons:false;
 ///
 $color-dark:#2c3e50 !default;
 ///
@@ -101,17 +125,25 @@ $color-light:#ffffff !default;
 ///
 $color-gray:lighten(black, 50%) !default;
 ///
-$color-graylight:lighten(black, 60%) !default;
+$color-graylight:lighten(black, 65%) !default;
 ///
-$color-graylighter:lighten(black, 70%) !default;
+$color-graylighter:lighten(black, 80%) !default;
 ///
-$color-graylightest:lighten(black, 80%) !default;
+$color-graylightest:lighten(black, 95%) !default;
 ///
 $color-graydark:lighten(black, 40%) !default;
 ///
 $color-graydarker:lighten(black, 30%) !default;
 ///
 $color-graydarkest:lighten(black, 20%) !default;
+///
+$color-success:#27ae60 !default;
+///
+$color-alert:#c0392b !default;
+///
+$color-warning:#d35400 !default;
+///
+$color-highlight:#f1c40f !default;
 ///
 $color-primary:#2980b9 !default;
 ///
@@ -121,13 +153,15 @@ $color-accent:#8e44ad !default;
 ///
 $color-idle:$color-graylighter !default;
 ///
-$color-success:#27ae60 !default;
+$color-subtle:$color-graylightest !default;
 ///
-$color-alert:#c0392b !default;
+$color-text:$color-dark !default;
 ///
-$color-warning:#d35400 !default;
+$color-link:$color-primary !default;
 ///
-$color-highlight:#f1c40f !default;
+$color-background:$color-light !default;
+///
+$color-border:$color-graylighter !default;
 ///
 $color-dribbble:#ea4c89 !default;
 ///
@@ -151,57 +185,52 @@ $color-twitter:#55acee !default;
 ///
 $color-youtube:#b31217 !default;
 ///
-$color-text:$color-dark !default;
-///
-$color-link:$color-primary !default;
-///
-$color-body-bg:#ffffff !default;
-///
-$color-border:$color-graylighter !default;
-///
-$color-quote-bdl:$color-graylighter !default;
-///
-$color-ins-bg:$color-primary !default;
-///
-$color-mark-bg:$color-highlight !default;
-///
-$color-pre-bg:$color-graylightest !default;
-///
-$color-pre-bdl:$color-primary !default;
-///
-$color-code-bg:$color-graylightest !default;
 $colors:() !default;
 ///
-$colors:map-merge((
-    primary: $color-primary,
-    secondary: $color-secondary,
-    accent: $color-accent,
-    idle: $color-idle,
-    success: $color-success,
-    alert: $color-alert,
-    warning: $color-warning,
-    highlight: $color-highlight,
-    dark: $color-dark,
-    light: $color-light,
-    gray: $color-gray,
-    graylight: $color-graylight,
-    graylighter: $color-graylighter,
-    graylightest: $color-graylightest,
-    graydark: $color-graydark,
-    graydarker: $color-graydarker,
-    graydarkest: $color-graydarkest,
-    dribbble: $color-dribbble,
-    facebook: $color-facebook,
-    flickr: $color-flickr,
-    instagram: $color-instagram,
-    linkedin: $color-linkedin,
-    medium: $color-medium,
-    pinterest: $color-pinterest,
-    rss: $color-rss,
-    tumblr: $color-tumblr,
-    twitter: $color-twitter,
-    youtube: $color-youtube,
-), $colors);
+$colors:map-merge(
+        (
+            dark: $color-dark,
+            light: $color-light,
+            gray: $color-gray,
+            graylight: $color-graylight,
+            graylighter: $color-graylighter,
+            graylightest: $color-graylightest,
+            graydark: $color-graydark,
+            graydarker: $color-graydarker,
+            graydarkest: $color-graydarkest,
+            success: $color-success,
+            alert: $color-alert,
+            warning: $color-warning,
+            highlight: $color-highlight,
+            primary: $color-primary,
+            secondary: $color-secondary,
+            accent: $color-accent,
+            idle: $color-idle,
+            subtle: $color-subtle,
+            text: $color-text,
+            link: $color-link,
+            background: $color-background,
+            border: $color-border,
+            dribbble: $color-dribbble,
+            facebook: $color-facebook,
+            flickr: $color-flickr,
+            instagram: $color-instagram,
+            linkedin: $color-linkedin,
+            medium: $color-medium,
+            pinterest: $color-pinterest,
+            rss: $color-rss,
+            tumblr: $color-tumblr,
+            twitter: $color-twitter,
+            youtube: $color-youtube,
+        ),
+        $colors
+);
+
+/***
+ * Spacing
+ *
+ */
+
 ///
 $border-radius:0.25rem !default;
 ///
@@ -276,18 +305,92 @@ $p-input-b:0.5rem !default;
 $p-input-l:0.75rem !default;
 ///
 $padding-input:$p-input-t $p-input-r $p-input-b $p-input-l !default;
+///
 $alley-sizes:() !default;
 ///
-$alley-sizes:map_merge((
-    noalley: 0,
-    tightest: 25,
-    tighter: 50,
-    tight: 75,
-    comfy: 100,
-    loose: 125,
-    looser: 150,
-    loosest: 175,
-), $alley-sizes);
+$alley-sizes:map_merge(
+        (
+            noalley: 0,
+            tightest: 25,
+            tighter: 50,
+            tight: 75,
+            comfy: 100,
+            loose: 125,
+            looser: 150,
+            loosest: 175,
+        ),
+        $alley-sizes
+);
+
+/***
+ * Sizes
+ *
+ */
+
+///
+$max_site_width:1200px !default;
+///
+$breakpoint-s:480px !default;
+///
+$breakpoint-m:768px !default;
+///
+$breakpoint-l:960px !default;
+///
+$breakpoint-xl:1200px !default;
+///
+$breakpoints:() !default;
+///
+$breakpoints:map_merge(
+        (
+            s: $breakpoint-s,
+            m: $breakpoint-m,
+            l: $breakpoint-l,
+            xl: $breakpoint-xl,
+        ),
+        $breakpoints
+);
+///
+$columns:() !default;
+///
+$columns:(
+    map_merge(
+            (
+                1: percentage(1/12),
+                2: percentage(2/12),
+                3: percentage(3/12),
+                4: percentage(4/12),
+                5: percentage(5/12),
+                6: percentage(6/12),
+                7: percentage(7/12),
+                8: percentage(8/12),
+                9: percentage(9/12),
+                10: percentage(10/12),
+                11: percentage(11/12),
+                12: percentage(12/12),
+                p5: 5%,
+                p10: 10%,
+                p15: 15%,
+                p20: 20%,
+                p25: 25%,
+                p30: 30%,
+                p35: 35%,
+                p40: 40%,
+                p45: 45%,
+                p50: 50%,
+                p55: 55%,
+                p60: 60%,
+                p65: 65%,
+                p70: 70%,
+                p75: 75%,
+                p80: 80%,
+                p85: 85%,
+                p90: 90%,
+                p95: 95%,
+                p100: 100%,
+            ),
+            $columns
+    )
+);
 
 /***
  * Transitions and Animations
@@ -300,64 +403,6 @@ $ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
 $ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
 ///
 $easing:$ease-in-out-expo !default;
-
-/***
- * Sizes
- *
- */
-
-///
-$breakpoint-s:480px !default;
-///
-$breakpoint-m:768px !default;
-///
-$breakpoint-l:960px !default;
-///
-$breakpoint-xl:1200px !default;
-$breakpoints:() !default;
-///
-$breakpoints:map_merge((
-    s:$breakpoint-s,
-    m:$breakpoint-m,
-    l:$breakpoint-l,
-    xl:$breakpoint-xl,
-), $breakpoints);
-$columns:() !default;
-///
-$columns:(map_merge((
-    1:percentage(1/12),
-    2:percentage(2/12),
-    3:percentage(3/12),
-    4:percentage(4/12),
-    5:percentage(5/12),
-    6:percentage(6/12),
-    7:percentage(7/12),
-    8:percentage(8/12),
-    9:percentage(9/12),
-    10:percentage(10/12),
-    11:percentage(11/12),
-    12:percentage(12/12),
-    p5:5%,
-    p10:10%,
-    p15:15%,
-    p20:20%,
-    p25:25%,
-    p30:30%,
-    p35:35%,
-    p40:40%,
-    p45:45%,
-    p50:50%,
-    p55:55%,
-    p60:60%,
-    p65:65%,
-    p70:70%,
-    p75:75%,
-    p80:80%,
-    p85:85%,
-    p90:90%,
-    p95:95%,
-    p100:100%,
-), $columns));
 
 /***
  * Etcetera
