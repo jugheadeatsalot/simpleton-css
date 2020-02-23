@@ -1,9 +1,5 @@
 @include vertical-margins();
 
-* {
-    @include control-margins(bottom);
-}
-
 p {
     &:empty {
         display:none;

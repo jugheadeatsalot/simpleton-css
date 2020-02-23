@@ -400,37 +400,21 @@ h6:first-child:not(.f-margins) {
 }
 
 address,
-article,
-aside,
 blockquote,
 canvas,
-div,
 dl,
 fieldset,
-figcaption,
-.wp-caption-text,
-.wp-caption-dd,
-.gallery-caption,
 figure,
-footer,
 form,
-header,
 hr,
-main,
-nav,
 noscript,
 ol,
 p,
 pre,
-section,
 table,
 ul,
 video {
   margin-bottom: 1.5rem;
-}
-
-*:last-child:not(.f-margins) {
-  margin-bottom: 0 !important;
 }
 
 p:empty {
