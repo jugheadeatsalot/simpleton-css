@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Forms &hyphen; Simpleton CSS</title>
+    <meta name="description"
+        content="A CSS framework so simple, you&#x27;ll probably use something else.">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=0.1.3">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v=0.1.3">
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+            <nav>
+                <h1 class="site-name"><a href="/">Simpleton CSS</a></h1>
+                <ul class="site-menu">
+                    <li><a href="/markup">Markup</a></li>
+                    <li><a href="/colors">Colors</a></li>
+                    <li><a href="/forms">Forms</a></li>
+                    <li><a href="/grids">Grids</a></li>
+                    <li><a href="/functions">Functions</a></li>
+                    <li><a href="/mixins">Mixins</a></li>
+                    <li><a href="/variables">Variables</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Forms</h1>
+            <section class="simp card mgb-300">
+                <h2>Forms</h2>
+                <div class="output mgb-175">
+                    <button class="button">default</button>
+                    <button class="button dark">dark</button>
+                    <button class="button light">light</button>
+                    <button class="button gray">gray</button>
+                    <button class="button graylight">graylight</button>
+                    <button class="button graylighter">graylighter</button>
+                    <button class="button graylightest">graylightest</button>
+                    <button class="button graydark">graydark</button>
+                    <button class="button graydarker">graydarker</button>
+                    <button class="button graydarkest">graydarkest</button>
+                    <button class="button success">success</button>
+                    <button class="button alert">alert</button>
+                    <button class="button warning">warning</button>
+                    <button class="button highlight">highlight</button>
+                    <button class="button primary">primary</button>
+                    <button class="button secondary">secondary</button>
+                    <button class="button accent">accent</button>
+                    <button class="button dribbble">dribbble</button>
+                    <button class="button facebook">facebook</button>
+                    <button class="button flickr">flickr</button>
+                    <button class="button instagram">instagram</button>
+                    <button class="button linkedin">linkedin</button>
+                    <button class="button medium">medium</button>
+                    <button class="button pinterest">pinterest</button>
+                    <button class="button rss">rss</button>
+                    <button class="button tumblr">tumblr</button>
+                    <button class="button twitter">twitter</button>
+                    <button class="button youtube">youtube</button>
+                </div>
+                <div class="markup">
+                    <!--@formatter:off-->
+                    <pre><code class="lang-html">&lt;button class=&quot;button&quot;&gt;default&lt;/button&gt;
+&lt;button class=&quot;button dark&quot;&gt;dark&lt;/button&gt;
+&lt;button class=&quot;button light&quot;&gt;light&lt;/button&gt;
+&lt;button class=&quot;button gray&quot;&gt;gray&lt;/button&gt;
+&lt;button class=&quot;button graylight&quot;&gt;graylight&lt;/button&gt;
+&lt;button class=&quot;button graylighter&quot;&gt;graylighter&lt;/button&gt;
+&lt;button class=&quot;button graylightest&quot;&gt;graylightest&lt;/button&gt;
+&lt;button class=&quot;button graydark&quot;&gt;graydark&lt;/button&gt;
+&lt;button class=&quot;button graydarker&quot;&gt;graydarker&lt;/button&gt;
+&lt;button class=&quot;button graydarkest&quot;&gt;graydarkest&lt;/button&gt;
+&lt;button class=&quot;button success&quot;&gt;success&lt;/button&gt;
+&lt;button class=&quot;button alert&quot;&gt;alert&lt;/button&gt;
+&lt;button class=&quot;button warning&quot;&gt;warning&lt;/button&gt;
+&lt;button class=&quot;button highlight&quot;&gt;highlight&lt;/button&gt;
+&lt;button class=&quot;button primary&quot;&gt;primary&lt;/button&gt;
+&lt;button class=&quot;button secondary&quot;&gt;secondary&lt;/button&gt;
+&lt;button class=&quot;button accent&quot;&gt;accent&lt;/button&gt;
+&lt;button class=&quot;button dribbble&quot;&gt;dribbble&lt;/button&gt;
+&lt;button class=&quot;button facebook&quot;&gt;facebook&lt;/button&gt;
+&lt;button class=&quot;button flickr&quot;&gt;flickr&lt;/button&gt;
+&lt;button class=&quot;button instagram&quot;&gt;instagram&lt;/button&gt;
+&lt;button class=&quot;button linkedin&quot;&gt;linkedin&lt;/button&gt;
+&lt;button class=&quot;button medium&quot;&gt;medium&lt;/button&gt;
+&lt;button class=&quot;button pinterest&quot;&gt;pinterest&lt;/button&gt;
+&lt;button class=&quot;button rss&quot;&gt;rss&lt;/button&gt;
+&lt;button class=&quot;button tumblr&quot;&gt;tumblr&lt;/button&gt;
+&lt;button class=&quot;button twitter&quot;&gt;twitter&lt;/button&gt;
+&lt;button class=&quot;button youtube&quot;&gt;youtube&lt;/button&gt;
+</code></pre>
+                    <!--@formatter:on-->
+                </div>
+            </section>
+            <section class="simp card mgb-300">
+                <h2>Forms</h2>
+                <div class="output mgb-175">
+                    <form>
+                        <div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email">
+                        </div>
+                        <fieldset>
+                            <legend>Choose your partner</legend>
+                            <div>
+                                <label for="emails">Emails Address</label>
+                                <input type="email" id="emails">
+                            </div>
+                            <input type="radio" id="1" name="1"><label for="1">Peter
+                                Griffin</label><br>
+                            <input type="radio" id="2" name="1"><label for="2">Leslie
+                                Knope</label><br>
+                            <input type="radio" id="3" name="1"><label for="3">Dean
+                                Winchester</label><br>
+                            <input type="radio" id="4" name="1"><label for="4">Tyrion
+                                Lannister</label><br>
+                        </fieldset>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="10"></textarea>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="agree"><label for="agree">I agree to serve
+                                the overlords to the best of my ability.</label>
+                        </div>
+                        <div>
+                            <button class="button">Submit</button>
+                            <button disabled class="button">Disabled</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;form&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;name&quot;&gt;Name&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+        &lt;input type=&quot;email&quot; id=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Choose your partner&lt;/legend&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;1&quot; name=&quot;1&quot;&gt;&lt;label for=&quot;1&quot;&gt;Peter Griffin&lt;/label&gt;&lt;br class=&quot;hide-s&quot;&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;1&quot; name=&quot;1&quot;&gt;&lt;label for=&quot;1&quot;&gt;Leslie Knope&lt;/label&gt;&lt;br class=&quot;hide-s&quot;&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;1&quot; name=&quot;1&quot;&gt;&lt;label for=&quot;1&quot;&gt;Dean Winchester&lt;/label&gt;&lt;br class=&quot;hide-s&quot;&gt;
+        &lt;input type=&quot;radio&quot; id=&quot;1&quot; name=&quot;1&quot;&gt;&lt;label for=&quot;1&quot;&gt;Tyrion Lannister&lt;/label&gt;&lt;br class=&quot;hide-s&quot;&gt;
+    &lt;/fieldset&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+        &lt;textarea id=&quot;message&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;input type=&quot;checkbox&quot; id=&quot;agree&quot;&gt;&lt;label for=&quot;agree&quot;&gt;I agree to serve the overlords to the best of my ability.&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;button class=&quot;button&quot;&gt;Submit&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="copyright"> Built by <a href="https://johnromeral.com">John Romeral</a>.
+                Released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+                Absolutely no warranties. </div>
+        </footer>
+    </div>
+    <script src='/assets/vendor/prism.min.js?v=0.1.3'></script>
+    <script src='/assets/js/simpleton.min.js?v=0.1.3'></script>
+    <script src='/assets/js/docs.min.js?v=0.1.3'></script>
+</body>
+
+</html>

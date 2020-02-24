@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Mixins &hyphen; Simpleton CSS</title>
+    <meta name="description"
+        content="A CSS framework so simple, you&#x27;ll probably use something else.">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=0.1.3">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v=0.1.3">
+</head>
+
+<body>
+    <div class="container">
+        <header class="site-header">
+            <nav>
+                <h1 class="site-name"><a href="/">Simpleton CSS</a></h1>
+                <ul class="site-menu">
+                    <li><a href="/markup">Markup</a></li>
+                    <li><a href="/colors">Colors</a></li>
+                    <li><a href="/forms">Forms</a></li>
+                    <li><a href="/grids">Grids</a></li>
+                    <li><a href="/functions">Functions</a></li>
+                    <li><a href="/mixins">Mixins</a></li>
+                    <li><a href="/variables">Variables</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <header>
+                <h1>Mixins</h1>
+            </header>
+            <section class="doc-block">
+                <h2>clearfix <a id="clearfix" class="anchor" href="#clearfix"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">clearfix</span></a></h2>
+                <div class="description">Utility to clear floats </div>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L2-L10"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">&amp;:before,
+&amp;:after {
+    display:table;
+    clear:both;
+    width:100%;
+    content:&#x27;&#x27;;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>aspect-ratio-to-padding <a id="aspect-ratio-to-padding" class="anchor"
+                        href="#aspect-ratio-to-padding"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">aspect-ratio-to-padding</span></a></h2>
+                <div class="description">Converts <code>$aspect-width</code> and
+                    <code>$aspect-height</code> to the appropriate bottom padding. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>aspect-width</code></td>
+                            <td><code>number</code></td>
+                            <td><code>16</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>aspect-height</code></td>
+                            <td><code>number</code></td>
+                            <td><code>9</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L16-L18"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">padding-bottom:percentage($aspect-height / $aspect-width);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>video-container <a id="video-container" class="anchor"
+                        href="#video-container"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">video-container</span></a></h2>
+                <div class="description">Adds styles for a responsive video container. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>aspect-width</code></td>
+                            <td><code>number</code></td>
+                            <td><code>16</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>aspect-height</code></td>
+                            <td><code>number</code></td>
+                            <td><code>9</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a
+                                        href="#aspect-ratio-to-padding">aspect-ratio-to-padding</a></code>
+                            </td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L23-L39"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@include aspect-ratio-to-padding($aspect-width, $aspect-height);
+
+position:relative;
+display:block;
+height:0;
+
+iframe,
+object,
+embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>max <a id="max" class="anchor" href="#max"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">max</span></a></h2>
+                <div class="description">Includes <code>@content</code> on screens up to
+                    <code>$max-width</code> wide. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>max-width</code></td>
+                            <td><code>number</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L43-L47"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (max-width:$max-width) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min <a id="min" class="anchor" href="#min"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L50-L54"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$min-width) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min-max <a id="min-max" class="anchor" href="#min-max"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min-max</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L57-L61"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$min-width) and (max-width:$max-width) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min-s <a id="min-s" class="anchor" href="#min-s"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min-s</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L64-L68"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$breakpoint-s) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min-m <a id="min-m" class="anchor" href="#min-m"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min-m</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L71-L75"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$breakpoint-m) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min-l <a id="min-l" class="anchor" href="#min-l"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min-l</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L78-L82"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$breakpoint-l) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>min-xl <a id="min-xl" class="anchor" href="#min-xl"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">min-xl</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L85-L89"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (min-width:$breakpoint-xl) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>ie9plus <a id="ie9plus" class="anchor" href="#ie9plus"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">ie9plus</span></a></h2>
+                <div class="description">Includes <code>@content</code> for ie9 and above. </div>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L92-L98"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">// @formatter:off
+@media (min-width:0\0) and (min-resolution:+72dpi) {
+    @content;
+}
+// @formatter:on
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>ie10plus <a id="ie10plus" class="anchor" href="#ie10plus"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">ie10plus</span></a></h2>
+                <div class="description">Includes <code>@content</code> for ie10 and above. </div>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L101-L105"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@media (-ms-high-contrast:none), (-ms-high-contrast:active) {
+    @content;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>control-margins <a id="control-margins" class="anchor"
+                        href="#control-margins"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">control-margins</span></a></h2>
+                <div class="description">Removes margins if element is first and/or last child
+                    (depending on scope). </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>scope</code></td>
+                            <td><code>string</code></td>
+                            <td><code>all</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L109-L136"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">$scope-y:$scope &#x3D;&#x3D; vertical or $scope &#x3D;&#x3D; all;
+$scope-x:$scope &#x3D;&#x3D; horizontal or $scope &#x3D;&#x3D; all;
+
+@if $scope-y or $scope &#x3D;&#x3D; top {
+    &amp;:first-child:not(.f-margins) {
+        margin-top:0 !important;
+    }
+}
+
+@if $scope-x or $scope &#x3D;&#x3D; right {
+    &amp;:last-child:not(.f-margins) {
+        margin-right:0 !important;
+    }
+}
+
+@if $scope-y or $scope &#x3D;&#x3D; bottom {
+    &amp;:last-child:not(.f-margins) {
+        margin-bottom:0 !important;
+    }
+}
+
+@if $scope-x or $scope &#x3D;&#x3D; left {
+    &amp;:first-child:not(.f-margins) {
+        margin-left:0 !important;
+    }
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>controlled <a id="controlled" class="anchor" href="#controlled"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">controlled</span></a></h2>
+                <div class="description">Removes bottom margins from last children. </div>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#control-margins">control-margins</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L139-L143"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">* {
+    @include control-margins(bottom);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>vertical-margins <a id="vertical-margins" class="anchor"
+                        href="#vertical-margins"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">vertical-margins</span></a></h2>
+                <div class="description">Sets default vertical margins for selected elements </div>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#control-margins">control-margins</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L146-L187"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">$multiplier:$multiplier / 100;
+
+hr {
+    margin-top:$margin * $multiplier;
+    margin-bottom:$margin * $multiplier;
+}
+
+caption {
+    margin-bottom:($margin * 0.25) * $multiplier;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include control-margins(top);
+
+    margin-top:$margin-top-h * $multiplier;
+    margin-bottom:$margin-bottom-h * $multiplier;
+}
+
+address,
+blockquote,
+canvas,
+dl,
+fieldset,
+figure,
+form,
+hr,
+noscript,
+ol,
+p,
+pre,
+table,
+ul,
+video {
+    margin-bottom:$margin * $multiplier;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>h <a id="h" class="anchor" href="#h"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">h</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#control-margins">control-margins</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L190-L204"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-weight:$font-weight-heading;
+font-size:map_get($font-sizes, h#{$type});
+font-family:var(--font-stack-heading);
+line-height:map_get($line-heights, h#{$type});
+
+@if $margins-multiplier {
+    $margins-multiplier:$margins-multiplier / 100;
+
+    @include control-margins(top);
+
+    margin-top:$margin-top-h * $margins-multiplier;
+    margin-bottom:$margin-bottom-h * $margins-multiplier;
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>ellipsis <a id="ellipsis" class="anchor" href="#ellipsis"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">ellipsis</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L207-L211"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>sq <a id="sq" class="anchor" href="#sq"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">sq</span></a></h2>
+                <div class="description">Removes border radius </div>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L214-L216"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">border-radius:0;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>hide <a id="hide" class="anchor" href="#hide"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">hide</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#min">min</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unit-number">is-nonneg-unit-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L219-L229"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@if index(map_keys($breakpoints), $breakpoint) {
+    @include min(map_get($breakpoints, $breakpoint)) {
+        display:none;
+    }
+} @else if is-nonneg-unit-number($breakpoint) {
+    @include min($breakpoint) {
+        display:none;
+    }
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>mgb <a id="mgb" class="anchor" href="#mgb"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">mgb</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L232-L238"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@if $important &#x3D;&#x3D; true {
+    margin-bottom:$margin * ($multiplier / 100) !important;
+} @else {
+    margin-bottom:$margin * ($multiplier / 100);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>mgbch <a id="mgbch" class="anchor" href="#mgbch"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">mgbch</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#mgb">mgb</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L241-L245"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">&gt; * {
+    @include mgb($multiplier, $important);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>mgb-row <a id="mgb-row" class="anchor" href="#mgb-row"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">mgb-row</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#mgb">mgb</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L248-L253"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">&amp;:not(:last-child):after,
+&amp;.f-margins:last-child:after {
+    @include mgb($multiplier, $important);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>mgbch-row <a id="mgbch-row" class="anchor" href="#mgbch-row"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">mgbch-row</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#mgb">mgb</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L256-L262"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@include mgb(-$multiplier, $important);
+
+&gt; * {
+    @include mgb($multiplier, $important);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>row-alleys <a id="row-alleys" class="anchor" href="#row-alleys"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">row-alleys</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unitless-number">is-nonneg-unitless-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L265-L282"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">$multiplier:map_get($alley-sizes, comfy);
+$alley:$alley / 2;
+
+@if index(map_keys($alley-sizes), $alley-multiplier) {
+    $multiplier:map_get($alley-sizes, $alley-multiplier);
+} @else if is-nonneg-unitless-number($alley-multiplier) {
+    $multiplier:$alley-multiplier;
+}
+
+@if $type &#x3D;&#x3D; row {
+    margin-right:-$alley * ($multiplier / 100);
+    margin-left:-$alley * ($multiplier / 100);
+} @else if $type &#x3D;&#x3D; col {
+    padding-right:$alley * ($multiplier / 100);
+    padding-left:$alley * ($multiplier / 100);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>row <a id="row" class="anchor" href="#row"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">row</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#row-alleys">row-alleys</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a href="#clearfix">clearfix</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L285-L295"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@include row-alleys(row, $alley-multiplier);
+@include clearfix();
+
+display:flex;
+flex-wrap:wrap;
+
+&gt; * {
+    @include row-alleys(col, $alley-multiplier);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>row-alley-styles <a id="row-alley-styles" class="anchor"
+                        href="#row-alley-styles"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">row-alley-styles</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#row-alleys">row-alleys</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L298-L304"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@include row-alleys(row, $alley-multiplier);
+
+&gt; * {
+    @include row-alleys(col, $alley-multiplier);
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>row-alley <a id="row-alley" class="anchor" href="#row-alley"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">row-alley</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#min">min</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a href="#row-alley-styles">row-alley-styles</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unitless-number">is-nonneg-unitless-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unit-number">is-nonneg-unit-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L307-L321"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@if index(map_keys($alley-sizes), $alley-multiplier) or is-nonneg-unitless-number($alley-multiplier) {
+    @if index(map_keys($breakpoints), $breakpoint) {
+        @include min(map_get($breakpoints, $breakpoint)) {
+            @include row-alley-styles($alley-multiplier);
+        }
+    } @else if is-nonneg-unit-number($breakpoint) {
+        @include min($breakpoint) {
+            @include row-alley-styles($alley-multiplier);
+        }
+    } @else {
+        @include row-alley-styles($alley-multiplier);
+    }
+}
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>col-width <a id="col-width" class="anchor" href="#col-width"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">col-width</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#min">min</a></code></td>
+                            <td><code>mixin</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unit-number">is-nonneg-unit-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a
+                                        href="/functions#is-nonneg-unitless-number">is-nonneg-unitless-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L324-L350"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@if index(map_keys($columns), $column-width) {
+    @if index(map_keys($breakpoints), $breakpoint) {
+        @include min(map_get($breakpoints, $breakpoint)) {
+            width:map_get($columns, $column-width);
+        }
+    } @else if is-nonneg-unit-number($breakpoint) {
+        @include min($breakpoint) {
+            width:map_get($columns, $column-width);
+        }
+    } @else {
+        width:map_get($columns, $column-width);
+    }
+} @else if is-nonneg-unitless-number($column-width) {
+    @if index(map_keys($breakpoints), $breakpoint) {
+        @include min(map_get($breakpoints, $breakpoint)) {
+            width:percentage($column-width);
+        }
+    } @else if is-nonneg-unit-number($breakpoint) {
+        @include min($breakpoint) {
+            width:percentage($column-width);
+        }
+    } @else {
+        width:percentage($column-width);
+    }
+}
+</code></pre>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="copyright"> Built by <a href="https://johnromeral.com">John Romeral</a>.
+                Released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+                Absolutely no warranties. </div>
+        </footer>
+    </div>
+    <script src='/assets/vendor/prism.min.js?v=0.1.3'></script>
+    <script src='/assets/js/simpleton.min.js?v=0.1.3'></script>
+    <script src='/assets/js/docs.min.js?v=0.1.3'></script>
+</body>
+
+</html>
