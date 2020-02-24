@@ -1,7 +1,7 @@
 html {
     overflow-y:scroll;
     box-sizing:border-box;
-    font-size:$font-size-base;
+    font-size:var(--font-size-base);
 
     -ms-text-size-adjust:100%;
 
@@ -16,12 +16,12 @@ html {
 body {
     margin:0;
     padding:0;
-    background-color:$color-background;
-    color:$color-text;
+    background-color:var(--color-light);
+    color:var(--color-dark);
     text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
     font-weight:$font-weight-normal;
-    font-family:$font-stack-general;
+    font-family:var(--font-stack-general);
     line-height:$line-height-general;
 
     -webkit-font-smoothing:antialiased;
@@ -96,7 +96,7 @@ h4,
 h5,
 h6 {
     font-weight:$font-weight-heading;
-    font-family:$font-stack-heading;
+    font-family:var(--font-stack-heading);
 
     b,
     strong {
@@ -135,7 +135,7 @@ dl {
 hr {
     height:$border-size;
     border:0;
-    background-color:$color-border;
+    background-color:var(--color-graylighter);
 }
 
 blockquote,
@@ -151,7 +151,7 @@ q:after {
 }
 
 a {
-    color:$color-link;
+    color:var(--color-primary);
     text-decoration:none;
     transition:color 200ms;
 
@@ -229,20 +229,20 @@ small {
 
 ins {
     padding:$padding-inline;
-    background-color:$color-primary;
-    color:$color-background;
+    background-color:var(--color-primary);
+    color:var(--color-light);
     text-decoration:none;
 }
 
 mark {
     padding:$padding-inline;
-    background-color:$color-primary;
-    color:$color-background;
+    background-color:var(--color-primary);
+    color:var(--color-light);
 }
 
 code {
     padding:$padding-inline;
-    background-color:$color-subtle;
+    background-color:var(--color-graylightest);
 }
 
 var {
@@ -252,8 +252,8 @@ var {
 pre {
     overflow:auto;
     padding:$padding-box;
-    border-left:0.25rem solid $color-primary;
-    background-color:$color-subtle;
+    border-left:0.25rem solid var(--color-primary);
+    background-color:var(--color-graylightest);
 
     code {
         padding:0;
@@ -263,7 +263,7 @@ pre {
 
 blockquote {
     padding:$padding-box;
-    border-left:0.25rem solid $color-border;
+    border-left:0.25rem solid var(--color-graylighter);
     font-size:$font-size-h4;
     line-height:$line-height-h4;
 }
@@ -275,7 +275,7 @@ var,
 kbd,
 samp {
     font-size:$font-size-small;
-    font-family:$font-stack-monospace;
+    font-family:var(--font-stack-monospace);
 }
 
 cite {

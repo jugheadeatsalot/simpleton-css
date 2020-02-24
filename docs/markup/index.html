@@ -2,36 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Markup &hyphen; Simpleton CSS</title>
-    <meta name="description" content="Just a simple CSS starter.">
-    <link rel="stylesheet" href="/assets/vendor/prism.min.css?v=1571167427252">
-    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=1571167427252">
-    <link rel="stylesheet" href="/assets/css/docs.min.css?v=1571167427252">
+    <meta name="description"
+        content="A CSS framework so simple, you&#x27;ll probably use something else.">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=0.1.3">
+    <link rel="stylesheet" href="/assets/css/docs.min.css?v=0.1.3">
 </head>
 
 <body>
-    <div class="simp container">
-        <header>
-            <h1>Simpleton CSS</h1>
+    <div class="container">
+        <header class="site-header">
             <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/markup/">Markup</a></li>
-                    <li><a href="/colors/">Colors</a></li>
-                    <li><a href="/buttons/">Buttons</a></li>
-                    <li><a href="/grids/">Grids</a></li>
+                <h1 class="site-name"><a href="/">Simpleton CSS</a></h1>
+                <ul class="site-menu">
+                    <li><a href="/markup">Markup</a></li>
+                    <li><a href="/colors">Colors</a></li>
+                    <li><a href="/forms">Forms</a></li>
+                    <li><a href="/grids">Grids</a></li>
+                    <li><a href="/functions">Functions</a></li>
+                    <li><a href="/mixins">Mixins</a></li>
+                    <li><a href="/variables">Variables</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <h1>Markup</h1>
-            <section class="simp card">
-                <header>
-                    <h2>Headings</h2>
-                </header>
-                <div class="output">
+            <section class="simp card mgb-300">
+                <h2>Headings</h2>
+                <div class="output mgb-175">
                     <h1>Heading 1</h1>
                     <h2>Heading 2</h2>
                     <h3>Heading 3</h3>
@@ -48,14 +49,30 @@
 &lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
                 </div>
             </section>
-            <section class="simp card">
-                <header>
-                    <h2>Blockquotes</h2>
-                </header>
-                <div class="output">
+            <section class="simp card mgb-300">
+                <h2>Paragraphs</h2>
+                <div class="output mgb-175">
+                    <p>You know when grown-ups tell you 'everything's going to be fine' and you
+                        think they're probably lying to make you feel better? I'm nobody's taxi
+                        service; I'm not gonna be there to catch you every time you feel like
+                        jumping out of a spaceship.</p>
+                    <p>It's a fez. I wear a fez now. Fezes are cool. No, I'll fix it. I'm good at
+                        fixing rot. Call me the Rotmeister. No, I'm the Doctor. Don't call me the
+                        Rotmeister. You know when grown-ups tell you 'everything's going to be fine'
+                        and you think they're probably lying to make you feel better?</p>
+                </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;p&gt;You know when grown-ups tell you &apos;everything&apos;s going to be fine&apos; and you think they&apos;re probably lying to make you feel better? I&apos;m nobody&apos;s taxi service; I&apos;m not gonna be there to catch you every time you feel like jumping out of a spaceship.&lt;/p&gt;
+&lt;p&gt;It&apos;s a fez. I wear a fez now. Fezes are cool. No, I&apos;ll fix it. I&apos;m good at fixing rot. Call me the Rotmeister. No, I&apos;m the Doctor. Don&apos;t call me the Rotmeister. You know when grown-ups tell you &apos;everything&apos;s going to be fine&apos; and you think they&apos;re probably lying to make you feel better?&lt;/p&gt;</code></pre>
+                </div>
+            </section>
+            <section class="simp card mgb-300">
+                <h2>Blockquotes</h2>
+                <div class="output mgb-175">
                     <blockquote>
-                        <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't
-                            handle me at my worst, then you sure as hell don't deserve me at my best.</p>
+                        <p>I'm selfish, impatient and a little insecure. I make mistakes, I am out
+                            of control and at times hard to handle. But if you can't handle me at my
+                            worst, then you sure as hell don't deserve me at my best.</p>
                     </blockquote>
                 </div>
                 <div class="markup">
@@ -64,11 +81,9 @@
 &lt;/blockquote&gt;</code></pre>
                 </div>
             </section>
-            <section class="simp card">
-                <header>
-                    <h2>Tables</h2>
-                </header>
-                <div class="output">
+            <section class="simp card mgb-300">
+                <h2>Tables</h2>
+                <div class="output mgb-175">
                     <table>
                         <tbody>
                             <tr>
@@ -81,19 +96,19 @@
                                 <td>28</td>
                                 <td>Amy Santiago</td>
                                 <td>473678</td>
-                                <td><a href="">@smartcookie</a></td>
+                                <td><a href="#">@smartcookie</a></td>
                             </tr>
                             <tr>
                                 <td>26</td>
                                 <td>Jacob Peralta</td>
                                 <td>342865</td>
-                                <td><a href="">@sillywabbit</a></td>
+                                <td><a href="#">@sillywabbit</a></td>
                             </tr>
                             <tr>
                                 <td>23</td>
                                 <td>Terrence Jeffords</td>
                                 <td>327636</td>
-                                <td><a href="">@papabearofficial</a></td>
+                                <td><a href="#">@papabearofficial</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -111,149 +126,156 @@
         &lt;td&gt;28&lt;/td&gt;
         &lt;td&gt;Amy Santiago&lt;/td&gt;
         &lt;td&gt;473678&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&quot;&quot;&gt;@smartcookie&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;#&quot;&gt;@smartcookie&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;26&lt;/td&gt;
         &lt;td&gt;Jacob Peralta&lt;/td&gt;
         &lt;td&gt;342865&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&quot;&quot;&gt;@sillywabbit&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;#&quot;&gt;@sillywabbit&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
         &lt;td&gt;23&lt;/td&gt;
         &lt;td&gt;Terrence Jeffords&lt;/td&gt;
         &lt;td&gt;327636&lt;/td&gt;
-        &lt;td&gt;&lt;a href=&quot;&quot;&gt;@papabearofficial&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;a href=&quot;#&quot;&gt;@papabearofficial&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;</code></pre>
                 </div>
             </section>
-            <section class="simp card">
-                <header>
-                    <h2>Definition Lists</h2>
-                </header>
-                <div class="output">
+            <section class="simp card mgb-300">
+                <h2>Definition Lists</h2>
+                <div class="output mgb-175">
                     <dl>
-                        <dt>Definition List Title</dt>
-                        <dd>Definition list division.</dd>
-                        <dt>Startup</dt>
-                        <dd>A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.
+                        <dt>Sanguine</dt>
+                        <dd>Cheerfully optimistic, hopeful, or confident: a sanguine disposition.
                         </dd>
-                        <dt>#dowork</dt>
-                        <dd>Coined by Rob Dyrdek and his personal body guard Christopher “Big Black” Boykins, “Do Work” works as a self motivator, to motivating
-                            your friends.</dd>
-                        <dt>Do It Live</dt>
-                        <dd>I’ll let Bill O’Reilly <a title="We'll Do It Live" href="https://www.youtube.com/watch?v=O_HyZ5aW76c">explain</a> this one. </dd>
+                        <dt>Omphaloskepsis</dt>
+                        <dd>Contemplation of one's navel as part of a mystical exercise;
+                            navel-gazing.</dd>
                     </dl>
                 </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;dl&gt;
+    &lt;dt&gt;Sanguine&lt;/dt&gt;
+    &lt;dd&gt;Cheerfully optimistic, hopeful, or confident: a sanguine disposition.&lt;/dd&gt;
+    &lt;dt&gt;Omphaloskepsis&lt;/dt&gt;
+    &lt;dd&gt;Contemplation of one&apos;s navel as part of a mystical exercise; navel-gazing.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                </div>
             </section>
-            <section class="simp card">
-                <header>
-                    <h2>Unordered Lists</h2>
-                </header>
-                <div class="output">
+            <section class="simp card mgb-300">
+                <h2>Unordered Lists</h2>
+                <div class="output mgb-175">
                     <ul>
-                        <li>List item one <ul>
-                                <li>List item one <ul>
-                                        <li>List item one</li>
-                                        <li>List item two</li>
-                                        <li>List item three</li>
-                                        <li>List item four</li>
-                                    </ul>
-                                </li>
-                                <li>List item two</li>
-                                <li>List item three</li>
-                                <li>List item four</li>
-                            </ul>
-                        </li>
-                        <li>List item two</li>
-                        <li>List item three</li>
-                        <li>List item four</li>
+                        <li>The Twilight Zone</li>
+                        <li>Brooklyn Nine-Nine</li>
+                        <li>Parks and Recreation</li>
+                        <li>The Orville</li>
+                        <li>Supernatural</li>
+                        <li>The Big Bang Theory</li>
                     </ul>
                 </div>
-            </section>
-            <section class="simp card">
-                <header>
-                    <h2>Ordered Lists</h2>
-                </header>
-                <div class="output">
-                    <ol>
-                        <li>List item one <ol>
-                                <li>List item one <ol>
-                                        <li>List item one</li>
-                                        <li>List item two</li>
-                                        <li>List item three</li>
-                                        <li>List item four</li>
-                                    </ol>
-                                </li>
-                                <li>List item two</li>
-                                <li>List item three</li>
-                                <li>List item four</li>
-                            </ol>
-                        </li>
-                        <li>List item two</li>
-                        <li>List item three</li>
-                        <li>List item four</li>
-                    </ol>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;ul&gt;
+    &lt;li&gt;The Twilight Zone&lt;/li&gt;
+    &lt;li&gt;Brooklyn Nine-Nine&lt;/li&gt;
+    &lt;li&gt;Parks and Recreation&lt;/li&gt;
+    &lt;li&gt;The Orville&lt;/li&gt;
+    &lt;li&gt;Supernatural&lt;/li&gt;
+    &lt;li&gt;The Big Bang Theory&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
                 </div>
             </section>
-            <section class="simp card">
-                <header>
-                    <h2>HTML Tags</h2>
-                </header>
-                <div class="output">
-                    <p>These supported tags come from the WordPress.com code <a title="Code" href="http://en.support.wordpress.com/code/">FAQ</a>.</p>
-                    <p><strong>Address Tag</strong></p>
-                    <address>1 Infinite Loop<br> Cupertino, CA 95014<br> United States</address>
-                    <p><strong>Anchor Tag (aka. Link)</strong></p>
-                    <p>This is an example of a <a title="Apple" href="http://apple.com">link</a>.</p>
-                    <p><strong>Abbreviation Tag</strong></p>
-                    <p>The abbreviation <abbr title="Seriously">srsly</abbr> stands for “seriously”.</p>
-                    <p><strong>Acronym Tag</strong></p>
-                    <p>The acronym <acronym title="For The Win">ftw</acronym> stands for “for the win”.</p>
-                    <p><strong>Big Tag</strong></p>
-                    <p>These tests are a <big>big</big> deal, but this tag is no longer supported in HTML5.</p>
-                    <p><strong>Cite Tag</strong></p>
-                    <p>“Code is poetry.” <cite>–Automattic</cite></p>
-                    <p><strong>Code Tag</strong></p>
-                    <p>You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend.</p>
-                    <p><strong>Delete Tag</strong></p>
-                    <p>This tag will let you <del>strikeout text</del> , but this tag is no longer supported in HTML5 (use the <code>&lt;strike&gt;</code>
-                        instead). </p>
-                    <p><strong>Emphasize Tag</strong></p>
+            <section class="simp card mgb-300">
+                <h2>Ordered Lists</h2>
+                <div class="output mgb-175">
+                    <ol>
+                        <li>The Twilight Zone</li>
+                        <li>Brooklyn Nine-Nine</li>
+                        <li>Parks and Recreation</li>
+                        <li>The Orville</li>
+                        <li>Supernatural</li>
+                        <li>The Big Bang Theory</li>
+                    </ol>
+                </div>
+                <div class="markup">
+                    <pre><code class="lang-html">&lt;ol&gt;
+    &lt;li&gt;The Twilight Zone&lt;/li&gt;
+    &lt;li&gt;Brooklyn Nine-Nine&lt;/li&gt;
+    &lt;li&gt;Parks and Recreation&lt;/li&gt;
+    &lt;li&gt;The Orville&lt;/li&gt;
+    &lt;li&gt;Supernatural&lt;/li&gt;
+    &lt;li&gt;The Big Bang Theory&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                </div>
+            </section>
+            <section class="simp card mgb-300">
+                <h2>Etcetera, Etcetera</h2>
+                <p>Other commonly used HTML tags.</p>
+                <div class="output mgb-175">
+                    <p><strong>Abbreviation</strong> <code>&lt;abbr&gt;</code></p>
+                    <p>The abbreviation <abbr title="Seriously">srsly</abbr> stands for “seriously”.
+                    </p>
+                    <p><strong>Acronym</strong> <code>&lt;acronym&gt;</code></p>
+                    <p>The acronym <acronym title="For The Win">ftw</acronym> stands for “for the
+                        win”.</p>
+                    <p><strong>Address</strong> <code>&lt;address&gt;</code></p>
+                    <address>123 Sesame St.<br>Las Vegas, Nevada<br>United States 89104</address>
+                    <p><strong>Anchor (aka. Link)</strong> <code>&lt;a&gt;</code></p>
+                    <p>Here is an example of a <a href="https://github.com">link</a>.</p>
+                    <p><strong>Big</strong> <code>&lt;big&gt;</code></p>
+                    <p>Makes text <big>bigger</big>. Duh!</p>
+                    <p><strong>Cite</strong> <code>&lt;cite&gt;</code></p>
+                    <p>“Giggity, giggity, goo.” <cite>–Glenn Quagmire</cite></p>
+                    <p><strong>Code</strong> <code>&lt;code&gt;</code></p>
+                    <p>You will learn later on in these tests that <code>word-wrap:
+                            break-word;</code> will be your best friend.</p>
+                    <p><strong>Delete</strong> <code>&lt;del&gt;</code></p>
+                    <p>This tag will <del>strikeout text</del> . </p>
+                    <p><strong>Emphasize</strong> <code>&lt;em&gt;</code></p>
                     <p>The emphasize tag should <em>italicize</em> text.</p>
-                    <p><strong>Insert Tag</strong></p>
+                    <p><strong>Insert</strong> <code>&lt;ins&gt;</code></p>
                     <p>This tag should denote <ins>inserted</ins> text. </p>
-                    <p><strong>Keyboard Tag</strong></p>
-                    <p>This scarsly known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the <code>&lt;code&gt;</code> tag.</p>
-                    <p><strong>Preformatted Tag</strong></p>
+                    <p><strong>Keyboard</strong> <code>&lt;kbd&gt;</code></p>
+                    <p>This scarsly known tag emulates <kbd>keyboard text</kbd>, which is usually
+                        styled like the <code>&lt;code&gt;</code> tag.</p>
+                    <p><strong>Preformatted</strong> <code>&lt;pre&gt;</code></p>
                     <p>This tag styles large blocks of code.</p>
-                    <pre>.post-title {
+                    <pre><code>.post-title {
     margin: 0 0 5px;
     font-weight: bold;
     font-size: 38px;
     line-height: 1.2;
-}</pre>
-                    <p><strong>Quote Tag</strong></p>
+}</code></pre>
+                    <p><strong>Quote</strong> <code>&lt;q&gt;</code></p>
                     <p><q>Developers, developers, developers…</q> <cite>–Steve Ballmer</cite></p>
-                    <p><strong>Strong Tag</strong></p>
+                    <p><strong>Strong</strong> <code>&lt;strong&gt;</code></p>
                     <p>This tag shows <strong>bold<strong> text.</strong></strong></p>
-                    <p><strong>Subscript Tag</strong></p>
-                    <p>Getting our science styling on with H<sub>2</sub>O, which should push the “2” down.</p>
-                    <p><strong>Superscript Tag</strong></p>
-                    <p>Still sticking with science and Albert Einstein’s&nbsp;E = MC<sup>2</sup>, which should lift the “2” up.</p>
-                    <p><strong>Teletype Tag</strong></p>
-                    <p>This rarely used tag emulates <tt>teletype text</tt>, which is usually styled like the <code>&lt;code&gt;</code> tag.</p>
-                    <p><strong>Variable Tag</strong></p>
+                    <p><strong>Subscript</strong> <code>&lt;sub&gt;</code></p>
+                    <p>Getting our science styling on with H<sub>2</sub>O, which should push the “2”
+                        down.</p>
+                    <p><strong>Superscript</strong> <code>&lt;sup&gt;</code></p>
+                    <p>Still sticking with science and Albert Einstein’s&nbsp;E = MC<sup>2</sup>,
+                        which should lift the “2” up.</p>
+                    <p><strong>Teletype</strong> <code>&lt;tt&gt;</code></p>
+                    <p>This rarely used tag emulates <tt>teletype text</tt>, which is usually styled
+                        like the <code>&lt;code&gt;</code> tag.</p>
+                    <p><strong>Variable</strong> <code>&lt;var&gt;</code></p>
                     <p>This allows you to denote <var>variables</var>.</p>
                 </div>
             </section>
         </main>
+        <footer class="site-footer">
+            <div class="copyright"> Built by <a href="https://johnromeral.com">John Romeral</a>.
+                Released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+                Absolutely no warranties. </div>
+        </footer>
     </div>
-    <script src='/assets/vendor/prism.min.js?v=1571167427252'></script>
-    <script src='/assets/js/simpleton.min.js?v=1571167427252'></script>
-    <script src='/assets/js/docs.min.js?v=1571167427252'></script>
+    <script src='/assets/vendor/prism.min.js?v=0.1.3'></script>
+    <script src='/assets/js/simpleton.min.js?v=0.1.3'></script>
+    <script src='/assets/js/docs.min.js?v=0.1.3'></script>
 </body>
 
 </html>

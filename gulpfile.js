@@ -7,8 +7,9 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
+const clean = require('postcss-clean');
+const postcssCustomProperties = require('postcss-custom-properties');
 const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
 const stripIndent = require('strip-indent');
 const sassdoc = require('sassdoc');
 const pluralize = require('pluralize');
@@ -38,10 +39,12 @@ gulp.task('sass', async() => {
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
+        .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.scssOut))
         .pipe(filter('**/simpleton!(*.min).css'))
-        .pipe(postcss([cssnano()]))
+        .pipe(postcss([clean()]))
         .pipe(rename({
             suffix: '.min',
         }))
@@ -68,10 +71,12 @@ gulp.task('devsass', async() => {
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
+        .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
         .pipe(filter('**/simpleton!(*.min).css'))
-        .pipe(postcss([cssnano()]))
+        .pipe(postcss([clean()]))
         .pipe(rename({
             suffix: '.min',
         }))
@@ -98,10 +103,12 @@ gulp.task('docssass', async() => {
         .pipe(sourcemaps.init())
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
+        .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
         .pipe(filter('**/docs!(*.min).css'))
-        .pipe(postcss([cssnano()]))
+        .pipe(postcss([clean()]))
         .pipe(rename({
             suffix: '.min',
         }))

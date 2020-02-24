@@ -25,8 +25,8 @@ $content-width:640px;
     display:inline-block;
     width:1em;
     height:1em;
-    fill:$color-text;
-    stroke:$color-text;
+    fill:var(--color-dark);
+    stroke:var(--color-dark);
     stroke-width:0;
 }
 
@@ -38,7 +38,7 @@ $content-width:640px;
     padding:($padding * 2) $padding ($padding * 3);
     width:200px;
     height:100%;
-    background-color:$color-light;
+    background-color:var(--color-light);
 
     nav {
         @include min($breakpoint-s) {
@@ -110,7 +110,7 @@ main {
 .site-footer {
     align-items:center;
     height:4.2rem;
-    border-top:1px solid $color-secondary;
+    border-top:1px solid var(--color-secondary);
 }
 
 .copyright {
@@ -122,7 +122,7 @@ main {
 .colorbox {
     width:42px;
     height:42px;
-    border:1px solid $color-border;
+    border:1px solid var(--color-graylighter);
     border-radius:50%;
     box-shadow:0 0 0 4px #ffffff inset;
 }

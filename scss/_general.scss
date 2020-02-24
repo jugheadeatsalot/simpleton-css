@@ -40,7 +40,7 @@ table {
 
 caption {
     padding-top:$padding * 0.375;
-    border-top:$border-size solid $color-border;
+    border-top:$border-size solid var(--color-graylighter);
     text-align:left;
     text-transform:uppercase;
     font-weight:$font-weight-bold;
@@ -54,8 +54,8 @@ td {
 }
 
 tr {
-    border-top:$border-size solid $color-border;
-    border-bottom:$border-size solid $color-border;
+    border-top:$border-size solid var(--color-graylighter);
+    border-bottom:$border-size solid var(--color-graylighter);
     text-align:left;
 }
 
@@ -72,7 +72,7 @@ td {
 
 figcaption {
     padding-top:$padding * 0.375;
-    color:$color-gray;
+    color:var(--color-gray);
     text-align:center;
     font-size:$font-size-xsmall;
 }

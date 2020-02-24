@@ -190,7 +190,7 @@
 @mixin h($type:1, $margins-multiplier:100) {
     font-weight:$font-weight-heading;
     font-size:map_get($font-sizes, h#{$type});
-    font-family:$font-stack-heading;
+    font-family:var(--font-stack-heading);
     line-height:map_get($line-heights, h#{$type});
 
     @if $margins-multiplier {
