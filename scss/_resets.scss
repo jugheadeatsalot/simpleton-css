@@ -16,13 +16,13 @@ html {
 body {
     margin:0;
     padding:0;
-    background-color:var(--color-light);
-    color:var(--color-dark);
+    background-color:var(--color-background);
+    color:var(--color-contrast);
     text-shadow:1px 1px 1px rgba(0, 0, 0, 0.05);
     word-wrap:break-word;
-    font-weight:$font-weight-normal;
+    font-weight:var(--font-weight-normal);
     font-family:var(--font-stack-general);
-    line-height:$line-height-general;
+    line-height:var(--line-height-general);
 
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
@@ -95,12 +95,12 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight:$font-weight-heading;
+    font-weight:var(--font-weight-heading);
     font-family:var(--font-stack-heading);
 
     b,
     strong {
-        font-weight:$font-weight-heading;
+        font-weight:var(--font-weight-heading);
     }
 }
 
@@ -124,7 +124,7 @@ ul {
 
 dl {
     dt {
-        font-weight:$font-weight-bold;
+        font-weight:var(--font-weight-bold);
     }
 
     dd {
@@ -135,7 +135,7 @@ dl {
 hr {
     height:$border-size;
     border:0;
-    background-color:var(--color-graylighter);
+    background-color:var(--color-contrast-lower);
 }
 
 blockquote,
@@ -216,33 +216,33 @@ dfn {
 
 b,
 strong {
-    font-weight:$font-weight-bold;
+    font-weight:var(--font-weight-bold);
 }
 
 big {
-    font-size:$font-size-big;
+    font-size:var(--font-size-big);
 }
 
 small {
-    font-size:$font-size-small;
+    font-size:var(--font-size-small);
 }
 
 ins {
-    padding:$padding-inline;
+    padding:var(--padding-inline);
     background-color:var(--color-primary);
-    color:var(--color-light);
+    color:var(--color-background);
     text-decoration:none;
 }
 
 mark {
-    padding:$padding-inline;
+    padding:var(--padding-inline);
     background-color:var(--color-primary);
-    color:var(--color-light);
+    color:var(--color-background);
 }
 
 code {
-    padding:$padding-inline;
-    background-color:var(--color-graylightest);
+    padding:var(--padding-inline);
+    background-color:var(--color-contrast-lowest);
 }
 
 var {
@@ -251,9 +251,9 @@ var {
 
 pre {
     overflow:auto;
-    padding:$padding-box;
+    padding:var(--padding-box);
     border-left:0.25rem solid var(--color-primary);
-    background-color:var(--color-graylightest);
+    background-color:var(--color-contrast-lowest);
 
     code {
         padding:0;
@@ -262,10 +262,10 @@ pre {
 }
 
 blockquote {
-    padding:$padding-box;
-    border-left:0.25rem solid var(--color-graylighter);
-    font-size:$font-size-h4;
-    line-height:$line-height-h4;
+    padding:var(--padding-box);
+    border-left:0.25rem solid var(--color-contrast-lower);
+    font-size:var(--font-size-h4);
+    line-height:var(--line-height-h4);
 }
 
 pre,
@@ -274,14 +274,14 @@ tt,
 var,
 kbd,
 samp {
-    font-size:$font-size-small;
+    font-size:var(--font-size-small);
     font-family:var(--font-stack-monospace);
 }
 
 cite {
-    font-weight:$font-weight-normal;
+    font-weight:var(--font-weight-normal);
     font-style:italic;
-    font-size:$font-size-xsmall;
+    font-size:var(--font-size-xsmall);
 }
 
 abbr,
@@ -309,7 +309,7 @@ sub,
 sup {
     position:relative;
     vertical-align:baseline;
-    font-size:$font-size-xsmall;
+    font-size:var(--font-size-xsmall);
 }
 
 ::-moz-focus-inner {

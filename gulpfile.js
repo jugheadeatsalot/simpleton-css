@@ -8,6 +8,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const clean = require('postcss-clean');
+const calc = require('postcss-calc');
 const postcssCustomProperties = require('postcss-custom-properties');
 const autoprefixer = require('autoprefixer');
 const stripIndent = require('strip-indent');
@@ -40,6 +41,7 @@ gulp.task('sass', async() => {
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([calc()]))
         .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.scssOut))
@@ -72,6 +74,7 @@ gulp.task('devsass', async() => {
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([calc()]))
         .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
@@ -104,6 +107,7 @@ gulp.task('docssass', async() => {
         .pipe(sass(sassOpts).on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(postcss([postcssCustomProperties()]))
+        .pipe(postcss([calc()]))
         .pipe(postcss([clean({format: 'beautify'})]))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))

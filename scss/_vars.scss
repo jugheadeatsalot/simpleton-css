@@ -152,66 +152,6 @@ $colors:map-merge(
 );
 
 /***
- * CSS Props
- *
- */
-
-:root {
-    --font-stack-serif:#{inspect($font-stack-serif)};
-    --font-stack-sansserif:#{inspect($font-stack-sansserif)};
-    --font-stack-general:#{inspect($font-stack-general)};
-    --font-stack-heading:#{inspect($font-stack-heading)};
-    --font-stack-monospace:#{inspect($font-stack-monospace)};
-    --font-size-base:#{$font-size-base};
-    --font-size-general:#{$font-size-general};
-    --font-size-big:#{$font-size-big};
-    --font-size-xbig:#{$font-size-xbig};
-    --font-size-xxbig:#{$font-size-xxbig};
-    --font-size-small:#{$font-size-small};
-    --font-size-xsmall:#{$font-size-xsmall};
-    --font-size-xxsmall:#{$font-size-xxsmall};
-    --font-size-h1:#{$font-size-h1};
-    --font-size-h2:#{$font-size-h2};
-    --font-size-h3:#{$font-size-h3};
-    --font-size-h4:#{$font-size-h4};
-    --font-weight-normal:#{$font-weight-normal};
-    --font-weight-bold:#{$font-weight-bold};
-    --font-weight-heading:#{$font-weight-heading};
-    --line-height-general:#{$line-height-general};
-    --line-height-h1:#{$line-height-h1};
-    --line-height-h2:#{$line-height-h2};
-    --line-height-h3:#{$line-height-h3};
-    --line-height-h4:#{$line-height-h4};
-    --color-dark:#{$color-dark};
-    --color-light:#{$color-light};
-    --color-gray:#{$color-gray};
-    --color-graylight:#{$color-graylight};
-    --color-graylighter:#{$color-graylighter};
-    --color-graylightest:#{$color-graylightest};
-    --color-graydark:#{$color-graydark};
-    --color-graydarker:#{$color-graydarker};
-    --color-graydarkest:#{$color-graydarkest};
-    --color-success:#{$color-success};
-    --color-alert:#{$color-alert};
-    --color-warning:#{$color-warning};
-    --color-highlight:#{$color-highlight};
-    --color-primary:#{$color-primary};
-    --color-secondary:#{$color-secondary};
-    --color-accent:#{$color-accent};
-    --color-dribbble:#{$color-dribbble};
-    --color-facebook:#{$color-facebook};
-    --color-flickr:#{$color-flickr};
-    --color-instagram:#{$color-instagram};
-    --color-linkedin:#{$color-linkedin};
-    --color-medium:#{$color-medium};
-    --color-pinterest:#{$color-pinterest};
-    --color-rss:#{$color-rss};
-    --color-tumblr:#{$color-tumblr};
-    --color-twitter:#{$color-twitter};
-    --color-youtube:#{$color-youtube};
-}
-
-/***
  * Spacing
  *
  */
@@ -243,10 +183,10 @@ $p-table-r:2rem !default;
 $p-table-b:0.5rem !default;
 $p-table-l:0 !default;
 $padding-table:$p-table-t $p-table-r $p-table-b $p-table-l !default;
-$p-button-t:0.5rem !default;
-$p-button-r:1.25rem !default;
-$p-button-b:0.5rem !default;
-$p-button-l:1.25rem !default;
+$p-button-t:0.425em !default;
+$p-button-r:1em !default;
+$p-button-b:0.425em !default;
+$p-button-l:1em !default;
 $padding-button:$p-button-t $p-button-r $p-button-b $p-button-l !default;
 $p-input-t:0.5rem !default;
 $p-input-r:0.75rem !default;
@@ -257,13 +197,13 @@ $alley-sizes:() !default;
 $alley-sizes:map_merge(
         (
             noalley: 0,
-            tightest: 25,
-            tighter: 50,
-            tight: 75,
-            comfy: 100,
-            loose: 125,
-            looser: 150,
-            loosest: 175,
+            tightest: 0.25,
+            tighter: 0.5,
+            tight: 0.75,
+            comfy: 1,
+            loose: 1.25,
+            looser: 1.5,
+            loosest: 1.75,
         ),
         $alley-sizes
 );

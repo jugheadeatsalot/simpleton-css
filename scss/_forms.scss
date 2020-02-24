@@ -1,12 +1,12 @@
 @mixin button-styles() {
     display:inline-block;
-    margin-bottom:$margin * 0.2;
-    padding:0.425em 1em;
+    margin-bottom:calc(var(--space) * 0.25);
+    padding:var(--padding-button);
     min-height:2.5rem;
     border:none;
     border-radius:4px;
-    background-color:var(--color-dark);
-    color:var(--color-graylight);
+    background-color:var(--color-contrast);
+    color:var(--color-contrast-low);
     cursor:pointer;
     transition:background-color 0.2s, color 0.2s;
 }
@@ -19,16 +19,16 @@ button,
     @include button-styles();
 
     &[disabled] {
-        background-color:var(--color-graylighter);
+        background-color:var(--color-contrast-lower);
     }
 }
 
 @mixin input-styles() {
-    padding:$padding-input;
+    padding:var(--padding-input);
     min-height:2.5rem;
     width:100%;
     border:none;
-    box-shadow:0 0 0 $border-size var(--color-graylighter) inset;
+    box-shadow:0 0 0 $border-size var(--color-contrast-lower) inset;
 
     &:focus {
         outline:none;
@@ -61,7 +61,7 @@ input {
 
 input[type='radio'],
 input[type='checkbox'] {
-    margin:0 ($alley * 0.25) 0 0;
+    margin:0 calc(var(--alley) * 0.25) 0 0;
     vertical-align:-1px;
 }
 
@@ -74,27 +74,27 @@ select {
 }
 
 fieldset {
-    padding:$padding;
-    box-shadow:0 0 0 $border-size var(--color-graylighter) inset;
+    padding:var(--space);
+    box-shadow:0 0 0 $border-size var(--color-contrast-lower) inset;
 
     legend {
-        margin-left:-($alley * 0.25);
-        margin-bottom:-($margin * 0.3);
-        padding:0 ($alley * 0.25);
-        background-color:var(--color-graylight);
+        margin-left:calc(var(--alley) * -0.25);
+        margin-bottom:calc(var(--space) * -0.3);
+        padding:0 calc(var(--alley) * 0.25);
+        background-color:var(--color-contrast-low);
         text-transform:uppercase;
-        font-size:$font-size-xsmall;
+        font-size:var(--font-size-xsmall);
     }
 }
 
 form {
     div {
-        margin-bottom:$margin;
+        margin-bottom:var(--space);
     }
 }
 
 input:not([type='radio']):not([type='checkbox']),
 select,
 textarea {
-    margin-bottom:$margin;
+    margin-bottom:var(--space);
 }

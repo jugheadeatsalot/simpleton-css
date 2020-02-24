@@ -226,7 +226,7 @@
 /// @param {number} $threshold [60]
 /// @param {color} $dark [$color-dark]
 /// @param {color} $light [$color-light]
-@function auto-color($bg-color, $threshold: 60, $dark:$color-dark, $light:$color-light) {
+@function auto-color($bg-color, $threshold: 60, $dark, $light) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
@@ -306,6 +306,6 @@
 /// Converts `$size-in-rem` to pixels based on `$font-size-base`.
 /// @param {number} $size-in-rem
 /// @param {number} $font-size-base [$font-size-base]
-@function rem-to-pixels($size-in-rem, $font-size-base: $font-size-base) {
+@function rem-to-pixels($size-in-rem, $font-size-base) {
     @return strip-unit($size-in-rem) * $font-size-base;
 }

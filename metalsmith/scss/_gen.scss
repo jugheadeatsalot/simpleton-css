@@ -1,12 +1,14 @@
-$content-width:640px;
+:root {
+    --content-width:640px;
+}
 
 @mixin container-padding-x {
-    padding-right:$padding;
-    padding-left:$padding;
+    padding-right:var(--space);
+    padding-left:var(--space);
 
     @include min($breakpoint-s) {
-        padding-right:$padding * 2;
-        padding-left:$padding * 2;
+        padding-right:calc(var(--space) * 2);
+        padding-left:calc(var(--space) * 2);
     }
 }
 
@@ -17,7 +19,7 @@ $content-width:640px;
     flex-direction:column;
     margin:0 auto;
     min-height:100vh;
-    max-width:$content-width;
+    max-width:var(--content-width);
     width:100%;
 }
 
@@ -25,8 +27,8 @@ $content-width:640px;
     display:inline-block;
     width:1em;
     height:1em;
-    fill:var(--color-dark);
-    stroke:var(--color-dark);
+    fill:var(--color-contrast);
+    stroke:var(--color-contrast);
     stroke-width:0;
 }
 
@@ -35,14 +37,14 @@ $content-width:640px;
     top:0;
     left:0;
     overflow-y:auto;
-    padding:($padding * 2) $padding ($padding * 3);
+    padding:calc(var(--space) * 2) var(--space) calc(var(--space) * 3);
     width:200px;
     height:100%;
-    background-color:var(--color-light);
+    background-color:var(--color-background);
 
     nav {
         @include min($breakpoint-s) {
-            max-width:$content-width - ($alley * 2);
+            max-width:calc(var(--content-width) - calc(var(--alley) * 2));
         }
 
         > * {
@@ -52,9 +54,9 @@ $content-width:640px;
     }
 
     .site-name {
-        margin-bottom:$margin * 2;
-        font-weight:$font-weight-normal;
-        line-height:$line-height-general;
+        margin-bottom:calc(var(--space) * 2);
+        font-weight:var(--font-weight-normal);
+        line-height:var(--line-height-general);
     }
 
     ul {
@@ -65,22 +67,22 @@ $content-width:640px;
 
 main {
     flex:1;
-    margin-top:$margin * 4;
-    margin-bottom:$margin * 5;
+    margin-top:calc(var(--space) * 4);
+    margin-bottom:calc(var(--space) * 5);
 
     > header {
-        margin-bottom:$margin * 1.75;
+        margin-bottom:calc(var(--space) * 1.75);
     }
 }
 
 .doc-block {
-    margin-bottom:$margin * 2;
+    margin-bottom:calc(var(--space) * 2);
 
     h3 {
         text-transform:uppercase;
-        font-weight:$font-weight-normal;
-        font-size:$font-size-general;
-        line-height:$line-height-general;
+        font-weight:var(--font-weight-normal);
+        font-size:var(--font-size-general);
+        line-height:var(--line-height-general);
 
         .icon {
             float:right;
@@ -102,8 +104,8 @@ main {
     }
 
     .anchor {
-        padding-top:$padding * 1.75;
-        font-weight:$font-weight-normal;
+        padding-top:calc(var(--space) * 1.75);
+        font-weight:var(--font-weight-normal);
     }
 }
 
@@ -116,13 +118,13 @@ main {
 .copyright {
     flex:1;
     text-transform:uppercase;
-    font-size:$font-size-xxsmall;
+    font-size:var(--font-size-xxsmall);
 }
 
 .colorbox {
     width:42px;
     height:42px;
-    border:1px solid var(--color-graylighter);
+    border:1px solid var(--color-contrast-lower);
     border-radius:50%;
     box-shadow:0 0 0 4px #ffffff inset;
 }

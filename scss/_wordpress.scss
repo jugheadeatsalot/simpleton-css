@@ -3,14 +3,14 @@ img,
 .wp-caption {
     &.alignleft,
     &.alignright {
-        padding-top:$padding * 0.25;
+        padding-top:calc(var(--space) * 0.25);
     }
 }
 
 img {
     &.alignleft,
     &.alignright {
-        padding-bottom:$padding;
+        padding-bottom:var(--space);
     }
 }
 
@@ -55,25 +55,25 @@ blockquote {
 
 .tiled-gallery,
 .video-player {
-    margin-bottom:$margin !important;
+    margin-bottom:var(--space) !important;
     max-width:100%;
 }
 
 .gallery {
-    $padding-bottom-gallery:$margin * 1.2;
+    --padding-bottom-gallery:calc(var(--space) * 1.25);
 
     @include row(tighter);
 
     > * {
         html body & {
             margin-bottom:0;
-            padding-bottom:$padding-bottom-gallery;
+            padding-bottom:var(--padding-bottom-gallery);
         }
     }
 
     &:last-child {
         html body & {
-            margin-bottom:-$padding-bottom-gallery !important;
+            margin-bottom:calc(var(--padding-bottom-gallery) * -1) !important;
         }
     }
 
@@ -83,7 +83,7 @@ blockquote {
     + h4,
     + h5,
     + h6 {
-        margin-top:calc(#{$margin-top-h} - #{$padding-bottom-gallery});
+        margin-top:calc(var(--space-top-h) - var(--padding-bottom-gallery));
     }
 }
 
@@ -122,14 +122,14 @@ blockquote {
             }
 
             input[type='submit'] {
-                padding:0 $padding;
+                padding:0 var(--space);
             }
         }
     }
 }
 
 .wp-caption {
-    margin-bottom:$margin;
+    margin-bottom:var(--space);
 }
 
 .wp-caption-text,
@@ -152,7 +152,7 @@ blockquote {
 
 twitterwidget,
 .mejs-container {
-    margin-bottom:$margin !important;
+    margin-bottom:var(--space) !important;
 }
 
 .mejs-container {

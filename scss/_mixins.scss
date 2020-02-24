@@ -46,7 +46,8 @@
     }
 }
 
-///
+/// Includes `@content` on screens that are at least `$min-width` wide.
+/// @param {number} $min-width
 @mixin min($min-width) {
     @media (min-width:$min-width) {
         @content;
@@ -143,16 +144,16 @@
 }
 
 /// Sets default vertical margins for selected elements
-@mixin vertical-margins($multiplier:100) {
-    $multiplier:$multiplier / 100;
+@mixin vertical-margins($multiplier:false) {
+    $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
-        margin-top:$margin * $multiplier;
-        margin-bottom:$margin * $multiplier;
+        margin-top:if($m, calc(var(--space) * #{$m}), var(--space));
+        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
     }
 
     caption {
-        margin-bottom:($margin * 0.25) * $multiplier;
+        margin-bottom:if($m, calc(var(--space) * .25 * #{$m}), calc(var(--space) * .25));
     }
 
     h1,
@@ -163,8 +164,8 @@
     h6 {
         @include control-margins(top);
 
-        margin-top:$margin-top-h * $multiplier;
-        margin-bottom:$margin-bottom-h * $multiplier;
+        margin-top:if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-bottom:if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
     }
 
     address,
@@ -182,24 +183,24 @@
     table,
     ul,
     video {
-        margin-bottom:$margin * $multiplier;
+        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
     }
 }
 
 ///
-@mixin h($type:1, $margins-multiplier:100) {
-    font-weight:$font-weight-heading;
-    font-size:map_get($font-sizes, h#{$type});
+@mixin h($type:1, $margins-multiplier:false) {
+    font-weight:var(--font-weight-heading);
+    font-size:var(--font-size-h#{$type});
     font-family:var(--font-stack-heading);
-    line-height:map_get($line-heights, h#{$type});
+    line-height:var(--line-height-h#{$type});
 
-    @if $margins-multiplier {
-        $margins-multiplier:$margins-multiplier / 100;
+    @if is-nonneg-unitless-number($margins-multiplier) {
+        $m:$margins-multiplier;
 
         @include control-margins(top);
 
-        margin-top:$margin-top-h * $margins-multiplier;
-        margin-bottom:$margin-bottom-h * $margins-multiplier;
+        margin-top:if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-bottom:if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
     }
 }
 
@@ -229,23 +230,25 @@
 }
 
 ///
-@mixin mgb($multiplier:100, $important:false) {
+@mixin mgb($multiplier:false, $important:false) {
+    $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
+
     @if $important == true {
-        margin-bottom:$margin * ($multiplier / 100) !important;
+        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space)) !important;
     } @else {
-        margin-bottom:$margin * ($multiplier / 100);
+        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
     }
 }
 
 ///
-@mixin mgbch($multiplier:100, $important:false) {
+@mixin mgbch($multiplier:false, $important:false) {
     > * {
         @include mgb($multiplier, $important);
     }
 }
 
 ///
-@mixin mgb-row($multiplier:100, $important:false) {
+@mixin mgb-row($multiplier:false, $important:false) {
     &:not(:last-child):after,
     &.f-margins:last-child:after {
         @include mgb($multiplier, $important);
@@ -253,7 +256,7 @@
 }
 
 ///
-@mixin mgbch-row($multiplier:100, $important:false) {
+@mixin mgbch-row($multiplier:false, $important:false) {
     @include mgb(-$multiplier, $important);
 
     > * {
@@ -263,21 +266,20 @@
 
 ///
 @mixin row-alleys($type:row, $alley-multiplier:false) {
-    $multiplier:map_get($alley-sizes, comfy);
-    $alley:$alley / 2;
+    $m:false;
 
     @if index(map_keys($alley-sizes), $alley-multiplier) {
-        $multiplier:map_get($alley-sizes, $alley-multiplier);
+        $m:map_get($alley_sizes, $alley-multiplier);
     } @else if is-nonneg-unitless-number($alley-multiplier) {
-        $multiplier:$alley-multiplier;
+        $m:$alley-multiplier;
     }
 
     @if $type == row {
-        margin-right:-$alley * ($multiplier / 100);
-        margin-left:-$alley * ($multiplier / 100);
+        margin-right:if($m, calc(var(--alley) / 2 * #{-$m}), calc(var(--alley) / 2 * -1));
+        margin-left:if($m, calc(var(--alley) / 2 * #{-$m}), calc(var(--alley) / 2 * -1));
     } @else if $type == col {
-        padding-right:$alley * ($multiplier / 100);
-        padding-left:$alley * ($multiplier / 100);
+        padding-right:if($m, calc(var(--alley) / 2 * #{$m}), calc(var(--alley) / 2));
+        padding-left:if($m, calc(var(--alley) / 2 * #{$m}), calc(var(--alley) / 2));
     }
 }
 
@@ -305,17 +307,25 @@
 
 ///
 @mixin row-alley($alley-multiplier, $breakpoint:false) {
-    @if index(map_keys($alley-sizes), $alley-multiplier) or is-nonneg-unitless-number($alley-multiplier) {
+    $m:false;
+
+    @if index(map_keys($alley-sizes), $alley-multiplier) {
+        $m:map_get($alley_sizes, $alley-multiplier);
+    } @else if is-nonneg-unitless-number($alley-multiplier) {
+        $m:$alley-multiplier;
+    }
+
+    @if $m {
         @if index(map_keys($breakpoints), $breakpoint) {
             @include min(map_get($breakpoints, $breakpoint)) {
-                @include row-alley-styles($alley-multiplier);
+                @include row-alley-styles($m);
             }
         } @else if is-nonneg-unit-number($breakpoint) {
             @include min($breakpoint) {
-                @include row-alley-styles($alley-multiplier);
+                @include row-alley-styles($m);
             }
         } @else {
-            @include row-alley-styles($alley-multiplier);
+            @include row-alley-styles($m);
         }
     }
 }

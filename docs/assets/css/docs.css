@@ -24,15 +24,15 @@
   --line-height-h2: 1.25;
   --line-height-h3: 1.35;
   --line-height-h4: 1.45;
-  --color-dark: #2c3e50;
-  --color-light: #ffffff;
-  --color-gray: gray;
-  --color-graylight: #a6a6a6;
-  --color-graylighter: #cccccc;
-  --color-graylightest: #f2f2f2;
-  --color-graydark: #666666;
-  --color-graydarker: #4d4d4d;
-  --color-graydarkest: #333333;
+  --color-contrast: #2c3e50;
+  --color-background: #ffffff;
+  --color-contrast-medium: gray;
+  --color-contrast-low: #a6a6a6;
+  --color-contrast-lower: #cccccc;
+  --color-contrast-lowest: #f2f2f2;
+  --color-contrast-high: #666666;
+  --color-contrast-higher: #4d4d4d;
+  --color-contrast-highest: #333333;
   --color-success: #27ae60;
   --color-alert: #c0392b;
   --color-warning: #d35400;
@@ -73,9 +73,9 @@
   width: 1em;
   height: 1em;
   fill: #2c3e50;
-  fill: var(--color-dark);
+  fill: var(--color-contrast);
   stroke: #2c3e50;
-  stroke: var(--color-dark);
+  stroke: var(--color-contrast);
   stroke-width: 0
 }
 .site-header {
@@ -87,7 +87,7 @@
   width: 200px;
   height: 100%;
   background-color: #fff;
-  background-color: var(--color-light)
+  background-color: var(--color-background)
 }
 @media (min-width:480px) {
   .site-header nav {
@@ -159,7 +159,7 @@ main > header {
   width: 42px;
   height: 42px;
   border: 1px solid #ccc;
-  border: 1px solid var(--color-graylighter);
+  border: 1px solid var(--color-contrast-lower);
   border-radius: 50%;
   box-shadow: 0 0 0 4px #fff inset
 }
@@ -190,7 +190,7 @@ main > header {
 }
 pre[class*=language-] {
   color: #2c3e50;
-  color: var(--color-dark);
+  color: var(--color-contrast);
   font-weight: 400
 }
 .token.cdata,
@@ -201,7 +201,7 @@ pre[class*=language-] {
 }
 .token.punctuation {
   color: #2c3e50;
-  color: var(--color-dark)
+  color: var(--color-contrast)
 }
 .namespace {
   opacity: .7
