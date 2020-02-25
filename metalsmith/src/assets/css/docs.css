@@ -95,7 +95,7 @@ main > header {
 .site-footer {
   align-items: center;
   height: 4.2rem;
-  border-top: 1px solid var(--color-secondary)
+  border-top: 1px solid var(--color-dark-accent)
 }
 .copyright {
   flex: 1;

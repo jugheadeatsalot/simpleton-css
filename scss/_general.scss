@@ -40,7 +40,7 @@ table {
 
 caption {
     padding-top:calc(var(--space) * 0.375);
-    border-top:$border-size solid var(--color-contrast-lower);
+    border-top:var(--border-size) solid var(--color-contrast-lower);
     text-align:left;
     text-transform:uppercase;
     font-weight:var(--font-weight-bold);
@@ -54,8 +54,8 @@ td {
 }
 
 tr {
-    border-top:$border-size solid var(--color-contrast-lower);
-    border-bottom:$border-size solid var(--color-contrast-lower);
+    border-top:var(--border-size) solid var(--color-contrast-lower);
+    border-bottom:var(--border-size) solid var(--color-contrast-lower);
     text-align:left;
 }
 

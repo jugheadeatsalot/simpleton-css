@@ -133,7 +133,7 @@ dl {
 }
 
 hr {
-    height:$border-size;
+    height:var(--border-size);
     border:0;
     background-color:var(--color-contrast-lower);
 }

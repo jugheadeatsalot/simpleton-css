@@ -24,8 +24,11 @@
   --line-height-h2: 1.25;
   --line-height-h3: 1.35;
   --line-height-h4: 1.45;
-  --color-contrast: #2c3e50;
+  --color-primary: #2980b9;
+  --color-dark-accent: #3498db;
+  --color-light-accent: #8e44ad;
   --color-background: #ffffff;
+  --color-contrast: #2c3e50;
   --color-contrast-medium: gray;
   --color-contrast-low: #a6a6a6;
   --color-contrast-lower: #cccccc;
@@ -37,9 +40,6 @@
   --color-alert: #c0392b;
   --color-warning: #d35400;
   --color-highlight: #f1c40f;
-  --color-primary: #2980b9;
-  --color-secondary: #3498db;
-  --color-accent: #8e44ad;
   --color-dribbble: #ea4c89;
   --color-facebook: #3b5998;
   --color-flickr: #ff0084;
@@ -98,7 +98,12 @@
   --p-input-r: 0.75rem;
   --p-input-b: 0.5rem;
   --p-input-l: 0.75rem;
-  --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l)
+  --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --easing: var(--ease-in-out-expo);
+  --max-site-width: 1200px;
+  --border-size: 1px
 }
 html {
   overflow-y: scroll;
@@ -244,6 +249,7 @@ dl dd {
 }
 hr {
   height: 1px;
+  height: var(--border-size);
   border: 0;
   background-color: #ccc;
   background-color: var(--color-contrast-lower)
@@ -506,7 +512,7 @@ caption {
   padding-top: .5625rem;
   padding-top: calc(var(--space)*.375);
   border-top: 1px solid #ccc;
-  border-top: 1px solid var(--color-contrast-lower);
+  border-top: var(--border-size) solid var(--color-contrast-lower);
   text-align: left;
   text-transform: uppercase;
   font-weight: 700;
@@ -521,9 +527,9 @@ tr {
 }
 tr {
   border-top: 1px solid #ccc;
-  border-top: 1px solid var(--color-contrast-lower);
+  border-top: var(--border-size) solid var(--color-contrast-lower);
   border-bottom: 1px solid #ccc;
-  border-bottom: 1px solid var(--color-contrast-lower);
+  border-bottom: var(--border-size) solid var(--color-contrast-lower);
   text-align: left
 }
 tfoot,
@@ -972,8 +978,8 @@ input[type=submit] {
   border-radius: 4px;
   background-color: #2c3e50;
   background-color: var(--color-contrast);
-  color: #a6a6a6;
-  color: var(--color-contrast-low);
+  color: #fff;
+  color: var(--color-background);
   cursor: pointer;
   transition: background-color .2s,color .2s
 }
@@ -1005,7 +1011,7 @@ input[type=week] {
   width: 100%;
   border: none;
   box-shadow: 0 0 0 1px #ccc inset;
-  box-shadow: 0 0 0 1px var(--color-contrast-lower) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 @media (min-width:0\0) and (-webkit-min-device-pixel-ratio:0.75),
 (min-width:0\0) and (min-resolution:72dpi) {
@@ -1043,7 +1049,7 @@ input[type=week]:focus {
   outline: 0;
   border: none;
   box-shadow: 0 0 0 1px #2980b9 inset;
-  box-shadow: 0 0 0 1px var(--color-primary) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 input[type=checkbox],
 input[type=radio] {
@@ -1058,13 +1064,13 @@ textarea {
   width: 100%;
   border: none;
   box-shadow: 0 0 0 1px #ccc inset;
-  box-shadow: 0 0 0 1px var(--color-contrast-lower) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 textarea:focus {
   outline: 0;
   border: none;
   box-shadow: 0 0 0 1px #2980b9 inset;
-  box-shadow: 0 0 0 1px var(--color-primary) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 select {
   padding: .5rem .75rem .5rem .75rem;
@@ -1073,19 +1079,19 @@ select {
   width: 100%;
   border: none;
   box-shadow: 0 0 0 1px #ccc inset;
-  box-shadow: 0 0 0 1px var(--color-contrast-lower) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 select:focus {
   outline: 0;
   border: none;
   box-shadow: 0 0 0 1px #2980b9 inset;
-  box-shadow: 0 0 0 1px var(--color-primary) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 fieldset {
   padding: 1.5rem;
   padding: var(--space);
   box-shadow: 0 0 0 1px #ccc inset;
-  box-shadow: 0 0 0 1px var(--color-contrast-lower) inset
+  box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 fieldset legend {
   margin-left: -7.5px;

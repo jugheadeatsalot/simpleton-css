@@ -6,7 +6,7 @@
     border:none;
     border-radius:4px;
     background-color:var(--color-contrast);
-    color:var(--color-contrast-low);
+    color:var(--color-background);
     cursor:pointer;
     transition:background-color 0.2s, color 0.2s;
 }
@@ -28,12 +28,12 @@ button,
     min-height:2.5rem;
     width:100%;
     border:none;
-    box-shadow:0 0 0 $border-size var(--color-contrast-lower) inset;
+    box-shadow:0 0 0 var(--border-size) var(--color-contrast-lower) inset;
 
     &:focus {
         outline:none;
         border:none;
-        box-shadow:0 0 0 $border-size var(--color-primary) inset;
+        box-shadow:0 0 0 var(--border-size) var(--color-primary) inset;
     }
 }
 
@@ -75,7 +75,7 @@ select {
 
 fieldset {
     padding:var(--space);
-    box-shadow:0 0 0 $border-size var(--color-contrast-lower) inset;
+    box-shadow:0 0 0 var(--border-size) var(--color-contrast-lower) inset;
 
     legend {
         margin-left:calc(var(--alley) * -0.25);

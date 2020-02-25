@@ -226,7 +226,7 @@
 /// @param {number} $threshold [60]
 /// @param {color} $dark [$color-dark]
 /// @param {color} $light [$color-light]
-@function auto-color($bg-color, $threshold: 60, $dark, $light) {
+@function auto-color($bg-color, $threshold: 60, $dark: black, $light: white) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
