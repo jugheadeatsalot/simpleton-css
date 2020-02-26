@@ -7,11 +7,11 @@
         $inc:$inc + 25;
 
         &.mgb-#{$inc} {
-            @include mgb-row($inc);
+            @include mgb-row($inc / 100);
         }
 
         &.mgbch-#{$inc} {
-            @include mgbch-row($inc, true);
+            @include mgbch-row($inc / 100, true);
         }
     }
 

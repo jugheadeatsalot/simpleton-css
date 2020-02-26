@@ -84,28 +84,22 @@ $line-heights:map-merge(
  */
 
 $colorize-buttons:false;
-$color-dark:#2c3e50 !default;
-$color-light:#ffffff !default;
-$color-gray:lighten(black, 50%) !default;
-$color-graylight:lighten(black, 65%) !default;
-$color-graylighter:lighten(black, 80%) !default;
-$color-graylightest:lighten(black, 95%) !default;
-$color-graydark:lighten(black, 40%) !default;
-$color-graydarker:lighten(black, 30%) !default;
-$color-graydarkest:lighten(black, 20%) !default;
+$color-primary:#dc2f3c !default;
+$color-dark-accent:#587b98 !default;
+$color-light-accent:#76b1df !default;
+$color-background:#ffffff !default;
+$color-contrast:#252428 !default;
+$color-contrast-medium:#8c8c8c !default;
+$color-contrast-low:#bfbfbf !default;
+$color-contrast-lower:#d9d9d9 !default;
+$color-contrast-lowest:#f2f2f2 !default;
+$color-contrast-high:#737373 !default;
+$color-contrast-higher:#595959 !default;
+$color-contrast-highest:#404040 !default;
 $color-success:#27ae60 !default;
 $color-alert:#c0392b !default;
 $color-warning:#d35400 !default;
 $color-highlight:#f1c40f !default;
-$color-primary:#2980b9 !default;
-$color-secondary:#3498db !default;
-$color-accent:#8e44ad !default;
-$color-idle:$color-graylighter !default;
-$color-subtle:$color-graylightest !default;
-$color-text:$color-dark !default;
-$color-link:$color-primary !default;
-$color-background:$color-light !default;
-$color-border:$color-graylighter !default;
 $color-dribbble:#ea4c89 !default;
 $color-facebook:#3b5998 !default;
 $color-flickr:#ff0084 !default;
@@ -120,33 +114,33 @@ $color-youtube:#b31217 !default;
 $colors:() !default;
 $colors:map-merge(
         (
-            dark: $color-dark,
-            light: $color-light,
-            gray: $color-gray,
-            graylight: $color-graylight,
-            graylighter: $color-graylighter,
-            graylightest: $color-graylightest,
-            graydark: $color-graydark,
-            graydarker: $color-graydarker,
-            graydarkest: $color-graydarkest,
-            success: $color-success,
-            alert: $color-alert,
-            warning: $color-warning,
-            highlight: $color-highlight,
-            primary: $color-primary,
-            secondary: $color-secondary,
-            accent: $color-accent,
-            dribbble: $color-dribbble,
-            facebook: $color-facebook,
-            flickr: $color-flickr,
-            instagram: $color-instagram,
-            linkedin: $color-linkedin,
-            medium: $color-medium,
-            pinterest: $color-pinterest,
-            rss: $color-rss,
-            tumblr: $color-tumblr,
-            twitter: $color-twitter,
-            youtube: $color-youtube,
+            primary:$color-primary,
+            dark-accent:$color-dark-accent,
+            light-accent:$color-light-accent,
+            background:$color-background,
+            contrast:$color-contrast,
+            contrast-medium:$color-contrast-medium,
+            contrast-low:$color-contrast-low,
+            contrast-lower:$color-contrast-lower,
+            contrast-lowest:$color-contrast-lowest,
+            contrast-high:$color-contrast-high,
+            contrast-higher:$color-contrast-higher,
+            contrast-highest:$color-contrast-highest,
+            success:$color-success,
+            alert:$color-alert,
+            warning:$color-warning,
+            highlight:$color-highlight,
+            dribbble:$color-dribbble,
+            facebook:$color-facebook,
+            flickr:$color-flickr,
+            instagram:$color-instagram,
+            linkedin:$color-linkedin,
+            medium:$color-medium,
+            pinterest:$color-pinterest,
+            rss:$color-rss,
+            tumblr:$color-tumblr,
+            twitter:$color-twitter,
+            youtube:$color-youtube,
         ),
         $colors
 );

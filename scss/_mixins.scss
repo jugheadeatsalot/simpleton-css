@@ -10,16 +10,16 @@
 }
 
 /// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
-/// @param {number} $aspect-width [16]
-/// @param {number} $aspect-height [9]
+/// @param {<number>} $aspect-width [16]
+/// @param {<number>} $aspect-height [9]
 /// @access private
 @mixin aspect-ratio-to-padding($aspect-width:16, $aspect-height:9) {
     padding-bottom:percentage($aspect-height / $aspect-width);
 }
 
 /// Adds styles for a responsive video container.
-/// @param {number} $aspect-width [16]
-/// @param {number} $aspect-height [9]
+/// @param {<number>} $aspect-width [16]
+/// @param {<number>} $aspect-height [9]
 @mixin video-container($aspect-width:16, $aspect-height:9) {
     @include aspect-ratio-to-padding($aspect-width, $aspect-height);
 
@@ -39,7 +39,7 @@
 }
 
 /// Includes `@content` on screens up to `$max-width` wide.
-/// @param {number} $max-width
+/// @param {<number>} $max-width
 @mixin max($max-width) {
     @media (max-width:$max-width) {
         @content;
@@ -47,14 +47,15 @@
 }
 
 /// Includes `@content` on screens that are at least `$min-width` wide.
-/// @param {number} $min-width
+/// @param {<number>} $min-width
 @mixin min($min-width) {
     @media (min-width:$min-width) {
         @content;
     }
 }
 
-///
+/// @param {<number>} $min-width
+/// @param {<number>} $max-width
 @mixin min-max($min-width, $max-width) {
     @media (min-width:$min-width) and (max-width:$max-width) {
         @content;
@@ -106,7 +107,7 @@
 }
 
 /// Removes margins if element is first and/or last child (depending on scope).
-/// @param {string} $scope [all]
+/// @param {<string>} $scope [all]
 @mixin control-margins($scope:all) {
     $scope-y:$scope == vertical or $scope == all;
     $scope-x:$scope == horizontal or $scope == all;
@@ -144,6 +145,7 @@
 }
 
 /// Sets default vertical margins for selected elements
+/// @param {<number>|false} $multiplier [false]
 @mixin vertical-margins($multiplier:false) {
     $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
@@ -187,7 +189,8 @@
     }
 }
 
-///
+/// @param {1|2|3|4} $type
+/// @param {<number>|false} $margins-multiplier [false]
 @mixin h($type:1, $margins-multiplier:false) {
     font-weight:var(--font-weight-heading);
     font-size:var(--font-size-h#{$type});
@@ -229,7 +232,8 @@
     }
 }
 
-///
+/// @param {<number>|false} $multiplier [false]
+/// @param {<bool>} $important [false]
 @mixin mgb($multiplier:false, $important:false) {
     $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
@@ -240,14 +244,16 @@
     }
 }
 
-///
+/// @param {<number>|false} $multiplier [false]
+/// @param {<bool>} $important [false]
 @mixin mgbch($multiplier:false, $important:false) {
     > * {
         @include mgb($multiplier, $important);
     }
 }
 
-///
+/// @param {<number>|false} $multiplier [false]
+/// @param {<bool>} $important [false]
 @mixin mgb-row($multiplier:false, $important:false) {
     &:not(:last-child):after,
     &.f-margins:last-child:after {
@@ -255,7 +261,8 @@
     }
 }
 
-///
+/// @param {<number>|false} $multiplier [false]
+/// @param {<bool>} $important [false]
 @mixin mgbch-row($multiplier:false, $important:false) {
     @include mgb(-$multiplier, $important);
 
@@ -264,7 +271,8 @@
     }
 }
 
-///
+/// @param {row|col} $type [row]
+/// @param {<number>|false} $multiplier [false]
 @mixin row-alleys($type:row, $alley-multiplier:false) {
     $m:false;
 

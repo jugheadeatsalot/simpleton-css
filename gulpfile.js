@@ -133,7 +133,7 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
-const processSassdocData = async sassdocData => {
+const processSassdocData = sassdocData => {
     const output = {};
 
     sassdocData.forEach(doc => {
@@ -174,16 +174,17 @@ const processSassdocData = async sassdocData => {
         output[type].push(doc);
     });
 
-    await fs.writeFile(
-        files.sassdocjson,
-        JSON.stringify(output, null, 2),
-        (err) => {
-            if(err) throw err;
-        });
+    try {
+        fs.writeFileSync(files.sassdocjson, JSON.stringify(output, null, 2));
+
+        console.log('sassdocjson generated!!!');
+    } catch(err) {
+        console.error(err);
+    }
 };
 
-gulp.task('sassdoc', async() => {
-    await gulp
+gulp.task('sassdoc', () => {
+    return gulp
         .src(paths.scss)
         .pipe(sassdoc.parse())
         .on('data', processSassdocData);

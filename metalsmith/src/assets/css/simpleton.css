@@ -29,18 +29,18 @@
   --line-height-h2-in-rem: 1.25rem;
   --line-height-h3-in-rem: 1.35rem;
   --line-height-h4-in-rem: 1.45rem;
-  --color-primary: #2980b9;
-  --color-dark-accent: #3498db;
-  --color-light-accent: #8e44ad;
+  --color-primary: #dc2f3c;
+  --color-dark-accent: #587b98;
+  --color-light-accent: #76b1df;
   --color-background: #ffffff;
-  --color-contrast: #2c3e50;
-  --color-contrast-medium: gray;
-  --color-contrast-low: #a6a6a6;
-  --color-contrast-lower: #cccccc;
+  --color-contrast: #252428;
+  --color-contrast-medium: #8c8c8c;
+  --color-contrast-low: #bfbfbf;
+  --color-contrast-lower: #d9d9d9;
   --color-contrast-lowest: #f2f2f2;
-  --color-contrast-high: #666666;
-  --color-contrast-higher: #4d4d4d;
-  --color-contrast-highest: #333333;
+  --color-contrast-high: #737373;
+  --color-contrast-higher: #595959;
+  --color-contrast-highest: #404040;
   --color-success: #27ae60;
   --color-alert: #c0392b;
   --color-warning: #d35400;
@@ -126,7 +126,7 @@ body {
   padding: 0;
   background-color: #fff;
   background-color: var(--color-background);
-  color: #2c3e50;
+  color: #252428;
   color: var(--color-contrast);
   text-shadow: 1px 1px 1px rgba(0,0,0,.05);
   word-wrap: break-word;
@@ -256,7 +256,7 @@ hr {
   height: 1px;
   height: var(--border-size);
   border: 0;
-  background-color: #ccc;
+  background-color: #d9d9d9;
   background-color: var(--color-contrast-lower)
 }
 blockquote,
@@ -270,7 +270,7 @@ q:before {
   content: none
 }
 a {
-  color: #2980b9;
+  color: #dc2f3c;
   color: var(--color-primary);
   text-decoration: none;
   transition: color .2s
@@ -334,7 +334,7 @@ small {
 ins {
   padding: .125rem .25rem .125rem .25rem;
   padding: var(--padding-inline);
-  background-color: #2980b9;
+  background-color: #dc2f3c;
   background-color: var(--color-primary);
   color: #fff;
   color: var(--color-background);
@@ -343,7 +343,7 @@ ins {
 mark {
   padding: .125rem .25rem .125rem .25rem;
   padding: var(--padding-inline);
-  background-color: #2980b9;
+  background-color: #dc2f3c;
   background-color: var(--color-primary);
   color: #fff;
   color: var(--color-background)
@@ -361,7 +361,7 @@ pre {
   overflow: auto;
   padding: .75rem 1.25rem .75rem 1rem;
   padding: var(--padding-box);
-  border-left: .25rem solid #2980b9;
+  border-left: .25rem solid #dc2f3c;
   border-left: .25rem solid var(--color-primary);
   background-color: #f2f2f2;
   background-color: var(--color-contrast-lowest)
@@ -373,7 +373,7 @@ pre code {
 blockquote {
   padding: .75rem 1.25rem .75rem 1rem;
   padding: var(--padding-box);
-  border-left: .25rem solid #ccc;
+  border-left: .25rem solid #d9d9d9;
   border-left: .25rem solid var(--color-contrast-lower);
   font-size: 1.2em;
   font-size: var(--font-size-h4);
@@ -516,7 +516,7 @@ table.fixed {
 caption {
   padding-top: .5625rem;
   padding-top: calc(var(--space)*.375);
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #d9d9d9;
   border-top: var(--border-size) solid var(--color-contrast-lower);
   text-align: left;
   text-transform: uppercase;
@@ -531,9 +531,9 @@ tr {
   text-align: left
 }
 tr {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #d9d9d9;
   border-top: var(--border-size) solid var(--color-contrast-lower);
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #d9d9d9;
   border-bottom: var(--border-size) solid var(--color-contrast-lower);
   text-align: left
 }
@@ -554,7 +554,7 @@ th {
 figcaption {
   padding-top: .5625rem;
   padding-top: calc(var(--space)*.375);
-  color: gray;
+  color: #8c8c8c;
   color: var(--color-contrast-medium);
   text-align: center;
   font-size: .8em;
@@ -806,59 +806,77 @@ figcaption {
     display: none
   }
 }
-.bg-dark {
-  background-color: #2c3e50
+.bg-primary {
+  background-color: #dc2f3c
 }
-.text-dark {
-  color: #2c3e50
+.text-primary {
+  color: #dc2f3c
 }
-.bg-light {
+.bg-dark-accent {
+  background-color: #587b98
+}
+.text-dark-accent {
+  color: #587b98
+}
+.bg-light-accent {
+  background-color: #76b1df
+}
+.text-light-accent {
+  color: #76b1df
+}
+.bg-background {
   background-color: #fff
 }
-.text-light {
+.text-background {
   color: #fff
 }
-.bg-gray {
-  background-color: gray
+.bg-contrast {
+  background-color: #252428
 }
-.text-gray {
-  color: gray
+.text-contrast {
+  color: #252428
 }
-.bg-graylight {
-  background-color: #a6a6a6
+.bg-contrast-medium {
+  background-color: #8c8c8c
 }
-.text-graylight {
-  color: #a6a6a6
+.text-contrast-medium {
+  color: #8c8c8c
 }
-.bg-graylighter {
-  background-color: #ccc
+.bg-contrast-low {
+  background-color: #bfbfbf
 }
-.text-graylighter {
-  color: #ccc
+.text-contrast-low {
+  color: #bfbfbf
 }
-.bg-graylightest {
+.bg-contrast-lower {
+  background-color: #d9d9d9
+}
+.text-contrast-lower {
+  color: #d9d9d9
+}
+.bg-contrast-lowest {
   background-color: #f2f2f2
 }
-.text-graylightest {
+.text-contrast-lowest {
   color: #f2f2f2
 }
-.bg-graydark {
-  background-color: #666
+.bg-contrast-high {
+  background-color: #737373
 }
-.text-graydark {
-  color: #666
+.text-contrast-high {
+  color: #737373
 }
-.bg-graydarker {
-  background-color: #4d4d4d
+.bg-contrast-higher {
+  background-color: #595959
 }
-.text-graydarker {
-  color: #4d4d4d
+.text-contrast-higher {
+  color: #595959
 }
-.bg-graydarkest {
-  background-color: #333
+.bg-contrast-highest {
+  background-color: #404040
 }
-.text-graydarkest {
-  color: #333
+.text-contrast-highest {
+  color: #404040
 }
 .bg-success {
   background-color: #27ae60
@@ -883,24 +901,6 @@ figcaption {
 }
 .text-highlight {
   color: #f1c40f
-}
-.bg-primary {
-  background-color: #2980b9
-}
-.text-primary {
-  color: #2980b9
-}
-.bg-secondary {
-  background-color: #3498db
-}
-.text-secondary {
-  color: #3498db
-}
-.bg-accent {
-  background-color: #8e44ad
-}
-.text-accent {
-  color: #8e44ad
 }
 .bg-dribbble {
   background-color: #ea4c89
@@ -981,7 +981,7 @@ input[type=submit] {
   min-height: 2.5rem;
   border: none;
   border-radius: 4px;
-  background-color: #2c3e50;
+  background-color: #252428;
   background-color: var(--color-contrast);
   color: #fff;
   color: var(--color-background);
@@ -993,7 +993,7 @@ button[disabled],
 input[type=button][disabled],
 input[type=reset][disabled],
 input[type=submit][disabled] {
-  background-color: #ccc;
+  background-color: #d9d9d9;
   background-color: var(--color-contrast-lower)
 }
 input[type=color],
@@ -1015,7 +1015,7 @@ input[type=week] {
   min-height: 2.5rem;
   width: 100%;
   border: none;
-  box-shadow: 0 0 0 1px #ccc inset;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 @media (min-width:0\0) and (-webkit-min-device-pixel-ratio:0.75),
@@ -1053,7 +1053,7 @@ input[type=url]:focus,
 input[type=week]:focus {
   outline: 0;
   border: none;
-  box-shadow: 0 0 0 1px #2980b9 inset;
+  box-shadow: 0 0 0 1px #dc2f3c inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 input[type=checkbox],
@@ -1068,13 +1068,13 @@ textarea {
   min-height: 2.5rem;
   width: 100%;
   border: none;
-  box-shadow: 0 0 0 1px #ccc inset;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 textarea:focus {
   outline: 0;
   border: none;
-  box-shadow: 0 0 0 1px #2980b9 inset;
+  box-shadow: 0 0 0 1px #dc2f3c inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 select {
@@ -1083,19 +1083,19 @@ select {
   min-height: 2.5rem;
   width: 100%;
   border: none;
-  box-shadow: 0 0 0 1px #ccc inset;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 select:focus {
   outline: 0;
   border: none;
-  box-shadow: 0 0 0 1px #2980b9 inset;
+  box-shadow: 0 0 0 1px #dc2f3c inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset
 }
 fieldset {
   padding: 1.5rem;
   padding: var(--space);
-  box-shadow: 0 0 0 1px #ccc inset;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
   box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset
 }
 fieldset legend {
@@ -1105,8 +1105,8 @@ fieldset legend {
   margin-bottom: calc(var(--space)*-.3);
   padding: 0 7.5px;
   padding: 0 calc(var(--alley)*.25);
-  background-color: #a6a6a6;
-  background-color: var(--color-contrast-low);
+  background-color: #fff;
+  background-color: var(--color-background);
   text-transform: uppercase;
   font-size: .8em;
   font-size: var(--font-size-xsmall)
@@ -1144,315 +1144,315 @@ textarea {
 }
 .row.mgb-25.f-margins:last-child:after,
 .row.mgb-25:not(:last-child):after {
-  margin-bottom: 37.5rem;
-  margin-bottom: calc(var(--space)*25)
+  margin-bottom: .375rem;
+  margin-bottom: calc(var(--space)*.25)
 }
 .row.mgbch-25 {
-  margin-bottom: 1.5rem!important;
-  margin-bottom: var(--space)!important
+  margin-bottom: -.375rem!important;
+  margin-bottom: calc(var(--space)*-.25)!important
 }
 .row.mgbch-25 > * {
-  margin-bottom: 37.5rem!important;
-  margin-bottom: calc(var(--space)*25)!important
+  margin-bottom: .375rem!important;
+  margin-bottom: calc(var(--space)*.25)!important
 }
 .row.mgb-50.f-margins:last-child:after,
 .row.mgb-50:not(:last-child):after {
-  margin-bottom: 75rem;
-  margin-bottom: calc(var(--space)*50)
+  margin-bottom: .75rem;
+  margin-bottom: calc(var(--space)*.5)
 }
 .row.mgbch-50 {
-  margin-bottom: 1.5rem!important;
-  margin-bottom: var(--space)!important
+  margin-bottom: -.75rem!important;
+  margin-bottom: calc(var(--space)*-.5)!important
 }
 .row.mgbch-50 > * {
-  margin-bottom: 75rem!important;
-  margin-bottom: calc(var(--space)*50)!important
+  margin-bottom: .75rem!important;
+  margin-bottom: calc(var(--space)*.5)!important
 }
 .row.mgb-75.f-margins:last-child:after,
 .row.mgb-75:not(:last-child):after {
-  margin-bottom: 112.5rem;
-  margin-bottom: calc(var(--space)*75)
+  margin-bottom: 1.125rem;
+  margin-bottom: calc(var(--space)*.75)
 }
 .row.mgbch-75 {
-  margin-bottom: 1.5rem!important;
-  margin-bottom: var(--space)!important
+  margin-bottom: -1.125rem!important;
+  margin-bottom: calc(var(--space)*-.75)!important
 }
 .row.mgbch-75 > * {
-  margin-bottom: 112.5rem!important;
-  margin-bottom: calc(var(--space)*75)!important
+  margin-bottom: 1.125rem!important;
+  margin-bottom: calc(var(--space)*.75)!important
 }
 .row.mgb-100.f-margins:last-child:after,
 .row.mgb-100:not(:last-child):after {
-  margin-bottom: 150rem;
-  margin-bottom: calc(var(--space)*100)
+  margin-bottom: 1.5rem;
+  margin-bottom: calc(var(--space)*1)
 }
 .row.mgbch-100 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-100 > * {
-  margin-bottom: 150rem!important;
-  margin-bottom: calc(var(--space)*100)!important
+  margin-bottom: 1.5rem!important;
+  margin-bottom: calc(var(--space)*1)!important
 }
 .row.mgb-125.f-margins:last-child:after,
 .row.mgb-125:not(:last-child):after {
-  margin-bottom: 187.5rem;
-  margin-bottom: calc(var(--space)*125)
+  margin-bottom: 1.875rem;
+  margin-bottom: calc(var(--space)*1.25)
 }
 .row.mgbch-125 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-125 > * {
-  margin-bottom: 187.5rem!important;
-  margin-bottom: calc(var(--space)*125)!important
+  margin-bottom: 1.875rem!important;
+  margin-bottom: calc(var(--space)*1.25)!important
 }
 .row.mgb-150.f-margins:last-child:after,
 .row.mgb-150:not(:last-child):after {
-  margin-bottom: 225rem;
-  margin-bottom: calc(var(--space)*150)
+  margin-bottom: 2.25rem;
+  margin-bottom: calc(var(--space)*1.5)
 }
 .row.mgbch-150 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-150 > * {
-  margin-bottom: 225rem!important;
-  margin-bottom: calc(var(--space)*150)!important
+  margin-bottom: 2.25rem!important;
+  margin-bottom: calc(var(--space)*1.5)!important
 }
 .row.mgb-175.f-margins:last-child:after,
 .row.mgb-175:not(:last-child):after {
-  margin-bottom: 262.5rem;
-  margin-bottom: calc(var(--space)*175)
+  margin-bottom: 2.625rem;
+  margin-bottom: calc(var(--space)*1.75)
 }
 .row.mgbch-175 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-175 > * {
-  margin-bottom: 262.5rem!important;
-  margin-bottom: calc(var(--space)*175)!important
+  margin-bottom: 2.625rem!important;
+  margin-bottom: calc(var(--space)*1.75)!important
 }
 .row.mgb-200.f-margins:last-child:after,
 .row.mgb-200:not(:last-child):after {
-  margin-bottom: 300rem;
-  margin-bottom: calc(var(--space)*200)
+  margin-bottom: 3rem;
+  margin-bottom: calc(var(--space)*2)
 }
 .row.mgbch-200 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-200 > * {
-  margin-bottom: 300rem!important;
-  margin-bottom: calc(var(--space)*200)!important
+  margin-bottom: 3rem!important;
+  margin-bottom: calc(var(--space)*2)!important
 }
 .row.mgb-225.f-margins:last-child:after,
 .row.mgb-225:not(:last-child):after {
-  margin-bottom: 337.5rem;
-  margin-bottom: calc(var(--space)*225)
+  margin-bottom: 3.375rem;
+  margin-bottom: calc(var(--space)*2.25)
 }
 .row.mgbch-225 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-225 > * {
-  margin-bottom: 337.5rem!important;
-  margin-bottom: calc(var(--space)*225)!important
+  margin-bottom: 3.375rem!important;
+  margin-bottom: calc(var(--space)*2.25)!important
 }
 .row.mgb-250.f-margins:last-child:after,
 .row.mgb-250:not(:last-child):after {
-  margin-bottom: 375rem;
-  margin-bottom: calc(var(--space)*250)
+  margin-bottom: 3.75rem;
+  margin-bottom: calc(var(--space)*2.5)
 }
 .row.mgbch-250 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-250 > * {
-  margin-bottom: 375rem!important;
-  margin-bottom: calc(var(--space)*250)!important
+  margin-bottom: 3.75rem!important;
+  margin-bottom: calc(var(--space)*2.5)!important
 }
 .row.mgb-275.f-margins:last-child:after,
 .row.mgb-275:not(:last-child):after {
-  margin-bottom: 412.5rem;
-  margin-bottom: calc(var(--space)*275)
+  margin-bottom: 4.125rem;
+  margin-bottom: calc(var(--space)*2.75)
 }
 .row.mgbch-275 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-275 > * {
-  margin-bottom: 412.5rem!important;
-  margin-bottom: calc(var(--space)*275)!important
+  margin-bottom: 4.125rem!important;
+  margin-bottom: calc(var(--space)*2.75)!important
 }
 .row.mgb-300.f-margins:last-child:after,
 .row.mgb-300:not(:last-child):after {
-  margin-bottom: 450rem;
-  margin-bottom: calc(var(--space)*300)
+  margin-bottom: 4.5rem;
+  margin-bottom: calc(var(--space)*3)
 }
 .row.mgbch-300 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-300 > * {
-  margin-bottom: 450rem!important;
-  margin-bottom: calc(var(--space)*300)!important
+  margin-bottom: 4.5rem!important;
+  margin-bottom: calc(var(--space)*3)!important
 }
 .row.mgb-325.f-margins:last-child:after,
 .row.mgb-325:not(:last-child):after {
-  margin-bottom: 487.5rem;
-  margin-bottom: calc(var(--space)*325)
+  margin-bottom: 4.875rem;
+  margin-bottom: calc(var(--space)*3.25)
 }
 .row.mgbch-325 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-325 > * {
-  margin-bottom: 487.5rem!important;
-  margin-bottom: calc(var(--space)*325)!important
+  margin-bottom: 4.875rem!important;
+  margin-bottom: calc(var(--space)*3.25)!important
 }
 .row.mgb-350.f-margins:last-child:after,
 .row.mgb-350:not(:last-child):after {
-  margin-bottom: 525rem;
-  margin-bottom: calc(var(--space)*350)
+  margin-bottom: 5.25rem;
+  margin-bottom: calc(var(--space)*3.5)
 }
 .row.mgbch-350 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-350 > * {
-  margin-bottom: 525rem!important;
-  margin-bottom: calc(var(--space)*350)!important
+  margin-bottom: 5.25rem!important;
+  margin-bottom: calc(var(--space)*3.5)!important
 }
 .row.mgb-375.f-margins:last-child:after,
 .row.mgb-375:not(:last-child):after {
-  margin-bottom: 562.5rem;
-  margin-bottom: calc(var(--space)*375)
+  margin-bottom: 5.625rem;
+  margin-bottom: calc(var(--space)*3.75)
 }
 .row.mgbch-375 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-375 > * {
-  margin-bottom: 562.5rem!important;
-  margin-bottom: calc(var(--space)*375)!important
+  margin-bottom: 5.625rem!important;
+  margin-bottom: calc(var(--space)*3.75)!important
 }
 .row.mgb-400.f-margins:last-child:after,
 .row.mgb-400:not(:last-child):after {
-  margin-bottom: 600rem;
-  margin-bottom: calc(var(--space)*400)
+  margin-bottom: 6rem;
+  margin-bottom: calc(var(--space)*4)
 }
 .row.mgbch-400 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-400 > * {
-  margin-bottom: 600rem!important;
-  margin-bottom: calc(var(--space)*400)!important
+  margin-bottom: 6rem!important;
+  margin-bottom: calc(var(--space)*4)!important
 }
 .row.mgb-425.f-margins:last-child:after,
 .row.mgb-425:not(:last-child):after {
-  margin-bottom: 637.5rem;
-  margin-bottom: calc(var(--space)*425)
+  margin-bottom: 6.375rem;
+  margin-bottom: calc(var(--space)*4.25)
 }
 .row.mgbch-425 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-425 > * {
-  margin-bottom: 637.5rem!important;
-  margin-bottom: calc(var(--space)*425)!important
+  margin-bottom: 6.375rem!important;
+  margin-bottom: calc(var(--space)*4.25)!important
 }
 .row.mgb-450.f-margins:last-child:after,
 .row.mgb-450:not(:last-child):after {
-  margin-bottom: 675rem;
-  margin-bottom: calc(var(--space)*450)
+  margin-bottom: 6.75rem;
+  margin-bottom: calc(var(--space)*4.5)
 }
 .row.mgbch-450 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-450 > * {
-  margin-bottom: 675rem!important;
-  margin-bottom: calc(var(--space)*450)!important
+  margin-bottom: 6.75rem!important;
+  margin-bottom: calc(var(--space)*4.5)!important
 }
 .row.mgb-475.f-margins:last-child:after,
 .row.mgb-475:not(:last-child):after {
-  margin-bottom: 712.5rem;
-  margin-bottom: calc(var(--space)*475)
+  margin-bottom: 7.125rem;
+  margin-bottom: calc(var(--space)*4.75)
 }
 .row.mgbch-475 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-475 > * {
-  margin-bottom: 712.5rem!important;
-  margin-bottom: calc(var(--space)*475)!important
+  margin-bottom: 7.125rem!important;
+  margin-bottom: calc(var(--space)*4.75)!important
 }
 .row.mgb-500.f-margins:last-child:after,
 .row.mgb-500:not(:last-child):after {
-  margin-bottom: 750rem;
-  margin-bottom: calc(var(--space)*500)
+  margin-bottom: 7.5rem;
+  margin-bottom: calc(var(--space)*5)
 }
 .row.mgbch-500 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-500 > * {
-  margin-bottom: 750rem!important;
-  margin-bottom: calc(var(--space)*500)!important
+  margin-bottom: 7.5rem!important;
+  margin-bottom: calc(var(--space)*5)!important
 }
 .row.mgb-525.f-margins:last-child:after,
 .row.mgb-525:not(:last-child):after {
-  margin-bottom: 787.5rem;
-  margin-bottom: calc(var(--space)*525)
+  margin-bottom: 7.875rem;
+  margin-bottom: calc(var(--space)*5.25)
 }
 .row.mgbch-525 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-525 > * {
-  margin-bottom: 787.5rem!important;
-  margin-bottom: calc(var(--space)*525)!important
+  margin-bottom: 7.875rem!important;
+  margin-bottom: calc(var(--space)*5.25)!important
 }
 .row.mgb-550.f-margins:last-child:after,
 .row.mgb-550:not(:last-child):after {
-  margin-bottom: 825rem;
-  margin-bottom: calc(var(--space)*550)
+  margin-bottom: 8.25rem;
+  margin-bottom: calc(var(--space)*5.5)
 }
 .row.mgbch-550 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-550 > * {
-  margin-bottom: 825rem!important;
-  margin-bottom: calc(var(--space)*550)!important
+  margin-bottom: 8.25rem!important;
+  margin-bottom: calc(var(--space)*5.5)!important
 }
 .row.mgb-575.f-margins:last-child:after,
 .row.mgb-575:not(:last-child):after {
-  margin-bottom: 862.5rem;
-  margin-bottom: calc(var(--space)*575)
+  margin-bottom: 8.625rem;
+  margin-bottom: calc(var(--space)*5.75)
 }
 .row.mgbch-575 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-575 > * {
-  margin-bottom: 862.5rem!important;
-  margin-bottom: calc(var(--space)*575)!important
+  margin-bottom: 8.625rem!important;
+  margin-bottom: calc(var(--space)*5.75)!important
 }
 .row.mgb-600.f-margins:last-child:after,
 .row.mgb-600:not(:last-child):after {
-  margin-bottom: 900rem;
-  margin-bottom: calc(var(--space)*600)
+  margin-bottom: 9rem;
+  margin-bottom: calc(var(--space)*6)
 }
 .row.mgbch-600 {
   margin-bottom: 1.5rem!important;
   margin-bottom: var(--space)!important
 }
 .row.mgbch-600 > * {
-  margin-bottom: 900rem!important;
-  margin-bottom: calc(var(--space)*600)!important
+  margin-bottom: 9rem!important;
+  margin-bottom: calc(var(--space)*6)!important
 }
 .row.noalley {
   margin-right: 0;

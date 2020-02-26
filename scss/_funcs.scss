@@ -4,14 +4,14 @@
  */
 
 /// Returns a formatted string of valid `$values`.
-/// @param {list} $values
+/// @param {<list>} $values
 /// @access private
 @function format-valid-values($values) {
     @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }
 
 /// Returns a formatted string containing `$value` and its type.
-/// @param {any} $value
+/// @param {<any>} $value
 /// @access private
 @function show-param-value($value) {
     $value:if(type-of($value) == string, '"#{$value}"', $value);
@@ -25,44 +25,44 @@
  */
 
 /// Checks if `$value` is a number.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-number($value) {
     @return type-of($value) == number;
 }
 
 /// Checks if `$value` is a list.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-list($value) {
     @return type-of($value) == list;
 }
 
 /// Checks if `$value` is a map.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-map($value) {
     @return type-of($value) == map;
 }
 
 /// Checks if `$value` is a string.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-string($value) {
     @return type-of($value) == string;
 }
 
 /// Checks if `$value` is a boolean.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-bool($value) {
     @return type-of($value) == bool;
 }
 
 /// Checks if `$value` is a color.
-/// @param {any} $value
+/// @param {<any>} $value
 @function is-color($value) {
     @return type-of($value) == color;
 }
 
 /// Checks if `$value` is a number with a unit.
-/// @param {any} $value
-/// @param {bool} $warn [false]
+/// @param {<any>} $value
+/// @param {<bool>} $warn [false]
 @function is-unit-number($value, $warn: false) {
     @if is-number($value) and index($lengths, unit($value)) {
         @return true;
@@ -76,8 +76,8 @@
 }
 
 /// Checks if `$value` is a unitless number.
-/// @param {any} $value
-/// @param {bool} $warn [false]
+/// @param {<any>} $value
+/// @param {<bool>} $warn [false]
 @function is-unitless-number($value, $warn: false) {
     @if is-number($value) and unitless($value) {
         @return true;
@@ -91,8 +91,8 @@
 }
 
 /// Checks if `$value` is a nonnegative number.
-/// @param {any} $value
-/// @param {bool} $warn [false]
+/// @param {<any>} $value
+/// @param {<bool>} $warn [false]
 @function is-nonneg-number($value, $warn: false) {
     @if is-number($value) and $value > -1 {
         @return true;
@@ -106,8 +106,8 @@
 }
 
 /// Checks if `$value` is a nonnegative number with a unit.
-/// @param {any} $value
-/// @param {bool} $warn [false]
+/// @param {<any>} $value
+/// @param {<bool>} $warn [false]
 @function is-nonneg-unit-number($value, $warn: false) {
     @if is-nonneg-number($value) and index($lengths, unit($value)) {
         @return true;
@@ -121,8 +121,8 @@
 }
 
 /// Checks if `$value` is a nonnegative, unitless number.
-/// @param {any} $value
-/// @param {bool} $warn [false]
+/// @param {<any>} $value
+/// @param {<bool>} $warn [false]
 @function is-nonneg-unitless-number($value, $warn: false) {
     @if is-nonneg-number($value) and unitless($value) {
         @return true;
@@ -136,9 +136,9 @@
 }
 
 /// Checks if `$needle` is found in `$haystack`.
-/// @param {string|number} $needle
-/// @param {list} $haystack
-/// @param {bool} $warn [false]
+/// @param {<any>|number} $needle
+/// @param {<list>} $haystack
+/// @param {<bool>} $warn [false]
 @function is-in-list($needle, $haystack, $warn: false) {
     @if index($haystack, $needle) {
         @return true;
@@ -157,10 +157,10 @@
  */
 
 /// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
-/// @param {list} $list
-/// @param {string} $glue ['']
-/// @param {string} $closer [null]
-/// @param {bool} $quote-strings [false]
+/// @param {<list>} $list
+/// @param {<any>} $glue ['']
+/// @param {<any>} $closer [null]
+/// @param {<bool>} $quote-strings [false]
 @function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
     $output:null;
     $last-item:null;
@@ -222,10 +222,10 @@
  */
 
 /// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
-/// @param {color} $bg-color
-/// @param {number} $threshold [60]
-/// @param {color} $dark [$color-dark]
-/// @param {color} $light [$color-light]
+/// @param {<color>} $bg-color
+/// @param {<number>} $threshold [60]
+/// @param {<color>} $dark [$color-dark]
+/// @param {<color>} $light [$color-light]
 @function auto-color($bg-color, $threshold: 60, $dark: black, $light: white) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
@@ -248,9 +248,9 @@
  */
 
 /// Rounds, ceils or floors `$number` to given decimal `$places`.
-/// @param {number} $number
-/// @param {number} $places
-/// @param {string (round, ceil, floor)} $mode [round]
+/// @param {<number>} $number
+/// @param {<number>} $places
+/// @param {<any> (round, ceil, floor)} $mode [round]
 @function decimal-round($number, $places:3, $mode:round) {
     $n:1;
 
@@ -280,21 +280,21 @@
 }
 
 /// Ceils `$number` to given decimal `$places`.
-/// @param {number} $number
-/// @param {number} $places
+/// @param {<number>} $number
+/// @param {<number>} $places
 @function decimal-ceil($number, $places:3) {
     @return decimal-round($number, $places, ceil);
 }
 
 /// Floors `$number` to given decimal `$places`.
-/// @param {number} $number
-/// @param {number} $places
+/// @param {<number>} $number
+/// @param {<number>} $places
 @function decimal-floor($number, $places:3) {
     @return decimal-round($number, $places, floor);
 }
 
 /// Removes the unit from `$number`.
-/// @param {number} $number
+/// @param {<number>} $number
 @function strip-unit($number) {
     @if type-of($number) == 'number' and not unitless($number) {
         @return $number / ($number * 0 + 1);
@@ -304,8 +304,8 @@
 }
 
 /// Converts `$size-in-rem` to pixels based on `$font-size-base`.
-/// @param {number} $size-in-rem
-/// @param {number} $font-size-base [$font-size-base]
+/// @param {<number>} $size-in-rem
+/// @param {<number>} $font-size-base [$font-size-base]
 @function rem-to-pixels($size-in-rem, $font-size-base) {
     @return strip-unit($size-in-rem) * $font-size-base;
 }
