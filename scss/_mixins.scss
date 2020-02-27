@@ -138,9 +138,9 @@
 }
 
 /// Removes bottom margins from last children.
-@mixin controlled() {
+@mixin controlled($scope:bottom) {
     * {
-        @include control-margins(bottom);
+        @include control-margins($scope);
     }
 }
 
