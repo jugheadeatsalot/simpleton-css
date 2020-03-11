@@ -1,7 +1,7 @@
-/***
- * Fonts
- *
- */
+//
+// Fonts
+//
+//
 
 $font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
 $font-stack-sansserif:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
@@ -78,10 +78,10 @@ $line-heights:map-merge(
         $line-heights
 );
 
-/***
- * Colors
- *
- */
+//
+// Colors
+//
+//
 
 $colorize-buttons:false;
 $color-primary:#dc2f3c !default;
@@ -145,10 +145,10 @@ $colors:map-merge(
         $colors
 );
 
-/***
- * Spacing
- *
- */
+//
+// Spacing
+//
+//
 
 $border-radius:0.25rem !default;
 $border-size:1px !default;
@@ -202,10 +202,10 @@ $alley-sizes:map_merge(
         $alley-sizes
 );
 
-/***
- * Sizes
- *
- */
+//
+// Sizes
+//
+//
 
 $breakpoint-s:480px !default;
 $breakpoint-m:768px !default;
@@ -262,19 +262,19 @@ $columns:(
     )
 );
 
-/***
- * Transitions and Animations
- *
- */
+//
+// Transitions and Animations
+//
+//
 
 $ease-in-out-expo:cubic-bezier(1, 0, 0, 1) !default;
 $ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1) !default;
 $easing:$ease-in-out-expo !default;
 
-/***
- * Etcetera
- *
- */
+//
+// Etcetera
+//
+//
 
 /// @access private
 $lengths-absolute:(cm, mm, in, px, pt, pc);

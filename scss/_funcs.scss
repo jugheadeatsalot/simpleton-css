@@ -1,7 +1,7 @@
-/***
- * Utilities
- *
- */
+//
+// Utilities
+//
+//
 
 /// Returns a formatted string of valid `$values`.
 /// @param {<list>} $values
@@ -19,10 +19,10 @@
     @return 'Received: <#{type-of($value)}: #{$value}>.';
 }
 
-/***
- * Conditionals
- *
- */
+//
+// Conditionals
+//
+//
 
 /// Checks if `$value` is a number.
 /// @param {<any>} $value
@@ -151,10 +151,10 @@
     @return false;
 }
 
-/***
- * Strings
- *
- */
+//
+// Strings
+//
+//
 
 /// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
 /// @param {<list>} $list
@@ -216,10 +216,10 @@
     @return $output;
 }
 
-/***
- * Colors
- *
- */
+//
+// Colors
+//
+//
 
 /// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
 /// @param {<color>} $bg-color
@@ -242,10 +242,10 @@
     }
 }
 
-/***
- * Numbers
- *
- */
+//
+// Numbers
+//
+//
 
 /// Rounds, ceils or floors `$number` to given decimal `$places`.
 /// @param {<number>} $number
