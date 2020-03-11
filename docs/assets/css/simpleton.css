@@ -2871,6 +2871,7 @@ html body .gallery:last-child {
   border-right: none
 }
 .post-password-form p:last-child input[type=submit] {
+  border-radius: 0;
   padding: 0 1.5rem;
   padding: 0 var(--space)
 }
