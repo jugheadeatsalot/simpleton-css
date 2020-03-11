@@ -92,9 +92,3 @@ form {
         margin-bottom:var(--space);
     }
 }
-
-input:not([type='radio']):not([type='checkbox']),
-select,
-textarea {
-    margin-bottom:var(--space);
-}

@@ -1115,12 +1115,6 @@ form div {
   margin-bottom: 1.5rem;
   margin-bottom: var(--space)
 }
-input:not([type=radio]):not([type=checkbox]),
-select,
-textarea {
-  margin-bottom: 1.5rem;
-  margin-bottom: var(--space)
-}
 .row {
   margin-right: -15px;
   margin-right: calc(var(--alley)/2*-1);

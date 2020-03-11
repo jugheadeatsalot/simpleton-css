@@ -1,80 +1,31 @@
 :root {
-  --font-stack-serif: Constantia,"Lucida Bright",Lucidabright,Georgia,serif;
-  --font-stack-sansserif: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-stack-general: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-stack-heading: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-stack-monospace: Consolas,"Ubuntu Mono","Lucida Console","Courier New",Courier,monospace;
-  --font-size-base: 16px;
-  --font-size-general: 1rem;
-  --font-size-big: 1.1em;
-  --font-size-xbig: 1.2em;
-  --font-size-xxbig: 1.3em;
-  --font-size-small: 0.9em;
-  --font-size-xsmall: 0.8em;
-  --font-size-xxsmall: 0.7em;
-  --font-size-h1: 2em;
-  --font-size-h2: 1.6em;
-  --font-size-h3: 1.4em;
-  --font-size-h4: 1.2em;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
-  --font-weight-heading: 700;
-  --line-height-general: 1.5;
-  --line-height-h1: 1.15;
-  --line-height-h2: 1.25;
-  --line-height-h3: 1.35;
-  --line-height-h4: 1.45;
-  --color-contrast: #2c3e50;
-  --color-background: #ffffff;
-  --color-contrast-medium: gray;
-  --color-contrast-low: #a6a6a6;
-  --color-contrast-lower: #cccccc;
-  --color-contrast-lowest: #f2f2f2;
-  --color-contrast-high: #666666;
-  --color-contrast-higher: #4d4d4d;
-  --color-contrast-highest: #333333;
-  --color-success: #27ae60;
-  --color-alert: #c0392b;
-  --color-warning: #d35400;
-  --color-highlight: #f1c40f;
-  --color-primary: #2980b9;
-  --color-dark-accent: #3498db;
-  --color-light-accent: #8e44ad;
-  --color-dribbble: #ea4c89;
-  --color-facebook: #3b5998;
-  --color-flickr: #ff0084;
-  --color-instagram: #517fa4;
-  --color-linkedin: #0077b5;
-  --color-medium: #00ab6b;
-  --color-pinterest: #bd081c;
-  --color-rss: #f26522;
-  --color-tumblr: #35465c;
-  --color-twitter: #55acee;
-  --color-youtube: #b31217
+  --content-width: 640px
 }
 .container {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding-right: var(--space);
+  padding-left: var(--space);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   min-height: 100vh;
   max-width: 640px;
+  max-width: var(--content-width);
   width: 100%
+}
+.container :last-child:not(.f-margins) {
+  margin-bottom: 0!important
 }
 @media (min-width:480px) {
   .container {
-    padding-right: 3rem;
-    padding-left: 3rem
+    padding-right: calc(var(--space)*2);
+    padding-left: calc(var(--space)*2)
   }
 }
 .icon {
   display: inline-block;
   width: 1em;
   height: 1em;
-  fill: #2c3e50;
   fill: var(--color-contrast);
-  stroke: #2c3e50;
   stroke: var(--color-contrast);
   stroke-width: 0
 }
@@ -83,15 +34,15 @@
   top: 0;
   left: 0;
   overflow-y: auto;
-  padding: 3rem 1.5rem 4.5rem;
+  padding: calc(var(--space)*2) var(--space) calc(var(--space)*3);
   width: 200px;
   height: 100%;
-  background-color: #fff;
   background-color: var(--color-background)
 }
 @media (min-width:480px) {
   .site-header nav {
-    max-width: 580px
+    max-width: calc(640px - var(--alley)*2);
+    max-width: calc(var(--content-width) - var(--alley)*2)
   }
 }
 .site-header nav > * {
@@ -99,9 +50,9 @@
   font-size: .9em
 }
 .site-header .site-name {
-  margin-bottom: 3rem;
-  font-weight: 400;
-  line-height: 1.5
+  margin-bottom: calc(var(--space)*2);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-general)
 }
 .site-header ul {
   margin-left: 0;
@@ -109,20 +60,20 @@
 }
 main {
   flex: 1;
-  margin-top: 6rem;
-  margin-bottom: 7.5rem
+  margin-top: calc(var(--space)*4);
+  margin-bottom: calc(var(--space)*5)
 }
 main > header {
-  margin-bottom: 2.625rem
+  margin-bottom: calc(var(--space)*1.75)
 }
 .doc-block {
-  margin-bottom: 3rem
+  margin-bottom: calc(var(--space)*2)
 }
 .doc-block h3 {
   text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-general);
+  line-height: var(--line-height-general)
 }
 .doc-block h3 .icon {
   float: right
@@ -141,24 +92,22 @@ main > header {
   background-color: transparent
 }
 .doc-block .anchor {
-  padding-top: 2.625rem;
-  font-weight: 400
+  padding-top: calc(var(--space)*1.75);
+  font-weight: var(--font-weight-normal)
 }
 .site-footer {
   align-items: center;
   height: 4.2rem;
-  border-top: 1px solid #3498db;
   border-top: 1px solid var(--color-dark-accent)
 }
 .copyright {
   flex: 1;
   text-transform: uppercase;
-  font-size: .7em
+  font-size: var(--font-size-xxsmall)
 }
 .colorbox {
   width: 42px;
   height: 42px;
-  border: 1px solid #ccc;
   border: 1px solid var(--color-contrast-lower);
   border-radius: 50%;
   box-shadow: 0 0 0 4px #fff inset
@@ -189,9 +138,8 @@ main > header {
   font-size: .9em
 }
 pre[class*=language-] {
-  color: #2c3e50;
   color: var(--color-contrast);
-  font-weight: 400
+  font-weight: var(--font-weight-normal)
 }
 .token.cdata,
 .token.comment,
@@ -200,7 +148,6 @@ pre[class*=language-] {
   color: #708090
 }
 .token.punctuation {
-  color: #2c3e50;
   color: var(--color-contrast)
 }
 .namespace {
