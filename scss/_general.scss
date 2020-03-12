@@ -71,10 +71,7 @@ td {
 }
 
 figcaption {
-    padding-top:calc(var(--space) * 0.375);
-    color:var(--color-contrast-medium);
-    text-align:center;
-    font-size:var(--font-size-xsmall);
+    @include figcaption();
 }
 
 .table-container {

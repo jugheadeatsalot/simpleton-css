@@ -224,8 +224,8 @@
 /// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
 /// @param {<color>} $bg-color
 /// @param {<number>} $threshold [60]
-/// @param {<color>} $dark [$color-dark]
-/// @param {<color>} $light [$color-light]
+/// @param {<color>} $dark [black]
+/// @param {<color>} $light [white]
 @function auto-color($bg-color, $threshold: 60, $dark: black, $light: white) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
@@ -305,7 +305,7 @@
 
 /// Converts `$size-in-rem` to pixels based on `$font-size-base`.
 /// @param {<number>} $size-in-rem
-/// @param {<number>} $font-size-base [$font-size-base]
+/// @param {<number>} $font-size-base
 @function rem-to-pixels($size-in-rem, $font-size-base) {
     @return strip-unit($size-in-rem) * $font-size-base;
 }

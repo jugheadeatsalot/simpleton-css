@@ -7,13 +7,14 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
-const clean = require('postcss-clean');
+const prettify = require('postcss-prettify');
 const calc = require('postcss-calc');
-const postcssCustomProperties = require('postcss-custom-properties');
-const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
+const cssnano = require('cssnano');
 const stripIndent = require('strip-indent');
 const sassdoc = require('sassdoc');
 const pluralize = require('pluralize');
+const chalk = require('chalk');
 const {spawn} = require('child_process');
 
 const {dirs, files} = require('./meta');
@@ -29,27 +30,36 @@ const paths = {
     docsscssOut: [`${dirs.docsAssets}/css`],
 };
 
-const sassOpts = {
+const scssOpts = {
     errLogToConsole: true,
     outputStyle: 'expanded',
 };
 
-gulp.task('sass', async() => {
+const postcssPlugins = [
+    postcssPresetEnv(),
+    calc(),
+    prettify(),
+];
+
+const postcssErrorLogger = (error) => {
+    console.error(chalk.red('POSTCSS ERROR -------'));
+    console.error('Name: ', error.name);
+    console.error('Message: ', error.message);
+    console.error(chalk.red('---------------------'));
+};
+
+gulp.task('scss', async() => {
     await gulp
         .src(paths.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(postcss([autoprefixer()]))
-        .pipe(postcss([postcssCustomProperties()]))
-        .pipe(postcss([calc()]))
-        .pipe(postcss([clean({format: 'beautify'})]))
+        .pipe(sass(scssOpts).on('error', sass.logError))
+        .pipe(postcss(postcssPlugins))
+        .on('error', postcssErrorLogger)
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.scssOut))
         .pipe(filter('**/simpleton!(*.min).css'))
-        .pipe(postcss([clean()]))
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(postcss([cssnano()]))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.scssOut));
 });
@@ -61,28 +71,22 @@ gulp.task('js', async() => {
         .pipe(gulp.dest(paths.jsOut))
         .pipe(filter('**/simpleton!(*.min).js'))
         .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.jsOut));
 });
 
-gulp.task('devsass', async() => {
+gulp.task('devscss', async() => {
     await gulp
         .src(paths.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(postcss([autoprefixer()]))
-        .pipe(postcss([postcssCustomProperties()]))
-        .pipe(postcss([calc()]))
-        .pipe(postcss([clean({format: 'beautify'})]))
+        .pipe(sass(scssOpts).on('error', sass.logError))
+        .pipe(postcss(postcssPlugins))
+        .on('error', postcssErrorLogger)
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
         .pipe(filter('**/simpleton!(*.min).css'))
-        .pipe(postcss([clean()]))
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(postcss([cssnano()]))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut));
 });
@@ -94,28 +98,22 @@ gulp.task('devjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut))
         .pipe(filter('**/simpleton!(*.min).js'))
         .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
-gulp.task('docssass', async() => {
+gulp.task('docsscss', async() => {
     await gulp
         .src(paths.docsscss)
         .pipe(sourcemaps.init())
-        .pipe(sass(sassOpts).on('error', sass.logError))
-        .pipe(postcss([autoprefixer()]))
-        .pipe(postcss([postcssCustomProperties()]))
-        .pipe(postcss([calc()]))
-        .pipe(postcss([clean({format: 'beautify'})]))
+        .pipe(sass(scssOpts).on('error', sass.logError))
+        .pipe(postcss(postcssPlugins))
+        .on('error', postcssErrorLogger)
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut))
         .pipe(filter('**/docs!(*.min).css'))
-        .pipe(postcss([clean()]))
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(postcss([cssnano()]))
+        .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('sourcemaps'))
         .pipe(gulp.dest(paths.docsscssOut));
 });
@@ -127,9 +125,7 @@ gulp.task('docsjs', async() => {
         .pipe(gulp.dest(paths.docsjsOut))
         .pipe(filter('**/docs!(*.min).js'))
         .pipe(uglify())
-        .pipe(rename({
-            suffix: '.min',
-        }))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.docsjsOut));
 });
 
@@ -177,7 +173,7 @@ const processSassdocData = sassdocData => {
     try {
         fs.writeFileSync(files.sassdocjson, JSON.stringify(output, null, 2));
 
-        console.log('sassdocjson generated!!!');
+        console.log(`${files.sassdocjson} generated!!!`);
     } catch(err) {
         console.error(err);
     }
@@ -215,16 +211,16 @@ const doWatch = (glob, task) => {
 };
 
 gulp.task('watch', () => {
-    doWatch(paths.scss, 'devsass');
+    doWatch(paths.scss, 'devscss');
     doWatch(paths.js, 'devjs');
-    doWatch(paths.docsscss, 'docssass');
+    doWatch(paths.docsscss, 'docsscss');
     doWatch(paths.docsjs, 'docsjs');
 });
 
 gulp.task('default',
     gulp.series(
         'sassdoc',
-        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
+        gulp.parallel('devscss', 'devjs', 'docsscss', 'docsjs'),
         'devmetal',
         'devserve',
         'watch',
@@ -234,7 +230,7 @@ gulp.task('default',
 gulp.task('build',
     gulp.series(
         'sassdoc',
-        gulp.parallel('devsass', 'devjs', 'docssass', 'docsjs'),
-        gulp.parallel('sass', 'js'),
+        gulp.parallel('devscss', 'devjs', 'docsscss', 'docsjs'),
+        gulp.parallel('scss', 'js'),
     ),
 );

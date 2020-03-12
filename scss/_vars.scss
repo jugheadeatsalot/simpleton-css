@@ -276,9 +276,6 @@ $easing:$ease-in-out-expo !default;
 //
 //
 
-/// @access private
 $lengths-absolute:(cm, mm, in, px, pt, pc);
-/// @access private
 $lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
-/// @access private
 $lengths:join($lengths-absolute, $lengths-relative);

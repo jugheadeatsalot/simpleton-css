@@ -136,7 +136,7 @@ blockquote {
 .wp-caption-text,
 .wp-caption-dd,
 .gallery-caption {
-    @extend figcaption;
+    @include figcaption();
 }
 
 [class^='embed-'] {

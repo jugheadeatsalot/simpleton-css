@@ -9,6 +9,14 @@
     }
 }
 
+///
+@mixin figcaption() {
+    padding-top:calc(var(--space) * 0.375);
+    color:var(--color-contrast-medium);
+    text-align:center;
+    font-size:var(--font-size-xsmall);
+}
+
 /// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
 /// @param {<number>} $aspect-width [16]
 /// @param {<number>} $aspect-height [9]
