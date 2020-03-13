@@ -58,7 +58,7 @@
   --color-youtube: #b31217;
   --space: 1.5rem;
   --space-top-h: calc(var(--space)*1.25);
-  --space-bottom-h: calc(var(--space)*0.625);
+  --space-bottom-h: calc(var(--space)*0.875);
   --space-small: calc(var(--space)*0.875);
   --space-xsmall: calc(var(--space)*0.75);
   --space-2xsmall: calc(var(--space)*0.625);
@@ -510,7 +510,7 @@ h5,
 h6 {
   margin-top: 1.875rem;
   margin-top: var(--space-top-h);
-  margin-bottom: 0.9375rem;
+  margin-bottom: 1.3125rem;
   margin-bottom: var(--space-bottom-h);
 }
 
@@ -3514,9 +3514,14 @@ blockquote.alignright {
 
 .tiled-gallery,
 .video-player {
-  margin-bottom: 1.5rem;
-  margin-bottom: var(--space);
   max-width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.tiled-gallery:not(:last-child),
+.video-player:not(:last-child) {
+  margin-bottom: 1.5rem !important;
+  margin-bottom: var(--space) !important;
 }
 
 .gallery {
@@ -3526,8 +3531,8 @@ blockquote.alignright {
   margin-left: calc(var(--alley)/2*-0.5);
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: -1.875rem !important;
-  margin-bottom: calc(var(--space)*-1.25) !important;
+  margin-bottom: -1.5rem !important;
+  margin-bottom: calc(var(--space)*-1) !important;
 }
 
 .gallery:before,
@@ -3547,13 +3552,23 @@ blockquote.alignright {
 
 .gallery:not(:last-child):after,
 .gallery.f-margins:last-child:after {
-  margin-bottom: 1.875rem;
-  margin-bottom: calc(var(--space)*1.25);
+  margin-bottom: 1.5rem;
+  margin-bottom: var(--space);
 }
 
 .gallery > * {
-  margin-bottom: 1.875rem !important;
-  margin-bottom: calc(var(--space)*1.25) !important;
+  margin-bottom: 1.5rem !important;
+  margin-bottom: var(--space) !important;
+}
+
+.gallery + h1,
+.gallery + h2,
+.gallery + h3,
+.gallery + h4,
+.gallery + h5,
+.gallery + h6 {
+  margin-top: 0.375rem;
+  margin-top: calc(var(--space)*0.25);
 }
 
 .gallery-row {
@@ -3678,14 +3693,31 @@ blockquote.alignright {
 }
 
 twitterwidget,
-.mejs-container {
+twitter-widget {
+  margin: 0 0 1.5rem !important;
+  margin: 0 0 var(--space) !important;
+}
+
+twitterwidget:last-child,
+twitter-widget:last-child {
+  margin: 0 !important;
+}
+
+twitterwidget + p:last-child > script,
+twitter-widget + p:last-child > script {
+  display: block;
+  margin-top: -1.5rem;
+  margin-top: calc(var(--space)*-1);
+}
+
+.mejs-container:not(:last-child) {
   margin-bottom: 1.5rem;
   margin-bottom: var(--space);
 }
 
 .mejs-container a {
-  border-bottom: none;
-  text-decoration: none;
+  border-bottom: none !important;
+  text-decoration: none !important;
 }
 
 /*# sourceMappingURL=sourcemaps/simpleton.css.map */

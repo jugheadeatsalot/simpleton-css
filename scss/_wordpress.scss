@@ -55,14 +55,27 @@ blockquote {
 
 .tiled-gallery,
 .video-player {
-    margin-bottom:var(--space);
     max-width:100%;
+    margin-bottom:0 !important;
+
+    &:not(:last-child) {
+        margin-bottom:var(--space) !important;
+    }
 }
 
 .gallery {
     @include row(tighter);
-    @include mgb-row(1.25);
-    @include mgbch-row(1.25, true);
+    @include mgb-row();
+    @include mgbch-row(1, true);
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top:calc(var(--space) * 0.25);
+    }
 }
 
 .gallery-row {
@@ -130,13 +143,28 @@ blockquote {
 }
 
 twitterwidget,
+twitter-widget {
+    margin:0 0 var(--space) !important;
+
+    &:last-child {
+        margin:0 !important;
+    }
+
+    + p:last-child > script {
+        display:block;
+        margin-top:calc(var(--space) * -1)
+    }
+}
+
 .mejs-container {
-    margin-bottom:var(--space);
+    &:not(:last-child) {
+        margin-bottom:var(--space);
+    }
 }
 
 .mejs-container {
     a {
-        border-bottom:none;
-        text-decoration:none;
+        border-bottom:none !important;
+        text-decoration:none !important;
     }
 }
