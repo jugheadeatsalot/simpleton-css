@@ -252,7 +252,7 @@ var {
 pre {
     overflow:auto;
     padding:var(--padding-box);
-    border-left:0.25rem solid var(--color-primary);
+    border-left:0.25rem solid var(--color-dark-accent);
     background-color:var(--color-contrast-lowest);
 
     code {
@@ -263,7 +263,7 @@ pre {
 
 blockquote {
     padding:var(--padding-box);
-    border-left:0.25rem solid var(--color-contrast-lower);
+    border-left:0.25rem solid var(--color-primary);
     font-size:var(--font-size-h4);
     line-height:var(--line-height-h4);
 }

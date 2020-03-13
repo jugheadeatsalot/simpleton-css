@@ -1,52 +1,166 @@
 //
-// Utilities
+// Strings
 //
 //
 
-/// Returns a formatted string of valid `$values`.
-/// @param {<list>} $values
-/// @access private
-@function format-valid-values($values) {
-    @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
+/// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
+/// @param {<list>} $list
+/// @param {<any>} $glue ['']
+/// @param {<any>} $closer [null]
+/// @param {<bool>} $quote-strings [false]
+@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
+    $output:null;
+    $last-item:null;
+    $last-item-quoted:false;
+
+    @if type-of($list) != list {
+        @error '`#{$list}` is not a valid list.';
+    }
+
+    @for $i from 1 through length($list) {
+        $item:nth($list, $i);
+
+        @if type-of($item) == list {
+            @if $i == length($list) {
+                $last-item:nth($item, -1);
+                $is-nested-list:type-of($last-item) == list;
+
+                @while $is-nested-list {
+                    $last-item:nth($last-item, -1);
+
+                    @if type-of($last-item) != list {
+                        $is-nested-list:false;
+                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
+                    }
+                }
+
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
+            } @else {
+                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
+            }
+        } @else {
+            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
+
+            @if $i == length($list) {
+                $last-item:$item;
+                $last-item-quoted:type-of($last-item) == string and $quote-strings;
+
+                $output:#{$output}#{$item}
+            } @else {
+                $output:#{$output}#{$item}#{$glue};
+            }
+        }
+    }
+
+    @if $closer != null {
+        $offset:if($last-item-quoted, 2, 0);
+        $find:#{$glue}#{$last-item};
+        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
+        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
+        $output:#{$slice-1}#{$closer}#{$slice-2};
+    }
+
+    @return $output;
 }
 
-/// Returns a formatted string containing `$value` and its type.
-/// @param {<any>} $value
-/// @access private
-@function show-param-value($value) {
-    $value:if(type-of($value) == string, '"#{$value}"', $value);
+//
+// Colors
+//
+//
 
-    @return 'Received: <#{type-of($value)}: #{$value}>.';
+/// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
+/// @param {<color>} $bg-color
+/// @param {<number>} $threshold [60]
+/// @param {<color>} $dark [black]
+/// @param {<color>} $light [white]
+@function auto-color-contrast($bg-color, $threshold: 84, $dark: black, $light: white) {
+    @if type-of($bg-color) != color {
+        @error '`#{$bg-color}` is not a valid color.';
+    }
+
+    @if not is-nonneg-number($threshold) {
+        @error '`#{$threshold}` is not a nonnegative number.';
+    }
+
+    @if lightness($bg-color) > $threshold {
+        @return $dark;
+    } @else {
+        @return $light;
+    }
+}
+
+//
+// Numbers
+//
+//
+
+/// Ceils `$number` to given decimal `$places`.
+/// @param {<number>} $number
+/// @param {<number>} $places
+@function decimal-ceil($number, $places:3) {
+    @return decimal-round($number, $places, ceil);
+}
+
+/// Floors `$number` to given decimal `$places`.
+/// @param {<number>} $number
+/// @param {<number>} $places
+@function decimal-floor($number, $places:3) {
+    @return decimal-round($number, $places, floor);
+}
+
+/// Rounds, ceils or floors `$number` to given decimal `$places`.
+/// @param {<number>} $number
+/// @param {<number>} $places
+/// @param {<any> (round, ceil, floor)} $mode [round]
+@function decimal-round($number, $places:3, $mode:round) {
+    $n:1;
+
+    @if not is-number($number) {
+        @return $number;
+    }
+
+    @if not is-number($places) {
+        @return $number;
+    }
+
+    @if $places > 0 and $places < 20 {
+        @for $i from 1 through $places {
+            $n:$n * 10;
+        }
+    }
+
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @return $number;
+    }
+}
+
+/// Removes the unit from `$number`.
+/// @param {<number>} $number
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+/// Converts `$size-in-rem` to pixels based on `$font-size-base`.
+/// @param {<number>} $size-in-rem
+/// @param {<number>} $font-size-base
+@function rem-to-pixels($size-in-rem, $font-size-base) {
+    @return strip-unit($size-in-rem) * $font-size-base;
 }
 
 //
 // Conditionals
 //
 //
-
-/// Checks if `$value` is a number.
-/// @param {<any>} $value
-@function is-number($value) {
-    @return type-of($value) == number;
-}
-
-/// Checks if `$value` is a list.
-/// @param {<any>} $value
-@function is-list($value) {
-    @return type-of($value) == list;
-}
-
-/// Checks if `$value` is a map.
-/// @param {<any>} $value
-@function is-map($value) {
-    @return type-of($value) == map;
-}
-
-/// Checks if `$value` is a string.
-/// @param {<any>} $value
-@function is-string($value) {
-    @return type-of($value) == string;
-}
 
 /// Checks if `$value` is a boolean.
 /// @param {<any>} $value
@@ -58,6 +172,18 @@
 /// @param {<any>} $value
 @function is-color($value) {
     @return type-of($value) == color;
+}
+
+/// Checks if `$value` is a string.
+/// @param {<any>} $value
+@function is-string($value) {
+    @return type-of($value) == string;
+}
+
+/// Checks if `$value` is a number.
+/// @param {<any>} $value
+@function is-number($value) {
+    @return type-of($value) == number;
 }
 
 /// Checks if `$value` is a number with a unit.
@@ -135,6 +261,18 @@
     @return false;
 }
 
+/// Checks if `$value` is a map.
+/// @param {<any>} $value
+@function is-map($value) {
+    @return type-of($value) == map;
+}
+
+/// Checks if `$value` is a list.
+/// @param {<any>} $value
+@function is-list($value) {
+    @return type-of($value) == list;
+}
+
 /// Checks if `$needle` is found in `$haystack`.
 /// @param {<any>|number} $needle
 /// @param {<list>} $haystack
@@ -152,160 +290,22 @@
 }
 
 //
-// Strings
+// Utilities
 //
 //
 
-/// Joins `$list` items into a `$glue` separated string and uses an optional `$closer` before the final item.
-/// @param {<list>} $list
-/// @param {<any>} $glue ['']
-/// @param {<any>} $closer [null]
-/// @param {<bool>} $quote-strings [false]
-@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
-    $output:null;
-    $last-item:null;
-    $last-item-quoted:false;
+/// Returns a formatted string containing `$value` and its type.
+/// @param {<any>} $value
+/// @access private
+@function show-param-value($value) {
+    $value:if(type-of($value) == string, '"#{$value}"', $value);
 
-    @if type-of($list) != list {
-        @error '`#{$list}` is not a valid list.';
-    }
-
-    @for $i from 1 through length($list) {
-        $item:nth($list, $i);
-
-        @if type-of($item) == list {
-            @if $i == length($list) {
-                $last-item:nth($item, -1);
-                $is-nested-list:type-of($last-item) == list;
-
-                @while $is-nested-list {
-                    $last-item:nth($last-item, -1);
-
-                    @if type-of($last-item) != list {
-                        $is-nested-list:false;
-                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
-                    }
-                }
-
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
-            } @else {
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
-            }
-        } @else {
-            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
-
-            @if $i == length($list) {
-                $last-item:$item;
-                $last-item-quoted:type-of($last-item) == string and $quote-strings;
-
-                $output:#{$output}#{$item}
-            } @else {
-                $output:#{$output}#{$item}#{$glue};
-            }
-        }
-    }
-
-    @if $closer != null {
-        $offset:if($last-item-quoted, 2, 0);
-        $find:#{$glue}#{$last-item};
-        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
-        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
-        $output:#{$slice-1}#{$closer}#{$slice-2};
-    }
-
-    @return $output;
+    @return 'Received: <#{type-of($value)}: #{$value}>.';
 }
 
-//
-// Colors
-//
-//
-
-/// Returns a `$dark` or `$light` color depending on the lightness `$threshold` of the `$bg-color`.
-/// @param {<color>} $bg-color
-/// @param {<number>} $threshold [60]
-/// @param {<color>} $dark [black]
-/// @param {<color>} $light [white]
-@function auto-color($bg-color, $threshold: 60, $dark: black, $light: white) {
-    @if type-of($bg-color) != color {
-        @error '`#{$bg-color}` is not a valid color.';
-    }
-
-    @if not is-nonneg-number($threshold) {
-        @error '`#{$threshold}` is not a nonnegative number.';
-    }
-
-    @if lightness($bg-color) > $threshold {
-        @return $dark;
-    } @else {
-        @return $light;
-    }
-}
-
-//
-// Numbers
-//
-//
-
-/// Rounds, ceils or floors `$number` to given decimal `$places`.
-/// @param {<number>} $number
-/// @param {<number>} $places
-/// @param {<any> (round, ceil, floor)} $mode [round]
-@function decimal-round($number, $places:3, $mode:round) {
-    $n:1;
-
-    @if not is-number($number) {
-        @return $number;
-    }
-
-    @if not is-number($places) {
-        @return $number;
-    }
-
-    @if $places > 0 and $places < 20 {
-        @for $i from 1 through $places {
-            $n:$n * 10;
-        }
-    }
-
-    @if $mode == round {
-        @return round($number * $n) / $n;
-    } @else if $mode == ceil {
-        @return ceil($number * $n) / $n;
-    } @else if $mode == floor {
-        @return floor($number * $n) / $n;
-    } @else {
-        @return $number;
-    }
-}
-
-/// Ceils `$number` to given decimal `$places`.
-/// @param {<number>} $number
-/// @param {<number>} $places
-@function decimal-ceil($number, $places:3) {
-    @return decimal-round($number, $places, ceil);
-}
-
-/// Floors `$number` to given decimal `$places`.
-/// @param {<number>} $number
-/// @param {<number>} $places
-@function decimal-floor($number, $places:3) {
-    @return decimal-round($number, $places, floor);
-}
-
-/// Removes the unit from `$number`.
-/// @param {<number>} $number
-@function strip-unit($number) {
-    @if type-of($number) == 'number' and not unitless($number) {
-        @return $number / ($number * 0 + 1);
-    }
-
-    @return $number;
-}
-
-/// Converts `$size-in-rem` to pixels based on `$font-size-base`.
-/// @param {<number>} $size-in-rem
-/// @param {<number>} $font-size-base
-@function rem-to-pixels($size-in-rem, $font-size-base) {
-    @return strip-unit($size-in-rem) * $font-size-base;
+/// Returns a formatted string of valid `$values`.
+/// @param {<list>} $values
+/// @access private
+@function format-valid-values($values) {
+    @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }

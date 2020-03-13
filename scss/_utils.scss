@@ -12,10 +12,6 @@ $inc:0;
     }
 }
 
-.sq {
-    @include sq();
-}
-
 @each $breakpoint-key, $breakpoint-value in $breakpoints {
     .hide-#{$breakpoint-key} {
         @include hide($breakpoint-key);
@@ -30,4 +26,21 @@ $inc:0;
     .text-#{$color-key} {
         color:$color-value;
     }
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button,
+.button {
+    @each $color-key, $color-value in $colors {
+        &.#{$color-key} {
+            background-color:$color-value;
+            color:auto-color-contrast($color-value);
+        }
+    }
+}
+
+.sq {
+    @include sq();
 }

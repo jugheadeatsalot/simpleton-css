@@ -5,10 +5,11 @@ layout: layout.hbs
 
 <h1>{{pagetitle}}</h1>
 
-<section class="simp card mgb-300">
-    <h2>Forms</h2>
+<section class="card mgb-300">
+    <h2>Buttons</h2>
     <div class="output mgb-175">
         <button class="button">default</button>
+        <button class="button" disabled>disabled</button>
         {{#each sassVars.colors}}
             <button class="button {{@key}}">{{@key}}</button>
         {{/each}}
@@ -16,13 +17,14 @@ layout: layout.hbs
     <div class="markup">
         <!--@formatter:off-->
         <pre><code class="lang-html">```<button class="button">default</button>
+<button class="button" disabled>disabled</button>
 {{#each sassVars.colors}}<button class="button {{@key}}">{{@key}}</button>
 {{/each}}```</code></pre>
         <!--@formatter:on-->
     </div>
 </section>
 
-<section class="simp card mgb-300">
+<section class="card mgb-300">
     <h2>Forms</h2>
     <div class="output mgb-175">
         <form>
@@ -36,10 +38,6 @@ layout: layout.hbs
             </div>
             <fieldset>
                 <legend>Choose your partner</legend>
-                <div>
-                    <label for="emails">Emails Address</label>
-                    <input type="email" id="emails">
-                </div>
                 <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br>
                 <input type="radio" id="2" name="1"><label for="2">Leslie Knope</label><br>
                 <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br>
@@ -70,10 +68,10 @@ layout: layout.hbs
     </div>
     <fieldset>
         <legend>Choose your partner</legend>
-        <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br class="hide-s">
-        <input type="radio" id="1" name="1"><label for="1">Leslie Knope</label><br class="hide-s">
-        <input type="radio" id="1" name="1"><label for="1">Dean Winchester</label><br class="hide-s">
-        <input type="radio" id="1" name="1"><label for="1">Tyrion Lannister</label><br class="hide-s">
+        <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br>
+        <input type="radio" id="2" name="1"><label for="2">Leslie Knope</label><br>
+        <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br>
+        <input type="radio" id="4" name="1"><label for="4">Tyrion Lannister</label><br>
     </fieldset>
     <div>
         <label for="message">Message</label>
@@ -84,6 +82,7 @@ layout: layout.hbs
     </div>
     <div>
         <button class="button">Submit</button>
+        <button disabled class="button">Disabled</button>
     </div>
 </form>```</code></pre>
     </div>

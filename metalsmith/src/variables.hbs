@@ -14,8 +14,14 @@ layout: layout.hbs
             <div class="description">{{{description}}}</div>
         {{/if}}
         {{#if context.value}}
+            {{#ifeq context.scope 'default'}}
+                {{setvar 'varscope' ' !default'}}
+            {{/ifeq}}
+            {{#ifnoteq context.scope 'default'}}
+                {{setvar 'varscope' ''}}
+            {{/ifnoteq}}
             <h3>Value {{sourcelinkicon file.path context.line.start context.line.end}}</h3>
-            <pre><code class="lang-scss">{{context.value}}</code></pre>
+            <pre><code class="lang-scss">{{context.value}}{{@root.varscope}}</code></pre>
         {{/if}}
     </section>
 {{/each}}

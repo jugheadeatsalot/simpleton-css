@@ -16,13 +16,13 @@ img {
 
 .alignleft,
 .alignright {
-    max-width:50% !important;
+    max-width:50%;
 }
 
 blockquote {
     &.alignleft,
     &.alignright {
-        max-width:40% !important;
+        max-width:40%;
     }
 }
 
@@ -55,36 +55,14 @@ blockquote {
 
 .tiled-gallery,
 .video-player {
-    margin-bottom:var(--space) !important;
+    margin-bottom:var(--space);
     max-width:100%;
 }
 
 .gallery {
-    --padding-bottom-gallery:calc(var(--space) * 1.25);
-
     @include row(tighter);
-
-    > * {
-        html body & {
-            margin-bottom:0;
-            padding-bottom:var(--padding-bottom-gallery);
-        }
-    }
-
-    &:last-child {
-        html body & {
-            margin-bottom:calc(var(--padding-bottom-gallery) * -1) !important;
-        }
-    }
-
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
-        margin-top:calc(var(--space-top-h) - var(--padding-bottom-gallery));
-    }
+    @include mgb-row(1.25);
+    @include mgbch-row(1.25, true);
 }
 
 .gallery-row {
@@ -153,12 +131,12 @@ blockquote {
 
 twitterwidget,
 .mejs-container {
-    margin-bottom:var(--space) !important;
+    margin-bottom:var(--space);
 }
 
 .mejs-container {
     a {
-        border-bottom:none !important;
-        text-decoration:none !important;
+        border-bottom:none;
+        text-decoration:none;
     }
 }

@@ -1,22 +1,3 @@
-/// Utility to clear floats
-@mixin clearfix() {
-    &:before,
-    &:after {
-        display:table;
-        clear:both;
-        width:100%;
-        content:'';
-    }
-}
-
-///
-@mixin figcaption() {
-    padding-top:calc(var(--space) * 0.375);
-    color:var(--color-contrast-medium);
-    text-align:center;
-    font-size:var(--font-size-xsmall);
-}
-
 /// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
 /// @param {<number>} $aspect-width [16]
 /// @param {<number>} $aspect-height [9]
@@ -46,18 +27,18 @@
     }
 }
 
-/// Includes `@content` on screens up to `$max-width` wide.
-/// @param {<number>} $max-width
-@mixin max($max-width) {
-    @media (max-width:$max-width) {
-        @content;
-    }
-}
-
 /// Includes `@content` on screens that are at least `$min-width` wide.
 /// @param {<number>} $min-width
 @mixin min($min-width) {
     @media (min-width:$min-width) {
+        @content;
+    }
+}
+
+/// Includes `@content` on screens up to `$max-width` wide.
+/// @param {<number>} $max-width
+@mixin max($max-width) {
+    @media (max-width:$max-width) {
         @content;
     }
 }
@@ -71,28 +52,28 @@
 }
 
 ///
-@mixin min-s() {
+@mixin min-small() {
     @media (min-width:$breakpoint-s) {
         @content;
     }
 }
 
 ///
-@mixin min-m() {
+@mixin min-medium() {
     @media (min-width:$breakpoint-m) {
         @content;
     }
 }
 
 ///
-@mixin min-l() {
+@mixin min-large() {
     @media (min-width:$breakpoint-l) {
         @content;
     }
 }
 
 ///
-@mixin min-xl() {
+@mixin min-xlarge() {
     @media (min-width:$breakpoint-xl) {
         @content;
     }
@@ -114,7 +95,7 @@
     }
 }
 
-/// Removes margins if element is first and/or last child (depending on scope).
+/// Removes margins if element is the first and/or last child (depending on `$scope`).
 /// @param {<string>} $scope [all]
 @mixin control-margins($scope:all) {
     $scope-y:$scope == vertical or $scope == all;
@@ -122,25 +103,25 @@
 
     @if $scope-y or $scope == top {
         &:first-child:not(.f-margins) {
-            margin-top:0 !important;
+            margin-top:0;
         }
     }
 
     @if $scope-x or $scope == right {
         &:last-child:not(.f-margins) {
-            margin-right:0 !important;
+            margin-right:0;
         }
     }
 
     @if $scope-y or $scope == bottom {
         &:last-child:not(.f-margins) {
-            margin-bottom:0 !important;
+            margin-bottom:0;
         }
     }
 
     @if $scope-x or $scope == left {
         &:first-child:not(.f-margins) {
-            margin-left:0 !important;
+            margin-left:0;
         }
     }
 }
@@ -215,22 +196,10 @@
     }
 }
 
-///
-@mixin ellipsis() {
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-}
-
-/// Removes border radius
-@mixin sq() {
-    border-radius:0;
-}
-
-///
+/// Hides element when viewport is as wide or wider than `$breakpoint`
 @mixin hide($breakpoint:s) {
-    @if index(map_keys($breakpoints), $breakpoint) {
-        @include min(map_get($breakpoints, $breakpoint)) {
+    @if index(map-keys($breakpoints), $breakpoint) {
+        @include min(map-get($breakpoints, $breakpoint)) {
             display:none;
         }
     } @else if is-nonneg-unit-number($breakpoint) {
@@ -240,38 +209,38 @@
     }
 }
 
-/// @param {<number>|false} $multiplier [false]
+/// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgb($multiplier:false, $important:false) {
-    $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
+@mixin mgb($multiplier:1, $important:false) {
+    $m:if(is-unitless-number($multiplier), $multiplier, 1);
 
     @if $important == true {
-        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space)) !important;
+        margin-bottom:if($m != 1, calc(var(--space) * #{$m}), var(--space)) !important;
     } @else {
-        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
+        margin-bottom:if($m != 1, calc(var(--space) * #{$m}), var(--space));
     }
 }
 
-/// @param {<number>|false} $multiplier [false]
+/// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgbch($multiplier:false, $important:false) {
+@mixin mgbch($multiplier:1, $important:false) {
     > * {
         @include mgb($multiplier, $important);
     }
 }
 
-/// @param {<number>|false} $multiplier [false]
+/// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgb-row($multiplier:false, $important:false) {
+@mixin mgb-row($multiplier:1, $important:false) {
     &:not(:last-child):after,
     &.f-margins:last-child:after {
         @include mgb($multiplier, $important);
     }
 }
 
-/// @param {<number>|false} $multiplier [false]
+/// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgbch-row($multiplier:false, $important:false) {
+@mixin mgbch-row($multiplier:1, $important:false) {
     @include mgb(-$multiplier, $important);
 
     > * {
@@ -281,13 +250,13 @@
 
 /// @param {row|col} $type [row]
 /// @param {<number>|false} $multiplier [false]
-@mixin row-alleys($type:row, $alley-multiplier:false) {
+@mixin row-alleys($type:row, $multiplier:false) {
     $m:false;
 
-    @if index(map_keys($alley-sizes), $alley-multiplier) {
-        $m:map_get($alley_sizes, $alley-multiplier);
-    } @else if is-nonneg-unitless-number($alley-multiplier) {
-        $m:$alley-multiplier;
+    @if index(map-keys($alley-sizes), $multiplier) {
+        $m:map-get($alley-sizes, $multiplier);
+    } @else if is-nonneg-unitless-number($multiplier) {
+        $m:$multiplier;
     }
 
     @if $type == row {
@@ -325,15 +294,15 @@
 @mixin row-alley($alley-multiplier, $breakpoint:false) {
     $m:false;
 
-    @if index(map_keys($alley-sizes), $alley-multiplier) {
-        $m:map_get($alley_sizes, $alley-multiplier);
+    @if index(map-keys($alley-sizes), $alley-multiplier) {
+        $m:map-get($alley-sizes, $alley-multiplier);
     } @else if is-nonneg-unitless-number($alley-multiplier) {
         $m:$alley-multiplier;
     }
 
     @if $m {
-        @if index(map_keys($breakpoints), $breakpoint) {
-            @include min(map_get($breakpoints, $breakpoint)) {
+        @if index(map-keys($breakpoints), $breakpoint) {
+            @include min(map-get($breakpoints, $breakpoint)) {
                 @include row-alley-styles($m);
             }
         } @else if is-nonneg-unit-number($breakpoint) {
@@ -348,21 +317,21 @@
 
 ///
 @mixin col-width($column-width, $breakpoint:false) {
-    @if index(map_keys($columns), $column-width) {
-        @if index(map_keys($breakpoints), $breakpoint) {
-            @include min(map_get($breakpoints, $breakpoint)) {
-                width:map_get($columns, $column-width);
+    @if index(map-keys($columns), $column-width) {
+        @if index(map-keys($breakpoints), $breakpoint) {
+            @include min(map-get($breakpoints, $breakpoint)) {
+                width:map-get($columns, $column-width);
             }
         } @else if is-nonneg-unit-number($breakpoint) {
             @include min($breakpoint) {
-                width:map_get($columns, $column-width);
+                width:map-get($columns, $column-width);
             }
         } @else {
-            width:map_get($columns, $column-width);
+            width:map-get($columns, $column-width);
         }
     } @else if is-nonneg-unitless-number($column-width) {
-        @if index(map_keys($breakpoints), $breakpoint) {
-            @include min(map_get($breakpoints, $breakpoint)) {
+        @if index(map-keys($breakpoints), $breakpoint) {
+            @include min(map-get($breakpoints, $breakpoint)) {
                 width:percentage($column-width);
             }
         } @else if is-nonneg-unit-number($breakpoint) {
@@ -373,4 +342,35 @@
             width:percentage($column-width);
         }
     }
+}
+
+/// Utility to clear floats
+@mixin clearfix() {
+    &:before,
+    &:after {
+        display:table;
+        clear:both;
+        width:100%;
+        content:'';
+    }
+}
+
+///
+@mixin figcaption() {
+    padding-top:calc(var(--space) * 0.375);
+    color:var(--color-contrast-medium);
+    text-align:center;
+    font-size:var(--font-size-xsmall);
+}
+
+/// Unsets border radius
+@mixin sq() {
+    border-radius:unset;
+}
+
+///
+@mixin ellipsis() {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }

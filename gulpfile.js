@@ -171,11 +171,19 @@ const processSassdocData = sassdocData => {
     });
 
     try {
+        // Sort stuff by name
+        // for(const key in output) {
+        //     if(output.hasOwnProperty(key)) {
+        //         output[key].sort((a, b) => (a.context.name > b.context.name) ? 1 : -1);
+        //     }
+        // }
+
+        // And finally, write the json file
         fs.writeFileSync(files.sassdocjson, JSON.stringify(output, null, 2));
 
-        console.log(`${files.sassdocjson} generated!!!`);
+        console.log(chalk.green(`${files.sassdocjson} generated!!!`));
     } catch(err) {
-        console.error(err);
+        console.error(chalk.red(err));
     }
 };
 
@@ -199,7 +207,7 @@ gulp.task('timestamp', async() => {
         files.timestamp,
         new Date().getTime(),
         err => {
-            if(err) console.log(err);
+            if(err) console.error(chalk.red(err));
         },
     );
 });
@@ -230,7 +238,7 @@ gulp.task('default',
 gulp.task('build',
     gulp.series(
         'sassdoc',
-        gulp.parallel('devscss', 'devjs', 'docsscss', 'docsjs'),
+        gulp.parallel('docsscss', 'docsjs'),
         gulp.parallel('scss', 'js'),
     ),
 );

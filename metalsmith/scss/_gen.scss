@@ -1,5 +1,5 @@
 :root {
-    --content-width:720px;
+    --content-width:800px;
 }
 
 @mixin container-padding-horizontal {
@@ -12,8 +12,11 @@
     }
 }
 
-.container {
+html body #container#container#container {
     @include controlled();
+}
+
+#container {
     @include container-padding-horizontal();
 
     display:flex;
@@ -72,7 +75,7 @@ main {
     margin-bottom:calc(var(--space) * 5);
 
     > header {
-        margin-bottom:calc(var(--space) * 1.75);
+        margin-bottom:var(--space-5xlarge);
     }
 }
 
@@ -105,7 +108,7 @@ main {
     }
 
     .anchor {
-        padding-top:calc(var(--space) * 1.75);
+        padding-top:var(--space-5xlarge);
         font-weight:var(--font-weight-normal);
     }
 }

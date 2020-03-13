@@ -14,7 +14,7 @@ const {dirs, files, sassVars, sassdocData, version, description} = require('./me
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const hbsHelpers = {
+const handlebarsHelpers = {
     'ifeq': function(a, b, options) {
         if(a === b) return options.fn(this);
         return options.inverse(this);
@@ -22,6 +22,10 @@ const hbsHelpers = {
     'ifnoteq': function(a, b, options) {
         if(a !== b) return options.fn(this);
         return options.inverse(this);
+    },
+    'setvar': function(name, value, options) {
+        if(!options.data.root) options.data.root = {};
+        options.data.root[name] = value;
     },
     'sourcelink': function(path, start, end, options) {
         path = Handlebars.escapeExpression(path);
@@ -87,7 +91,7 @@ const metalsmith = Metalsmith(__dirname)
     .use(inPlace({
         suppressNoFilesError: true,
         engineOptions: {
-            helpers: hbsHelpers,
+            helpers: handlebarsHelpers,
         },
     }))
     .use(layouts({
