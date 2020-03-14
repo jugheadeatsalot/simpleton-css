@@ -139,12 +139,12 @@
     $m:if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
-        margin-top:if($m, calc(var(--space) * #{$m}), var(--space));
-        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
+        margin-top:if($m, space($m), space());
+        margin-bottom:if($m, space($m), space());
     }
 
     caption {
-        margin-bottom:if($m, calc(var(--space) * .25 * #{$m}), calc(var(--space) * .25));
+        margin-bottom:if($m, calc(#{space($m)} * .25), calc(#{space()} * .25));
     }
 
     h1,
@@ -174,7 +174,7 @@
     table,
     ul,
     video {
-        margin-bottom:if($m, calc(var(--space) * #{$m}), var(--space));
+        margin-bottom:if($m, space($m), space());
     }
 }
 
@@ -211,40 +211,14 @@
 
 /// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgb($multiplier:1, $important:false) {
-    $m:if(is-unitless-number($multiplier), $multiplier, 1);
-
-    @if $important == true {
-        margin-bottom:if($m != 1, calc(var(--space) * #{$m}), var(--space)) !important;
-    } @else {
-        margin-bottom:if($m != 1, calc(var(--space) * #{$m}), var(--space));
-    }
-}
-
-/// @param {<number>} $multiplier [1]
-/// @param {<bool>} $important [false]
 @mixin mgbch($multiplier:1, $important:false) {
-    > * {
-        @include mgb($multiplier, $important);
-    }
-}
+    $m:if(is-unitless-number($multiplier), $multiplier, 1);
+    $i:if($important == true, $important, false);
 
-/// @param {<number>} $multiplier [1]
-/// @param {<bool>} $important [false]
-@mixin mgb-row($multiplier:1, $important:false) {
-    &:not(:last-child):after,
-    &.f-margins:last-child:after {
-        @include mgb($multiplier, $important);
-    }
-}
-
-/// @param {<number>} $multiplier [1]
-/// @param {<bool>} $important [false]
-@mixin mgbch-row($multiplier:1, $important:false) {
-    @include mgb(-$multiplier, $important);
+    margin-top:space(-$m) if($i, !important, null);
 
     > * {
-        @include mgb($multiplier, $important);
+        margin-top:space($m) if($i, !important, null);
     }
 }
 
@@ -260,18 +234,17 @@
     }
 
     @if $type == row {
-        margin-right:if($m, calc(var(--alley) / 2 * #{-$m}), calc(var(--alley) / 2 * -1));
-        margin-left:if($m, calc(var(--alley) / 2 * #{-$m}), calc(var(--alley) / 2 * -1));
+        margin-right:if($m, calc(#{alley(-$m)} / 2), calc(#{alley(-1)} / 2));
+        margin-left:if($m, calc(#{alley(-$m)} / 2), calc(#{alley(-1)} / 2));
     } @else if $type == col {
-        padding-right:if($m, calc(var(--alley) / 2 * #{$m}), calc(var(--alley) / 2));
-        padding-left:if($m, calc(var(--alley) / 2 * #{$m}), calc(var(--alley) / 2));
+        padding-right:if($m, calc(#{alley($m)} / 2), calc(#{alley()} / 2));
+        padding-left:if($m, calc(#{alley($m)} / 2), calc(#{alley()} / 2));
     }
 }
 
 ///
 @mixin row($alley-multiplier:false) {
     @include row-alleys(row, $alley-multiplier);
-    @include clearfix();
 
     display:flex;
     flex-wrap:wrap;
@@ -357,7 +330,7 @@
 
 ///
 @mixin figcaption() {
-    padding-top:calc(var(--space) * 0.375);
+    padding-top:space(0.375);
     color:var(--color-contrast-medium);
     text-align:center;
     font-size:var(--font-size-xsmall);

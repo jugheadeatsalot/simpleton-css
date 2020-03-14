@@ -65,17 +65,9 @@ blockquote {
 
 .gallery {
     @include row(tighter);
-    @include mgb-row();
-    @include mgbch-row(1, true);
+    @include mgbch();
 
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
-        margin-top:calc(var(--space) * 0.25);
-    }
+    margin-bottom:space();
 }
 
 .gallery-row {

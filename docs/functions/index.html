@@ -7,13 +7,13 @@
     <title>Functions &mdash; Simpleton CSS</title>
     <meta name="description"
         content="A CSS framework so simple, you&#x27;ll probably use something else.">
-    <!--    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">-->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/simpleton.min.css?v=0.1.3">
     <link rel="stylesheet" href="/assets/css/docs.min.css?v=0.1.3">
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <header class="site-header">
             <nav>
                 <h1 class="site-name"><a href="/">Simpleton CSS</a></h1>
@@ -29,9 +29,106 @@
             </nav>
         </header>
         <main>
-            <header>
-                <h1>Functions</h1>
-            </header>
+            <h1>Functions</h1>
+            <section class="doc-block">
+                <h2>list-to-string <a id="list-to-string" class="anchor"
+                        href="#list-to-string"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">list-to-string</span></a></h2>
+                <div class="description">Joins <code>$list</code> items into a <code>$glue</code>
+                    separated string and uses an optional <code>$closer</code> before the final
+                    item. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>list</code></td>
+                            <td><code>&lt;list&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>glue</code></td>
+                            <td><code>&lt;any&gt;</code></td>
+                            <td><code>&#x27;&#x27;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>closer</code></td>
+                            <td><code>&lt;any&gt;</code></td>
+                            <td><code>null</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>quote-strings</code></td>
+                            <td><code>&lt;bool&gt;</code></td>
+                            <td><code>false</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L11-L64"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">$output:null;
+$last-item:null;
+$last-item-quoted:false;
+
+@if type-of($list) !&#x3D; list {
+    @error &#x27;&#x60;#{$list}&#x60; is not a valid list.&#x27;;
+}
+
+@for $i from 1 through length($list) {
+    $item:nth($list, $i);
+
+    @if type-of($item) &#x3D;&#x3D; list {
+        @if $i &#x3D;&#x3D; length($list) {
+            $last-item:nth($item, -1);
+            $is-nested-list:type-of($last-item) &#x3D;&#x3D; list;
+
+            @while $is-nested-list {
+                $last-item:nth($last-item, -1);
+
+                @if type-of($last-item) !&#x3D; list {
+                    $is-nested-list:false;
+                    $last-item-quoted:type-of($last-item) &#x3D;&#x3D; string and $quote-strings;
+                }
+            }
+
+            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
+        } @else {
+            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
+        }
+    } @else {
+        $item:if(type-of($item) &#x3D;&#x3D; string and $quote-strings, &#x27;&quot;#{$item}&quot;&#x27;, $item);
+
+        @if $i &#x3D;&#x3D; length($list) {
+            $last-item:$item;
+            $last-item-quoted:type-of($last-item) &#x3D;&#x3D; string and $quote-strings;
+
+            $output:#{$output}#{$item}
+        } @else {
+            $output:#{$output}#{$item}#{$glue};
+        }
+    }
+}
+
+@if $closer !&#x3D; null {
+    $offset:if($last-item-quoted, 2, 0);
+    $find:#{$glue}#{$last-item};
+    $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
+    $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
+    $output:#{$slice-1}#{$closer}#{$slice-2};
+}
+
+@return $output;
+</code></pre>
+            </section>
             <section class="doc-block">
                 <h2>auto-color-contrast <a id="auto-color-contrast" class="anchor"
                         href="#auto-color-contrast"><span aria-hidden="true">#</span><span
@@ -89,7 +186,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L229-L243"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L76-L90"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -155,7 +252,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L285-L287"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L100-L102"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -209,7 +306,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L292-L294"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L107-L109"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -268,7 +365,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L254-L280"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L115-L141"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -301,11 +398,10 @@
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>format-valid-values <a id="format-valid-values" class="anchor"
-                        href="#format-valid-values"><span aria-hidden="true">#</span><span
-                            class="screen-reader-text">format-valid-values</span></a></h2>
-                <div class="description">Returns a formatted string of valid <code>$values</code>.
-                </div>
+                <h2>strip-unit <a id="strip-unit" class="anchor" href="#strip-unit"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">strip-unit</span></a></h2>
+                <div class="description">Removes the unit from <code>$number</code>. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -317,8 +413,49 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>values</code></td>
-                            <td><code>&lt;list&gt;</code></td>
+                            <td><code>number</code></td>
+                            <td><code>&lt;number&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L145-L151"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@if type-of($number) &#x3D;&#x3D; &#x27;number&#x27; and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@return $number;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>rem-to-pixels <a id="rem-to-pixels" class="anchor" href="#rem-to-pixels"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">rem-to-pixels</span></a></h2>
+                <div class="description">Converts <code>$size-in-rem</code> to pixels based on
+                    <code>$font-size-base</code>. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>size-in-rem</code></td>
+                            <td><code>&lt;number&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-size-base</code></td>
+                            <td><code>&lt;number&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
                     </tbody>
@@ -334,19 +471,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code><a href="#list-to-string">list-to-string</a></code></td>
+                            <td><code><a href="#strip-unit">strip-unit</a></code></td>
                             <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a href="/variables#font-size-base">font-size-base</a></code>
+                            </td>
+                            <td><code>variable</code></td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L9-L11"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L156-L158"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@return &#x27;Valid values are #{list-to-string($values, &#x27;, &#x27;, &#x27; and &#x27;)}.&#x27;;
+                <pre><code class="lang-scss">@return strip-unit($size-in-rem) * $font-size-base;
 </code></pre>
             </section>
             <section class="doc-block">
@@ -372,7 +515,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L53-L55"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L167-L169"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -403,7 +546,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L59-L61"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L173-L175"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -412,11 +555,10 @@
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>is-in-list <a id="is-in-list" class="anchor" href="#is-in-list"><span
+                <h2>is-string <a id="is-string" class="anchor" href="#is-string"><span
                             aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-in-list</span></a></h2>
-                <div class="description">Checks if <code>$needle</code> is found in
-                    <code>$haystack</code>. </div>
+                            class="screen-reader-text">is-string</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a string. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -428,13 +570,71 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>needle</code></td>
-                            <td><code>&lt;any&gt;|number</code></td>
+                            <td><code>value</code></td>
+                            <td><code>&lt;any&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L179-L181"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; string;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>is-number <a id="is-number" class="anchor" href="#is-number"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">is-number</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a number. </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
                         <tr>
-                            <td><code>haystack</code></td>
-                            <td><code>&lt;list&gt;</code></td>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>value</code></td>
+                            <td><code>&lt;any&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L185-L187"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; number;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>is-unit-number <a id="is-unit-number" class="anchor"
+                        href="#is-unit-number"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">is-unit-number</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a number with a unit.
+                </div>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>value</code></td>
+                            <td><code>&lt;any&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
                         <tr>
@@ -455,40 +655,44 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td><code><a href="#is-number">is-number</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
                             <td><code><a href="#show-param-value">show-param-value</a></code></td>
                             <td><code>function</code></td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td><code><a href="#format-valid-values">format-valid-values</a></code>
-                            </td>
-                            <td><code>function</code></td>
+                            <td><code><a href="/variables#lengths">lengths</a></code></td>
+                            <td><code>variable</code></td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L142-L152"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L192-L202"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@if index($haystack, $needle) {
+                <pre><code class="lang-scss">@if is-number($value) and index($lengths, unit($value)) {
     @return true;
 }
 
 @if $warn &#x3D;&#x3D; true {
-    @warn &#x27;Invalid &#x60;$needle&#x60;. #{show-param-value($needle)} #{format-valid-values($haystack)}&#x27;;
+    @warn &#x27;&#x60;$value&#x60; must be a &lt;length&gt;. #{show-param-value($value)}&#x27;;
 }
 
 @return false;
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>is-list <a id="is-list" class="anchor" href="#is-list"><span
-                            aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-list</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a list. </div>
+                <h2>is-unitless-number <a id="is-unitless-number" class="anchor"
+                        href="#is-unitless-number"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">is-unitless-number</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a unitless number. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -504,46 +708,50 @@
                             <td><code>&lt;any&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
+                        <tr>
+                            <td><code>warn</code></td>
+                            <td><code>&lt;bool&gt;</code></td>
+                            <td><code>false</code></td>
+                        </tr>
                     </tbody>
                 </table>
-                <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L35-L37"
-                        target="_blank"><span class="screen-reader-text">View Source</span><svg
-                            class="icon" aria-hidden="true">
-                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
-                        </svg></a></h3>
-                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; list;
-</code></pre>
-            </section>
-            <section class="doc-block">
-                <h2>is-map <a id="is-map" class="anchor" href="#is-map"><span
-                            aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-map</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a map. </div>
-                <h3>Params</h3>
+                <h3>Requires</h3>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Default</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>value</code></td>
-                            <td><code>&lt;any&gt;</code></td>
-                            <td><code>--</code></td>
+                            <td><code><a href="#is-number">is-number</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a href="#show-param-value">show-param-value</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L41-L43"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L207-L217"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; map;
+                <pre><code class="lang-scss">@if is-number($value) and unitless($value) {
+    @return true;
+}
+
+@if $warn &#x3D;&#x3D; true {
+    @warn &#x27;&#x60;$value&#x60; must be a unitless &lt;number&gt;. #{show-param-value($value)}&#x27;;
+}
+
+@return false;
 </code></pre>
             </section>
             <section class="doc-block">
@@ -597,7 +805,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L96-L106"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L222-L232"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -661,10 +869,15 @@
                             <td><code>function</code></td>
                             <td></td>
                         </tr>
+                        <tr>
+                            <td><code><a href="/variables#lengths">lengths</a></code></td>
+                            <td><code>variable</code></td>
+                            <td></td>
+                        </tr>
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L111-L121"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L237-L247"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -731,7 +944,7 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L126-L136"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L252-L262"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -748,10 +961,10 @@
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>is-number <a id="is-number" class="anchor" href="#is-number"><span
+                <h2>is-map <a id="is-map" class="anchor" href="#is-map"><span
                             aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-number</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a number. </div>
+                            class="screen-reader-text">is-map</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a map. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -770,19 +983,19 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L29-L31"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L266-L268"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; number;
+                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; map;
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>is-string <a id="is-string" class="anchor" href="#is-string"><span
+                <h2>is-list <a id="is-list" class="anchor" href="#is-list"><span
                             aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-string</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a string. </div>
+                            class="screen-reader-text">is-list</span></a></h2>
+                <div class="description">Checks if <code>$value</code> is a list. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -801,20 +1014,20 @@
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L47-L49"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L272-L274"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; string;
+                <pre><code class="lang-scss">@return type-of($value) &#x3D;&#x3D; list;
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>is-unit-number <a id="is-unit-number" class="anchor"
-                        href="#is-unit-number"><span aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-unit-number</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a number with a unit.
-                </div>
+                <h2>is-in-list <a id="is-in-list" class="anchor" href="#is-in-list"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">is-in-list</span></a></h2>
+                <div class="description">Checks if <code>$needle</code> is found in
+                    <code>$haystack</code>. </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -826,246 +1039,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>value</code></td>
-                            <td><code>&lt;any&gt;</code></td>
+                            <td><code>needle</code></td>
+                            <td><code>&lt;any&gt;|number</code></td>
                             <td><code>--</code></td>
                         </tr>
                         <tr>
-                            <td><code>warn</code></td>
-                            <td><code>&lt;bool&gt;</code></td>
-                            <td><code>false</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Requires</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code><a href="#is-number">is-number</a></code></td>
-                            <td><code>function</code></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><code><a href="#show-param-value">show-param-value</a></code></td>
-                            <td><code>function</code></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L66-L76"
-                        target="_blank"><span class="screen-reader-text">View Source</span><svg
-                            class="icon" aria-hidden="true">
-                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
-                        </svg></a></h3>
-                <pre><code class="lang-scss">@if is-number($value) and index($lengths, unit($value)) {
-    @return true;
-}
-
-@if $warn &#x3D;&#x3D; true {
-    @warn &#x27;&#x60;$value&#x60; must be a &lt;length&gt;. #{show-param-value($value)}&#x27;;
-}
-
-@return false;
-</code></pre>
-            </section>
-            <section class="doc-block">
-                <h2>is-unitless-number <a id="is-unitless-number" class="anchor"
-                        href="#is-unitless-number"><span aria-hidden="true">#</span><span
-                            class="screen-reader-text">is-unitless-number</span></a></h2>
-                <div class="description">Checks if <code>$value</code> is a unitless number. </div>
-                <h3>Params</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>value</code></td>
-                            <td><code>&lt;any&gt;</code></td>
-                            <td><code>--</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>warn</code></td>
-                            <td><code>&lt;bool&gt;</code></td>
-                            <td><code>false</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Requires</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code><a href="#is-number">is-number</a></code></td>
-                            <td><code>function</code></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><code><a href="#show-param-value">show-param-value</a></code></td>
-                            <td><code>function</code></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L81-L91"
-                        target="_blank"><span class="screen-reader-text">View Source</span><svg
-                            class="icon" aria-hidden="true">
-                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
-                        </svg></a></h3>
-                <pre><code class="lang-scss">@if is-number($value) and unitless($value) {
-    @return true;
-}
-
-@if $warn &#x3D;&#x3D; true {
-    @warn &#x27;&#x60;$value&#x60; must be a unitless &lt;number&gt;. #{show-param-value($value)}&#x27;;
-}
-
-@return false;
-</code></pre>
-            </section>
-            <section class="doc-block">
-                <h2>list-to-string <a id="list-to-string" class="anchor"
-                        href="#list-to-string"><span aria-hidden="true">#</span><span
-                            class="screen-reader-text">list-to-string</span></a></h2>
-                <div class="description">Joins <code>$list</code> items into a <code>$glue</code>
-                    separated string and uses an optional <code>$closer</code> before the final
-                    item. </div>
-                <h3>Params</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>list</code></td>
+                            <td><code>haystack</code></td>
                             <td><code>&lt;list&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
                         <tr>
-                            <td><code>glue</code></td>
-                            <td><code>&lt;any&gt;</code></td>
-                            <td><code>&#x27;&#x27;</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>closer</code></td>
-                            <td><code>&lt;any&gt;</code></td>
-                            <td><code>null</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>quote-strings</code></td>
+                            <td><code>warn</code></td>
                             <td><code>&lt;bool&gt;</code></td>
                             <td><code>false</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L164-L217"
-                        target="_blank"><span class="screen-reader-text">View Source</span><svg
-                            class="icon" aria-hidden="true">
-                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
-                        </svg></a></h3>
-                <pre><code class="lang-scss">$output:null;
-$last-item:null;
-$last-item-quoted:false;
-
-@if type-of($list) !&#x3D; list {
-    @error &#x27;&#x60;#{$list}&#x60; is not a valid list.&#x27;;
-}
-
-@for $i from 1 through length($list) {
-    $item:nth($list, $i);
-
-    @if type-of($item) &#x3D;&#x3D; list {
-        @if $i &#x3D;&#x3D; length($list) {
-            $last-item:nth($item, -1);
-            $is-nested-list:type-of($last-item) &#x3D;&#x3D; list;
-
-            @while $is-nested-list {
-                $last-item:nth($last-item, -1);
-
-                @if type-of($last-item) !&#x3D; list {
-                    $is-nested-list:false;
-                    $last-item-quoted:type-of($last-item) &#x3D;&#x3D; string and $quote-strings;
-                }
-            }
-
-            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
-        } @else {
-            $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
-        }
-    } @else {
-        $item:if(type-of($item) &#x3D;&#x3D; string and $quote-strings, &#x27;&quot;#{$item}&quot;&#x27;, $item);
-
-        @if $i &#x3D;&#x3D; length($list) {
-            $last-item:$item;
-            $last-item-quoted:type-of($last-item) &#x3D;&#x3D; string and $quote-strings;
-
-            $output:#{$output}#{$item}
-        } @else {
-            $output:#{$output}#{$item}#{$glue};
-        }
-    }
-}
-
-@if $closer !&#x3D; null {
-    $offset:if($last-item-quoted, 2, 0);
-    $find:#{$glue}#{$last-item};
-    $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
-    $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
-    $output:#{$slice-1}#{$closer}#{$slice-2};
-}
-
-@return $output;
-</code></pre>
-            </section>
-            <section class="doc-block">
-                <h2>rem-to-pixels <a id="rem-to-pixels" class="anchor" href="#rem-to-pixels"><span
-                            aria-hidden="true">#</span><span
-                            class="screen-reader-text">rem-to-pixels</span></a></h2>
-                <div class="description">Converts <code>$size-in-rem</code> to pixels based on
-                    <code>$font-size-base</code>. </div>
-                <h3>Params</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>size-in-rem</code></td>
-                            <td><code>&lt;number&gt;</code></td>
-                            <td><code>--</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>font-size-base</code></td>
-                            <td><code>&lt;number&gt;</code></td>
-                            <td><code>--</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1080,19 +1066,33 @@ $last-item-quoted:false;
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code><a href="#strip-unit">strip-unit</a></code></td>
+                            <td><code><a href="#show-param-value">show-param-value</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><code><a href="#format-valid-values">format-valid-values</a></code>
+                            </td>
                             <td><code>function</code></td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L309-L311"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L280-L290"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@return strip-unit($size-in-rem) * $font-size-base;
+                <pre><code class="lang-scss">@if index($haystack, $needle) {
+    @return true;
+}
+
+@if $warn &#x3D;&#x3D; true {
+    @warn &#x27;Invalid &#x60;$needle&#x60;. #{show-param-value($needle)} #{format-valid-values($haystack)}&#x27;;
+}
+
+@return false;
 </code></pre>
             </section>
             <section class="doc-block">
@@ -1119,7 +1119,7 @@ $last-item-quoted:false;
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L16-L20"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L300-L304"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1130,10 +1130,11 @@ $last-item-quoted:false;
 </code></pre>
             </section>
             <section class="doc-block">
-                <h2>strip-unit <a id="strip-unit" class="anchor" href="#strip-unit"><span
-                            aria-hidden="true">#</span><span
-                            class="screen-reader-text">strip-unit</span></a></h2>
-                <div class="description">Removes the unit from <code>$number</code>. </div>
+                <h2>format-valid-values <a id="format-valid-values" class="anchor"
+                        href="#format-valid-values"><span aria-hidden="true">#</span><span
+                            class="screen-reader-text">format-valid-values</span></a></h2>
+                <div class="description">Returns a formatted string of valid <code>$values</code>.
+                </div>
                 <h3>Params</h3>
                 <table>
                     <thead>
@@ -1145,30 +1146,143 @@ $last-item-quoted:false;
                     </thead>
                     <tbody>
                         <tr>
-                            <td><code>number</code></td>
+                            <td><code>values</code></td>
+                            <td><code>&lt;list&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#list-to-string">list-to-string</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L309-L311"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">@return &#x27;Valid values are #{list-to-string($values, &#x27;, &#x27;, &#x27; and &#x27;)}.&#x27;;
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>space <a id="space" class="anchor" href="#space"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">space</span></a></h2>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>multiplier</code></td>
                             <td><code>&lt;number&gt;</code></td>
                             <td><code>--</code></td>
                         </tr>
                     </tbody>
                 </table>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#is-unitless-number">is-unitless-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L298-L304"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L314-L318"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
-                <pre><code class="lang-scss">@if type-of($number) &#x3D;&#x3D; &#x27;number&#x27; and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-}
+                <pre><code class="lang-scss">$m: if(is-unitless-number($multiplier), $multiplier, 1);
 
-@return $number;
+@return if($m !&#x3D; 1, calc(var(--space) * #{$m}), var(--space));
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>alley <a id="alley" class="anchor" href="#alley"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">alley</span></a></h2>
+                <h3>Params</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>multiplier</code></td>
+                            <td><code>&lt;number&gt;</code></td>
+                            <td><code>--</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="#is-unitless-number">is-unitless-number</a></code>
+                            </td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_funcs.scss#L321-L325"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">$m: if(is-unitless-number($multiplier), $multiplier, 1);
+
+@return if($m !&#x3D; 1, calc(var(--alley) * #{$m}), var(--alley));
 </code></pre>
             </section>
         </main>
         <footer class="site-footer">
             <div class="copyright"> Built by <a href="https://johnromeral.com">John Romeral</a>.
-                Released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
-                Absolutely no warranties. </div>
+                Released under the <a href="/license.txt">MIT License</a>. Absolutely no warranties.
+            </div>
         </footer>
     </div>
     <script src='/assets/vendor/prism.min.js?v=0.1.3'></script>

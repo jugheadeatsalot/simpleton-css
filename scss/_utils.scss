@@ -4,11 +4,7 @@ $inc:0;
     $inc:$inc + 25;
 
     .mgb-#{$inc} {
-        @include mgb($inc / 100);
-    }
-
-    .mgbch-#{$inc} {
-        @include mgbch($inc / 100);
+        margin-bottom:space($inc / 100);
     }
 }
 

@@ -309,3 +309,17 @@
 @function format-valid-values($values) {
     @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
 }
+
+/// @param {<number>} $multiplier
+@function space($multiplier: 1) {
+    $m: if(is-unitless-number($multiplier), $multiplier, 1);
+
+    @return if($m != 1, calc(var(--space) * #{$m}), var(--space));
+}
+
+/// @param {<number>} $multiplier
+@function alley($multiplier: 1) {
+    $m: if(is-unitless-number($multiplier), $multiplier, 1);
+
+    @return if($m != 1, calc(var(--alley) * #{$m}), var(--alley));
+}
