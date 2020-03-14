@@ -131,6 +131,8 @@ if(!isProduction) {
 }
 
 metalsmith.build(err => {
+    console.log('!!!');
+
     if(err) {
         console.error(err);
 

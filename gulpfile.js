@@ -238,7 +238,7 @@ gulp.task('default',
 gulp.task('build',
     gulp.series(
         'sassdoc',
-        gulp.parallel('docsscss', 'docsjs'),
+        gulp.parallel('devscss', 'devjs', 'docsscss', 'docsjs'),
         gulp.parallel('scss', 'js'),
     ),
 );

@@ -396,8 +396,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 285,
-              "end": 285
+              "start": 307,
+              "end": 307
             },
             "context": {
               "type": "variable",
@@ -405,8 +405,8 @@
               "value": "480px",
               "scope": "default",
               "line": {
-                "start": 286,
-                "end": 286
+                "start": 308,
+                "end": 308
               }
             },
             "access": "public",
@@ -467,8 +467,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 287,
-              "end": 287
+              "start": 309,
+              "end": 309
             },
             "context": {
               "type": "variable",
@@ -476,8 +476,8 @@
               "value": "768px",
               "scope": "default",
               "line": {
-                "start": 288,
-                "end": 288
+                "start": 310,
+                "end": 310
               }
             },
             "access": "public",
@@ -538,8 +538,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 289,
-              "end": 289
+              "start": 311,
+              "end": 311
             },
             "context": {
               "type": "variable",
@@ -547,8 +547,8 @@
               "value": "960px",
               "scope": "default",
               "line": {
-                "start": 290,
-                "end": 290
+                "start": 312,
+                "end": 312
               }
             },
             "access": "public",
@@ -609,8 +609,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 291,
-              "end": 291
+              "start": 313,
+              "end": 313
             },
             "context": {
               "type": "variable",
@@ -618,8 +618,8 @@
               "value": "1200px",
               "scope": "default",
               "line": {
-                "start": 292,
-                "end": 292
+                "start": 314,
+                "end": 314
               }
             },
             "access": "public",
@@ -3153,8 +3153,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 365,
-                    "end": 365
+                    "start": 371,
+                    "end": 371
                   },
                   "context": {
                     "type": "variable",
@@ -3162,8 +3162,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 366,
-                      "end": 366
+                      "start": 372,
+                      "end": 372
                     }
                   },
                   "access": "public",
@@ -3266,8 +3266,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 293,
-              "end": 293
+              "start": 315,
+              "end": 315
             },
             "context": {
               "type": "variable",
@@ -3275,8 +3275,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 294,
-                "end": 294
+                "start": 316,
+                "end": 316
               }
             },
             "access": "public",
@@ -9821,8 +9821,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 365,
-                    "end": 365
+                    "start": 371,
+                    "end": 371
                   },
                   "context": {
                     "type": "variable",
@@ -9830,8 +9830,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 366,
-                      "end": 366
+                      "start": 372,
+                      "end": 372
                     }
                   },
                   "access": "public",
@@ -10014,8 +10014,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 293,
-              "end": 293
+              "start": 315,
+              "end": 315
             },
             "context": {
               "type": "variable",
@@ -10023,8 +10023,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 294,
-                "end": 294
+                "start": 316,
+                "end": 316
               }
             },
             "access": "public",
@@ -10736,8 +10736,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 365,
-                    "end": 365
+                    "start": 371,
+                    "end": 371
                   },
                   "context": {
                     "type": "variable",
@@ -10745,8 +10745,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 366,
-                      "end": 366
+                      "start": 372,
+                      "end": 372
                     }
                   },
                   "access": "public",
@@ -11351,8 +11351,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 302,
-              "end": 302
+              "start": 324,
+              "end": 324
             },
             "context": {
               "type": "variable",
@@ -11360,8 +11360,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 303,
-                "end": 303
+                "start": 325,
+                "end": 325
               }
             },
             "access": "public",
@@ -11431,8 +11431,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 293,
-              "end": 293
+              "start": 315,
+              "end": 315
             },
             "context": {
               "type": "variable",
@@ -11440,8 +11440,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 294,
-                "end": 294
+                "start": 316,
+                "end": 316
               }
             },
             "access": "public",
@@ -13703,8 +13703,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 365,
-              "end": 365
+              "start": 371,
+              "end": 371
             },
             "context": {
               "type": "variable",
@@ -13712,8 +13712,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 366,
-                "end": 366
+                "start": 372,
+                "end": 372
               }
             },
             "access": "public",
@@ -14760,8 +14760,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 365,
-              "end": 365
+              "start": 371,
+              "end": 371
             },
             "context": {
               "type": "variable",
@@ -14769,8 +14769,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 366,
-                "end": 366
+                "start": 372,
+                "end": 372
               }
             },
             "access": "public",
@@ -19234,12 +19234,137 @@
       },
       "context": {
         "type": "variable",
+        "name": "ease-in-out-expo",
+        "value": "cubic-bezier(1, 0, 0, 1)",
+        "scope": "private",
+        "line": {
+          "start": 286,
+          "end": 286
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 287,
+        "end": 287
+      },
+      "context": {
+        "type": "variable",
+        "name": "ease-in-out-quart",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "scope": "private",
+        "line": {
+          "start": 288,
+          "end": 288
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 289,
+        "end": 289
+      },
+      "context": {
+        "type": "variable",
+        "name": "default-easing",
+        "value": "$ease-in-out-expo",
+        "scope": "default",
+        "line": {
+          "start": 290,
+          "end": 290
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 297,
+        "end": 297
+      },
+      "context": {
+        "type": "variable",
+        "name": "border-size",
+        "value": "1px",
+        "scope": "default",
+        "line": {
+          "start": 298,
+          "end": 298
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 299,
+        "end": 299
+      },
+      "context": {
+        "type": "variable",
+        "name": "max-site-width",
+        "value": "1200px",
+        "scope": "default",
+        "line": {
+          "start": 300,
+          "end": 300
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 307,
+        "end": 307
+      },
+      "context": {
+        "type": "variable",
         "name": "breakpoint-s",
         "value": "480px",
         "scope": "default",
         "line": {
-          "start": 286,
-          "end": 286
+          "start": 308,
+          "end": 308
         }
       },
       "access": "public",
@@ -19268,8 +19393,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 287,
-        "end": 287
+        "start": 309,
+        "end": 309
       },
       "context": {
         "type": "variable",
@@ -19277,8 +19402,8 @@
         "value": "768px",
         "scope": "default",
         "line": {
-          "start": 288,
-          "end": 288
+          "start": 310,
+          "end": 310
         }
       },
       "access": "public",
@@ -19307,8 +19432,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 289,
-        "end": 289
+        "start": 311,
+        "end": 311
       },
       "context": {
         "type": "variable",
@@ -19316,8 +19441,8 @@
         "value": "960px",
         "scope": "default",
         "line": {
-          "start": 290,
-          "end": 290
+          "start": 312,
+          "end": 312
         }
       },
       "access": "public",
@@ -19346,8 +19471,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 291,
-        "end": 291
+        "start": 313,
+        "end": 313
       },
       "context": {
         "type": "variable",
@@ -19355,8 +19480,8 @@
         "value": "1200px",
         "scope": "default",
         "line": {
-          "start": 292,
-          "end": 292
+          "start": 314,
+          "end": 314
         }
       },
       "access": "public",
@@ -19385,8 +19510,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 293,
-        "end": 293
+        "start": 315,
+        "end": 315
       },
       "context": {
         "type": "variable",
@@ -19394,8 +19519,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 294,
-          "end": 294
+          "start": 316,
+          "end": 316
         }
       },
       "access": "public",
@@ -19508,8 +19633,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 295,
-        "end": 295
+        "start": 317,
+        "end": 317
       },
       "context": {
         "type": "variable",
@@ -19517,8 +19642,8 @@
         "value": "map-merge((\n    s: $breakpoint-s,\n    m: $breakpoint-m,\n    l: $breakpoint-l,\n    xl: $breakpoint-xl,\n), $breakpoints)",
         "scope": "private",
         "line": {
-          "start": 296,
-          "end": 301
+          "start": 318,
+          "end": 323
         }
       },
       "access": "public",
@@ -19533,8 +19658,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 302,
-        "end": 302
+        "start": 324,
+        "end": 324
       },
       "context": {
         "type": "variable",
@@ -19542,8 +19667,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 303,
-          "end": 303
+          "start": 325,
+          "end": 325
         }
       },
       "access": "public",
@@ -19608,8 +19733,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 304,
-        "end": 304
+        "start": 326,
+        "end": 326
       },
       "context": {
         "type": "variable",
@@ -19617,132 +19742,7 @@
         "value": "map-merge((\n    1: percentage(1/12),\n    2: percentage(2/12),\n    3: percentage(3/12),\n    4: percentage(4/12),\n    5: percentage(5/12),\n    6: percentage(6/12),\n    7: percentage(7/12),\n    8: percentage(8/12),\n    9: percentage(9/12),\n    10: percentage(10/12),\n    11: percentage(11/12),\n    12: percentage(12/12),\n    p5: 5%,\n    p10: 10%,\n    p15: 15%,\n    p20: 20%,\n    p25: 25%,\n    p30: 30%,\n    p35: 35%,\n    p40: 40%,\n    p45: 45%,\n    p50: 50%,\n    p55: 55%,\n    p60: 60%,\n    p65: 65%,\n    p70: 70%,\n    p75: 75%,\n    p80: 80%,\n    p85: 85%,\n    p90: 90%,\n    p95: 95%,\n    p100: 100%,\n), $columns)",
         "scope": "private",
         "line": {
-          "start": 305,
-          "end": 338
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 345,
-        "end": 345
-      },
-      "context": {
-        "type": "variable",
-        "name": "ease-in-out-expo",
-        "value": "cubic-bezier(1, 0, 0, 1)",
-        "scope": "private",
-        "line": {
-          "start": 346,
-          "end": 346
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 347,
-        "end": 347
-      },
-      "context": {
-        "type": "variable",
-        "name": "ease-in-out-quart",
-        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
-        "scope": "private",
-        "line": {
-          "start": 348,
-          "end": 348
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 349,
-        "end": 349
-      },
-      "context": {
-        "type": "variable",
-        "name": "default-easing",
-        "value": "$ease-in-out-expo",
-        "scope": "default",
-        "line": {
-          "start": 350,
-          "end": 350
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 357,
-        "end": 357
-      },
-      "context": {
-        "type": "variable",
-        "name": "border-size",
-        "value": "1px",
-        "scope": "default",
-        "line": {
-          "start": 358,
-          "end": 358
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 359,
-        "end": 359
-      },
-      "context": {
-        "type": "variable",
-        "name": "max-site-width",
-        "value": "1200px",
-        "scope": "default",
-        "line": {
-          "start": 360,
+          "start": 327,
           "end": 360
         }
       },
@@ -19758,8 +19758,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 361,
-        "end": 361
+        "start": 367,
+        "end": 367
       },
       "context": {
         "type": "variable",
@@ -19767,8 +19767,8 @@
         "value": "(cm, mm, in, px, pt, pc)",
         "scope": "private",
         "line": {
-          "start": 362,
-          "end": 362
+          "start": 368,
+          "end": 368
         }
       },
       "access": "public",
@@ -19783,8 +19783,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 363,
-        "end": 363
+        "start": 369,
+        "end": 369
       },
       "context": {
         "type": "variable",
@@ -19792,8 +19792,8 @@
         "value": "(em, ex, ch, rem, vw, vh, vmin, vmax, '%')",
         "scope": "private",
         "line": {
-          "start": 364,
-          "end": 364
+          "start": 370,
+          "end": 370
         }
       },
       "access": "public",
@@ -19808,8 +19808,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 365,
-        "end": 365
+        "start": 371,
+        "end": 371
       },
       "context": {
         "type": "variable",
@@ -19817,8 +19817,8 @@
         "value": "join($lengths-absolute, $lengths-relative)",
         "scope": "private",
         "line": {
-          "start": 366,
-          "end": 366
+          "start": 372,
+          "end": 372
         }
       },
       "access": "public",

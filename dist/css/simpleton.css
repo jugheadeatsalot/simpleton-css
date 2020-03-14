@@ -58,7 +58,7 @@
   --color-youtube: #b31217;
   --space: 1.5rem;
   --space-top-h: calc(var(--space)*1.25);
-  --space-bottom-h: calc(var(--space)*0.875);
+  --space-bottom-h: calc(var(--space)*0.625);
   --alley: 30px;
   --p-inline-t: 0.125rem;
   --p-inline-r: 0.25rem;
@@ -90,10 +90,6 @@
   --p-input-b: 0.5rem;
   --p-input-l: 0.75rem;
   --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l);
-  --breakpoint-s: 480px;
-  --breakpoint-m: 768px;
-  --breakpoint-l: 960px;
-  --breakpoint-xl: 1200px;
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
   --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
   --default-easing: cubic-bezier(1, 0, 0, 1);
@@ -482,7 +478,7 @@ h5,
 h6 {
   margin-top: 1.875rem;
   margin-top: var(--space-top-h);
-  margin-bottom: 1.3125rem;
+  margin-bottom: 0.9375rem;
   margin-bottom: var(--space-bottom-h);
 }
 

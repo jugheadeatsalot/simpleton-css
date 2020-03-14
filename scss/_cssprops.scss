@@ -63,7 +63,7 @@
     --color-youtube:#{$color-youtube};
     --space:#{$space};
     --space-top-h:#{space(1.25)};
-    --space-bottom-h:#{space(0.875)};
+    --space-bottom-h:#{space(0.625)};
     --alley:#{$alley};
     --p-inline-t:#{$p-inline-t};
     --p-inline-r:#{$p-inline-r};
@@ -95,10 +95,6 @@
     --p-input-b:#{$p-input-b};
     --p-input-l:#{$p-input-l};
     --padding-input:var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l);
-    --breakpoint-s:#{$breakpoint-s};
-    --breakpoint-m:#{$breakpoint-m};
-    --breakpoint-l:#{$breakpoint-l};
-    --breakpoint-xl:#{$breakpoint-xl};
     --ease-in-out-expo:#{$ease-in-out-expo};
     --ease-in-out-quart:#{$ease-in-out-quart};
     --default-easing:#{$default-easing};

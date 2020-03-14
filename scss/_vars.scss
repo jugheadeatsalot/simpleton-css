@@ -278,7 +278,29 @@ $alley-sizes:map-merge((
 ), $alley-sizes);
 
 //
-// Sizes
+// Transitions and Animations
+//
+//
+
+///
+$ease-in-out-expo:cubic-bezier(1, 0, 0, 1);
+///
+$ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1);
+///
+$default-easing:$ease-in-out-expo !default;
+
+//
+// Etcetera
+//
+//
+
+///
+$border-size:1px !default;
+///
+$max-site-width:1200px !default;
+
+//
+// Breakpoints
 //
 //
 
@@ -338,26 +360,10 @@ $columns:map-merge((
 ), $columns);
 
 //
-// Transitions and Animations
+// Internals
 //
 //
 
-///
-$ease-in-out-expo:cubic-bezier(1, 0, 0, 1);
-///
-$ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1);
-///
-$default-easing:$ease-in-out-expo !default;
-
-//
-// Etcetera
-//
-//
-
-///
-$border-size:1px !default;
-///
-$max-site-width:1200px !default;
 ///
 $lengths-absolute:(cm, mm, in, px, pt, pc);
 ///
