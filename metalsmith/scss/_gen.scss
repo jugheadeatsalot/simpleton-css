@@ -3,12 +3,12 @@
 }
 
 @mixin container-padding-horizontal {
-    padding-right:var(--space);
-    padding-left:var(--space);
+    padding-right:space();
+    padding-left:space();
 
     @include min($breakpoint-s) {
-        padding-right:calc(var(--space) * 2);
-        padding-left:calc(var(--space) * 2);
+        padding-right:space(2);
+        padding-left:space(2);
     }
 }
 
@@ -41,24 +41,24 @@ html body #container#container#container {
     top:0;
     left:0;
     overflow-y:auto;
-    padding:calc(var(--space) * 2) var(--space) calc(var(--space) * 3);
+    padding:space(3.375) space() space(4.375);
     width:200px;
     height:100%;
     background-color:var(--color-background);
 
     nav {
         @include min($breakpoint-s) {
-            max-width:calc(var(--content-width) - calc(var(--alley) * 2));
+            max-width:calc(var(--content-width) - #{alley(2)});
         }
 
         > * {
             text-transform:uppercase;
-            font-size:$font-size-small;
+            font-size:var(--font-size-small);
         }
     }
 
     .site-name {
-        margin-bottom:calc(var(--space) * 2);
+        margin-bottom:space(1.5);
         font-weight:var(--font-weight-normal);
         line-height:var(--line-height-general);
     }
@@ -71,16 +71,28 @@ html body #container#container#container {
 
 main {
     flex:1;
-    margin-top:calc(var(--space) * 4);
-    margin-bottom:calc(var(--space) * 5);
+    margin-top:space(3);
+    margin-bottom:space(4);
 
-    > header {
-        margin-bottom:var(--space-5xlarge);
+    > h1 {
+        margin-bottom:space(2.125);
+    }
+
+    > section {
+        > h2 {
+            font-size:var(--font-size-xsmall);
+            line-height:var(--line-height-general);
+            font-weight:var(--font-weight-normal);
+            text-transform:uppercase;
+            margin-bottom:space();
+            padding-bottom:space(0.25);
+            border-bottom:5px solid var(--color-contrast-lowest);
+        }
     }
 }
 
 .doc-block {
-    margin-bottom:calc(var(--space) * 2);
+    margin-bottom:space(2);
 
     h3 {
         text-transform:uppercase;

@@ -40,3 +40,79 @@ button,
 .sq {
     @include sq();
 }
+
+.fs-big {
+    font-size:var(--font-size-big);
+}
+
+.fs-xbig {
+    font-size:var(--font-size-xbig);
+}
+
+.fs-xxbig {
+    font-size:var(--font-size-xxbig);
+}
+
+.fs-small {
+    font-size:var(--font-size-small);
+}
+
+.fs-xsmall {
+    font-size:var(--font-size-xsmall);
+}
+
+.fs-xxsmall {
+    font-size:var(--font-size-xxsmall);
+}
+
+.fw-n {
+    font-weight:var(--font-weight-normal);
+}
+
+.fw-b {
+    font-weight:var(--font-weight-bold);
+}
+
+.fw-h {
+    font-weight:var(--font-weight-heading);
+}
+
+@for $i from 1 through 5 {
+    .h#{$i} {
+        @include h($i, 1);
+    }
+}
+
+@for $i from 1 through 5 {
+    .fs-h#{$i} {
+        font-size:var(--font-size-h#{$i});
+    }
+
+    .lh-h#{$i} {
+        line-height:var(--line-height-h#{$i});
+    }
+}
+
+.big {
+    @include big();
+}
+
+.xbig {
+    @include xbig();
+}
+
+.xxbig {
+    @include xxbig();
+}
+
+.small {
+    @include small();
+}
+
+.xsmall {
+    @include xsmall();
+}
+
+.xxsmall {
+    @include xxsmall();
+}

@@ -23,10 +23,9 @@ body {
     font-weight:var(--font-weight-normal);
     font-family:var(--font-stack-general);
     line-height:var(--line-height-general);
-
+    overflow-wrap:break-word;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
-    overflow-wrap:break-word;
 }
 
 *,
@@ -250,6 +249,9 @@ var {
 }
 
 pre {
+    @include small();
+
+    font-family:var(--font-stack-monospace);
     overflow:auto;
     padding:var(--padding-box);
     border-left:0.25rem solid var(--color-dark-accent);
@@ -268,7 +270,6 @@ blockquote {
     line-height:var(--line-height-h4);
 }
 
-pre,
 code,
 tt,
 var,
@@ -281,7 +282,7 @@ samp {
 cite {
     font-weight:var(--font-weight-normal);
     font-style:italic;
-    font-size:var(--font-size-xsmall);
+    font-size:var(--font-size-small);
 }
 
 abbr,

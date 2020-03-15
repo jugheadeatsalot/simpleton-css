@@ -1,7 +1,7 @@
 ///
 @mixin button-styles() {
     display:inline-block;
-    margin-bottom:calc(var(--space) * 0.25);
+    margin-bottom:space(0.25);
     padding:var(--padding-button);
     min-height:2.5rem;
     border:none;
@@ -66,7 +66,7 @@ input {
 
 input[type='radio'],
 input[type='checkbox'] {
-    margin:0 calc(var(--alley) * 0.25) 0 0;
+    margin:0 alley(0.25) 0 0;
     vertical-align:-1px;
 }
 
@@ -79,13 +79,13 @@ select {
 }
 
 fieldset {
-    padding:var(--space);
+    padding:space();
     box-shadow:0 0 0 var(--border-size) var(--color-contrast-lower) inset;
 
     legend {
-        margin-left:calc(var(--alley) * -0.25);
-        margin-bottom:calc(var(--space) * -0.25);
-        padding:0 calc(var(--alley) * 0.25);
+        margin-left:alley(-0.25);
+        margin-bottom:space(-0.25);
+        padding:0 alley(0.25);
         background-color:var(--color-background);
         text-transform:uppercase;
         font-size:var(--font-size-xsmall);
@@ -94,6 +94,6 @@ fieldset {
 
 form {
     div {
-        margin-bottom:var(--space);
+        margin-bottom:space();
     }
 }

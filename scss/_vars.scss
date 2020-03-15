@@ -28,25 +28,27 @@ $font-size-base:16px !default; // must be in px
 ///
 $font-size-general:1rem !default;
 ///
-$font-size-big:1.1em !default;
+$font-size-big:1.125em !default;
 ///
-$font-size-xbig:1.2em !default;
+$font-size-xbig:1.266em !default;
 ///
-$font-size-xxbig:1.3em !default;
+$font-size-xxbig:1.424em !default;
 ///
-$font-size-small:0.9em !default;
+$font-size-small:0.889em !default;
 ///
-$font-size-xsmall:0.8em !default;
+$font-size-xsmall:0.79em !default;
 ///
-$font-size-xxsmall:0.7em !default;
+$font-size-xxsmall:0.702em !default;
 ///
-$font-size-h1:2em !default;
+$font-size-h1:1.802em !default;
 ///
-$font-size-h2:1.6em !default;
+$font-size-h2:1.602em !default;
 ///
-$font-size-h3:1.4em !default;
+$font-size-h3:1.424em !default;
 ///
-$font-size-h4:1.2em !default;
+$font-size-h4:1.266em !default;
+///
+$font-size-h5:1.125em !default;
 ///
 $font-sizes:() !default;
 ///
@@ -63,6 +65,7 @@ $font-sizes:map-merge((
     h2: $font-size-h2,
     h3: $font-size-h3,
     h4: $font-size-h4,
+    h5: $font-size-h5,
 ), $font-sizes);
 ///
 $font-weight-normal:400 !default;
@@ -81,13 +84,27 @@ $font-weights:map-merge((
 ///
 $line-height-general:1.5 !default;
 ///
-$line-height-h1:1.15 !default;
+$line-height-big:1.45 !default;
 ///
-$line-height-h2:1.25 !default;
+$line-height-xbig:1.4 !default;
+///
+$line-height-xxbig:1.35 !default;
+///
+$line-height-small:1.55 !default;
+///
+$line-height-xsmall:1.6 !default;
+///
+$line-height-xxsmall:1.65 !default;
+///
+$line-height-h1:1.25 !default;
+///
+$line-height-h2:1.3 !default;
 ///
 $line-height-h3:1.35 !default;
 ///
-$line-height-h4:1.45 !default;
+$line-height-h4:1.4 !default;
+///
+$line-height-h5:1.45 !default;
 ///
 $line-height-general-in-rem:$line-height-general * 1rem !default;
 ///
@@ -99,19 +116,47 @@ $line-height-h3-in-rem:$line-height-h3 * 1rem !default;
 ///
 $line-height-h4-in-rem:$line-height-h4 * 1rem !default;
 ///
+$line-height-h5-in-rem:$line-height-h5 * 1rem !default;
+///
+$line-height-big-in-rem:$line-height-big * 1rem !default;
+///
+$line-height-xbig-in-rem:$line-height-xbig * 1rem !default;
+///
+$line-height-xxbig-in-rem:$line-height-xxbig * 1rem !default;
+///
+$line-height-small-in-rem:$line-height-small * 1rem !default;
+///
+$line-height-xsmall-in-rem:$line-height-xsmall * 1rem !default;
+///
+$line-height-xxsmall-in-rem:$line-height-xxsmall * 1rem !default;
+///
 $line-heights:() !default;
 ///
 $line-heights:map-merge((
     general: $line-height-general,
+    big: $line-height-big,
+    xbig: $line-height-xbig,
+    xxbig: $line-height-xxbig,
+    small: $line-height-small,
+    xsmall: $line-height-xsmall,
+    xxsmall: $line-height-xxsmall,
     h1: $line-height-h1,
     h2: $line-height-h2,
     h3: $line-height-h3,
     h4: $line-height-h4,
+    h5: $line-height-h5,
     general-in-rem: $line-height-general-in-rem,
+    big-in-rem: $line-height-big-in-rem,
+    xbig-in-rem: $line-height-xbig-in-rem,
+    xxbig-in-rem: $line-height-xxbig-in-rem,
+    small-in-rem: $line-height-small-in-rem,
+    xsmall-in-rem: $line-height-xsmall-in-rem,
+    xxsmall-in-rem: $line-height-xxsmall-in-rem,
     h1-in-rem: $line-height-h1-in-rem,
     h2-in-rem: $line-height-h2-in-rem,
     h3-in-rem: $line-height-h3-in-rem,
     h4-in-rem: $line-height-h4-in-rem,
+    h5-in-rem: $line-height-h5-in-rem,
 ), $line-heights);
 
 //
@@ -214,7 +259,7 @@ $colors:map-merge((
 ///
 $space:$font-size-general * $line-height-general !default;
 ///
-$alley:30px !default;
+$alley:2rem !default;
 ///
 $p-inline-t:0.125rem !default;
 ///

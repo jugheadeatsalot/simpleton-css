@@ -396,8 +396,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 307,
-              "end": 307
+              "start": 316,
+              "end": 316
             },
             "context": {
               "type": "variable",
@@ -405,8 +405,8 @@
               "value": "480px",
               "scope": "default",
               "line": {
-                "start": 308,
-                "end": 308
+                "start": 317,
+                "end": 317
               }
             },
             "access": "public",
@@ -467,8 +467,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 309,
-              "end": 309
+              "start": 318,
+              "end": 318
             },
             "context": {
               "type": "variable",
@@ -476,8 +476,8 @@
               "value": "768px",
               "scope": "default",
               "line": {
-                "start": 310,
-                "end": 310
+                "start": 319,
+                "end": 319
               }
             },
             "access": "public",
@@ -538,8 +538,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 311,
-              "end": 311
+              "start": 320,
+              "end": 320
             },
             "context": {
               "type": "variable",
@@ -547,8 +547,8 @@
               "value": "960px",
               "scope": "default",
               "line": {
-                "start": 312,
-                "end": 312
+                "start": 321,
+                "end": 321
               }
             },
             "access": "public",
@@ -609,8 +609,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 313,
-              "end": 313
+              "start": 322,
+              "end": 322
             },
             "context": {
               "type": "variable",
@@ -618,8 +618,8 @@
               "value": "1200px",
               "scope": "default",
               "line": {
-                "start": 314,
-                "end": 314
+                "start": 323,
+                "end": 323
               }
             },
             "access": "public",
@@ -3153,8 +3153,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 371,
-                    "end": 371
+                    "start": 380,
+                    "end": 380
                   },
                   "context": {
                     "type": "variable",
@@ -3162,8 +3162,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 372,
-                      "end": 372
+                      "start": 381,
+                      "end": 381
                     }
                   },
                   "access": "public",
@@ -3266,8 +3266,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 315,
-              "end": 315
+              "start": 324,
+              "end": 324
             },
             "context": {
               "type": "variable",
@@ -3275,8 +3275,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 316,
-                "end": 316
+                "start": 325,
+                "end": 325
               }
             },
             "access": "public",
@@ -5142,8 +5142,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 266,
-              "end": 266
+              "start": 275,
+              "end": 275
             },
             "context": {
               "type": "variable",
@@ -5151,8 +5151,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 267,
-                "end": 267
+                "start": 276,
+                "end": 276
               }
             },
             "access": "public",
@@ -6259,8 +6259,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 266,
-                    "end": 266
+                    "start": 275,
+                    "end": 275
                   },
                   "context": {
                     "type": "variable",
@@ -6268,8 +6268,8 @@
                     "value": "()",
                     "scope": "default",
                     "line": {
-                      "start": 267,
-                      "end": 267
+                      "start": 276,
+                      "end": 276
                     }
                   },
                   "access": "public",
@@ -7383,8 +7383,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 266,
-                    "end": 266
+                    "start": 275,
+                    "end": 275
                   },
                   "context": {
                     "type": "variable",
@@ -7392,8 +7392,8 @@
                     "value": "()",
                     "scope": "default",
                     "line": {
-                      "start": 267,
-                      "end": 267
+                      "start": 276,
+                      "end": 276
                     }
                   },
                   "access": "public",
@@ -8704,8 +8704,8 @@
                       "item": {
                         "description": "",
                         "commentRange": {
-                          "start": 266,
-                          "end": 266
+                          "start": 275,
+                          "end": 275
                         },
                         "context": {
                           "type": "variable",
@@ -8713,8 +8713,8 @@
                           "value": "()",
                           "scope": "default",
                           "line": {
-                            "start": 267,
-                            "end": 267
+                            "start": 276,
+                            "end": 276
                           }
                         },
                         "access": "public",
@@ -9821,8 +9821,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 371,
-                    "end": 371
+                    "start": 380,
+                    "end": 380
                   },
                   "context": {
                     "type": "variable",
@@ -9830,8 +9830,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 372,
-                      "end": 372
+                      "start": 381,
+                      "end": 381
                     }
                   },
                   "access": "public",
@@ -9934,8 +9934,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 266,
-              "end": 266
+              "start": 275,
+              "end": 275
             },
             "context": {
               "type": "variable",
@@ -9943,8 +9943,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 267,
-                "end": 267
+                "start": 276,
+                "end": 276
               }
             },
             "access": "public",
@@ -10014,8 +10014,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 315,
-              "end": 315
+              "start": 324,
+              "end": 324
             },
             "context": {
               "type": "variable",
@@ -10023,8 +10023,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 316,
-                "end": 316
+                "start": 325,
+                "end": 325
               }
             },
             "access": "public",
@@ -10736,8 +10736,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 371,
-                    "end": 371
+                    "start": 380,
+                    "end": 380
                   },
                   "context": {
                     "type": "variable",
@@ -10745,8 +10745,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 372,
-                      "end": 372
+                      "start": 381,
+                      "end": 381
                     }
                   },
                   "access": "public",
@@ -11351,8 +11351,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 324,
-              "end": 324
+              "start": 333,
+              "end": 333
             },
             "context": {
               "type": "variable",
@@ -11360,8 +11360,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 325,
-                "end": 325
+                "start": 334,
+                "end": 334
               }
             },
             "access": "public",
@@ -11431,8 +11431,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 315,
-              "end": 315
+              "start": 324,
+              "end": 324
             },
             "context": {
               "type": "variable",
@@ -11440,8 +11440,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 316,
-                "end": 316
+                "start": 325,
+                "end": 325
               }
             },
             "access": "public",
@@ -13703,8 +13703,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 371,
-              "end": 371
+              "start": 380,
+              "end": 380
             },
             "context": {
               "type": "variable",
@@ -13712,8 +13712,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 372,
-                "end": 372
+                "start": 381,
+                "end": 381
               }
             },
             "access": "public",
@@ -14760,8 +14760,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 371,
-              "end": 371
+              "start": 380,
+              "end": 380
             },
             "context": {
               "type": "variable",
@@ -14769,8 +14769,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 372,
-                "end": 372
+                "start": 381,
+                "end": 381
               }
             },
             "access": "public",
@@ -17035,7 +17035,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-big",
-        "value": "1.1em",
+        "value": "1.125em",
         "scope": "default",
         "line": {
           "start": 31,
@@ -17060,7 +17060,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-xbig",
-        "value": "1.2em",
+        "value": "1.266em",
         "scope": "default",
         "line": {
           "start": 33,
@@ -17085,7 +17085,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-xxbig",
-        "value": "1.3em",
+        "value": "1.424em",
         "scope": "default",
         "line": {
           "start": 35,
@@ -17110,7 +17110,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-small",
-        "value": "0.9em",
+        "value": "0.889em",
         "scope": "default",
         "line": {
           "start": 37,
@@ -17135,7 +17135,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-xsmall",
-        "value": "0.8em",
+        "value": "0.79em",
         "scope": "default",
         "line": {
           "start": 39,
@@ -17160,7 +17160,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-xxsmall",
-        "value": "0.7em",
+        "value": "0.702em",
         "scope": "default",
         "line": {
           "start": 41,
@@ -17185,7 +17185,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-h1",
-        "value": "2em",
+        "value": "1.802em",
         "scope": "default",
         "line": {
           "start": 43,
@@ -17210,7 +17210,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-h2",
-        "value": "1.6em",
+        "value": "1.602em",
         "scope": "default",
         "line": {
           "start": 45,
@@ -17235,7 +17235,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-h3",
-        "value": "1.4em",
+        "value": "1.424em",
         "scope": "default",
         "line": {
           "start": 47,
@@ -17260,7 +17260,7 @@
       "context": {
         "type": "variable",
         "name": "font-size-h4",
-        "value": "1.2em",
+        "value": "1.266em",
         "scope": "default",
         "line": {
           "start": 49,
@@ -17284,8 +17284,8 @@
       },
       "context": {
         "type": "variable",
-        "name": "font-sizes",
-        "value": "()",
+        "name": "font-size-h5",
+        "value": "1.125em",
         "scope": "default",
         "line": {
           "start": 51,
@@ -17310,11 +17310,11 @@
       "context": {
         "type": "variable",
         "name": "font-sizes",
-        "value": "map-merge((\n    base: $font-size-base,\n    general: $font-size-general,\n    big: $font-size-big,\n    xbig: $font-size-xbig,\n    xxbig: $font-size-xxbig,\n    small: $font-size-small,\n    xsmall: $font-size-xsmall,\n    xxsmall: $font-size-xxsmall,\n    h1: $font-size-h1,\n    h2: $font-size-h2,\n    h3: $font-size-h3,\n    h4: $font-size-h4,\n), $font-sizes)",
-        "scope": "private",
+        "value": "()",
+        "scope": "default",
         "line": {
           "start": 53,
-          "end": 66
+          "end": 53
         }
       },
       "access": "public",
@@ -17329,8 +17329,33 @@
     {
       "description": "",
       "commentRange": {
-        "start": 67,
-        "end": 67
+        "start": 54,
+        "end": 54
+      },
+      "context": {
+        "type": "variable",
+        "name": "font-sizes",
+        "value": "map-merge((\n    base: $font-size-base,\n    general: $font-size-general,\n    big: $font-size-big,\n    xbig: $font-size-xbig,\n    xxbig: $font-size-xxbig,\n    small: $font-size-small,\n    xsmall: $font-size-xsmall,\n    xxsmall: $font-size-xxsmall,\n    h1: $font-size-h1,\n    h2: $font-size-h2,\n    h3: $font-size-h3,\n    h4: $font-size-h4,\n    h5: $font-size-h5,\n), $font-sizes)",
+        "scope": "private",
+        "line": {
+          "start": 55,
+          "end": 69
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 70,
+        "end": 70
       },
       "context": {
         "type": "variable",
@@ -17338,8 +17363,8 @@
         "value": "400",
         "scope": "default",
         "line": {
-          "start": 68,
-          "end": 68
+          "start": 71,
+          "end": 71
         }
       },
       "access": "public",
@@ -17354,8 +17379,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 69,
-        "end": 69
+        "start": 72,
+        "end": 72
       },
       "context": {
         "type": "variable",
@@ -17363,8 +17388,8 @@
         "value": "700",
         "scope": "default",
         "line": {
-          "start": 70,
-          "end": 70
+          "start": 73,
+          "end": 73
         }
       },
       "access": "public",
@@ -17379,8 +17404,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 71,
-        "end": 71
+        "start": 74,
+        "end": 74
       },
       "context": {
         "type": "variable",
@@ -17388,8 +17413,8 @@
         "value": "$font-weight-bold",
         "scope": "default",
         "line": {
-          "start": 72,
-          "end": 72
+          "start": 75,
+          "end": 75
         }
       },
       "access": "public",
@@ -17404,8 +17429,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 73,
-        "end": 73
+        "start": 76,
+        "end": 76
       },
       "context": {
         "type": "variable",
@@ -17413,8 +17438,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 74,
-          "end": 74
+          "start": 77,
+          "end": 77
         }
       },
       "access": "public",
@@ -17429,8 +17454,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 75,
-        "end": 75
+        "start": 78,
+        "end": 78
       },
       "context": {
         "type": "variable",
@@ -17438,8 +17463,8 @@
         "value": "map-merge((\n    normal: $font-weight-normal,\n    bold: $font-weight-bold,\n    heading: $font-weight-heading,\n), $font-weights)",
         "scope": "private",
         "line": {
-          "start": 76,
-          "end": 80
+          "start": 79,
+          "end": 83
         }
       },
       "access": "public",
@@ -17454,8 +17479,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 81,
-        "end": 81
+        "start": 84,
+        "end": 84
       },
       "context": {
         "type": "variable",
@@ -17463,8 +17488,8 @@
         "value": "1.5",
         "scope": "default",
         "line": {
-          "start": 82,
-          "end": 82
+          "start": 85,
+          "end": 85
         }
       },
       "access": "public",
@@ -17479,17 +17504,17 @@
     {
       "description": "",
       "commentRange": {
-        "start": 83,
-        "end": 83
+        "start": 86,
+        "end": 86
       },
       "context": {
         "type": "variable",
         "name": "line-height-h1",
-        "value": "1.15",
+        "value": "1",
         "scope": "default",
         "line": {
-          "start": 84,
-          "end": 84
+          "start": 87,
+          "end": 87
         }
       },
       "access": "public",
@@ -17504,17 +17529,17 @@
     {
       "description": "",
       "commentRange": {
-        "start": 85,
-        "end": 85
+        "start": 88,
+        "end": 88
       },
       "context": {
         "type": "variable",
         "name": "line-height-h2",
-        "value": "1.25",
+        "value": "1.1",
         "scope": "default",
         "line": {
-          "start": 86,
-          "end": 86
+          "start": 89,
+          "end": 89
         }
       },
       "access": "public",
@@ -17529,17 +17554,17 @@
     {
       "description": "",
       "commentRange": {
-        "start": 87,
-        "end": 87
+        "start": 90,
+        "end": 90
       },
       "context": {
         "type": "variable",
         "name": "line-height-h3",
-        "value": "1.35",
+        "value": "1.2",
         "scope": "default",
         "line": {
-          "start": 88,
-          "end": 88
+          "start": 91,
+          "end": 91
         }
       },
       "access": "public",
@@ -17554,17 +17579,17 @@
     {
       "description": "",
       "commentRange": {
-        "start": 89,
-        "end": 89
+        "start": 92,
+        "end": 92
       },
       "context": {
         "type": "variable",
         "name": "line-height-h4",
-        "value": "1.45",
+        "value": "1.3",
         "scope": "default",
         "line": {
-          "start": 90,
-          "end": 90
+          "start": 93,
+          "end": 93
         }
       },
       "access": "public",
@@ -17579,8 +17604,33 @@
     {
       "description": "",
       "commentRange": {
-        "start": 91,
-        "end": 91
+        "start": 94,
+        "end": 94
+      },
+      "context": {
+        "type": "variable",
+        "name": "line-height-h5",
+        "value": "1.4",
+        "scope": "default",
+        "line": {
+          "start": 95,
+          "end": 95
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 96,
+        "end": 96
       },
       "context": {
         "type": "variable",
@@ -17588,8 +17638,8 @@
         "value": "$line-height-general * 1rem",
         "scope": "default",
         "line": {
-          "start": 92,
-          "end": 92
+          "start": 97,
+          "end": 97
         }
       },
       "access": "public",
@@ -17604,8 +17654,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 93,
-        "end": 93
+        "start": 98,
+        "end": 98
       },
       "context": {
         "type": "variable",
@@ -17613,8 +17663,8 @@
         "value": "$line-height-h1 * 1rem",
         "scope": "default",
         "line": {
-          "start": 94,
-          "end": 94
+          "start": 99,
+          "end": 99
         }
       },
       "access": "public",
@@ -17629,8 +17679,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 95,
-        "end": 95
+        "start": 100,
+        "end": 100
       },
       "context": {
         "type": "variable",
@@ -17638,8 +17688,8 @@
         "value": "$line-height-h2 * 1rem",
         "scope": "default",
         "line": {
-          "start": 96,
-          "end": 96
+          "start": 101,
+          "end": 101
         }
       },
       "access": "public",
@@ -17654,8 +17704,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 97,
-        "end": 97
+        "start": 102,
+        "end": 102
       },
       "context": {
         "type": "variable",
@@ -17663,8 +17713,8 @@
         "value": "$line-height-h3 * 1rem",
         "scope": "default",
         "line": {
-          "start": 98,
-          "end": 98
+          "start": 103,
+          "end": 103
         }
       },
       "access": "public",
@@ -17679,8 +17729,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 99,
-        "end": 99
+        "start": 104,
+        "end": 104
       },
       "context": {
         "type": "variable",
@@ -17688,8 +17738,8 @@
         "value": "$line-height-h4 * 1rem",
         "scope": "default",
         "line": {
-          "start": 100,
-          "end": 100
+          "start": 105,
+          "end": 105
         }
       },
       "access": "public",
@@ -17704,8 +17754,33 @@
     {
       "description": "",
       "commentRange": {
-        "start": 101,
-        "end": 101
+        "start": 106,
+        "end": 106
+      },
+      "context": {
+        "type": "variable",
+        "name": "line-height-h5-in-rem",
+        "value": "$line-height-h5 * 1rem",
+        "scope": "default",
+        "line": {
+          "start": 107,
+          "end": 107
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 108,
+        "end": 108
       },
       "context": {
         "type": "variable",
@@ -17713,8 +17788,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 102,
-          "end": 102
+          "start": 109,
+          "end": 109
         }
       },
       "access": "public",
@@ -17729,17 +17804,17 @@
     {
       "description": "",
       "commentRange": {
-        "start": 103,
-        "end": 103
+        "start": 110,
+        "end": 110
       },
       "context": {
         "type": "variable",
         "name": "line-heights",
-        "value": "map-merge((\n    general: $line-height-general,\n    h1: $line-height-h1,\n    h2: $line-height-h2,\n    h3: $line-height-h3,\n    h4: $line-height-h4,\n    general-in-rem: $line-height-general-in-rem,\n    h1-in-rem: $line-height-h1-in-rem,\n    h2-in-rem: $line-height-h2-in-rem,\n    h3-in-rem: $line-height-h3-in-rem,\n    h4-in-rem: $line-height-h4-in-rem,\n), $line-heights)",
+        "value": "map-merge((\n    general: $line-height-general,\n    h1: $line-height-h1,\n    h2: $line-height-h2,\n    h3: $line-height-h3,\n    h4: $line-height-h4,\n    h5: $line-height-h5,\n    general-in-rem: $line-height-general-in-rem,\n    h1-in-rem: $line-height-h1-in-rem,\n    h2-in-rem: $line-height-h2-in-rem,\n    h3-in-rem: $line-height-h3-in-rem,\n    h4-in-rem: $line-height-h4-in-rem,\n    h5-in-rem: $line-height-h5-in-rem,\n), $line-heights)",
         "scope": "private",
         "line": {
-          "start": 104,
-          "end": 115
+          "start": 111,
+          "end": 124
         }
       },
       "access": "public",
@@ -17754,8 +17829,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 122,
-        "end": 122
+        "start": 131,
+        "end": 131
       },
       "context": {
         "type": "variable",
@@ -17763,8 +17838,8 @@
         "value": "#dc2f3c",
         "scope": "default",
         "line": {
-          "start": 123,
-          "end": 123
+          "start": 132,
+          "end": 132
         }
       },
       "access": "public",
@@ -17779,8 +17854,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 124,
-        "end": 124
+        "start": 133,
+        "end": 133
       },
       "context": {
         "type": "variable",
@@ -17788,8 +17863,8 @@
         "value": "#587b98",
         "scope": "default",
         "line": {
-          "start": 125,
-          "end": 125
+          "start": 134,
+          "end": 134
         }
       },
       "access": "public",
@@ -17804,8 +17879,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 126,
-        "end": 126
+        "start": 135,
+        "end": 135
       },
       "context": {
         "type": "variable",
@@ -17813,8 +17888,8 @@
         "value": "#76b1df",
         "scope": "default",
         "line": {
-          "start": 127,
-          "end": 127
+          "start": 136,
+          "end": 136
         }
       },
       "access": "public",
@@ -17829,8 +17904,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 128,
-        "end": 128
+        "start": 137,
+        "end": 137
       },
       "context": {
         "type": "variable",
@@ -17838,8 +17913,8 @@
         "value": "#ffffff",
         "scope": "default",
         "line": {
-          "start": 129,
-          "end": 129
+          "start": 138,
+          "end": 138
         }
       },
       "access": "public",
@@ -17854,8 +17929,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 130,
-        "end": 130
+        "start": 139,
+        "end": 139
       },
       "context": {
         "type": "variable",
@@ -17863,8 +17938,8 @@
         "value": "#252428",
         "scope": "default",
         "line": {
-          "start": 131,
-          "end": 131
+          "start": 140,
+          "end": 140
         }
       },
       "access": "public",
@@ -17879,8 +17954,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 132,
-        "end": 132
+        "start": 141,
+        "end": 141
       },
       "context": {
         "type": "variable",
@@ -17888,8 +17963,8 @@
         "value": "#8c8c8c",
         "scope": "default",
         "line": {
-          "start": 133,
-          "end": 133
+          "start": 142,
+          "end": 142
         }
       },
       "access": "public",
@@ -17904,8 +17979,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 134,
-        "end": 134
+        "start": 143,
+        "end": 143
       },
       "context": {
         "type": "variable",
@@ -17913,8 +17988,8 @@
         "value": "#bfbfbf",
         "scope": "default",
         "line": {
-          "start": 135,
-          "end": 135
+          "start": 144,
+          "end": 144
         }
       },
       "access": "public",
@@ -17929,8 +18004,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 136,
-        "end": 136
+        "start": 145,
+        "end": 145
       },
       "context": {
         "type": "variable",
@@ -17938,8 +18013,8 @@
         "value": "#d9d9d9",
         "scope": "default",
         "line": {
-          "start": 137,
-          "end": 137
+          "start": 146,
+          "end": 146
         }
       },
       "access": "public",
@@ -17954,8 +18029,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 138,
-        "end": 138
+        "start": 147,
+        "end": 147
       },
       "context": {
         "type": "variable",
@@ -17963,8 +18038,8 @@
         "value": "#f2f2f2",
         "scope": "default",
         "line": {
-          "start": 139,
-          "end": 139
+          "start": 148,
+          "end": 148
         }
       },
       "access": "public",
@@ -17979,8 +18054,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 140,
-        "end": 140
+        "start": 149,
+        "end": 149
       },
       "context": {
         "type": "variable",
@@ -17988,8 +18063,8 @@
         "value": "#737373",
         "scope": "default",
         "line": {
-          "start": 141,
-          "end": 141
+          "start": 150,
+          "end": 150
         }
       },
       "access": "public",
@@ -18004,8 +18079,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 142,
-        "end": 142
+        "start": 151,
+        "end": 151
       },
       "context": {
         "type": "variable",
@@ -18013,8 +18088,8 @@
         "value": "#595959",
         "scope": "default",
         "line": {
-          "start": 143,
-          "end": 143
+          "start": 152,
+          "end": 152
         }
       },
       "access": "public",
@@ -18029,8 +18104,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 144,
-        "end": 144
+        "start": 153,
+        "end": 153
       },
       "context": {
         "type": "variable",
@@ -18038,8 +18113,8 @@
         "value": "#404040",
         "scope": "default",
         "line": {
-          "start": 145,
-          "end": 145
+          "start": 154,
+          "end": 154
         }
       },
       "access": "public",
@@ -18054,8 +18129,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 146,
-        "end": 146
+        "start": 155,
+        "end": 155
       },
       "context": {
         "type": "variable",
@@ -18063,8 +18138,8 @@
         "value": "#27ae60",
         "scope": "default",
         "line": {
-          "start": 147,
-          "end": 147
+          "start": 156,
+          "end": 156
         }
       },
       "access": "public",
@@ -18079,8 +18154,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 148,
-        "end": 148
+        "start": 157,
+        "end": 157
       },
       "context": {
         "type": "variable",
@@ -18088,8 +18163,8 @@
         "value": "#c0392b",
         "scope": "default",
         "line": {
-          "start": 149,
-          "end": 149
+          "start": 158,
+          "end": 158
         }
       },
       "access": "public",
@@ -18104,8 +18179,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 150,
-        "end": 150
+        "start": 159,
+        "end": 159
       },
       "context": {
         "type": "variable",
@@ -18113,8 +18188,8 @@
         "value": "#d35400",
         "scope": "default",
         "line": {
-          "start": 151,
-          "end": 151
+          "start": 160,
+          "end": 160
         }
       },
       "access": "public",
@@ -18129,8 +18204,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 152,
-        "end": 152
+        "start": 161,
+        "end": 161
       },
       "context": {
         "type": "variable",
@@ -18138,8 +18213,8 @@
         "value": "#f1c40f",
         "scope": "default",
         "line": {
-          "start": 153,
-          "end": 153
+          "start": 162,
+          "end": 162
         }
       },
       "access": "public",
@@ -18154,8 +18229,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 154,
-        "end": 154
+        "start": 163,
+        "end": 163
       },
       "context": {
         "type": "variable",
@@ -18163,8 +18238,8 @@
         "value": "#ea4c89",
         "scope": "default",
         "line": {
-          "start": 155,
-          "end": 155
+          "start": 164,
+          "end": 164
         }
       },
       "access": "public",
@@ -18179,8 +18254,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 156,
-        "end": 156
+        "start": 165,
+        "end": 165
       },
       "context": {
         "type": "variable",
@@ -18188,8 +18263,8 @@
         "value": "#3b5998",
         "scope": "default",
         "line": {
-          "start": 157,
-          "end": 157
+          "start": 166,
+          "end": 166
         }
       },
       "access": "public",
@@ -18204,8 +18279,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 158,
-        "end": 158
+        "start": 167,
+        "end": 167
       },
       "context": {
         "type": "variable",
@@ -18213,8 +18288,8 @@
         "value": "#ff0084",
         "scope": "default",
         "line": {
-          "start": 159,
-          "end": 159
+          "start": 168,
+          "end": 168
         }
       },
       "access": "public",
@@ -18229,8 +18304,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 160,
-        "end": 160
+        "start": 169,
+        "end": 169
       },
       "context": {
         "type": "variable",
@@ -18238,8 +18313,8 @@
         "value": "#517fa4",
         "scope": "default",
         "line": {
-          "start": 161,
-          "end": 161
+          "start": 170,
+          "end": 170
         }
       },
       "access": "public",
@@ -18254,8 +18329,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 162,
-        "end": 162
+        "start": 171,
+        "end": 171
       },
       "context": {
         "type": "variable",
@@ -18263,8 +18338,8 @@
         "value": "#0077b5",
         "scope": "default",
         "line": {
-          "start": 163,
-          "end": 163
+          "start": 172,
+          "end": 172
         }
       },
       "access": "public",
@@ -18279,8 +18354,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 164,
-        "end": 164
+        "start": 173,
+        "end": 173
       },
       "context": {
         "type": "variable",
@@ -18288,8 +18363,8 @@
         "value": "#00ab6b",
         "scope": "default",
         "line": {
-          "start": 165,
-          "end": 165
+          "start": 174,
+          "end": 174
         }
       },
       "access": "public",
@@ -18304,8 +18379,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 166,
-        "end": 166
+        "start": 175,
+        "end": 175
       },
       "context": {
         "type": "variable",
@@ -18313,8 +18388,8 @@
         "value": "#bd081c",
         "scope": "default",
         "line": {
-          "start": 167,
-          "end": 167
+          "start": 176,
+          "end": 176
         }
       },
       "access": "public",
@@ -18329,8 +18404,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 168,
-        "end": 168
+        "start": 177,
+        "end": 177
       },
       "context": {
         "type": "variable",
@@ -18338,8 +18413,8 @@
         "value": "#f26522",
         "scope": "default",
         "line": {
-          "start": 169,
-          "end": 169
+          "start": 178,
+          "end": 178
         }
       },
       "access": "public",
@@ -18354,8 +18429,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 170,
-        "end": 170
+        "start": 179,
+        "end": 179
       },
       "context": {
         "type": "variable",
@@ -18363,8 +18438,8 @@
         "value": "#35465c",
         "scope": "default",
         "line": {
-          "start": 171,
-          "end": 171
+          "start": 180,
+          "end": 180
         }
       },
       "access": "public",
@@ -18379,8 +18454,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 172,
-        "end": 172
+        "start": 181,
+        "end": 181
       },
       "context": {
         "type": "variable",
@@ -18388,8 +18463,8 @@
         "value": "#55acee",
         "scope": "default",
         "line": {
-          "start": 173,
-          "end": 173
+          "start": 182,
+          "end": 182
         }
       },
       "access": "public",
@@ -18404,8 +18479,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 174,
-        "end": 174
+        "start": 183,
+        "end": 183
       },
       "context": {
         "type": "variable",
@@ -18413,8 +18488,8 @@
         "value": "#b31217",
         "scope": "default",
         "line": {
-          "start": 175,
-          "end": 175
+          "start": 184,
+          "end": 184
         }
       },
       "access": "public",
@@ -18429,8 +18504,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 176,
-        "end": 176
+        "start": 185,
+        "end": 185
       },
       "context": {
         "type": "variable",
@@ -18438,8 +18513,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 177,
-          "end": 177
+          "start": 186,
+          "end": 186
         }
       },
       "access": "public",
@@ -18454,8 +18529,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 178,
-        "end": 178
+        "start": 187,
+        "end": 187
       },
       "context": {
         "type": "variable",
@@ -18463,8 +18538,8 @@
         "value": "map-merge((\n    primary:$color-primary,\n    dark-accent:$color-dark-accent,\n    light-accent:$color-light-accent,\n    background:$color-background,\n    contrast:$color-contrast,\n    contrast-medium:$color-contrast-medium,\n    contrast-low:$color-contrast-low,\n    contrast-lower:$color-contrast-lower,\n    contrast-lowest:$color-contrast-lowest,\n    contrast-high:$color-contrast-high,\n    contrast-higher:$color-contrast-higher,\n    contrast-highest:$color-contrast-highest,\n    success:$color-success,\n    alert:$color-alert,\n    warning:$color-warning,\n    highlight:$color-highlight,\n    dribbble:$color-dribbble,\n    facebook:$color-facebook,\n    flickr:$color-flickr,\n    instagram:$color-instagram,\n    linkedin:$color-linkedin,\n    medium:$color-medium,\n    pinterest:$color-pinterest,\n    rss:$color-rss,\n    tumblr:$color-tumblr,\n    twitter:$color-twitter,\n    youtube:$color-youtube,\n), $colors)",
         "scope": "private",
         "line": {
-          "start": 179,
-          "end": 207
+          "start": 188,
+          "end": 216
         }
       },
       "access": "public",
@@ -18479,8 +18554,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 214,
-        "end": 214
+        "start": 223,
+        "end": 223
       },
       "context": {
         "type": "variable",
@@ -18488,8 +18563,8 @@
         "value": "$font-size-general * $line-height-general",
         "scope": "default",
         "line": {
-          "start": 215,
-          "end": 215
+          "start": 224,
+          "end": 224
         }
       },
       "access": "public",
@@ -18504,8 +18579,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 216,
-        "end": 216
+        "start": 225,
+        "end": 225
       },
       "context": {
         "type": "variable",
@@ -18513,8 +18588,8 @@
         "value": "30px",
         "scope": "default",
         "line": {
-          "start": 217,
-          "end": 217
+          "start": 226,
+          "end": 226
         }
       },
       "access": "public",
@@ -18529,8 +18604,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 218,
-        "end": 218
+        "start": 227,
+        "end": 227
       },
       "context": {
         "type": "variable",
@@ -18538,8 +18613,8 @@
         "value": "0.125rem",
         "scope": "default",
         "line": {
-          "start": 219,
-          "end": 219
+          "start": 228,
+          "end": 228
         }
       },
       "access": "public",
@@ -18554,8 +18629,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 220,
-        "end": 220
+        "start": 229,
+        "end": 229
       },
       "context": {
         "type": "variable",
@@ -18563,8 +18638,8 @@
         "value": "0.25rem",
         "scope": "default",
         "line": {
-          "start": 221,
-          "end": 221
+          "start": 230,
+          "end": 230
         }
       },
       "access": "public",
@@ -18579,8 +18654,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 222,
-        "end": 222
+        "start": 231,
+        "end": 231
       },
       "context": {
         "type": "variable",
@@ -18588,8 +18663,8 @@
         "value": "0.125rem",
         "scope": "default",
         "line": {
-          "start": 223,
-          "end": 223
+          "start": 232,
+          "end": 232
         }
       },
       "access": "public",
@@ -18604,8 +18679,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 224,
-        "end": 224
+        "start": 233,
+        "end": 233
       },
       "context": {
         "type": "variable",
@@ -18613,8 +18688,8 @@
         "value": "0.25rem",
         "scope": "default",
         "line": {
-          "start": 225,
-          "end": 225
+          "start": 234,
+          "end": 234
         }
       },
       "access": "public",
@@ -18629,8 +18704,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 226,
-        "end": 226
+        "start": 235,
+        "end": 235
       },
       "context": {
         "type": "variable",
@@ -18638,8 +18713,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 227,
-          "end": 227
+          "start": 236,
+          "end": 236
         }
       },
       "access": "public",
@@ -18654,8 +18729,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 228,
-        "end": 228
+        "start": 237,
+        "end": 237
       },
       "context": {
         "type": "variable",
@@ -18663,8 +18738,8 @@
         "value": "1.25rem",
         "scope": "default",
         "line": {
-          "start": 229,
-          "end": 229
+          "start": 238,
+          "end": 238
         }
       },
       "access": "public",
@@ -18679,8 +18754,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 230,
-        "end": 230
+        "start": 239,
+        "end": 239
       },
       "context": {
         "type": "variable",
@@ -18688,8 +18763,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 231,
-          "end": 231
+          "start": 240,
+          "end": 240
         }
       },
       "access": "public",
@@ -18704,8 +18779,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 232,
-        "end": 232
+        "start": 241,
+        "end": 241
       },
       "context": {
         "type": "variable",
@@ -18713,8 +18788,8 @@
         "value": "1rem",
         "scope": "default",
         "line": {
-          "start": 233,
-          "end": 233
+          "start": 242,
+          "end": 242
         }
       },
       "access": "public",
@@ -18729,8 +18804,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 234,
-        "end": 234
+        "start": 243,
+        "end": 243
       },
       "context": {
         "type": "variable",
@@ -18738,8 +18813,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 235,
-          "end": 235
+          "start": 244,
+          "end": 244
         }
       },
       "access": "public",
@@ -18754,8 +18829,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 236,
-        "end": 236
+        "start": 245,
+        "end": 245
       },
       "context": {
         "type": "variable",
@@ -18763,8 +18838,8 @@
         "value": "3.25rem",
         "scope": "default",
         "line": {
-          "start": 237,
-          "end": 237
+          "start": 246,
+          "end": 246
         }
       },
       "access": "public",
@@ -18779,8 +18854,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 238,
-        "end": 238
+        "start": 247,
+        "end": 247
       },
       "context": {
         "type": "variable",
@@ -18788,8 +18863,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 239,
-          "end": 239
+          "start": 248,
+          "end": 248
         }
       },
       "access": "public",
@@ -18804,8 +18879,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 240,
-        "end": 240
+        "start": 249,
+        "end": 249
       },
       "context": {
         "type": "variable",
@@ -18813,8 +18888,8 @@
         "value": "1rem",
         "scope": "default",
         "line": {
-          "start": 241,
-          "end": 241
+          "start": 250,
+          "end": 250
         }
       },
       "access": "public",
@@ -18829,8 +18904,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 242,
-        "end": 242
+        "start": 251,
+        "end": 251
       },
       "context": {
         "type": "variable",
@@ -18838,8 +18913,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 243,
-          "end": 243
+          "start": 252,
+          "end": 252
         }
       },
       "access": "public",
@@ -18854,8 +18929,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 244,
-        "end": 244
+        "start": 253,
+        "end": 253
       },
       "context": {
         "type": "variable",
@@ -18863,8 +18938,8 @@
         "value": "2rem",
         "scope": "default",
         "line": {
-          "start": 245,
-          "end": 245
+          "start": 254,
+          "end": 254
         }
       },
       "access": "public",
@@ -18879,8 +18954,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 246,
-        "end": 246
+        "start": 255,
+        "end": 255
       },
       "context": {
         "type": "variable",
@@ -18888,8 +18963,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 247,
-          "end": 247
+          "start": 256,
+          "end": 256
         }
       },
       "access": "public",
@@ -18904,8 +18979,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 248,
-        "end": 248
+        "start": 257,
+        "end": 257
       },
       "context": {
         "type": "variable",
@@ -18913,8 +18988,8 @@
         "value": "0",
         "scope": "default",
         "line": {
-          "start": 249,
-          "end": 249
+          "start": 258,
+          "end": 258
         }
       },
       "access": "public",
@@ -18929,8 +19004,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 250,
-        "end": 250
+        "start": 259,
+        "end": 259
       },
       "context": {
         "type": "variable",
@@ -18938,8 +19013,8 @@
         "value": "0.425em",
         "scope": "default",
         "line": {
-          "start": 251,
-          "end": 251
+          "start": 260,
+          "end": 260
         }
       },
       "access": "public",
@@ -18954,8 +19029,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 252,
-        "end": 252
+        "start": 261,
+        "end": 261
       },
       "context": {
         "type": "variable",
@@ -18963,8 +19038,8 @@
         "value": "1em",
         "scope": "default",
         "line": {
-          "start": 253,
-          "end": 253
+          "start": 262,
+          "end": 262
         }
       },
       "access": "public",
@@ -18979,8 +19054,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 254,
-        "end": 254
+        "start": 263,
+        "end": 263
       },
       "context": {
         "type": "variable",
@@ -18988,8 +19063,8 @@
         "value": "0.425em",
         "scope": "default",
         "line": {
-          "start": 255,
-          "end": 255
+          "start": 264,
+          "end": 264
         }
       },
       "access": "public",
@@ -19004,8 +19079,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 256,
-        "end": 256
+        "start": 265,
+        "end": 265
       },
       "context": {
         "type": "variable",
@@ -19013,8 +19088,8 @@
         "value": "1em",
         "scope": "default",
         "line": {
-          "start": 257,
-          "end": 257
+          "start": 266,
+          "end": 266
         }
       },
       "access": "public",
@@ -19029,8 +19104,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 258,
-        "end": 258
+        "start": 267,
+        "end": 267
       },
       "context": {
         "type": "variable",
@@ -19038,8 +19113,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 259,
-          "end": 259
+          "start": 268,
+          "end": 268
         }
       },
       "access": "public",
@@ -19054,8 +19129,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 260,
-        "end": 260
+        "start": 269,
+        "end": 269
       },
       "context": {
         "type": "variable",
@@ -19063,8 +19138,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 261,
-          "end": 261
+          "start": 270,
+          "end": 270
         }
       },
       "access": "public",
@@ -19079,8 +19154,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 262,
-        "end": 262
+        "start": 271,
+        "end": 271
       },
       "context": {
         "type": "variable",
@@ -19088,8 +19163,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 263,
-          "end": 263
+          "start": 272,
+          "end": 272
         }
       },
       "access": "public",
@@ -19104,8 +19179,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 264,
-        "end": 264
+        "start": 273,
+        "end": 273
       },
       "context": {
         "type": "variable",
@@ -19113,8 +19188,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 265,
-          "end": 265
+          "start": 274,
+          "end": 274
         }
       },
       "access": "public",
@@ -19129,8 +19204,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 266,
-        "end": 266
+        "start": 275,
+        "end": 275
       },
       "context": {
         "type": "variable",
@@ -19138,8 +19213,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 267,
-          "end": 267
+          "start": 276,
+          "end": 276
         }
       },
       "access": "public",
@@ -19204,8 +19279,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 268,
-        "end": 268
+        "start": 277,
+        "end": 277
       },
       "context": {
         "type": "variable",
@@ -19213,8 +19288,8 @@
         "value": "map-merge((\n    noalley: 0,\n    tightest: 0.25,\n    tighter: 0.5,\n    tight: 0.75,\n    comfy: 1,\n    loose: 1.25,\n    looser: 1.5,\n    loosest: 1.75,\n), $alley-sizes)",
         "scope": "private",
         "line": {
-          "start": 269,
-          "end": 278
+          "start": 278,
+          "end": 287
         }
       },
       "access": "public",
@@ -19229,8 +19304,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 285,
-        "end": 285
+        "start": 294,
+        "end": 294
       },
       "context": {
         "type": "variable",
@@ -19238,8 +19313,8 @@
         "value": "cubic-bezier(1, 0, 0, 1)",
         "scope": "private",
         "line": {
-          "start": 286,
-          "end": 286
+          "start": 295,
+          "end": 295
         }
       },
       "access": "public",
@@ -19254,8 +19329,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 287,
-        "end": 287
+        "start": 296,
+        "end": 296
       },
       "context": {
         "type": "variable",
@@ -19263,8 +19338,8 @@
         "value": "cubic-bezier(0.77, 0, 0.175, 1)",
         "scope": "private",
         "line": {
-          "start": 288,
-          "end": 288
+          "start": 297,
+          "end": 297
         }
       },
       "access": "public",
@@ -19279,8 +19354,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 289,
-        "end": 289
+        "start": 298,
+        "end": 298
       },
       "context": {
         "type": "variable",
@@ -19288,8 +19363,8 @@
         "value": "$ease-in-out-expo",
         "scope": "default",
         "line": {
-          "start": 290,
-          "end": 290
+          "start": 299,
+          "end": 299
         }
       },
       "access": "public",
@@ -19304,8 +19379,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 297,
-        "end": 297
+        "start": 306,
+        "end": 306
       },
       "context": {
         "type": "variable",
@@ -19313,8 +19388,8 @@
         "value": "1px",
         "scope": "default",
         "line": {
-          "start": 298,
-          "end": 298
+          "start": 307,
+          "end": 307
         }
       },
       "access": "public",
@@ -19329,8 +19404,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 299,
-        "end": 299
+        "start": 308,
+        "end": 308
       },
       "context": {
         "type": "variable",
@@ -19338,8 +19413,8 @@
         "value": "1200px",
         "scope": "default",
         "line": {
-          "start": 300,
-          "end": 300
+          "start": 309,
+          "end": 309
         }
       },
       "access": "public",
@@ -19354,8 +19429,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 307,
-        "end": 307
+        "start": 316,
+        "end": 316
       },
       "context": {
         "type": "variable",
@@ -19363,8 +19438,8 @@
         "value": "480px",
         "scope": "default",
         "line": {
-          "start": 308,
-          "end": 308
+          "start": 317,
+          "end": 317
         }
       },
       "access": "public",
@@ -19393,8 +19468,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 309,
-        "end": 309
+        "start": 318,
+        "end": 318
       },
       "context": {
         "type": "variable",
@@ -19402,8 +19477,8 @@
         "value": "768px",
         "scope": "default",
         "line": {
-          "start": 310,
-          "end": 310
+          "start": 319,
+          "end": 319
         }
       },
       "access": "public",
@@ -19432,8 +19507,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 311,
-        "end": 311
+        "start": 320,
+        "end": 320
       },
       "context": {
         "type": "variable",
@@ -19441,8 +19516,8 @@
         "value": "960px",
         "scope": "default",
         "line": {
-          "start": 312,
-          "end": 312
+          "start": 321,
+          "end": 321
         }
       },
       "access": "public",
@@ -19471,8 +19546,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 313,
-        "end": 313
+        "start": 322,
+        "end": 322
       },
       "context": {
         "type": "variable",
@@ -19480,8 +19555,8 @@
         "value": "1200px",
         "scope": "default",
         "line": {
-          "start": 314,
-          "end": 314
+          "start": 323,
+          "end": 323
         }
       },
       "access": "public",
@@ -19510,160 +19585,12 @@
     {
       "description": "",
       "commentRange": {
-        "start": 315,
-        "end": 315
-      },
-      "context": {
-        "type": "variable",
-        "name": "breakpoints",
-        "value": "()",
-        "scope": "default",
-        "line": {
-          "start": 316,
-          "end": 316
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      },
-      "usedBy": [
-        {
-          "description": "Hides element when viewport is as wide or wider than <code>$breakpoint</code>\n",
-          "context": {
-            "type": "mixin",
-            "name": "hide",
-            "code": "@if index(map-keys($breakpoints), $breakpoint) {\n    @include min(map-get($breakpoints, $breakpoint)) {\n        display:none;\n    }\n} @else if is-nonneg-unit-number($breakpoint) {\n    @include min($breakpoint) {\n        display:none;\n    }\n}\n",
-            "line": {
-              "start": 200,
-              "end": 210
-            }
-          }
-        },
-        {
-          "description": "Hides element when viewport is as wide or wider than <code>$breakpoint</code>\n",
-          "context": {
-            "type": "mixin",
-            "name": "hide",
-            "code": "@if index(map-keys($breakpoints), $breakpoint) {\n    @include min(map-get($breakpoints, $breakpoint)) {\n        display:none;\n    }\n} @else if is-nonneg-unit-number($breakpoint) {\n    @include min($breakpoint) {\n        display:none;\n    }\n}\n",
-            "line": {
-              "start": 200,
-              "end": 210
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "row-alley",
-            "code": "$m:false;\n\n@if index(map-keys($alley-sizes), $alley-multiplier) {\n    $m:map-get($alley-sizes, $alley-multiplier);\n} @else if is-nonneg-unitless-number($alley-multiplier) {\n    $m:$alley-multiplier;\n}\n\n@if $m {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            @include row-alley-styles($m);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            @include row-alley-styles($m);\n        }\n    } @else {\n        @include row-alley-styles($m);\n    }\n}\n",
-            "line": {
-              "start": 267,
-              "end": 289
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "row-alley",
-            "code": "$m:false;\n\n@if index(map-keys($alley-sizes), $alley-multiplier) {\n    $m:map-get($alley-sizes, $alley-multiplier);\n} @else if is-nonneg-unitless-number($alley-multiplier) {\n    $m:$alley-multiplier;\n}\n\n@if $m {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            @include row-alley-styles($m);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            @include row-alley-styles($m);\n        }\n    } @else {\n        @include row-alley-styles($m);\n    }\n}\n",
-            "line": {
-              "start": 267,
-              "end": 289
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "col-width",
-            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
-            "line": {
-              "start": 292,
-              "end": 318
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "col-width",
-            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
-            "line": {
-              "start": 292,
-              "end": 318
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "col-width",
-            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
-            "line": {
-              "start": 292,
-              "end": 318
-            }
-          }
-        },
-        {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "col-width",
-            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
-            "line": {
-              "start": 292,
-              "end": 318
-            }
-          }
-        }
-      ]
-    },
-    {
-      "description": "",
-      "commentRange": {
-        "start": 317,
-        "end": 317
-      },
-      "context": {
-        "type": "variable",
-        "name": "breakpoints",
-        "value": "map-merge((\n    s: $breakpoint-s,\n    m: $breakpoint-m,\n    l: $breakpoint-l,\n    xl: $breakpoint-xl,\n), $breakpoints)",
-        "scope": "private",
-        "line": {
-          "start": 318,
-          "end": 323
-        }
-      },
-      "access": "public",
-      "group": [
-        "undefined"
-      ],
-      "file": {
-        "path": "_vars.scss",
-        "name": "_vars.scss"
-      }
-    },
-    {
-      "description": "",
-      "commentRange": {
         "start": 324,
         "end": 324
       },
       "context": {
         "type": "variable",
-        "name": "columns",
+        "name": "breakpoints",
         "value": "()",
         "scope": "default",
         "line": {
@@ -19680,6 +19607,54 @@
         "name": "_vars.scss"
       },
       "usedBy": [
+        {
+          "description": "Hides element when viewport is as wide or wider than <code>$breakpoint</code>\n",
+          "context": {
+            "type": "mixin",
+            "name": "hide",
+            "code": "@if index(map-keys($breakpoints), $breakpoint) {\n    @include min(map-get($breakpoints, $breakpoint)) {\n        display:none;\n    }\n} @else if is-nonneg-unit-number($breakpoint) {\n    @include min($breakpoint) {\n        display:none;\n    }\n}\n",
+            "line": {
+              "start": 200,
+              "end": 210
+            }
+          }
+        },
+        {
+          "description": "Hides element when viewport is as wide or wider than <code>$breakpoint</code>\n",
+          "context": {
+            "type": "mixin",
+            "name": "hide",
+            "code": "@if index(map-keys($breakpoints), $breakpoint) {\n    @include min(map-get($breakpoints, $breakpoint)) {\n        display:none;\n    }\n} @else if is-nonneg-unit-number($breakpoint) {\n    @include min($breakpoint) {\n        display:none;\n    }\n}\n",
+            "line": {
+              "start": 200,
+              "end": 210
+            }
+          }
+        },
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "row-alley",
+            "code": "$m:false;\n\n@if index(map-keys($alley-sizes), $alley-multiplier) {\n    $m:map-get($alley-sizes, $alley-multiplier);\n} @else if is-nonneg-unitless-number($alley-multiplier) {\n    $m:$alley-multiplier;\n}\n\n@if $m {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            @include row-alley-styles($m);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            @include row-alley-styles($m);\n        }\n    } @else {\n        @include row-alley-styles($m);\n    }\n}\n",
+            "line": {
+              "start": 267,
+              "end": 289
+            }
+          }
+        },
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "row-alley",
+            "code": "$m:false;\n\n@if index(map-keys($alley-sizes), $alley-multiplier) {\n    $m:map-get($alley-sizes, $alley-multiplier);\n} @else if is-nonneg-unitless-number($alley-multiplier) {\n    $m:$alley-multiplier;\n}\n\n@if $m {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            @include row-alley-styles($m);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            @include row-alley-styles($m);\n        }\n    } @else {\n        @include row-alley-styles($m);\n    }\n}\n",
+            "line": {
+              "start": 267,
+              "end": 289
+            }
+          }
+        },
         {
           "description": "",
           "context": {
@@ -19738,12 +19713,12 @@
       },
       "context": {
         "type": "variable",
-        "name": "columns",
-        "value": "map-merge((\n    1: percentage(1/12),\n    2: percentage(2/12),\n    3: percentage(3/12),\n    4: percentage(4/12),\n    5: percentage(5/12),\n    6: percentage(6/12),\n    7: percentage(7/12),\n    8: percentage(8/12),\n    9: percentage(9/12),\n    10: percentage(10/12),\n    11: percentage(11/12),\n    12: percentage(12/12),\n    p5: 5%,\n    p10: 10%,\n    p15: 15%,\n    p20: 20%,\n    p25: 25%,\n    p30: 30%,\n    p35: 35%,\n    p40: 40%,\n    p45: 45%,\n    p50: 50%,\n    p55: 55%,\n    p60: 60%,\n    p65: 65%,\n    p70: 70%,\n    p75: 75%,\n    p80: 80%,\n    p85: 85%,\n    p90: 90%,\n    p95: 95%,\n    p100: 100%,\n), $columns)",
+        "name": "breakpoints",
+        "value": "map-merge((\n    s: $breakpoint-s,\n    m: $breakpoint-m,\n    l: $breakpoint-l,\n    xl: $breakpoint-xl,\n), $breakpoints)",
         "scope": "private",
         "line": {
           "start": 327,
-          "end": 360
+          "end": 332
         }
       },
       "access": "public",
@@ -19758,8 +19733,108 @@
     {
       "description": "",
       "commentRange": {
-        "start": 367,
-        "end": 367
+        "start": 333,
+        "end": 333
+      },
+      "context": {
+        "type": "variable",
+        "name": "columns",
+        "value": "()",
+        "scope": "default",
+        "line": {
+          "start": 334,
+          "end": 334
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      },
+      "usedBy": [
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "col-width",
+            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
+            "line": {
+              "start": 292,
+              "end": 318
+            }
+          }
+        },
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "col-width",
+            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
+            "line": {
+              "start": 292,
+              "end": 318
+            }
+          }
+        },
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "col-width",
+            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
+            "line": {
+              "start": 292,
+              "end": 318
+            }
+          }
+        },
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "col-width",
+            "code": "@if index(map-keys($columns), $column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:map-get($columns, $column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:map-get($columns, $column-width);\n        }\n    } @else {\n        width:map-get($columns, $column-width);\n    }\n} @else if is-nonneg-unitless-number($column-width) {\n    @if index(map-keys($breakpoints), $breakpoint) {\n        @include min(map-get($breakpoints, $breakpoint)) {\n            width:percentage($column-width);\n        }\n    } @else if is-nonneg-unit-number($breakpoint) {\n        @include min($breakpoint) {\n            width:percentage($column-width);\n        }\n    } @else {\n        width:percentage($column-width);\n    }\n}\n",
+            "line": {
+              "start": 292,
+              "end": 318
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 335,
+        "end": 335
+      },
+      "context": {
+        "type": "variable",
+        "name": "columns",
+        "value": "map-merge((\n    1: percentage(1/12),\n    2: percentage(2/12),\n    3: percentage(3/12),\n    4: percentage(4/12),\n    5: percentage(5/12),\n    6: percentage(6/12),\n    7: percentage(7/12),\n    8: percentage(8/12),\n    9: percentage(9/12),\n    10: percentage(10/12),\n    11: percentage(11/12),\n    12: percentage(12/12),\n    p5: 5%,\n    p10: 10%,\n    p15: 15%,\n    p20: 20%,\n    p25: 25%,\n    p30: 30%,\n    p35: 35%,\n    p40: 40%,\n    p45: 45%,\n    p50: 50%,\n    p55: 55%,\n    p60: 60%,\n    p65: 65%,\n    p70: 70%,\n    p75: 75%,\n    p80: 80%,\n    p85: 85%,\n    p90: 90%,\n    p95: 95%,\n    p100: 100%,\n), $columns)",
+        "scope": "private",
+        "line": {
+          "start": 336,
+          "end": 369
+        }
+      },
+      "access": "public",
+      "group": [
+        "undefined"
+      ],
+      "file": {
+        "path": "_vars.scss",
+        "name": "_vars.scss"
+      }
+    },
+    {
+      "description": "",
+      "commentRange": {
+        "start": 376,
+        "end": 376
       },
       "context": {
         "type": "variable",
@@ -19767,8 +19842,8 @@
         "value": "(cm, mm, in, px, pt, pc)",
         "scope": "private",
         "line": {
-          "start": 368,
-          "end": 368
+          "start": 377,
+          "end": 377
         }
       },
       "access": "public",
@@ -19783,8 +19858,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 369,
-        "end": 369
+        "start": 378,
+        "end": 378
       },
       "context": {
         "type": "variable",
@@ -19792,8 +19867,8 @@
         "value": "(em, ex, ch, rem, vw, vh, vmin, vmax, '%')",
         "scope": "private",
         "line": {
-          "start": 370,
-          "end": 370
+          "start": 379,
+          "end": 379
         }
       },
       "access": "public",
@@ -19808,8 +19883,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 371,
-        "end": 371
+        "start": 380,
+        "end": 380
       },
       "context": {
         "type": "variable",
@@ -19817,8 +19892,8 @@
         "value": "join($lengths-absolute, $lengths-relative)",
         "scope": "private",
         "line": {
-          "start": 372,
-          "end": 372
+          "start": 381,
+          "end": 381
         }
       },
       "access": "public",

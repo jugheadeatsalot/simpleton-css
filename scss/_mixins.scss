@@ -178,7 +178,7 @@
     }
 }
 
-/// @param {1|2|3|4} $type
+/// @param {1|2|3|4|5} $type
 /// @param {<number>|false} $margins-multiplier [false]
 @mixin h($type:1, $margins-multiplier:false) {
     font-weight:var(--font-weight-heading);
@@ -194,6 +194,42 @@
         margin-top:if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
         margin-bottom:if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
     }
+}
+
+///
+@mixin big() {
+    font-size:var(--font-size-big);
+    line-height:var(--line-height-big);
+}
+
+///
+@mixin xbig() {
+    font-size:var(--font-size-xbig);
+    line-height:var(--line-height-xbig);
+}
+
+///
+@mixin xxbig() {
+    font-size:var(--font-size-xxbig);
+    line-height:var(--line-height-xxbig);
+}
+
+///
+@mixin small() {
+    font-size:var(--font-size-small);
+    line-height:var(--line-height-small);
+}
+
+///
+@mixin xsmall() {
+    font-size:var(--font-size-xsmall);
+    line-height:var(--line-height-xsmall);
+}
+
+///
+@mixin xxsmall() {
+    font-size:var(--font-size-xxsmall);
+    line-height:var(--line-height-xxsmall);
 }
 
 /// Hides element when viewport is as wide or wider than `$breakpoint`

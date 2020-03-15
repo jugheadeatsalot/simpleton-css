@@ -3,14 +3,14 @@ img,
 .wp-caption {
     &.alignleft,
     &.alignright {
-        padding-top:calc(var(--space) * 0.25);
+        padding-top:space(0.25);
     }
 }
 
 img {
     &.alignleft,
     &.alignright {
-        padding-bottom:var(--space);
+        padding-bottom:space();
     }
 }
 
@@ -59,7 +59,7 @@ blockquote {
     margin-bottom:0 !important;
 
     &:not(:last-child) {
-        margin-bottom:var(--space) !important;
+        margin-bottom:space() !important;
     }
 }
 
@@ -106,14 +106,14 @@ blockquote {
 
             input[type='submit'] {
                 border-radius:0;
-                padding:0 var(--space);
+                padding:0 space();
             }
         }
     }
 }
 
 .wp-caption {
-    margin-bottom:var(--space);
+    margin-bottom:space();
 }
 
 .wp-caption-text,
@@ -136,7 +136,7 @@ blockquote {
 
 twitterwidget,
 twitter-widget {
-    margin:0 0 var(--space) !important;
+    margin:0 0 space() !important;
 
     &:last-child {
         margin:0 !important;
@@ -144,13 +144,13 @@ twitter-widget {
 
     + p:last-child > script {
         display:block;
-        margin-top:calc(var(--space) * -1)
+        margin-top:space(-1)
     }
 }
 
 .mejs-container {
     &:not(:last-child) {
-        margin-bottom:var(--space);
+        margin-bottom:space();
     }
 }
 
