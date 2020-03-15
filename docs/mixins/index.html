@@ -19,6 +19,7 @@
                 <h1 class="site-name"><a href="/">Simpleton CSS</a></h1>
                 <ul class="site-menu">
                     <li><a href="/markup">Markup</a></li>
+                    <li><a href="/typography">Typography</a></li>
                     <li><a href="/colors">Colors</a></li>
                     <li><a href="/forms">Forms</a></li>
                     <li><a href="/grids">Grids</a></li>
@@ -34,14 +35,31 @@
                 <h2>button-styles <a id="button-styles" class="anchor" href="#button-styles"><span
                             aria-hidden="true">#</span><span
                             class="screen-reader-text">button-styles</span></a></h2>
+                <h3>Requires</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code><a href="/functions#space">space</a></code></td>
+                            <td><code>function</code></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_forms.scss#L2-L17"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_forms.scss#L2-L13"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
                         </svg></a></h3>
                 <pre><code class="lang-scss">display:inline-block;
-margin-bottom:calc(var(--space) * 0.25);
+margin-bottom:space(0.25);
 padding:var(--padding-button);
 min-height:2.5rem;
 border:none;
@@ -50,10 +68,6 @@ background-color:var(--color-contrast);
 color:var(--color-background);
 cursor:pointer;
 transition:box-shadow 0.2s, color 0.2s;
-
-&amp;:hover {
-    box-shadow:inset 0 0 0 100vh rgba(black, 0.1);
-}
 </code></pre>
             </section>
             <section class="doc-block">
@@ -634,7 +648,7 @@ video {
                     <tbody>
                         <tr>
                             <td><code>type</code></td>
-                            <td><code>1|2|3|4</code></td>
+                            <td><code>1|2|3|4|5</code></td>
                             <td><code>--</code></td>
                         </tr>
                         <tr>
@@ -690,6 +704,90 @@ line-height:var(--line-height-h#{$type});
 </code></pre>
             </section>
             <section class="doc-block">
+                <h2>big <a id="big" class="anchor" href="#big"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">big</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L200-L203"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-big);
+line-height:var(--line-height-big);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>xbig <a id="xbig" class="anchor" href="#xbig"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">xbig</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L206-L209"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-xbig);
+line-height:var(--line-height-xbig);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>xxbig <a id="xxbig" class="anchor" href="#xxbig"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">xxbig</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L212-L215"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-xxbig);
+line-height:var(--line-height-xxbig);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>small <a id="small" class="anchor" href="#small"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">small</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L218-L221"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-small);
+line-height:var(--line-height-small);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>xsmall <a id="xsmall" class="anchor" href="#xsmall"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">xsmall</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L224-L227"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-xsmall);
+line-height:var(--line-height-xsmall);
+</code></pre>
+            </section>
+            <section class="doc-block">
+                <h2>xxsmall <a id="xxsmall" class="anchor" href="#xxsmall"><span
+                            aria-hidden="true">#</span><span
+                            class="screen-reader-text">xxsmall</span></a></h2>
+                <h3>Code <a
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L230-L233"
+                        target="_blank"><span class="screen-reader-text">View Source</span><svg
+                            class="icon" aria-hidden="true">
+                            <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
+                        </svg></a></h3>
+                <pre><code class="lang-scss">font-size:var(--font-size-xxsmall);
+line-height:var(--line-height-xxsmall);
+</code></pre>
+            </section>
+            <section class="doc-block">
                 <h2>hide <a id="hide" class="anchor" href="#hide"><span
                             aria-hidden="true">#</span><span
                             class="screen-reader-text">hide</span></a></h2>
@@ -726,7 +824,7 @@ line-height:var(--line-height-h#{$type});
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L200-L210"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L236-L246"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -793,7 +891,7 @@ line-height:var(--line-height-h#{$type});
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L214-L223"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L250-L259"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -864,7 +962,7 @@ margin-top:space(-$m) if($i, !important, null);
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L227-L243"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L263-L279"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -908,7 +1006,7 @@ margin-top:space(-$m) if($i, !important, null);
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L246-L255"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L282-L291"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -945,7 +1043,7 @@ flex-wrap:wrap;
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L258-L264"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L294-L300"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1008,7 +1106,7 @@ flex-wrap:wrap;
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L267-L289"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L303-L325"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1082,7 +1180,7 @@ flex-wrap:wrap;
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L292-L318"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L328-L354"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1120,7 +1218,7 @@ flex-wrap:wrap;
                             class="screen-reader-text">clearfix</span></a></h2>
                 <div class="description">Utility to clear floats </div>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L321-L329"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L357-L365"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1156,7 +1254,7 @@ flex-wrap:wrap;
                     </tbody>
                 </table>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L332-L337"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L368-L373"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1172,7 +1270,7 @@ font-size:var(--font-size-xsmall);
                             class="screen-reader-text">sq</span></a></h2>
                 <div class="description">Unsets border radius </div>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L340-L342"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L376-L378"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
@@ -1185,7 +1283,7 @@ font-size:var(--font-size-xsmall);
                             aria-hidden="true">#</span><span
                             class="screen-reader-text">ellipsis</span></a></h2>
                 <h3>Code <a
-                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L345-L349"
+                        href="https://github.com/jugheadeatsalot/simpleton-css/blob/master/scss/_mixins.scss#L381-L385"
                         target="_blank"><span class="screen-reader-text">View Source</span><svg
                             class="icon" aria-hidden="true">
                             <use xlink:href="/assets/img/symbols.svg#icon-new-tab"></use>
