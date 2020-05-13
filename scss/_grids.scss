@@ -1,10 +1,10 @@
 .row {
-    $inc:0;
+    $inc: 0;
 
     @include row();
 
     @while $inc < 600 {
-        $inc:$inc + 25;
+        $inc: $inc + 25;
 
         &.mgbch-#{$inc} {
             @include mgbch($inc / 100);

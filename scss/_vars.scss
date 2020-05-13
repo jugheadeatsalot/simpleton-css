@@ -4,160 +4,174 @@
 //
 
 ///
-$font-stack-serif:Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
+$font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
 ///
-$font-stack-sansserif:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-stack-sansserif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif !default;
 ///
-$font-stack-general:$font-stack-sansserif !default;
+$font-stack-general: $font-stack-sansserif !default;
 ///
-$font-stack-heading:$font-stack-general !default;
+$font-stack-heading: $font-stack-general !default;
 ///
-$font-stack-monospace:Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace !default;
+$font-stack-monospace: Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New',
+    Courier, monospace !default;
 ///
-$font-stacks:() !default;
+$font-stacks: () !default;
 ///
-$font-stacks:map-merge((
-    serif: $font-stack-serif,
-    sansserif: $font-stack-sansserif,
-    general: $font-stack-general,
-    heading: $font-stack-heading,
-    monospace: $font-stack-monospace,
-), $font-stacks);
+$font-stacks: map-merge(
+    (
+        serif: $font-stack-serif,
+        sansserif: $font-stack-sansserif,
+        general: $font-stack-general,
+        heading: $font-stack-heading,
+        monospace: $font-stack-monospace,
+    ),
+    $font-stacks
+);
 ///
-$font-size-base:16px !default; // must be in px
+$font-size-base: 16px !default; // must be in px
 ///
-$font-size-general:1rem !default;
+$font-size-general: 1rem !default;
 ///
-$font-size-big:1.125em !default;
+$font-size-big: 1.125em !default;
 ///
-$font-size-xbig:1.266em !default;
+$font-size-xbig: 1.266em !default;
 ///
-$font-size-xxbig:1.424em !default;
+$font-size-xxbig: 1.424em !default;
 ///
-$font-size-small:0.889em !default;
+$font-size-small: 0.889em !default;
 ///
-$font-size-xsmall:0.79em !default;
+$font-size-xsmall: 0.79em !default;
 ///
-$font-size-xxsmall:0.702em !default;
+$font-size-xxsmall: 0.702em !default;
 ///
-$font-size-h1:1.802em !default;
+$font-size-h1: 1.802em !default;
 ///
-$font-size-h2:1.602em !default;
+$font-size-h2: 1.602em !default;
 ///
-$font-size-h3:1.424em !default;
+$font-size-h3: 1.424em !default;
 ///
-$font-size-h4:1.266em !default;
+$font-size-h4: 1.266em !default;
 ///
-$font-size-h5:1.125em !default;
+$font-size-h5: 1.125em !default;
 ///
-$font-sizes:() !default;
+$font-sizes: () !default;
 ///
-$font-sizes:map-merge((
-    base: $font-size-base,
-    general: $font-size-general,
-    big: $font-size-big,
-    xbig: $font-size-xbig,
-    xxbig: $font-size-xxbig,
-    small: $font-size-small,
-    xsmall: $font-size-xsmall,
-    xxsmall: $font-size-xxsmall,
-    h1: $font-size-h1,
-    h2: $font-size-h2,
-    h3: $font-size-h3,
-    h4: $font-size-h4,
-    h5: $font-size-h5,
-), $font-sizes);
+$font-sizes: map-merge(
+    (
+        base: $font-size-base,
+        general: $font-size-general,
+        big: $font-size-big,
+        xbig: $font-size-xbig,
+        xxbig: $font-size-xxbig,
+        small: $font-size-small,
+        xsmall: $font-size-xsmall,
+        xxsmall: $font-size-xxsmall,
+        h1: $font-size-h1,
+        h2: $font-size-h2,
+        h3: $font-size-h3,
+        h4: $font-size-h4,
+        h5: $font-size-h5,
+    ),
+    $font-sizes
+);
 ///
-$font-weight-normal:400 !default;
+$font-weight-normal: 400 !default;
 ///
-$font-weight-bold:700 !default;
+$font-weight-bold: 700 !default;
 ///
-$font-weight-heading:$font-weight-bold !default;
+$font-weight-heading: $font-weight-bold !default;
 ///
-$font-weights:() !default;
+$font-weights: () !default;
 ///
-$font-weights:map-merge((
-    normal: $font-weight-normal,
-    bold: $font-weight-bold,
-    heading: $font-weight-heading,
-), $font-weights);
+$font-weights: map-merge(
+    (
+        normal: $font-weight-normal,
+        bold: $font-weight-bold,
+        heading: $font-weight-heading,
+    ),
+    $font-weights
+);
 ///
-$line-height-general:1.5 !default;
+$line-height-general: 1.5 !default;
 ///
-$line-height-big:1.45 !default;
+$line-height-big: 1.45 !default;
 ///
-$line-height-xbig:1.4 !default;
+$line-height-xbig: 1.4 !default;
 ///
-$line-height-xxbig:1.35 !default;
+$line-height-xxbig: 1.35 !default;
 ///
-$line-height-small:1.55 !default;
+$line-height-small: 1.55 !default;
 ///
-$line-height-xsmall:1.6 !default;
+$line-height-xsmall: 1.6 !default;
 ///
-$line-height-xxsmall:1.65 !default;
+$line-height-xxsmall: 1.65 !default;
 ///
-$line-height-h1:1.25 !default;
+$line-height-h1: 1.25 !default;
 ///
-$line-height-h2:1.3 !default;
+$line-height-h2: 1.3 !default;
 ///
-$line-height-h3:1.35 !default;
+$line-height-h3: 1.35 !default;
 ///
-$line-height-h4:1.4 !default;
+$line-height-h4: 1.4 !default;
 ///
-$line-height-h5:1.45 !default;
+$line-height-h5: 1.45 !default;
 ///
-$line-height-general-in-rem:$line-height-general * 1rem !default;
+$line-height-general-in-rem: $line-height-general * 1rem !default;
 ///
-$line-height-h1-in-rem:$line-height-h1 * 1rem !default;
+$line-height-h1-in-rem: $line-height-h1 * 1rem !default;
 ///
-$line-height-h2-in-rem:$line-height-h2 * 1rem !default;
+$line-height-h2-in-rem: $line-height-h2 * 1rem !default;
 ///
-$line-height-h3-in-rem:$line-height-h3 * 1rem !default;
+$line-height-h3-in-rem: $line-height-h3 * 1rem !default;
 ///
-$line-height-h4-in-rem:$line-height-h4 * 1rem !default;
+$line-height-h4-in-rem: $line-height-h4 * 1rem !default;
 ///
-$line-height-h5-in-rem:$line-height-h5 * 1rem !default;
+$line-height-h5-in-rem: $line-height-h5 * 1rem !default;
 ///
-$line-height-big-in-rem:$line-height-big * 1rem !default;
+$line-height-big-in-rem: $line-height-big * 1rem !default;
 ///
-$line-height-xbig-in-rem:$line-height-xbig * 1rem !default;
+$line-height-xbig-in-rem: $line-height-xbig * 1rem !default;
 ///
-$line-height-xxbig-in-rem:$line-height-xxbig * 1rem !default;
+$line-height-xxbig-in-rem: $line-height-xxbig * 1rem !default;
 ///
-$line-height-small-in-rem:$line-height-small * 1rem !default;
+$line-height-small-in-rem: $line-height-small * 1rem !default;
 ///
-$line-height-xsmall-in-rem:$line-height-xsmall * 1rem !default;
+$line-height-xsmall-in-rem: $line-height-xsmall * 1rem !default;
 ///
-$line-height-xxsmall-in-rem:$line-height-xxsmall * 1rem !default;
+$line-height-xxsmall-in-rem: $line-height-xxsmall * 1rem !default;
 ///
-$line-heights:() !default;
+$line-heights: () !default;
 ///
-$line-heights:map-merge((
-    general: $line-height-general,
-    big: $line-height-big,
-    xbig: $line-height-xbig,
-    xxbig: $line-height-xxbig,
-    small: $line-height-small,
-    xsmall: $line-height-xsmall,
-    xxsmall: $line-height-xxsmall,
-    h1: $line-height-h1,
-    h2: $line-height-h2,
-    h3: $line-height-h3,
-    h4: $line-height-h4,
-    h5: $line-height-h5,
-    general-in-rem: $line-height-general-in-rem,
-    big-in-rem: $line-height-big-in-rem,
-    xbig-in-rem: $line-height-xbig-in-rem,
-    xxbig-in-rem: $line-height-xxbig-in-rem,
-    small-in-rem: $line-height-small-in-rem,
-    xsmall-in-rem: $line-height-xsmall-in-rem,
-    xxsmall-in-rem: $line-height-xxsmall-in-rem,
-    h1-in-rem: $line-height-h1-in-rem,
-    h2-in-rem: $line-height-h2-in-rem,
-    h3-in-rem: $line-height-h3-in-rem,
-    h4-in-rem: $line-height-h4-in-rem,
-    h5-in-rem: $line-height-h5-in-rem,
-), $line-heights);
+$line-heights: map-merge(
+    (
+        general: $line-height-general,
+        big: $line-height-big,
+        xbig: $line-height-xbig,
+        xxbig: $line-height-xxbig,
+        small: $line-height-small,
+        xsmall: $line-height-xsmall,
+        xxsmall: $line-height-xxsmall,
+        h1: $line-height-h1,
+        h2: $line-height-h2,
+        h3: $line-height-h3,
+        h4: $line-height-h4,
+        h5: $line-height-h5,
+        general-in-rem: $line-height-general-in-rem,
+        big-in-rem: $line-height-big-in-rem,
+        xbig-in-rem: $line-height-xbig-in-rem,
+        xxbig-in-rem: $line-height-xxbig-in-rem,
+        small-in-rem: $line-height-small-in-rem,
+        xsmall-in-rem: $line-height-xsmall-in-rem,
+        xxsmall-in-rem: $line-height-xxsmall-in-rem,
+        h1-in-rem: $line-height-h1-in-rem,
+        h2-in-rem: $line-height-h2-in-rem,
+        h3-in-rem: $line-height-h3-in-rem,
+        h4-in-rem: $line-height-h4-in-rem,
+        h5-in-rem: $line-height-h5-in-rem,
+    ),
+    $line-heights
+);
 
 //
 // Colors
@@ -165,91 +179,94 @@ $line-heights:map-merge((
 //
 
 ///
-$color-primary:#dc2f3c !default;
+$color-primary: #dc2f3c !default;
 ///
-$color-dark-accent:#587b98 !default;
+$color-dark-accent: #587b98 !default;
 ///
-$color-light-accent:#76b1df !default;
+$color-light-accent: #76b1df !default;
 ///
-$color-background:#ffffff !default;
+$color-background: #ffffff !default;
 ///
-$color-contrast:#252428 !default;
+$color-contrast: #252428 !default;
 ///
-$color-contrast-medium:#8c8c8c !default;
+$color-contrast-medium: #8c8c8c !default;
 ///
-$color-contrast-low:#bfbfbf !default;
+$color-contrast-low: #bfbfbf !default;
 ///
-$color-contrast-lower:#d9d9d9 !default;
+$color-contrast-lower: #d9d9d9 !default;
 ///
-$color-contrast-lowest:#f2f2f2 !default;
+$color-contrast-lowest: #f2f2f2 !default;
 ///
-$color-contrast-high:#737373 !default;
+$color-contrast-high: #737373 !default;
 ///
-$color-contrast-higher:#595959 !default;
+$color-contrast-higher: #595959 !default;
 ///
-$color-contrast-highest:#404040 !default;
+$color-contrast-highest: #404040 !default;
 ///
-$color-success:#27ae60 !default;
+$color-success: #27ae60 !default;
 ///
-$color-alert:#c0392b !default;
+$color-alert: #c0392b !default;
 ///
-$color-warning:#d35400 !default;
+$color-warning: #d35400 !default;
 ///
-$color-highlight:#f1c40f !default;
+$color-highlight: #f1c40f !default;
 ///
-$color-dribbble:#ea4c89 !default;
+$color-dribbble: #ea4c89 !default;
 ///
-$color-facebook:#3b5998 !default;
+$color-facebook: #3b5998 !default;
 ///
-$color-flickr:#ff0084 !default;
+$color-flickr: #ff0084 !default;
 ///
-$color-instagram:#517fa4 !default;
+$color-instagram: #517fa4 !default;
 ///
-$color-linkedin:#0077b5 !default;
+$color-linkedin: #0077b5 !default;
 ///
-$color-medium:#00ab6b !default;
+$color-medium: #00ab6b !default;
 ///
-$color-pinterest:#bd081c !default;
+$color-pinterest: #bd081c !default;
 ///
-$color-rss:#f26522 !default;
+$color-rss: #f26522 !default;
 ///
-$color-tumblr:#35465c !default;
+$color-tumblr: #35465c !default;
 ///
-$color-twitter:#55acee !default;
+$color-twitter: #55acee !default;
 ///
-$color-youtube:#b31217 !default;
+$color-youtube: #b31217 !default;
 ///
-$colors:() !default;
+$colors: () !default;
 ///
-$colors:map-merge((
-    primary:$color-primary,
-    dark-accent:$color-dark-accent,
-    light-accent:$color-light-accent,
-    background:$color-background,
-    contrast:$color-contrast,
-    contrast-medium:$color-contrast-medium,
-    contrast-low:$color-contrast-low,
-    contrast-lower:$color-contrast-lower,
-    contrast-lowest:$color-contrast-lowest,
-    contrast-high:$color-contrast-high,
-    contrast-higher:$color-contrast-higher,
-    contrast-highest:$color-contrast-highest,
-    success:$color-success,
-    alert:$color-alert,
-    warning:$color-warning,
-    highlight:$color-highlight,
-    dribbble:$color-dribbble,
-    facebook:$color-facebook,
-    flickr:$color-flickr,
-    instagram:$color-instagram,
-    linkedin:$color-linkedin,
-    medium:$color-medium,
-    pinterest:$color-pinterest,
-    rss:$color-rss,
-    tumblr:$color-tumblr,
-    twitter:$color-twitter,
-    youtube:$color-youtube,
-), $colors);
+$colors: map-merge(
+    (
+        primary: $color-primary,
+        dark-accent: $color-dark-accent,
+        light-accent: $color-light-accent,
+        background: $color-background,
+        contrast: $color-contrast,
+        contrast-medium: $color-contrast-medium,
+        contrast-low: $color-contrast-low,
+        contrast-lower: $color-contrast-lower,
+        contrast-lowest: $color-contrast-lowest,
+        contrast-high: $color-contrast-high,
+        contrast-higher: $color-contrast-higher,
+        contrast-highest: $color-contrast-highest,
+        success: $color-success,
+        alert: $color-alert,
+        warning: $color-warning,
+        highlight: $color-highlight,
+        dribbble: $color-dribbble,
+        facebook: $color-facebook,
+        flickr: $color-flickr,
+        instagram: $color-instagram,
+        linkedin: $color-linkedin,
+        medium: $color-medium,
+        pinterest: $color-pinterest,
+        rss: $color-rss,
+        tumblr: $color-tumblr,
+        twitter: $color-twitter,
+        youtube: $color-youtube,
+    ),
+    $colors
+);
 
 //
 // Spacing
@@ -257,70 +274,73 @@ $colors:map-merge((
 //
 
 ///
-$space:$font-size-general * $line-height-general !default;
+$space: $font-size-general * $line-height-general !default;
 ///
-$alley:2rem !default;
+$alley: 30px !default;
 ///
-$p-inline-t:0.125rem !default;
+$p-inline-t: 0.125rem !default;
 ///
-$p-inline-r:0.25rem !default;
+$p-inline-r: 0.25rem !default;
 ///
-$p-inline-b:0.125rem !default;
+$p-inline-b: 0.125rem !default;
 ///
-$p-inline-l:0.25rem !default;
+$p-inline-l: 0.25rem !default;
 ///
-$p-box-t:0.75rem !default;
+$p-box-t: 0.75rem !default;
 ///
-$p-box-r:1.25rem !default;
+$p-box-r: 1.25rem !default;
 ///
-$p-box-b:0.75rem !default;
+$p-box-b: 0.75rem !default;
 ///
-$p-box-l:1rem !default;
+$p-box-l: 1rem !default;
 ///
-$p-message-t:0.75rem !default;
+$p-message-t: 0.75rem !default;
 ///
-$p-message-r:3.25rem !default;
+$p-message-r: 3.25rem !default;
 ///
-$p-message-b:0.75rem !default;
+$p-message-b: 0.75rem !default;
 ///
-$p-message-l:1rem !default;
+$p-message-l: 1rem !default;
 ///
-$p-table-t:0.5rem !default;
+$p-table-t: 0.5rem !default;
 ///
-$p-table-r:2rem !default;
+$p-table-r: 2rem !default;
 ///
-$p-table-b:0.5rem !default;
+$p-table-b: 0.5rem !default;
 ///
-$p-table-l:0 !default;
+$p-table-l: 0 !default;
 ///
-$p-button-t:0.425em !default;
+$p-button-t: 0.425em !default;
 ///
-$p-button-r:1em !default;
+$p-button-r: 1em !default;
 ///
-$p-button-b:0.425em !default;
+$p-button-b: 0.425em !default;
 ///
-$p-button-l:1em !default;
+$p-button-l: 1em !default;
 ///
-$p-input-t:0.5rem !default;
+$p-input-t: 0.5rem !default;
 ///
-$p-input-r:0.75rem !default;
+$p-input-r: 0.75rem !default;
 ///
-$p-input-b:0.5rem !default;
+$p-input-b: 0.5rem !default;
 ///
-$p-input-l:0.75rem !default;
+$p-input-l: 0.75rem !default;
 ///
-$alley-sizes:() !default;
+$alley-sizes: () !default;
 ///
-$alley-sizes:map-merge((
-    noalley: 0,
-    tightest: 0.25,
-    tighter: 0.5,
-    tight: 0.75,
-    comfy: 1,
-    loose: 1.25,
-    looser: 1.5,
-    loosest: 1.75,
-), $alley-sizes);
+$alley-sizes: map-merge(
+    (
+        noalley: 0,
+        tightest: 0.25,
+        tighter: 0.5,
+        tight: 0.75,
+        comfy: 1,
+        loose: 1.25,
+        looser: 1.5,
+        loosest: 1.75,
+    ),
+    $alley-sizes
+);
 
 //
 // Transitions and Animations
@@ -328,11 +348,11 @@ $alley-sizes:map-merge((
 //
 
 ///
-$ease-in-out-expo:cubic-bezier(1, 0, 0, 1);
+$ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
 ///
-$ease-in-out-quart:cubic-bezier(0.77, 0, 0.175, 1);
+$ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
 ///
-$default-easing:$ease-in-out-expo !default;
+$default-easing: $ease-in-out-expo !default;
 
 //
 // Etcetera
@@ -340,9 +360,9 @@ $default-easing:$ease-in-out-expo !default;
 //
 
 ///
-$border-size:1px !default;
+$border-size: 1px !default;
 ///
-$max-site-width:1200px !default;
+$max-site-width: 1200px !default;
 
 //
 // Breakpoints
@@ -350,59 +370,65 @@ $max-site-width:1200px !default;
 //
 
 ///
-$breakpoint-s:480px !default;
+$breakpoint-s: 480px !default;
 ///
-$breakpoint-m:768px !default;
+$breakpoint-m: 768px !default;
 ///
-$breakpoint-l:960px !default;
+$breakpoint-l: 960px !default;
 ///
-$breakpoint-xl:1200px !default;
+$breakpoint-xl: 1200px !default;
 ///
-$breakpoints:() !default;
+$breakpoints: () !default;
 ///
-$breakpoints:map-merge((
-    s: $breakpoint-s,
-    m: $breakpoint-m,
-    l: $breakpoint-l,
-    xl: $breakpoint-xl,
-), $breakpoints);
+$breakpoints: map-merge(
+    (
+        s: $breakpoint-s,
+        m: $breakpoint-m,
+        l: $breakpoint-l,
+        xl: $breakpoint-xl,
+    ),
+    $breakpoints
+);
 ///
-$columns:() !default;
+$columns: () !default;
 ///
-$columns:map-merge((
-    1: percentage(1/12),
-    2: percentage(2/12),
-    3: percentage(3/12),
-    4: percentage(4/12),
-    5: percentage(5/12),
-    6: percentage(6/12),
-    7: percentage(7/12),
-    8: percentage(8/12),
-    9: percentage(9/12),
-    10: percentage(10/12),
-    11: percentage(11/12),
-    12: percentage(12/12),
-    p5: 5%,
-    p10: 10%,
-    p15: 15%,
-    p20: 20%,
-    p25: 25%,
-    p30: 30%,
-    p35: 35%,
-    p40: 40%,
-    p45: 45%,
-    p50: 50%,
-    p55: 55%,
-    p60: 60%,
-    p65: 65%,
-    p70: 70%,
-    p75: 75%,
-    p80: 80%,
-    p85: 85%,
-    p90: 90%,
-    p95: 95%,
-    p100: 100%,
-), $columns);
+$columns: map-merge(
+    (
+        1: percentage(1/12),
+        2: percentage(2/12),
+        3: percentage(3/12),
+        4: percentage(4/12),
+        5: percentage(5/12),
+        6: percentage(6/12),
+        7: percentage(7/12),
+        8: percentage(8/12),
+        9: percentage(9/12),
+        10: percentage(10/12),
+        11: percentage(11/12),
+        12: percentage(12/12),
+        p5: 5%,
+        p10: 10%,
+        p15: 15%,
+        p20: 20%,
+        p25: 25%,
+        p30: 30%,
+        p35: 35%,
+        p40: 40%,
+        p45: 45%,
+        p50: 50%,
+        p55: 55%,
+        p60: 60%,
+        p65: 65%,
+        p70: 70%,
+        p75: 75%,
+        p80: 80%,
+        p85: 85%,
+        p90: 90%,
+        p95: 95%,
+        p100: 100%,
+    ),
+    $columns
+);
 
 //
 // Internals
@@ -410,8 +436,8 @@ $columns:map-merge((
 //
 
 ///
-$lengths-absolute:(cm, mm, in, px, pt, pc);
+$lengths-absolute: (cm, mm, in, px, pt, pc);
 ///
-$lengths-relative:(em, ex, ch, rem, vw, vh, vmin, vmax, '%');
+$lengths-relative: (em, ex, ch, rem, vw, vh, vmin, vmax, '%');
 ///
-$lengths:join($lengths-absolute, $lengths-relative);
+$lengths: join($lengths-absolute, $lengths-relative);

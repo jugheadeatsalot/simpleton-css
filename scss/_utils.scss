@@ -1,10 +1,10 @@
-$inc:0;
+$inc: 0;
 
 @while $inc < 600 {
-    $inc:$inc + 25;
+    $inc: $inc + 25;
 
     .mgb-#{$inc} {
-        margin-bottom:space($inc / 100);
+        margin-bottom: space($inc / 100);
     }
 }
 
@@ -16,11 +16,11 @@ $inc:0;
 
 @each $color-key, $color-value in $colors {
     .bg-#{$color-key} {
-        background-color:$color-value;
+        background-color: $color-value;
     }
 
     .text-#{$color-key} {
-        color:$color-value;
+        color: $color-value;
     }
 }
 
@@ -31,8 +31,8 @@ button,
 .button {
     @each $color-key, $color-value in $colors {
         &.#{$color-key} {
-            background-color:$color-value;
-            color:auto-color-contrast($color-value);
+            background-color: $color-value;
+            color: auto-color-contrast($color-value);
         }
     }
 }
@@ -42,39 +42,39 @@ button,
 }
 
 .fs-big {
-    font-size:var(--font-size-big);
+    font-size: var(--font-size-big);
 }
 
 .fs-xbig {
-    font-size:var(--font-size-xbig);
+    font-size: var(--font-size-xbig);
 }
 
 .fs-xxbig {
-    font-size:var(--font-size-xxbig);
+    font-size: var(--font-size-xxbig);
 }
 
 .fs-small {
-    font-size:var(--font-size-small);
+    font-size: var(--font-size-small);
 }
 
 .fs-xsmall {
-    font-size:var(--font-size-xsmall);
+    font-size: var(--font-size-xsmall);
 }
 
 .fs-xxsmall {
-    font-size:var(--font-size-xxsmall);
+    font-size: var(--font-size-xxsmall);
 }
 
 .fw-n {
-    font-weight:var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
 }
 
 .fw-b {
-    font-weight:var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
 }
 
 .fw-h {
-    font-weight:var(--font-weight-heading);
+    font-weight: var(--font-weight-heading);
 }
 
 @for $i from 1 through 5 {
@@ -85,11 +85,11 @@ button,
 
 @for $i from 1 through 5 {
     .fs-h#{$i} {
-        font-size:var(--font-size-h#{$i});
+        font-size: var(--font-size-h#{$i});
     }
 
     .lh-h#{$i} {
-        line-height:var(--line-height-h#{$i});
+        line-height: var(--line-height-h#{$i});
     }
 }
 

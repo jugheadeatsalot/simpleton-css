@@ -3,43 +3,43 @@ img,
 .wp-caption {
     &.alignleft,
     &.alignright {
-        padding-top:space(0.25);
+        padding-top: space(0.25);
     }
 }
 
 img {
     &.alignleft,
     &.alignright {
-        padding-bottom:space();
+        padding-bottom: space();
     }
 }
 
 .alignleft,
 .alignright {
-    max-width:50%;
+    max-width: 50%;
 }
 
 blockquote {
     &.alignleft,
     &.alignright {
-        max-width:40%;
+        max-width: 40%;
     }
 }
 
 .alignleft {
-    float:left;
-    margin-right:1.25rem;
+    float: left;
+    margin-right: 1.25rem;
 }
 
 .alignright {
-    float:right;
-    margin-left:1.25rem;
+    float: right;
+    margin-left: 1.25rem;
 }
 
 .aligncenter {
-    display:block;
-    margin-right:auto;
-    margin-left:auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .size {
@@ -48,18 +48,18 @@ blockquote {
     &-large,
     &-medium,
     &-thumbnail {
-        max-width:100%;
-        height:auto;
+        max-width: 100%;
+        height: auto;
     }
 }
 
 .tiled-gallery,
 .video-player {
-    max-width:100%;
-    margin-bottom:0 !important;
+    max-width: 100%;
+    margin-bottom: 0 !important;
 
     &:not(:last-child) {
-        margin-bottom:space() !important;
+        margin-bottom: space() !important;
     }
 }
 
@@ -67,22 +67,22 @@ blockquote {
     @include row(tighter);
     @include mgbch();
 
-    margin-bottom:space();
+    margin-bottom: space();
 }
 
 .gallery-row {
-    max-width:100%;
+    max-width: 100%;
 }
 
 .gallery-item {
-    margin-bottom:0;
-    text-align:center;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 @for $i from 1 through 10 {
     .gallery-columns-#{$i} {
         > .gallery-item {
-            width:100 / $i * 1%;
+            width: 100 / $i * 1%;
         }
     }
 }
@@ -90,7 +90,7 @@ blockquote {
 @for $i from 7 through 10 {
     .gallery-columns-#{$i} {
         .wp-caption-text {
-            display:none;
+            display: none;
         }
     }
 }
@@ -98,22 +98,22 @@ blockquote {
 .post-password-form {
     p {
         &:last-child {
-            display:flex;
+            display: flex;
 
             input[type='password'] {
-                border-right:none;
+                border-right: none;
             }
 
             input[type='submit'] {
-                border-radius:0;
-                padding:0 space();
+                border-radius: 0;
+                padding: 0 space();
             }
         }
     }
 }
 
 .wp-caption {
-    margin-bottom:space();
+    margin-bottom: space();
 }
 
 .wp-caption-text,
@@ -136,27 +136,27 @@ blockquote {
 
 twitterwidget,
 twitter-widget {
-    margin:0 0 space() !important;
+    margin: 0 0 space() !important;
 
     &:last-child {
-        margin:0 !important;
+        margin: 0 !important;
     }
 
     + p:last-child > script {
-        display:block;
-        margin-top:space(-1)
+        display: block;
+        margin-top: space(-1);
     }
 }
 
 .mejs-container {
     &:not(:last-child) {
-        margin-bottom:space();
+        margin-bottom: space();
     }
 }
 
 .mejs-container {
     a {
-        border-bottom:none !important;
-        text-decoration:none !important;
+        border-bottom: none !important;
+        text-decoration: none !important;
     }
 }

@@ -8,56 +8,79 @@
 /// @param {<any>} $glue ['']
 /// @param {<any>} $closer [null]
 /// @param {<bool>} $quote-strings [false]
-@function list-to-string($list, $glue:'', $closer:null, $quote-strings:true) {
-    $output:null;
-    $last-item:null;
-    $last-item-quoted:false;
+@function list-to-string(
+    $list,
+    $glue: '',
+    $closer: null,
+    $quote-strings: true
+) {
+    $output: null;
+    $last-item: null;
+    $last-item-quoted: false;
 
     @if type-of($list) != list {
         @error '`#{$list}` is not a valid list.';
     }
 
     @for $i from 1 through length($list) {
-        $item:nth($list, $i);
+        $item: nth($list, $i);
 
         @if type-of($item) == list {
             @if $i == length($list) {
-                $last-item:nth($item, -1);
-                $is-nested-list:type-of($last-item) == list;
+                $last-item: nth($item, -1);
+                $is-nested-list: type-of($last-item) == list;
 
                 @while $is-nested-list {
-                    $last-item:nth($last-item, -1);
+                    $last-item: nth($last-item, -1);
 
                     @if type-of($last-item) != list {
-                        $is-nested-list:false;
-                        $last-item-quoted:type-of($last-item) == string and $quote-strings;
+                        $is-nested-list: false;
+                        $last-item-quoted: type-of($last-item) ==
+                            string and
+                            $quote-strings;
                     }
                 }
 
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)};
+                $output: #{$output}#{list-to-string(
+                        $item,
+                        $glue,
+                        null,
+                        $quote-strings
+                    )};
             } @else {
-                $output:#{$output}#{list-to-string($item, $glue, null, $quote-strings)}#{$glue};
+                $output: #{$output}#{list-to-string(
+                        $item,
+                        $glue,
+                        null,
+                        $quote-strings
+                    )}#{$glue};
             }
         } @else {
-            $item:if(type-of($item) == string and $quote-strings, '"#{$item}"', $item);
+            $item: if(
+                type-of($item) == string and $quote-strings,
+                '"#{$item}"',
+                $item
+            );
 
             @if $i == length($list) {
-                $last-item:$item;
-                $last-item-quoted:type-of($last-item) == string and $quote-strings;
+                $last-item: $item;
+                $last-item-quoted: type-of($last-item) ==
+                    string and
+                    $quote-strings;
 
-                $output:#{$output}#{$item}
+                $output: #{$output}#{$item};
             } @else {
-                $output:#{$output}#{$item}#{$glue};
+                $output: #{$output}#{$item}#{$glue};
             }
         }
     }
 
     @if $closer != null {
-        $offset:if($last-item-quoted, 2, 0);
-        $find:#{$glue}#{$last-item};
-        $slice-1:str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
-        $slice-2:str-slice($output, -(str-length(#{$last-item}) + $offset));
-        $output:#{$slice-1}#{$closer}#{$slice-2};
+        $offset: if($last-item-quoted, 2, 0);
+        $find: #{$glue}#{$last-item};
+        $slice-1: str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
+        $slice-2: str-slice($output, -(str-length(#{$last-item}) + $offset));
+        $output: #{$slice-1}#{$closer}#{$slice-2};
     }
 
     @return $output;
@@ -73,7 +96,12 @@
 /// @param {<number>} $threshold [60]
 /// @param {<color>} $dark [black]
 /// @param {<color>} $light [white]
-@function auto-color-contrast($bg-color, $threshold: 84, $dark: black, $light: white) {
+@function auto-color-contrast(
+    $bg-color,
+    $threshold: 84,
+    $dark: black,
+    $light: white
+) {
     @if type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
@@ -97,14 +125,14 @@
 /// Ceils `$number` to given decimal `$places`.
 /// @param {<number>} $number
 /// @param {<number>} $places
-@function decimal-ceil($number, $places:3) {
+@function decimal-ceil($number, $places: 3) {
     @return decimal-round($number, $places, ceil);
 }
 
 /// Floors `$number` to given decimal `$places`.
 /// @param {<number>} $number
 /// @param {<number>} $places
-@function decimal-floor($number, $places:3) {
+@function decimal-floor($number, $places: 3) {
     @return decimal-round($number, $places, floor);
 }
 
@@ -112,8 +140,8 @@
 /// @param {<number>} $number
 /// @param {<number>} $places
 /// @param {<any> (round, ceil, floor)} $mode [round]
-@function decimal-round($number, $places:3, $mode:round) {
-    $n:1;
+@function decimal-round($number, $places: 3, $mode: round) {
+    $n: 1;
 
     @if not is-number($number) {
         @return $number;
@@ -125,7 +153,7 @@
 
     @if $places > 0 and $places < 20 {
         @for $i from 1 through $places {
-            $n:$n * 10;
+            $n: $n * 10;
         }
     }
 
@@ -298,7 +326,7 @@
 /// @param {<any>} $value
 /// @access private
 @function show-param-value($value) {
-    $value:if(type-of($value) == string, '"#{$value}"', $value);
+    $value: if(type-of($value) == string, '"#{$value}"', $value);
 
     @return 'Received: <#{type-of($value)}: #{$value}>.';
 }
