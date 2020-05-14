@@ -8,18 +8,23 @@ layout: layout.hbs
 <section class="card mgb-300">
     <h2>Buttons</h2>
     <div class="output mgb-175">
-        <button class="button">default</button>
-        <button class="button" disabled>disabled</button>
-        {{#each sassVars.colors}}
-            <button class="button {{@key}}">{{@key}}</button>
-        {{/each}}
+        <div class="mgbch-25">
+            <button class="button">default</button>
+            <button class="button" disabled>disabled</button>
+            {{#each sassVars.colors}}
+                <button class="button {{@key}}">{{@key}}</button>
+            {{/each}}
+        </div>
     </div>
     <div class="markup">
         <!--@formatter:off-->
-        <pre><code class="lang-html">```<button class="button">default</button>
-<button class="button" disabled>disabled</button>
-{{#each sassVars.colors}}<button class="button {{@key}}">{{@key}}</button>
-{{/each}}```</code></pre>
+        <pre><code class="lang-html">```<div class="mgbch-25">
+    <button class="button">default</button>
+    <button class="button" disabled>disabled</button>
+    {{#each sassVars.colors}}
+    <button class="button {{@key}}">{{@key}}</button>
+    {{/each}}
+</div>```</code></pre>
         <!--@formatter:on-->
     </div>
 </section>
@@ -28,14 +33,14 @@ layout: layout.hbs
     <h2>Forms</h2>
     <div class="output mgb-175">
         <form>
-            <div>
+            <p>
                 <label for="name">Name</label>
                 <input type="text" id="name">
-            </div>
-            <div>
+            </p>
+            <p>
                 <label for="email">Email Address</label>
                 <input type="email" id="email">
-            </div>
+            </p>
             <fieldset>
                 <legend>Choose your partner</legend>
                 <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br>
@@ -43,29 +48,29 @@ layout: layout.hbs
                 <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br>
                 <input type="radio" id="4" name="1"><label for="4">Tyrion Lannister</label><br>
             </fieldset>
-            <div>
+            <p>
                 <label for="message">Message</label>
                 <textarea id="message" rows="10"></textarea>
-            </div>
-            <div>
+            </p>
+            <p>
                 <input type="checkbox" id="agree"><label for="agree">I agree to serve the overlords to the best of my ability.</label>
-            </div>
-            <div>
+            </p>
+            <p>
                 <button class="button">Submit</button>
                 <button disabled class="button">Disabled</button>
-            </div>
+            </p>
         </form>
     </div>
     <div class="markup">
         <pre><code class="lang-html">```<form>
-    <div>
+    <p>
         <label for="name">Name</label>
         <input type="text" id="name">
-    </div>
-    <div>
+    </p>
+    <p>
         <label for="email">Email Address</label>
         <input type="email" id="email">
-    </div>
+    </p>
     <fieldset>
         <legend>Choose your partner</legend>
         <input type="radio" id="1" name="1"><label for="1">Peter Griffin</label><br>
@@ -73,17 +78,17 @@ layout: layout.hbs
         <input type="radio" id="3" name="1"><label for="3">Dean Winchester</label><br>
         <input type="radio" id="4" name="1"><label for="4">Tyrion Lannister</label><br>
     </fieldset>
-    <div>
+    <p>
         <label for="message">Message</label>
         <textarea id="message" rows="10"></textarea>
-    </div>
-    <div>
+    </p>
+    <p>
         <input type="checkbox" id="agree"><label for="agree">I agree to serve the overlords to the best of my ability.</label>
-    </div>
-    <div>
+    </p>
+    <p>
         <button class="button">Submit</button>
         <button disabled class="button">Disabled</button>
-    </div>
+    </p>
 </form>```</code></pre>
     </div>
 </section>

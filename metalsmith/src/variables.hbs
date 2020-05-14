@@ -7,7 +7,7 @@ layout: layout.hbs
 
 {{#each sassdocData.variables}}
     <section class="doc-block">
-        <h2>{{context.name}} {{#anchorlink context.name}}{{context.name}}{{/anchorlink}}</h2>
+        <h2>${{context.name}} {{#anchorlink context.name}}{{context.name}}{{/anchorlink}}</h2>
         {{#if description}}
             <div class="description">{{{description}}}</div>
         {{/if}}

@@ -9,7 +9,7 @@
       "context": {
         "type": "mixin",
         "name": "button-styles",
-        "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+        "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
         "line": {
           "start": 2,
           "end": 13
@@ -349,7 +349,7 @@
                 "context": {
                   "type": "mixin",
                   "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
                   "line": {
                     "start": 2,
                     "end": 13
@@ -868,8 +868,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 372,
-              "end": 372
+              "start": 371,
+              "end": 371
             },
             "context": {
               "type": "variable",
@@ -877,8 +877,8 @@
               "value": "480px",
               "scope": "default",
               "line": {
-                "start": 373,
-                "end": 373
+                "start": 372,
+                "end": 372
               }
             },
             "access": "public",
@@ -939,8 +939,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 374,
-              "end": 374
+              "start": 373,
+              "end": 373
             },
             "context": {
               "type": "variable",
@@ -948,8 +948,8 @@
               "value": "768px",
               "scope": "default",
               "line": {
-                "start": 375,
-                "end": 375
+                "start": 374,
+                "end": 374
               }
             },
             "access": "public",
@@ -1010,8 +1010,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 376,
-              "end": 376
+              "start": 375,
+              "end": 375
             },
             "context": {
               "type": "variable",
@@ -1019,8 +1019,8 @@
               "value": "960px",
               "scope": "default",
               "line": {
-                "start": 377,
-                "end": 377
+                "start": 376,
+                "end": 376
               }
             },
             "access": "public",
@@ -1081,8 +1081,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 378,
-              "end": 378
+              "start": 377,
+              "end": 377
             },
             "context": {
               "type": "variable",
@@ -1090,8 +1090,8 @@
               "value": "1200px",
               "scope": "default",
               "line": {
-                "start": 379,
-                "end": 379
+                "start": 378,
+                "end": 378
               }
             },
             "access": "public",
@@ -2280,7 +2280,7 @@
                 "context": {
                   "type": "mixin",
                   "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
                   "line": {
                     "start": 2,
                     "end": 13
@@ -3787,8 +3787,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 442,
-                    "end": 442
+                    "start": 441,
+                    "end": 441
                   },
                   "context": {
                     "type": "variable",
@@ -3796,8 +3796,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 443,
-                      "end": 443
+                      "start": 442,
+                      "end": 442
                     }
                   },
                   "access": "public",
@@ -3900,8 +3900,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 380,
-              "end": 380
+              "start": 379,
+              "end": 379
             },
             "context": {
               "type": "variable",
@@ -3909,8 +3909,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 381,
-                "end": 381
+                "start": 380,
+                "end": 380
               }
             },
             "access": "public",
@@ -4676,7 +4676,7 @@
                 "context": {
                   "type": "mixin",
                   "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
                   "line": {
                     "start": 2,
                     "end": 13
@@ -5788,8 +5788,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 328,
-              "end": 328
+              "start": 327,
+              "end": 327
             },
             "context": {
               "type": "variable",
@@ -5797,8 +5797,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 329,
-                "end": 329
+                "start": 328,
+                "end": 328
               }
             },
             "access": "public",
@@ -6905,8 +6905,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 328,
-                    "end": 328
+                    "start": 327,
+                    "end": 327
                   },
                   "context": {
                     "type": "variable",
@@ -6914,8 +6914,8 @@
                     "value": "()",
                     "scope": "default",
                     "line": {
-                      "start": 329,
-                      "end": 329
+                      "start": 328,
+                      "end": 328
                     }
                   },
                   "access": "public",
@@ -8029,8 +8029,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 328,
-                    "end": 328
+                    "start": 327,
+                    "end": 327
                   },
                   "context": {
                     "type": "variable",
@@ -8038,8 +8038,8 @@
                     "value": "()",
                     "scope": "default",
                     "line": {
-                      "start": 329,
-                      "end": 329
+                      "start": 328,
+                      "end": 328
                     }
                   },
                   "access": "public",
@@ -9350,8 +9350,8 @@
                       "item": {
                         "description": "",
                         "commentRange": {
-                          "start": 328,
-                          "end": 328
+                          "start": 327,
+                          "end": 327
                         },
                         "context": {
                           "type": "variable",
@@ -9359,8 +9359,8 @@
                           "value": "()",
                           "scope": "default",
                           "line": {
-                            "start": 329,
-                            "end": 329
+                            "start": 328,
+                            "end": 328
                           }
                         },
                         "access": "public",
@@ -10467,8 +10467,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 442,
-                    "end": 442
+                    "start": 441,
+                    "end": 441
                   },
                   "context": {
                     "type": "variable",
@@ -10476,8 +10476,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 443,
-                      "end": 443
+                      "start": 442,
+                      "end": 442
                     }
                   },
                   "access": "public",
@@ -10580,8 +10580,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 328,
-              "end": 328
+              "start": 327,
+              "end": 327
             },
             "context": {
               "type": "variable",
@@ -10589,8 +10589,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 329,
-                "end": 329
+                "start": 328,
+                "end": 328
               }
             },
             "access": "public",
@@ -10660,8 +10660,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 380,
-              "end": 380
+              "start": 379,
+              "end": 379
             },
             "context": {
               "type": "variable",
@@ -10669,8 +10669,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 381,
-                "end": 381
+                "start": 380,
+                "end": 380
               }
             },
             "access": "public",
@@ -11382,8 +11382,8 @@
                 "item": {
                   "description": "",
                   "commentRange": {
-                    "start": 442,
-                    "end": 442
+                    "start": 441,
+                    "end": 441
                   },
                   "context": {
                     "type": "variable",
@@ -11391,8 +11391,8 @@
                     "value": "join($lengths-absolute, $lengths-relative)",
                     "scope": "private",
                     "line": {
-                      "start": 443,
-                      "end": 443
+                      "start": 442,
+                      "end": 442
                     }
                   },
                   "access": "public",
@@ -11997,8 +11997,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 392,
-              "end": 392
+              "start": 391,
+              "end": 391
             },
             "context": {
               "type": "variable",
@@ -12006,8 +12006,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 393,
-                "end": 393
+                "start": 392,
+                "end": 392
               }
             },
             "access": "public",
@@ -12077,8 +12077,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 380,
-              "end": 380
+              "start": 379,
+              "end": 379
             },
             "context": {
               "type": "variable",
@@ -12086,8 +12086,8 @@
               "value": "()",
               "scope": "default",
               "line": {
-                "start": 381,
-                "end": 381
+                "start": 380,
+                "end": 380
               }
             },
             "access": "public",
@@ -12577,7 +12577,7 @@
                 "context": {
                   "type": "mixin",
                   "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
                   "line": {
                     "start": 2,
                     "end": 13
@@ -13886,8 +13886,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 31,
-              "end": 31
+              "start": 30,
+              "end": 30
             },
             "context": {
               "type": "variable",
@@ -13895,8 +13895,8 @@
               "value": "16px",
               "scope": "default",
               "line": {
-                "start": 32,
-                "end": 32
+                "start": 31,
+                "end": 31
               }
             },
             "access": "public",
@@ -14361,8 +14361,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 442,
-              "end": 442
+              "start": 441,
+              "end": 441
             },
             "context": {
               "type": "variable",
@@ -14370,8 +14370,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 443,
-                "end": 443
+                "start": 442,
+                "end": 442
               }
             },
             "access": "public",
@@ -15418,8 +15418,8 @@
           "item": {
             "description": "",
             "commentRange": {
-              "start": 442,
-              "end": 442
+              "start": 441,
+              "end": 441
             },
             "context": {
               "type": "variable",
@@ -15427,8 +15427,8 @@
               "value": "join($lengths-absolute, $lengths-relative)",
               "scope": "private",
               "line": {
-                "start": 443,
-                "end": 443
+                "start": 442,
+                "end": 442
               }
             },
             "access": "public",
@@ -16896,7 +16896,7 @@
           "context": {
             "type": "mixin",
             "name": "button-styles",
-            "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: 2.5rem;\nborder: none;\nborder-radius: 4px;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+            "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
             "line": {
               "start": 2,
               "end": 13
@@ -17491,11 +17491,11 @@
       "context": {
         "type": "variable",
         "name": "font-stack-sansserif",
-        "value": "'Open Sans', 'Helvetica Neue', Helvetica, Arial,\n    sans-serif",
+        "value": "'Helvetica Neue', Helvetica, Arial, sans-serif",
         "scope": "default",
         "line": {
           "start": 9,
-          "end": 10
+          "end": 9
         }
       },
       "access": "public",
@@ -17510,8 +17510,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 11,
-        "end": 11
+        "start": 10,
+        "end": 10
       },
       "context": {
         "type": "variable",
@@ -17519,8 +17519,8 @@
         "value": "$font-stack-sansserif",
         "scope": "default",
         "line": {
-          "start": 12,
-          "end": 12
+          "start": 11,
+          "end": 11
         }
       },
       "access": "public",
@@ -17535,8 +17535,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 13,
-        "end": 13
+        "start": 12,
+        "end": 12
       },
       "context": {
         "type": "variable",
@@ -17544,8 +17544,8 @@
         "value": "$font-stack-general",
         "scope": "default",
         "line": {
-          "start": 14,
-          "end": 14
+          "start": 13,
+          "end": 13
         }
       },
       "access": "public",
@@ -17560,8 +17560,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 15,
-        "end": 15
+        "start": 14,
+        "end": 14
       },
       "context": {
         "type": "variable",
@@ -17569,8 +17569,8 @@
         "value": "Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New',\n    Courier, monospace",
         "scope": "default",
         "line": {
-          "start": 16,
-          "end": 17
+          "start": 15,
+          "end": 16
         }
       },
       "access": "public",
@@ -17585,8 +17585,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 18,
-        "end": 18
+        "start": 17,
+        "end": 17
       },
       "context": {
         "type": "variable",
@@ -17594,8 +17594,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 19,
-          "end": 19
+          "start": 18,
+          "end": 18
         }
       },
       "access": "public",
@@ -17610,8 +17610,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 20,
-        "end": 20
+        "start": 19,
+        "end": 19
       },
       "context": {
         "type": "variable",
@@ -17619,8 +17619,8 @@
         "value": "map-merge(\n    (\n        serif: $font-stack-serif,\n        sansserif: $font-stack-sansserif,\n        general: $font-stack-general,\n        heading: $font-stack-heading,\n        monospace: $font-stack-monospace,\n    ),\n    $font-stacks\n)",
         "scope": "private",
         "line": {
-          "start": 21,
-          "end": 30
+          "start": 20,
+          "end": 29
         }
       },
       "access": "public",
@@ -17635,8 +17635,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 31,
-        "end": 31
+        "start": 30,
+        "end": 30
       },
       "context": {
         "type": "variable",
@@ -17644,8 +17644,8 @@
         "value": "16px",
         "scope": "default",
         "line": {
-          "start": 32,
-          "end": 32
+          "start": 31,
+          "end": 31
         }
       },
       "access": "public",
@@ -17674,8 +17674,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 33,
-        "end": 33
+        "start": 32,
+        "end": 32
       },
       "context": {
         "type": "variable",
@@ -17683,8 +17683,8 @@
         "value": "1rem",
         "scope": "default",
         "line": {
-          "start": 34,
-          "end": 34
+          "start": 33,
+          "end": 33
         }
       },
       "access": "public",
@@ -17699,8 +17699,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 35,
-        "end": 35
+        "start": 34,
+        "end": 34
       },
       "context": {
         "type": "variable",
@@ -17708,8 +17708,8 @@
         "value": "1.125em",
         "scope": "default",
         "line": {
-          "start": 36,
-          "end": 36
+          "start": 35,
+          "end": 35
         }
       },
       "access": "public",
@@ -17724,8 +17724,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 37,
-        "end": 37
+        "start": 36,
+        "end": 36
       },
       "context": {
         "type": "variable",
@@ -17733,8 +17733,8 @@
         "value": "1.266em",
         "scope": "default",
         "line": {
-          "start": 38,
-          "end": 38
+          "start": 37,
+          "end": 37
         }
       },
       "access": "public",
@@ -17749,8 +17749,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 39,
-        "end": 39
+        "start": 38,
+        "end": 38
       },
       "context": {
         "type": "variable",
@@ -17758,8 +17758,8 @@
         "value": "1.424em",
         "scope": "default",
         "line": {
-          "start": 40,
-          "end": 40
+          "start": 39,
+          "end": 39
         }
       },
       "access": "public",
@@ -17774,8 +17774,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 41,
-        "end": 41
+        "start": 40,
+        "end": 40
       },
       "context": {
         "type": "variable",
@@ -17783,8 +17783,8 @@
         "value": "0.889em",
         "scope": "default",
         "line": {
-          "start": 42,
-          "end": 42
+          "start": 41,
+          "end": 41
         }
       },
       "access": "public",
@@ -17799,8 +17799,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 43,
-        "end": 43
+        "start": 42,
+        "end": 42
       },
       "context": {
         "type": "variable",
@@ -17808,8 +17808,8 @@
         "value": "0.79em",
         "scope": "default",
         "line": {
-          "start": 44,
-          "end": 44
+          "start": 43,
+          "end": 43
         }
       },
       "access": "public",
@@ -17824,8 +17824,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 45,
-        "end": 45
+        "start": 44,
+        "end": 44
       },
       "context": {
         "type": "variable",
@@ -17833,8 +17833,8 @@
         "value": "0.702em",
         "scope": "default",
         "line": {
-          "start": 46,
-          "end": 46
+          "start": 45,
+          "end": 45
         }
       },
       "access": "public",
@@ -17849,8 +17849,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 47,
-        "end": 47
+        "start": 46,
+        "end": 46
       },
       "context": {
         "type": "variable",
@@ -17858,8 +17858,8 @@
         "value": "1.802em",
         "scope": "default",
         "line": {
-          "start": 48,
-          "end": 48
+          "start": 47,
+          "end": 47
         }
       },
       "access": "public",
@@ -17874,8 +17874,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 49,
-        "end": 49
+        "start": 48,
+        "end": 48
       },
       "context": {
         "type": "variable",
@@ -17883,8 +17883,8 @@
         "value": "1.602em",
         "scope": "default",
         "line": {
-          "start": 50,
-          "end": 50
+          "start": 49,
+          "end": 49
         }
       },
       "access": "public",
@@ -17899,8 +17899,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 51,
-        "end": 51
+        "start": 50,
+        "end": 50
       },
       "context": {
         "type": "variable",
@@ -17908,8 +17908,8 @@
         "value": "1.424em",
         "scope": "default",
         "line": {
-          "start": 52,
-          "end": 52
+          "start": 51,
+          "end": 51
         }
       },
       "access": "public",
@@ -17924,8 +17924,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 53,
-        "end": 53
+        "start": 52,
+        "end": 52
       },
       "context": {
         "type": "variable",
@@ -17933,8 +17933,8 @@
         "value": "1.266em",
         "scope": "default",
         "line": {
-          "start": 54,
-          "end": 54
+          "start": 53,
+          "end": 53
         }
       },
       "access": "public",
@@ -17949,8 +17949,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 55,
-        "end": 55
+        "start": 54,
+        "end": 54
       },
       "context": {
         "type": "variable",
@@ -17958,8 +17958,8 @@
         "value": "1.125em",
         "scope": "default",
         "line": {
-          "start": 56,
-          "end": 56
+          "start": 55,
+          "end": 55
         }
       },
       "access": "public",
@@ -17974,8 +17974,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 57,
-        "end": 57
+        "start": 56,
+        "end": 56
       },
       "context": {
         "type": "variable",
@@ -17983,8 +17983,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 58,
-          "end": 58
+          "start": 57,
+          "end": 57
         }
       },
       "access": "public",
@@ -17999,8 +17999,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 59,
-        "end": 59
+        "start": 58,
+        "end": 58
       },
       "context": {
         "type": "variable",
@@ -18008,8 +18008,8 @@
         "value": "map-merge(\n    (\n        base: $font-size-base,\n        general: $font-size-general,\n        big: $font-size-big,\n        xbig: $font-size-xbig,\n        xxbig: $font-size-xxbig,\n        small: $font-size-small,\n        xsmall: $font-size-xsmall,\n        xxsmall: $font-size-xxsmall,\n        h1: $font-size-h1,\n        h2: $font-size-h2,\n        h3: $font-size-h3,\n        h4: $font-size-h4,\n        h5: $font-size-h5,\n    ),\n    $font-sizes\n)",
         "scope": "private",
         "line": {
-          "start": 60,
-          "end": 77
+          "start": 59,
+          "end": 76
         }
       },
       "access": "public",
@@ -18024,8 +18024,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 78,
-        "end": 78
+        "start": 77,
+        "end": 77
       },
       "context": {
         "type": "variable",
@@ -18033,8 +18033,8 @@
         "value": "400",
         "scope": "default",
         "line": {
-          "start": 79,
-          "end": 79
+          "start": 78,
+          "end": 78
         }
       },
       "access": "public",
@@ -18049,8 +18049,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 80,
-        "end": 80
+        "start": 79,
+        "end": 79
       },
       "context": {
         "type": "variable",
@@ -18058,8 +18058,8 @@
         "value": "700",
         "scope": "default",
         "line": {
-          "start": 81,
-          "end": 81
+          "start": 80,
+          "end": 80
         }
       },
       "access": "public",
@@ -18074,8 +18074,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 82,
-        "end": 82
+        "start": 81,
+        "end": 81
       },
       "context": {
         "type": "variable",
@@ -18083,8 +18083,8 @@
         "value": "$font-weight-bold",
         "scope": "default",
         "line": {
-          "start": 83,
-          "end": 83
+          "start": 82,
+          "end": 82
         }
       },
       "access": "public",
@@ -18099,8 +18099,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 84,
-        "end": 84
+        "start": 83,
+        "end": 83
       },
       "context": {
         "type": "variable",
@@ -18108,8 +18108,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 85,
-          "end": 85
+          "start": 84,
+          "end": 84
         }
       },
       "access": "public",
@@ -18124,8 +18124,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 86,
-        "end": 86
+        "start": 85,
+        "end": 85
       },
       "context": {
         "type": "variable",
@@ -18133,8 +18133,8 @@
         "value": "map-merge(\n    (\n        normal: $font-weight-normal,\n        bold: $font-weight-bold,\n        heading: $font-weight-heading,\n    ),\n    $font-weights\n)",
         "scope": "private",
         "line": {
-          "start": 87,
-          "end": 94
+          "start": 86,
+          "end": 93
         }
       },
       "access": "public",
@@ -18149,8 +18149,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 95,
-        "end": 95
+        "start": 94,
+        "end": 94
       },
       "context": {
         "type": "variable",
@@ -18158,8 +18158,8 @@
         "value": "1.5",
         "scope": "default",
         "line": {
-          "start": 96,
-          "end": 96
+          "start": 95,
+          "end": 95
         }
       },
       "access": "public",
@@ -18174,8 +18174,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 97,
-        "end": 97
+        "start": 96,
+        "end": 96
       },
       "context": {
         "type": "variable",
@@ -18183,8 +18183,8 @@
         "value": "1.45",
         "scope": "default",
         "line": {
-          "start": 98,
-          "end": 98
+          "start": 97,
+          "end": 97
         }
       },
       "access": "public",
@@ -18199,8 +18199,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 99,
-        "end": 99
+        "start": 98,
+        "end": 98
       },
       "context": {
         "type": "variable",
@@ -18208,8 +18208,8 @@
         "value": "1.4",
         "scope": "default",
         "line": {
-          "start": 100,
-          "end": 100
+          "start": 99,
+          "end": 99
         }
       },
       "access": "public",
@@ -18224,8 +18224,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 101,
-        "end": 101
+        "start": 100,
+        "end": 100
       },
       "context": {
         "type": "variable",
@@ -18233,8 +18233,8 @@
         "value": "1.35",
         "scope": "default",
         "line": {
-          "start": 102,
-          "end": 102
+          "start": 101,
+          "end": 101
         }
       },
       "access": "public",
@@ -18249,8 +18249,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 103,
-        "end": 103
+        "start": 102,
+        "end": 102
       },
       "context": {
         "type": "variable",
@@ -18258,8 +18258,8 @@
         "value": "1.55",
         "scope": "default",
         "line": {
-          "start": 104,
-          "end": 104
+          "start": 103,
+          "end": 103
         }
       },
       "access": "public",
@@ -18274,8 +18274,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 105,
-        "end": 105
+        "start": 104,
+        "end": 104
       },
       "context": {
         "type": "variable",
@@ -18283,8 +18283,8 @@
         "value": "1.6",
         "scope": "default",
         "line": {
-          "start": 106,
-          "end": 106
+          "start": 105,
+          "end": 105
         }
       },
       "access": "public",
@@ -18299,8 +18299,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 107,
-        "end": 107
+        "start": 106,
+        "end": 106
       },
       "context": {
         "type": "variable",
@@ -18308,8 +18308,8 @@
         "value": "1.65",
         "scope": "default",
         "line": {
-          "start": 108,
-          "end": 108
+          "start": 107,
+          "end": 107
         }
       },
       "access": "public",
@@ -18324,8 +18324,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 109,
-        "end": 109
+        "start": 108,
+        "end": 108
       },
       "context": {
         "type": "variable",
@@ -18333,8 +18333,8 @@
         "value": "1.25",
         "scope": "default",
         "line": {
-          "start": 110,
-          "end": 110
+          "start": 109,
+          "end": 109
         }
       },
       "access": "public",
@@ -18349,8 +18349,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 111,
-        "end": 111
+        "start": 110,
+        "end": 110
       },
       "context": {
         "type": "variable",
@@ -18358,8 +18358,8 @@
         "value": "1.3",
         "scope": "default",
         "line": {
-          "start": 112,
-          "end": 112
+          "start": 111,
+          "end": 111
         }
       },
       "access": "public",
@@ -18374,8 +18374,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 113,
-        "end": 113
+        "start": 112,
+        "end": 112
       },
       "context": {
         "type": "variable",
@@ -18383,8 +18383,8 @@
         "value": "1.35",
         "scope": "default",
         "line": {
-          "start": 114,
-          "end": 114
+          "start": 113,
+          "end": 113
         }
       },
       "access": "public",
@@ -18399,8 +18399,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 115,
-        "end": 115
+        "start": 114,
+        "end": 114
       },
       "context": {
         "type": "variable",
@@ -18408,8 +18408,8 @@
         "value": "1.4",
         "scope": "default",
         "line": {
-          "start": 116,
-          "end": 116
+          "start": 115,
+          "end": 115
         }
       },
       "access": "public",
@@ -18424,8 +18424,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 117,
-        "end": 117
+        "start": 116,
+        "end": 116
       },
       "context": {
         "type": "variable",
@@ -18433,8 +18433,8 @@
         "value": "1.45",
         "scope": "default",
         "line": {
-          "start": 118,
-          "end": 118
+          "start": 117,
+          "end": 117
         }
       },
       "access": "public",
@@ -18449,8 +18449,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 119,
-        "end": 119
+        "start": 118,
+        "end": 118
       },
       "context": {
         "type": "variable",
@@ -18458,8 +18458,8 @@
         "value": "$line-height-general * 1rem",
         "scope": "default",
         "line": {
-          "start": 120,
-          "end": 120
+          "start": 119,
+          "end": 119
         }
       },
       "access": "public",
@@ -18474,8 +18474,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 121,
-        "end": 121
+        "start": 120,
+        "end": 120
       },
       "context": {
         "type": "variable",
@@ -18483,8 +18483,8 @@
         "value": "$line-height-h1 * 1rem",
         "scope": "default",
         "line": {
-          "start": 122,
-          "end": 122
+          "start": 121,
+          "end": 121
         }
       },
       "access": "public",
@@ -18499,8 +18499,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 123,
-        "end": 123
+        "start": 122,
+        "end": 122
       },
       "context": {
         "type": "variable",
@@ -18508,8 +18508,8 @@
         "value": "$line-height-h2 * 1rem",
         "scope": "default",
         "line": {
-          "start": 124,
-          "end": 124
+          "start": 123,
+          "end": 123
         }
       },
       "access": "public",
@@ -18524,8 +18524,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 125,
-        "end": 125
+        "start": 124,
+        "end": 124
       },
       "context": {
         "type": "variable",
@@ -18533,8 +18533,8 @@
         "value": "$line-height-h3 * 1rem",
         "scope": "default",
         "line": {
-          "start": 126,
-          "end": 126
+          "start": 125,
+          "end": 125
         }
       },
       "access": "public",
@@ -18549,8 +18549,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 127,
-        "end": 127
+        "start": 126,
+        "end": 126
       },
       "context": {
         "type": "variable",
@@ -18558,8 +18558,8 @@
         "value": "$line-height-h4 * 1rem",
         "scope": "default",
         "line": {
-          "start": 128,
-          "end": 128
+          "start": 127,
+          "end": 127
         }
       },
       "access": "public",
@@ -18574,8 +18574,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 129,
-        "end": 129
+        "start": 128,
+        "end": 128
       },
       "context": {
         "type": "variable",
@@ -18583,8 +18583,8 @@
         "value": "$line-height-h5 * 1rem",
         "scope": "default",
         "line": {
-          "start": 130,
-          "end": 130
+          "start": 129,
+          "end": 129
         }
       },
       "access": "public",
@@ -18599,8 +18599,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 131,
-        "end": 131
+        "start": 130,
+        "end": 130
       },
       "context": {
         "type": "variable",
@@ -18608,8 +18608,8 @@
         "value": "$line-height-big * 1rem",
         "scope": "default",
         "line": {
-          "start": 132,
-          "end": 132
+          "start": 131,
+          "end": 131
         }
       },
       "access": "public",
@@ -18624,8 +18624,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 133,
-        "end": 133
+        "start": 132,
+        "end": 132
       },
       "context": {
         "type": "variable",
@@ -18633,8 +18633,8 @@
         "value": "$line-height-xbig * 1rem",
         "scope": "default",
         "line": {
-          "start": 134,
-          "end": 134
+          "start": 133,
+          "end": 133
         }
       },
       "access": "public",
@@ -18649,8 +18649,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 135,
-        "end": 135
+        "start": 134,
+        "end": 134
       },
       "context": {
         "type": "variable",
@@ -18658,8 +18658,8 @@
         "value": "$line-height-xxbig * 1rem",
         "scope": "default",
         "line": {
-          "start": 136,
-          "end": 136
+          "start": 135,
+          "end": 135
         }
       },
       "access": "public",
@@ -18674,8 +18674,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 137,
-        "end": 137
+        "start": 136,
+        "end": 136
       },
       "context": {
         "type": "variable",
@@ -18683,8 +18683,8 @@
         "value": "$line-height-small * 1rem",
         "scope": "default",
         "line": {
-          "start": 138,
-          "end": 138
+          "start": 137,
+          "end": 137
         }
       },
       "access": "public",
@@ -18699,8 +18699,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 139,
-        "end": 139
+        "start": 138,
+        "end": 138
       },
       "context": {
         "type": "variable",
@@ -18708,8 +18708,8 @@
         "value": "$line-height-xsmall * 1rem",
         "scope": "default",
         "line": {
-          "start": 140,
-          "end": 140
+          "start": 139,
+          "end": 139
         }
       },
       "access": "public",
@@ -18724,8 +18724,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 141,
-        "end": 141
+        "start": 140,
+        "end": 140
       },
       "context": {
         "type": "variable",
@@ -18733,8 +18733,8 @@
         "value": "$line-height-xxsmall * 1rem",
         "scope": "default",
         "line": {
-          "start": 142,
-          "end": 142
+          "start": 141,
+          "end": 141
         }
       },
       "access": "public",
@@ -18749,8 +18749,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 143,
-        "end": 143
+        "start": 142,
+        "end": 142
       },
       "context": {
         "type": "variable",
@@ -18758,8 +18758,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 144,
-          "end": 144
+          "start": 143,
+          "end": 143
         }
       },
       "access": "public",
@@ -18774,8 +18774,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 145,
-        "end": 145
+        "start": 144,
+        "end": 144
       },
       "context": {
         "type": "variable",
@@ -18783,8 +18783,8 @@
         "value": "map-merge(\n    (\n        general: $line-height-general,\n        big: $line-height-big,\n        xbig: $line-height-xbig,\n        xxbig: $line-height-xxbig,\n        small: $line-height-small,\n        xsmall: $line-height-xsmall,\n        xxsmall: $line-height-xxsmall,\n        h1: $line-height-h1,\n        h2: $line-height-h2,\n        h3: $line-height-h3,\n        h4: $line-height-h4,\n        h5: $line-height-h5,\n        general-in-rem: $line-height-general-in-rem,\n        big-in-rem: $line-height-big-in-rem,\n        xbig-in-rem: $line-height-xbig-in-rem,\n        xxbig-in-rem: $line-height-xxbig-in-rem,\n        small-in-rem: $line-height-small-in-rem,\n        xsmall-in-rem: $line-height-xsmall-in-rem,\n        xxsmall-in-rem: $line-height-xxsmall-in-rem,\n        h1-in-rem: $line-height-h1-in-rem,\n        h2-in-rem: $line-height-h2-in-rem,\n        h3-in-rem: $line-height-h3-in-rem,\n        h4-in-rem: $line-height-h4-in-rem,\n        h5-in-rem: $line-height-h5-in-rem,\n    ),\n    $line-heights\n)",
         "scope": "private",
         "line": {
-          "start": 146,
-          "end": 174
+          "start": 145,
+          "end": 173
         }
       },
       "access": "public",
@@ -18799,8 +18799,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 181,
-        "end": 181
+        "start": 180,
+        "end": 180
       },
       "context": {
         "type": "variable",
@@ -18808,8 +18808,8 @@
         "value": "#dc2f3c",
         "scope": "default",
         "line": {
-          "start": 182,
-          "end": 182
+          "start": 181,
+          "end": 181
         }
       },
       "access": "public",
@@ -18824,8 +18824,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 183,
-        "end": 183
+        "start": 182,
+        "end": 182
       },
       "context": {
         "type": "variable",
@@ -18833,8 +18833,8 @@
         "value": "#587b98",
         "scope": "default",
         "line": {
-          "start": 184,
-          "end": 184
+          "start": 183,
+          "end": 183
         }
       },
       "access": "public",
@@ -18849,8 +18849,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 185,
-        "end": 185
+        "start": 184,
+        "end": 184
       },
       "context": {
         "type": "variable",
@@ -18858,8 +18858,8 @@
         "value": "#76b1df",
         "scope": "default",
         "line": {
-          "start": 186,
-          "end": 186
+          "start": 185,
+          "end": 185
         }
       },
       "access": "public",
@@ -18874,8 +18874,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 187,
-        "end": 187
+        "start": 186,
+        "end": 186
       },
       "context": {
         "type": "variable",
@@ -18883,8 +18883,8 @@
         "value": "#ffffff",
         "scope": "default",
         "line": {
-          "start": 188,
-          "end": 188
+          "start": 187,
+          "end": 187
         }
       },
       "access": "public",
@@ -18899,8 +18899,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 189,
-        "end": 189
+        "start": 188,
+        "end": 188
       },
       "context": {
         "type": "variable",
@@ -18908,8 +18908,8 @@
         "value": "#252428",
         "scope": "default",
         "line": {
-          "start": 190,
-          "end": 190
+          "start": 189,
+          "end": 189
         }
       },
       "access": "public",
@@ -18924,8 +18924,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 191,
-        "end": 191
+        "start": 190,
+        "end": 190
       },
       "context": {
         "type": "variable",
@@ -18933,8 +18933,8 @@
         "value": "#8c8c8c",
         "scope": "default",
         "line": {
-          "start": 192,
-          "end": 192
+          "start": 191,
+          "end": 191
         }
       },
       "access": "public",
@@ -18949,8 +18949,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 193,
-        "end": 193
+        "start": 192,
+        "end": 192
       },
       "context": {
         "type": "variable",
@@ -18958,8 +18958,8 @@
         "value": "#bfbfbf",
         "scope": "default",
         "line": {
-          "start": 194,
-          "end": 194
+          "start": 193,
+          "end": 193
         }
       },
       "access": "public",
@@ -18974,8 +18974,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 195,
-        "end": 195
+        "start": 194,
+        "end": 194
       },
       "context": {
         "type": "variable",
@@ -18983,8 +18983,8 @@
         "value": "#d9d9d9",
         "scope": "default",
         "line": {
-          "start": 196,
-          "end": 196
+          "start": 195,
+          "end": 195
         }
       },
       "access": "public",
@@ -18999,8 +18999,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 197,
-        "end": 197
+        "start": 196,
+        "end": 196
       },
       "context": {
         "type": "variable",
@@ -19008,8 +19008,8 @@
         "value": "#f2f2f2",
         "scope": "default",
         "line": {
-          "start": 198,
-          "end": 198
+          "start": 197,
+          "end": 197
         }
       },
       "access": "public",
@@ -19024,8 +19024,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 199,
-        "end": 199
+        "start": 198,
+        "end": 198
       },
       "context": {
         "type": "variable",
@@ -19033,8 +19033,8 @@
         "value": "#737373",
         "scope": "default",
         "line": {
-          "start": 200,
-          "end": 200
+          "start": 199,
+          "end": 199
         }
       },
       "access": "public",
@@ -19049,8 +19049,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 201,
-        "end": 201
+        "start": 200,
+        "end": 200
       },
       "context": {
         "type": "variable",
@@ -19058,8 +19058,8 @@
         "value": "#595959",
         "scope": "default",
         "line": {
-          "start": 202,
-          "end": 202
+          "start": 201,
+          "end": 201
         }
       },
       "access": "public",
@@ -19074,8 +19074,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 203,
-        "end": 203
+        "start": 202,
+        "end": 202
       },
       "context": {
         "type": "variable",
@@ -19083,8 +19083,8 @@
         "value": "#404040",
         "scope": "default",
         "line": {
-          "start": 204,
-          "end": 204
+          "start": 203,
+          "end": 203
         }
       },
       "access": "public",
@@ -19099,8 +19099,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 205,
-        "end": 205
+        "start": 204,
+        "end": 204
       },
       "context": {
         "type": "variable",
@@ -19108,8 +19108,8 @@
         "value": "#27ae60",
         "scope": "default",
         "line": {
-          "start": 206,
-          "end": 206
+          "start": 205,
+          "end": 205
         }
       },
       "access": "public",
@@ -19124,8 +19124,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 207,
-        "end": 207
+        "start": 206,
+        "end": 206
       },
       "context": {
         "type": "variable",
@@ -19133,8 +19133,8 @@
         "value": "#c0392b",
         "scope": "default",
         "line": {
-          "start": 208,
-          "end": 208
+          "start": 207,
+          "end": 207
         }
       },
       "access": "public",
@@ -19149,8 +19149,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 209,
-        "end": 209
+        "start": 208,
+        "end": 208
       },
       "context": {
         "type": "variable",
@@ -19158,8 +19158,8 @@
         "value": "#d35400",
         "scope": "default",
         "line": {
-          "start": 210,
-          "end": 210
+          "start": 209,
+          "end": 209
         }
       },
       "access": "public",
@@ -19174,8 +19174,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 211,
-        "end": 211
+        "start": 210,
+        "end": 210
       },
       "context": {
         "type": "variable",
@@ -19183,8 +19183,8 @@
         "value": "#f1c40f",
         "scope": "default",
         "line": {
-          "start": 212,
-          "end": 212
+          "start": 211,
+          "end": 211
         }
       },
       "access": "public",
@@ -19199,8 +19199,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 213,
-        "end": 213
+        "start": 212,
+        "end": 212
       },
       "context": {
         "type": "variable",
@@ -19208,8 +19208,8 @@
         "value": "#ea4c89",
         "scope": "default",
         "line": {
-          "start": 214,
-          "end": 214
+          "start": 213,
+          "end": 213
         }
       },
       "access": "public",
@@ -19224,8 +19224,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 215,
-        "end": 215
+        "start": 214,
+        "end": 214
       },
       "context": {
         "type": "variable",
@@ -19233,8 +19233,8 @@
         "value": "#3b5998",
         "scope": "default",
         "line": {
-          "start": 216,
-          "end": 216
+          "start": 215,
+          "end": 215
         }
       },
       "access": "public",
@@ -19249,8 +19249,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 217,
-        "end": 217
+        "start": 216,
+        "end": 216
       },
       "context": {
         "type": "variable",
@@ -19258,8 +19258,8 @@
         "value": "#ff0084",
         "scope": "default",
         "line": {
-          "start": 218,
-          "end": 218
+          "start": 217,
+          "end": 217
         }
       },
       "access": "public",
@@ -19274,8 +19274,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 219,
-        "end": 219
+        "start": 218,
+        "end": 218
       },
       "context": {
         "type": "variable",
@@ -19283,8 +19283,8 @@
         "value": "#517fa4",
         "scope": "default",
         "line": {
-          "start": 220,
-          "end": 220
+          "start": 219,
+          "end": 219
         }
       },
       "access": "public",
@@ -19299,8 +19299,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 221,
-        "end": 221
+        "start": 220,
+        "end": 220
       },
       "context": {
         "type": "variable",
@@ -19308,8 +19308,8 @@
         "value": "#0077b5",
         "scope": "default",
         "line": {
-          "start": 222,
-          "end": 222
+          "start": 221,
+          "end": 221
         }
       },
       "access": "public",
@@ -19324,8 +19324,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 223,
-        "end": 223
+        "start": 222,
+        "end": 222
       },
       "context": {
         "type": "variable",
@@ -19333,8 +19333,8 @@
         "value": "#00ab6b",
         "scope": "default",
         "line": {
-          "start": 224,
-          "end": 224
+          "start": 223,
+          "end": 223
         }
       },
       "access": "public",
@@ -19349,8 +19349,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 225,
-        "end": 225
+        "start": 224,
+        "end": 224
       },
       "context": {
         "type": "variable",
@@ -19358,8 +19358,8 @@
         "value": "#bd081c",
         "scope": "default",
         "line": {
-          "start": 226,
-          "end": 226
+          "start": 225,
+          "end": 225
         }
       },
       "access": "public",
@@ -19374,8 +19374,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 227,
-        "end": 227
+        "start": 226,
+        "end": 226
       },
       "context": {
         "type": "variable",
@@ -19383,8 +19383,8 @@
         "value": "#f26522",
         "scope": "default",
         "line": {
-          "start": 228,
-          "end": 228
+          "start": 227,
+          "end": 227
         }
       },
       "access": "public",
@@ -19399,8 +19399,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 229,
-        "end": 229
+        "start": 228,
+        "end": 228
       },
       "context": {
         "type": "variable",
@@ -19408,8 +19408,8 @@
         "value": "#35465c",
         "scope": "default",
         "line": {
-          "start": 230,
-          "end": 230
+          "start": 229,
+          "end": 229
         }
       },
       "access": "public",
@@ -19424,8 +19424,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 231,
-        "end": 231
+        "start": 230,
+        "end": 230
       },
       "context": {
         "type": "variable",
@@ -19433,8 +19433,8 @@
         "value": "#55acee",
         "scope": "default",
         "line": {
-          "start": 232,
-          "end": 232
+          "start": 231,
+          "end": 231
         }
       },
       "access": "public",
@@ -19449,8 +19449,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 233,
-        "end": 233
+        "start": 232,
+        "end": 232
       },
       "context": {
         "type": "variable",
@@ -19458,8 +19458,8 @@
         "value": "#b31217",
         "scope": "default",
         "line": {
-          "start": 234,
-          "end": 234
+          "start": 233,
+          "end": 233
         }
       },
       "access": "public",
@@ -19474,8 +19474,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 235,
-        "end": 235
+        "start": 234,
+        "end": 234
       },
       "context": {
         "type": "variable",
@@ -19483,8 +19483,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 236,
-          "end": 236
+          "start": 235,
+          "end": 235
         }
       },
       "access": "public",
@@ -19499,8 +19499,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 237,
-        "end": 237
+        "start": 236,
+        "end": 236
       },
       "context": {
         "type": "variable",
@@ -19508,8 +19508,8 @@
         "value": "map-merge(\n    (\n        primary: $color-primary,\n        dark-accent: $color-dark-accent,\n        light-accent: $color-light-accent,\n        background: $color-background,\n        contrast: $color-contrast,\n        contrast-medium: $color-contrast-medium,\n        contrast-low: $color-contrast-low,\n        contrast-lower: $color-contrast-lower,\n        contrast-lowest: $color-contrast-lowest,\n        contrast-high: $color-contrast-high,\n        contrast-higher: $color-contrast-higher,\n        contrast-highest: $color-contrast-highest,\n        success: $color-success,\n        alert: $color-alert,\n        warning: $color-warning,\n        highlight: $color-highlight,\n        dribbble: $color-dribbble,\n        facebook: $color-facebook,\n        flickr: $color-flickr,\n        instagram: $color-instagram,\n        linkedin: $color-linkedin,\n        medium: $color-medium,\n        pinterest: $color-pinterest,\n        rss: $color-rss,\n        tumblr: $color-tumblr,\n        twitter: $color-twitter,\n        youtube: $color-youtube,\n    ),\n    $colors\n)",
         "scope": "private",
         "line": {
-          "start": 238,
-          "end": 269
+          "start": 237,
+          "end": 268
         }
       },
       "access": "public",
@@ -19524,8 +19524,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 276,
-        "end": 276
+        "start": 275,
+        "end": 275
       },
       "context": {
         "type": "variable",
@@ -19533,8 +19533,8 @@
         "value": "$font-size-general * $line-height-general",
         "scope": "default",
         "line": {
-          "start": 277,
-          "end": 277
+          "start": 276,
+          "end": 276
         }
       },
       "access": "public",
@@ -19549,8 +19549,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 278,
-        "end": 278
+        "start": 277,
+        "end": 277
       },
       "context": {
         "type": "variable",
@@ -19558,8 +19558,8 @@
         "value": "30px",
         "scope": "default",
         "line": {
-          "start": 279,
-          "end": 279
+          "start": 278,
+          "end": 278
         }
       },
       "access": "public",
@@ -19574,8 +19574,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 280,
-        "end": 280
+        "start": 279,
+        "end": 279
       },
       "context": {
         "type": "variable",
@@ -19583,8 +19583,8 @@
         "value": "0.125rem",
         "scope": "default",
         "line": {
-          "start": 281,
-          "end": 281
+          "start": 280,
+          "end": 280
         }
       },
       "access": "public",
@@ -19599,8 +19599,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 282,
-        "end": 282
+        "start": 281,
+        "end": 281
       },
       "context": {
         "type": "variable",
@@ -19608,8 +19608,8 @@
         "value": "0.25rem",
         "scope": "default",
         "line": {
-          "start": 283,
-          "end": 283
+          "start": 282,
+          "end": 282
         }
       },
       "access": "public",
@@ -19624,8 +19624,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 284,
-        "end": 284
+        "start": 283,
+        "end": 283
       },
       "context": {
         "type": "variable",
@@ -19633,8 +19633,8 @@
         "value": "0.125rem",
         "scope": "default",
         "line": {
-          "start": 285,
-          "end": 285
+          "start": 284,
+          "end": 284
         }
       },
       "access": "public",
@@ -19649,8 +19649,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 286,
-        "end": 286
+        "start": 285,
+        "end": 285
       },
       "context": {
         "type": "variable",
@@ -19658,8 +19658,8 @@
         "value": "0.25rem",
         "scope": "default",
         "line": {
-          "start": 287,
-          "end": 287
+          "start": 286,
+          "end": 286
         }
       },
       "access": "public",
@@ -19674,8 +19674,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 288,
-        "end": 288
+        "start": 287,
+        "end": 287
       },
       "context": {
         "type": "variable",
@@ -19683,8 +19683,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 289,
-          "end": 289
+          "start": 288,
+          "end": 288
         }
       },
       "access": "public",
@@ -19699,8 +19699,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 290,
-        "end": 290
+        "start": 289,
+        "end": 289
       },
       "context": {
         "type": "variable",
@@ -19708,8 +19708,8 @@
         "value": "1.25rem",
         "scope": "default",
         "line": {
-          "start": 291,
-          "end": 291
+          "start": 290,
+          "end": 290
         }
       },
       "access": "public",
@@ -19724,8 +19724,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 292,
-        "end": 292
+        "start": 291,
+        "end": 291
       },
       "context": {
         "type": "variable",
@@ -19733,8 +19733,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 293,
-          "end": 293
+          "start": 292,
+          "end": 292
         }
       },
       "access": "public",
@@ -19749,8 +19749,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 294,
-        "end": 294
+        "start": 293,
+        "end": 293
       },
       "context": {
         "type": "variable",
@@ -19758,8 +19758,8 @@
         "value": "1rem",
         "scope": "default",
         "line": {
-          "start": 295,
-          "end": 295
+          "start": 294,
+          "end": 294
         }
       },
       "access": "public",
@@ -19774,8 +19774,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 296,
-        "end": 296
+        "start": 295,
+        "end": 295
       },
       "context": {
         "type": "variable",
@@ -19783,8 +19783,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 297,
-          "end": 297
+          "start": 296,
+          "end": 296
         }
       },
       "access": "public",
@@ -19799,8 +19799,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 298,
-        "end": 298
+        "start": 297,
+        "end": 297
       },
       "context": {
         "type": "variable",
@@ -19808,8 +19808,8 @@
         "value": "3.25rem",
         "scope": "default",
         "line": {
-          "start": 299,
-          "end": 299
+          "start": 298,
+          "end": 298
         }
       },
       "access": "public",
@@ -19824,8 +19824,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 300,
-        "end": 300
+        "start": 299,
+        "end": 299
       },
       "context": {
         "type": "variable",
@@ -19833,8 +19833,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 301,
-          "end": 301
+          "start": 300,
+          "end": 300
         }
       },
       "access": "public",
@@ -19849,8 +19849,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 302,
-        "end": 302
+        "start": 301,
+        "end": 301
       },
       "context": {
         "type": "variable",
@@ -19858,8 +19858,8 @@
         "value": "1rem",
         "scope": "default",
         "line": {
-          "start": 303,
-          "end": 303
+          "start": 302,
+          "end": 302
         }
       },
       "access": "public",
@@ -19874,8 +19874,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 304,
-        "end": 304
+        "start": 303,
+        "end": 303
       },
       "context": {
         "type": "variable",
@@ -19883,8 +19883,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 305,
-          "end": 305
+          "start": 304,
+          "end": 304
         }
       },
       "access": "public",
@@ -19899,8 +19899,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 306,
-        "end": 306
+        "start": 305,
+        "end": 305
       },
       "context": {
         "type": "variable",
@@ -19908,8 +19908,8 @@
         "value": "2rem",
         "scope": "default",
         "line": {
-          "start": 307,
-          "end": 307
+          "start": 306,
+          "end": 306
         }
       },
       "access": "public",
@@ -19924,8 +19924,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 308,
-        "end": 308
+        "start": 307,
+        "end": 307
       },
       "context": {
         "type": "variable",
@@ -19933,8 +19933,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 309,
-          "end": 309
+          "start": 308,
+          "end": 308
         }
       },
       "access": "public",
@@ -19949,8 +19949,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 310,
-        "end": 310
+        "start": 309,
+        "end": 309
       },
       "context": {
         "type": "variable",
@@ -19958,8 +19958,8 @@
         "value": "0",
         "scope": "default",
         "line": {
-          "start": 311,
-          "end": 311
+          "start": 310,
+          "end": 310
         }
       },
       "access": "public",
@@ -19974,8 +19974,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 312,
-        "end": 312
+        "start": 311,
+        "end": 311
       },
       "context": {
         "type": "variable",
@@ -19983,8 +19983,8 @@
         "value": "0.425em",
         "scope": "default",
         "line": {
-          "start": 313,
-          "end": 313
+          "start": 312,
+          "end": 312
         }
       },
       "access": "public",
@@ -19999,8 +19999,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 314,
-        "end": 314
+        "start": 313,
+        "end": 313
       },
       "context": {
         "type": "variable",
@@ -20008,8 +20008,8 @@
         "value": "1em",
         "scope": "default",
         "line": {
-          "start": 315,
-          "end": 315
+          "start": 314,
+          "end": 314
         }
       },
       "access": "public",
@@ -20024,8 +20024,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 316,
-        "end": 316
+        "start": 315,
+        "end": 315
       },
       "context": {
         "type": "variable",
@@ -20033,8 +20033,8 @@
         "value": "0.425em",
         "scope": "default",
         "line": {
-          "start": 317,
-          "end": 317
+          "start": 316,
+          "end": 316
         }
       },
       "access": "public",
@@ -20049,8 +20049,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 318,
-        "end": 318
+        "start": 317,
+        "end": 317
       },
       "context": {
         "type": "variable",
@@ -20058,8 +20058,8 @@
         "value": "1em",
         "scope": "default",
         "line": {
-          "start": 319,
-          "end": 319
+          "start": 318,
+          "end": 318
         }
       },
       "access": "public",
@@ -20074,8 +20074,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 320,
-        "end": 320
+        "start": 319,
+        "end": 319
       },
       "context": {
         "type": "variable",
@@ -20083,8 +20083,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 321,
-          "end": 321
+          "start": 320,
+          "end": 320
         }
       },
       "access": "public",
@@ -20099,8 +20099,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 322,
-        "end": 322
+        "start": 321,
+        "end": 321
       },
       "context": {
         "type": "variable",
@@ -20108,8 +20108,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 323,
-          "end": 323
+          "start": 322,
+          "end": 322
         }
       },
       "access": "public",
@@ -20124,8 +20124,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 324,
-        "end": 324
+        "start": 323,
+        "end": 323
       },
       "context": {
         "type": "variable",
@@ -20133,8 +20133,8 @@
         "value": "0.5rem",
         "scope": "default",
         "line": {
-          "start": 325,
-          "end": 325
+          "start": 324,
+          "end": 324
         }
       },
       "access": "public",
@@ -20149,8 +20149,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 326,
-        "end": 326
+        "start": 325,
+        "end": 325
       },
       "context": {
         "type": "variable",
@@ -20158,8 +20158,8 @@
         "value": "0.75rem",
         "scope": "default",
         "line": {
-          "start": 327,
-          "end": 327
+          "start": 326,
+          "end": 326
         }
       },
       "access": "public",
@@ -20174,8 +20174,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 328,
-        "end": 328
+        "start": 327,
+        "end": 327
       },
       "context": {
         "type": "variable",
@@ -20183,8 +20183,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 329,
-          "end": 329
+          "start": 328,
+          "end": 328
         }
       },
       "access": "public",
@@ -20249,8 +20249,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 330,
-        "end": 330
+        "start": 329,
+        "end": 329
       },
       "context": {
         "type": "variable",
@@ -20258,8 +20258,8 @@
         "value": "map-merge(\n    (\n        noalley: 0,\n        tightest: 0.25,\n        tighter: 0.5,\n        tight: 0.75,\n        comfy: 1,\n        loose: 1.25,\n        looser: 1.5,\n        loosest: 1.75,\n    ),\n    $alley-sizes\n)",
         "scope": "private",
         "line": {
-          "start": 331,
-          "end": 343
+          "start": 330,
+          "end": 342
         }
       },
       "access": "public",
@@ -20274,8 +20274,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 350,
-        "end": 350
+        "start": 349,
+        "end": 349
       },
       "context": {
         "type": "variable",
@@ -20283,8 +20283,8 @@
         "value": "cubic-bezier(1, 0, 0, 1)",
         "scope": "private",
         "line": {
-          "start": 351,
-          "end": 351
+          "start": 350,
+          "end": 350
         }
       },
       "access": "public",
@@ -20299,8 +20299,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 352,
-        "end": 352
+        "start": 351,
+        "end": 351
       },
       "context": {
         "type": "variable",
@@ -20308,8 +20308,8 @@
         "value": "cubic-bezier(0.77, 0, 0.175, 1)",
         "scope": "private",
         "line": {
-          "start": 353,
-          "end": 353
+          "start": 352,
+          "end": 352
         }
       },
       "access": "public",
@@ -20324,8 +20324,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 354,
-        "end": 354
+        "start": 353,
+        "end": 353
       },
       "context": {
         "type": "variable",
@@ -20333,8 +20333,8 @@
         "value": "$ease-in-out-expo",
         "scope": "default",
         "line": {
-          "start": 355,
-          "end": 355
+          "start": 354,
+          "end": 354
         }
       },
       "access": "public",
@@ -20349,8 +20349,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 362,
-        "end": 362
+        "start": 361,
+        "end": 361
       },
       "context": {
         "type": "variable",
@@ -20358,8 +20358,8 @@
         "value": "1px",
         "scope": "default",
         "line": {
-          "start": 363,
-          "end": 363
+          "start": 362,
+          "end": 362
         }
       },
       "access": "public",
@@ -20374,8 +20374,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 364,
-        "end": 364
+        "start": 363,
+        "end": 363
       },
       "context": {
         "type": "variable",
@@ -20383,8 +20383,8 @@
         "value": "1200px",
         "scope": "default",
         "line": {
-          "start": 365,
-          "end": 365
+          "start": 364,
+          "end": 364
         }
       },
       "access": "public",
@@ -20399,8 +20399,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 372,
-        "end": 372
+        "start": 371,
+        "end": 371
       },
       "context": {
         "type": "variable",
@@ -20408,8 +20408,8 @@
         "value": "480px",
         "scope": "default",
         "line": {
-          "start": 373,
-          "end": 373
+          "start": 372,
+          "end": 372
         }
       },
       "access": "public",
@@ -20438,8 +20438,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 374,
-        "end": 374
+        "start": 373,
+        "end": 373
       },
       "context": {
         "type": "variable",
@@ -20447,8 +20447,8 @@
         "value": "768px",
         "scope": "default",
         "line": {
-          "start": 375,
-          "end": 375
+          "start": 374,
+          "end": 374
         }
       },
       "access": "public",
@@ -20477,8 +20477,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 376,
-        "end": 376
+        "start": 375,
+        "end": 375
       },
       "context": {
         "type": "variable",
@@ -20486,8 +20486,8 @@
         "value": "960px",
         "scope": "default",
         "line": {
-          "start": 377,
-          "end": 377
+          "start": 376,
+          "end": 376
         }
       },
       "access": "public",
@@ -20516,8 +20516,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 378,
-        "end": 378
+        "start": 377,
+        "end": 377
       },
       "context": {
         "type": "variable",
@@ -20525,8 +20525,8 @@
         "value": "1200px",
         "scope": "default",
         "line": {
-          "start": 379,
-          "end": 379
+          "start": 378,
+          "end": 378
         }
       },
       "access": "public",
@@ -20555,8 +20555,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 380,
-        "end": 380
+        "start": 379,
+        "end": 379
       },
       "context": {
         "type": "variable",
@@ -20564,8 +20564,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 381,
-          "end": 381
+          "start": 380,
+          "end": 380
         }
       },
       "access": "public",
@@ -20678,8 +20678,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 382,
-        "end": 382
+        "start": 381,
+        "end": 381
       },
       "context": {
         "type": "variable",
@@ -20687,8 +20687,8 @@
         "value": "map-merge(\n    (\n        s: $breakpoint-s,\n        m: $breakpoint-m,\n        l: $breakpoint-l,\n        xl: $breakpoint-xl,\n    ),\n    $breakpoints\n)",
         "scope": "private",
         "line": {
-          "start": 383,
-          "end": 391
+          "start": 382,
+          "end": 390
         }
       },
       "access": "public",
@@ -20703,8 +20703,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 392,
-        "end": 392
+        "start": 391,
+        "end": 391
       },
       "context": {
         "type": "variable",
@@ -20712,8 +20712,8 @@
         "value": "()",
         "scope": "default",
         "line": {
-          "start": 393,
-          "end": 393
+          "start": 392,
+          "end": 392
         }
       },
       "access": "public",
@@ -20778,8 +20778,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 394,
-        "end": 394
+        "start": 393,
+        "end": 393
       },
       "context": {
         "type": "variable",
@@ -20787,8 +20787,8 @@
         "value": "map-merge(\n    (\n        1: percentage(1/12),\n        2: percentage(2/12),\n        3: percentage(3/12),\n        4: percentage(4/12),\n        5: percentage(5/12),\n        6: percentage(6/12),\n        7: percentage(7/12),\n        8: percentage(8/12),\n        9: percentage(9/12),\n        10: percentage(10/12),\n        11: percentage(11/12),\n        12: percentage(12/12),\n        p5: 5%,\n        p10: 10%,\n        p15: 15%,\n        p20: 20%,\n        p25: 25%,\n        p30: 30%,\n        p35: 35%,\n        p40: 40%,\n        p45: 45%,\n        p50: 50%,\n        p55: 55%,\n        p60: 60%,\n        p65: 65%,\n        p70: 70%,\n        p75: 75%,\n        p80: 80%,\n        p85: 85%,\n        p90: 90%,\n        p95: 95%,\n        p100: 100%,\n    ),\n    $columns\n)",
         "scope": "private",
         "line": {
-          "start": 395,
-          "end": 431
+          "start": 394,
+          "end": 430
         }
       },
       "access": "public",
@@ -20803,8 +20803,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 438,
-        "end": 438
+        "start": 437,
+        "end": 437
       },
       "context": {
         "type": "variable",
@@ -20812,8 +20812,8 @@
         "value": "(cm, mm, in, px, pt, pc)",
         "scope": "private",
         "line": {
-          "start": 439,
-          "end": 439
+          "start": 438,
+          "end": 438
         }
       },
       "access": "public",
@@ -20828,8 +20828,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 440,
-        "end": 440
+        "start": 439,
+        "end": 439
       },
       "context": {
         "type": "variable",
@@ -20837,8 +20837,8 @@
         "value": "(em, ex, ch, rem, vw, vh, vmin, vmax, '%')",
         "scope": "private",
         "line": {
-          "start": 441,
-          "end": 441
+          "start": 440,
+          "end": 440
         }
       },
       "access": "public",
@@ -20853,8 +20853,8 @@
     {
       "description": "",
       "commentRange": {
-        "start": 442,
-        "end": 442
+        "start": 441,
+        "end": 441
       },
       "context": {
         "type": "variable",
@@ -20862,8 +20862,8 @@
         "value": "join($lengths-absolute, $lengths-relative)",
         "scope": "private",
         "line": {
-          "start": 443,
-          "end": 443
+          "start": 442,
+          "end": 442
         }
       },
       "access": "public",

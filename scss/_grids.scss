@@ -1,15 +1,5 @@
 .row {
-    $inc: 0;
-
     @include row();
-
-    @while $inc < 600 {
-        $inc: $inc + 25;
-
-        &.mgbch-#{$inc} {
-            @include mgbch($inc / 100);
-        }
-    }
 
     @each $alley-key, $alley-value in $alley-sizes {
         &.#{$alley-key} {

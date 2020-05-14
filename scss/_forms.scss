@@ -1,11 +1,10 @@
 ///
 @mixin button-styles() {
     display: inline-block;
-    margin-bottom: space(0.25);
     padding: var(--padding-button);
-    min-height: 2.5rem;
+    min-height: calc(2.25em + (var(--border-size) * 2));
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     background-color: var(--color-contrast);
     color: var(--color-background);
     cursor: pointer;
@@ -32,15 +31,14 @@ button,
 
 @mixin input-styles() {
     padding: var(--padding-input);
-    min-height: 2.5rem;
+    min-height: 2.25em;
     width: 100%;
-    border: none;
-    box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset;
+    border: var(--border-size) solid var(--color-contrast-lower);
+    border-radius: 0.25rem;
 
     &:focus {
         outline: none;
-        border: none;
-        box-shadow: 0 0 0 var(--border-size) var(--color-primary) inset;
+        border-color: var(--color-primary);
     }
 }
 
@@ -62,6 +60,7 @@ input {
         @include ie9plus() {
             line-height: 1;
         }
+
         @include input-styles();
     }
 }
@@ -82,7 +81,8 @@ select {
 
 fieldset {
     padding: space();
-    box-shadow: 0 0 0 var(--border-size) var(--color-contrast-lower) inset;
+    border-radius: 0.25rem;
+    border: var(--border-size) solid var(--color-contrast-lower);
 
     legend {
         margin-left: alley(-0.25);
@@ -91,11 +91,5 @@ fieldset {
         background-color: var(--color-background);
         text-transform: uppercase;
         font-size: var(--font-size-xsmall);
-    }
-}
-
-form {
-    div {
-        margin-bottom: space();
     }
 }

@@ -39,6 +39,7 @@
     "postcss-calc": "^7.0.2",
     "postcss-preset-env": "^6.7.0",
     "postcss-prettify": "^0.3.4",
+    "prettier": "^2.0.5",
     "sass-variable-parser": "^1.2.2",
     "sassdoc": "^2.7.1",
     "static-server": "^2.2.1",
