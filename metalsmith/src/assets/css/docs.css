@@ -7,8 +7,8 @@ html body #container#container#container *:last-child:not(.f-margins) {
 }
 
 #container {
-  padding-right: var(--space);
-  padding-left: var(--space);
+  padding-right: calc(var(--alley)*0.5);
+  padding-left: calc(var(--alley)*0.5);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -20,8 +20,8 @@ html body #container#container#container *:last-child:not(.f-margins) {
 
 @media (min-width: 480px) {
   #container {
-    padding-right: calc(var(--space)*2);
-    padding-left: calc(var(--space)*2);
+    padding-right: var(--alley);
+    padding-left: var(--alley);
   }
 }
 
@@ -40,7 +40,7 @@ html body #container#container#container *:last-child:not(.f-margins) {
   left: 0;
   overflow-y: auto;
   padding: calc(var(--space)*3.375) var(--space) calc(var(--space)*4.375);
-  width: 200px;
+  width: 180px;
   height: 100%;
   background-color: var(--color-background);
 }
@@ -82,9 +82,9 @@ main > section > h2 {
   font-size: var(--font-size-xsmall);
   line-height: var(--line-height-general);
   font-weight: var(--font-weight-normal);
-  margin-bottom: var(--space);
+  margin-bottom: calc(var(--space)*1.25);
   padding-bottom: calc(var(--space)*0.25);
-  border-bottom: 5px solid var(--color-contrast-lowest);
+  border-bottom: 0.25rem solid var(--color-contrast-lowest);
 }
 
 .doc-block {

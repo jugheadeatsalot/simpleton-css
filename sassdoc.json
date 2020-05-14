@@ -3,16 +3,16 @@
     {
       "description": "",
       "commentRange": {
-        "start": 1,
-        "end": 1
+        "start": 3,
+        "end": 3
       },
       "context": {
         "type": "mixin",
         "name": "button-styles",
-        "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+        "code": "@include ellipsis();\n\ndisplay: inline-block;\npadding: var(--padding-button);\nmin-height: calc(2.25em + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n\n&[disabled] {\n    background-color: var(--color-contrast-lower);\n\n    &:hover {\n        box-shadow: none;\n    }\n}\n\n&:hover {\n    box-shadow: inset 0 0 0 100vh rgba(black, 0.1);\n}\n\n&:focus {\n    outline: none;\n    box-shadow: 0 0 0.25rem 0 $color-outline;\n}\n",
         "line": {
-          "start": 2,
-          "end": 13
+          "start": 4,
+          "end": 33
         }
       },
       "access": "public",
@@ -21,327 +21,31 @@
       ],
       "require": [
         {
-          "type": "function",
-          "name": "space",
+          "type": "mixin",
+          "name": "ellipsis",
           "autofill": true,
           "item": {
             "description": "",
             "commentRange": {
-              "start": 341,
-              "end": 341
+              "start": 400,
+              "end": 400
             },
             "context": {
-              "type": "function",
-              "name": "space",
-              "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n\n@return if($m != 1, calc(var(--space) * #{$m}), var(--space));\n",
+              "type": "mixin",
+              "name": "ellipsis",
+              "code": "overflow: hidden;\ntext-overflow: ellipsis;\nwhite-space: nowrap;\n",
               "line": {
-                "start": 342,
-                "end": 346
+                "start": 401,
+                "end": 405
               }
             },
-            "parameter": [
-              {
-                "type": "<number>",
-                "name": "multiplier"
-              }
-            ],
             "access": "public",
             "group": [
               "undefined"
             ],
-            "require": [
-              {
-                "type": "function",
-                "name": "is-unitless-number",
-                "autofill": true,
-                "item": {
-                  "description": "Checks if <code>$value</code> is a unitless number.\n",
-                  "commentRange": {
-                    "start": 232,
-                    "end": 234
-                  },
-                  "context": {
-                    "type": "function",
-                    "name": "is-unitless-number",
-                    "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                    "line": {
-                      "start": 235,
-                      "end": 245
-                    }
-                  },
-                  "parameter": [
-                    {
-                      "type": "<any>",
-                      "name": "value"
-                    },
-                    {
-                      "type": "<bool>",
-                      "name": "warn",
-                      "default": "false"
-                    }
-                  ],
-                  "access": "public",
-                  "group": [
-                    "undefined"
-                  ],
-                  "require": [
-                    {
-                      "type": "function",
-                      "name": "is-number",
-                      "autofill": true,
-                      "item": {
-                        "description": "Checks if <code>$value</code> is a number.\n",
-                        "commentRange": {
-                          "start": 211,
-                          "end": 212
-                        },
-                        "context": {
-                          "type": "function",
-                          "name": "is-number",
-                          "code": "@return type-of($value) == number;\n",
-                          "line": {
-                            "start": 213,
-                            "end": 215
-                          }
-                        },
-                        "parameter": [
-                          {
-                            "type": "<any>",
-                            "name": "value"
-                          }
-                        ],
-                        "access": "public",
-                        "group": [
-                          "undefined"
-                        ],
-                        "require": [],
-                        "file": {
-                          "path": "_funcs.scss",
-                          "name": "_funcs.scss"
-                        },
-                        "usedBy": [
-                          {
-                            "description": "Rounds, ceils or floors <code>$number</code> to given decimal <code>$places</code>.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "decimal-round",
-                              "code": "$n: 1;\n\n@if not is-number($number) {\n    @return $number;\n}\n\n@if not is-number($places) {\n    @return $number;\n}\n\n@if $places > 0 and $places < 20 {\n    @for $i from 1 through $places {\n        $n: $n * 10;\n    }\n}\n\n@if $mode == round {\n    @return round($number * $n) / $n;\n} @else if $mode == ceil {\n    @return ceil($number * $n) / $n;\n} @else if $mode == floor {\n    @return floor($number * $n) / $n;\n} @else {\n    @return $number;\n}\n",
-                              "line": {
-                                "start": 143,
-                                "end": 169
-                              }
-                            }
-                          },
-                          {
-                            "description": "Rounds, ceils or floors <code>$number</code> to given decimal <code>$places</code>.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "decimal-round",
-                              "code": "$n: 1;\n\n@if not is-number($number) {\n    @return $number;\n}\n\n@if not is-number($places) {\n    @return $number;\n}\n\n@if $places > 0 and $places < 20 {\n    @for $i from 1 through $places {\n        $n: $n * 10;\n    }\n}\n\n@if $mode == round {\n    @return round($number * $n) / $n;\n} @else if $mode == ceil {\n    @return ceil($number * $n) / $n;\n} @else if $mode == floor {\n    @return floor($number * $n) / $n;\n} @else {\n    @return $number;\n}\n",
-                              "line": {
-                                "start": 143,
-                                "end": 169
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a number with a unit.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-unit-number",
-                              "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 220,
-                                "end": 230
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a unitless number.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-unitless-number",
-                              "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 235,
-                                "end": 245
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a nonnegative number.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-nonneg-number",
-                              "code": "@if is-number($value) and $value > -1 {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a nonnegative <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 250,
-                                "end": 260
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "type": "function",
-                      "name": "show-param-value",
-                      "autofill": true,
-                      "item": {
-                        "description": "Returns a formatted string containing <code>$value</code> and its type.\n",
-                        "commentRange": {
-                          "start": 325,
-                          "end": 327
-                        },
-                        "context": {
-                          "type": "function",
-                          "name": "show-param-value",
-                          "code": "$value: if(type-of($value) == string, '\"#{$value}\"', $value);\n\n@return 'Received: <#{type-of($value)}: #{$value}>.';\n",
-                          "line": {
-                            "start": 328,
-                            "end": 332
-                          }
-                        },
-                        "parameter": [
-                          {
-                            "type": "<any>",
-                            "name": "value"
-                          }
-                        ],
-                        "access": "private",
-                        "group": [
-                          "undefined"
-                        ],
-                        "require": [],
-                        "file": {
-                          "path": "_funcs.scss",
-                          "name": "_funcs.scss"
-                        },
-                        "usedBy": [
-                          {
-                            "description": "Checks if <code>$value</code> is a number with a unit.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-unit-number",
-                              "code": "@if is-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 220,
-                                "end": 230
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a unitless number.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-unitless-number",
-                              "code": "@if is-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a unitless <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 235,
-                                "end": 245
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a nonnegative number.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-nonneg-number",
-                              "code": "@if is-number($value) and $value > -1 {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a nonnegative <number>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 250,
-                                "end": 260
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a nonnegative number with a unit.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-nonneg-unit-number",
-                              "code": "@if is-nonneg-number($value) and index($lengths, unit($value)) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a nonnegative <length>. #{show-param-value($value)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 265,
-                                "end": 275
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$value</code> is a nonnegative, unitless number.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-nonneg-unitless-number",
-                              "code": "@if is-nonneg-number($value) and unitless($value) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn '`$value` must be a nonnegative, unitless <number>. #{show-param-value($number)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 280,
-                                "end": 290
-                              }
-                            }
-                          },
-                          {
-                            "description": "Checks if <code>$needle</code> is found in <code>$haystack</code>.\n",
-                            "context": {
-                              "type": "function",
-                              "name": "is-in-list",
-                              "code": "@if index($haystack, $needle) {\n    @return true;\n}\n\n@if $warn == true {\n    @warn 'Invalid `$needle`. #{show-param-value($needle)} #{format-valid-values($haystack)}';\n}\n\n@return false;\n",
-                              "line": {
-                                "start": 308,
-                                "end": 318
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "file": {
-                    "path": "_funcs.scss",
-                    "name": "_funcs.scss"
-                  },
-                  "usedBy": [
-                    {
-                      "description": "",
-                      "context": {
-                        "type": "function",
-                        "name": "space",
-                        "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n\n@return if($m != 1, calc(var(--space) * #{$m}), var(--space));\n",
-                        "line": {
-                          "start": 342,
-                          "end": 346
-                        }
-                      }
-                    },
-                    {
-                      "description": "",
-                      "context": {
-                        "type": "function",
-                        "name": "alley",
-                        "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n\n@return if($m != 1, calc(var(--alley) * #{$m}), var(--alley));\n",
-                        "line": {
-                          "start": 349,
-                          "end": 353
-                        }
-                      }
-                    },
-                    {
-                      "description": "",
-                      "context": {
-                        "type": "mixin",
-                        "name": "mgbch",
-                        "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n$i: if($important == true, $important, false);\n\nmargin-top: space(-$m) if($i, !important, null);\n\n> * {\n    margin-top: space($m) if($i, !important, null);\n}\n",
-                        "line": {
-                          "start": 270,
-                          "end": 279
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            ],
             "file": {
-              "path": "_funcs.scss",
-              "name": "_funcs.scss"
+              "path": "_mixins.scss",
+              "name": "_mixins.scss"
             },
             "usedBy": [
               {
@@ -349,142 +53,10 @@
                 "context": {
                   "type": "mixin",
                   "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
+                  "code": "@include ellipsis();\n\ndisplay: inline-block;\npadding: var(--padding-button);\nmin-height: calc(2.25em + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n\n&[disabled] {\n    background-color: var(--color-contrast-lower);\n\n    &:hover {\n        box-shadow: none;\n    }\n}\n\n&:hover {\n    box-shadow: inset 0 0 0 100vh rgba(black, 0.1);\n}\n\n&:focus {\n    outline: none;\n    box-shadow: 0 0 0.25rem 0 $color-outline;\n}\n",
                   "line": {
-                    "start": 2,
-                    "end": 13
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "Sets default vertical margins for selected elements\n",
-                "context": {
-                  "type": "mixin",
-                  "name": "vertical-margins",
-                  "code": "$m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);\n\nhr {\n    margin-top: if($m, space($m), space());\n    margin-bottom: if($m, space($m), space());\n}\n\ncaption {\n    margin-bottom: if(\n        $m,\n        calc(#{space($m)} * 0.25),\n        calc(#{space()} * 0.25)\n    );\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    @include control-margins(top);\n\n    margin-top: if(\n        $m,\n        calc(var(--space-top-h) * #{$m}),\n        var(--space-top-h)\n    );\n    margin-bottom: if(\n        $m,\n        calc(var(--space-bottom-h) * #{$m}),\n        var(--space-bottom-h)\n    );\n}\n\naddress,\nblockquote,\ncanvas,\ndl,\nfieldset,\nfigure,\nform,\nhr,\nnoscript,\nol,\np,\npre,\ntable,\nul,\nvideo {\n    margin-bottom: if($m, space($m), space());\n}\n",
-                  "line": {
-                    "start": 138,
-                    "end": 191
-                  }
-                }
-              },
-              {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "mgbch",
-                  "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n$i: if($important == true, $important, false);\n\nmargin-top: space(-$m) if($i, !important, null);\n\n> * {\n    margin-top: space($m) if($i, !important, null);\n}\n",
-                  "line": {
-                    "start": 270,
-                    "end": 279
-                  }
-                }
-              },
-              {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "mgbch",
-                  "code": "$m: if(is-unitless-number($multiplier), $multiplier, 1);\n$i: if($important == true, $important, false);\n\nmargin-top: space(-$m) if($i, !important, null);\n\n> * {\n    margin-top: space($m) if($i, !important, null);\n}\n",
-                  "line": {
-                    "start": 270,
-                    "end": 279
-                  }
-                }
-              },
-              {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "figcaption",
-                  "code": "padding-top: space(0.375);\ncolor: var(--color-contrast-medium);\ntext-align: center;\nfont-size: var(--font-size-xsmall);\n",
-                  "line": {
-                    "start": 388,
-                    "end": 393
+                    "start": 4,
+                    "end": 33
                   }
                 }
               }
@@ -2275,18 +1847,6 @@
               "name": "_funcs.scss"
             },
             "usedBy": [
-              {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
-                  "line": {
-                    "start": 2,
-                    "end": 13
-                  }
-                }
-              },
               {
                 "description": "Sets default vertical margins for selected elements\n",
                 "context": {
@@ -4671,18 +4231,6 @@
               "name": "_funcs.scss"
             },
             "usedBy": [
-              {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
-                  "line": {
-                    "start": 2,
-                    "end": 13
-                  }
-                }
-              },
               {
                 "description": "Sets default vertical margins for selected elements\n",
                 "context": {
@@ -12573,18 +12121,6 @@
             },
             "usedBy": [
               {
-                "description": "",
-                "context": {
-                  "type": "mixin",
-                  "name": "button-styles",
-                  "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
-                  "line": {
-                    "start": 2,
-                    "end": 13
-                  }
-                }
-              },
-              {
                 "description": "Sets default vertical margins for selected elements\n",
                 "context": {
                   "type": "mixin",
@@ -12771,7 +12307,21 @@
       "file": {
         "path": "_mixins.scss",
         "name": "_mixins.scss"
-      }
+      },
+      "usedBy": [
+        {
+          "description": "",
+          "context": {
+            "type": "mixin",
+            "name": "button-styles",
+            "code": "@include ellipsis();\n\ndisplay: inline-block;\npadding: var(--padding-button);\nmin-height: calc(2.25em + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n\n&[disabled] {\n    background-color: var(--color-contrast-lower);\n\n    &:hover {\n        box-shadow: none;\n    }\n}\n\n&:hover {\n    box-shadow: inset 0 0 0 100vh rgba(black, 0.1);\n}\n\n&:focus {\n    outline: none;\n    box-shadow: 0 0 0.25rem 0 $color-outline;\n}\n",
+            "line": {
+              "start": 4,
+              "end": 33
+            }
+          }
+        }
+      ]
     }
   ],
   "functions": [
@@ -16892,18 +16442,6 @@
       },
       "usedBy": [
         {
-          "description": "",
-          "context": {
-            "type": "mixin",
-            "name": "button-styles",
-            "code": "display: inline-block;\nmargin-bottom: space(0.25);\npadding: var(--padding-button);\nmin-height: calc(2.5rem + (var(--border-size) * 2));\nborder: none;\nborder-radius: 0.25rem;\nbackground-color: var(--color-contrast);\ncolor: var(--color-background);\ncursor: pointer;\ntransition: box-shadow 0.2s, color 0.2s;\n",
-            "line": {
-              "start": 2,
-              "end": 13
-            }
-          }
-        },
-        {
           "description": "Sets default vertical margins for selected elements\n",
           "context": {
             "type": "mixin",
@@ -18805,7 +18343,7 @@
       "context": {
         "type": "variable",
         "name": "color-primary",
-        "value": "#dc2f3c",
+        "value": "#209ed5",
         "scope": "default",
         "line": {
           "start": 181,
@@ -18830,7 +18368,7 @@
       "context": {
         "type": "variable",
         "name": "color-dark-accent",
-        "value": "#587b98",
+        "value": "#002f5b",
         "scope": "default",
         "line": {
           "start": 183,
@@ -18855,7 +18393,7 @@
       "context": {
         "type": "variable",
         "name": "color-light-accent",
-        "value": "#76b1df",
+        "value": "#e6f4f1",
         "scope": "default",
         "line": {
           "start": 185,
@@ -19530,7 +19068,7 @@
       "context": {
         "type": "variable",
         "name": "space",
-        "value": "$font-size-general * $line-height-general",
+        "value": "1rem",
         "scope": "default",
         "line": {
           "start": 276,
@@ -19580,7 +19118,7 @@
       "context": {
         "type": "variable",
         "name": "p-inline-t",
-        "value": "0.125rem",
+        "value": "0.125em",
         "scope": "default",
         "line": {
           "start": 280,
@@ -19605,7 +19143,7 @@
       "context": {
         "type": "variable",
         "name": "p-inline-r",
-        "value": "0.25rem",
+        "value": "0.25em",
         "scope": "default",
         "line": {
           "start": 282,
@@ -19630,7 +19168,7 @@
       "context": {
         "type": "variable",
         "name": "p-inline-b",
-        "value": "0.125rem",
+        "value": "0.125em",
         "scope": "default",
         "line": {
           "start": 284,
@@ -19655,7 +19193,7 @@
       "context": {
         "type": "variable",
         "name": "p-inline-l",
-        "value": "0.25rem",
+        "value": "0.25em",
         "scope": "default",
         "line": {
           "start": 286,
@@ -19680,7 +19218,7 @@
       "context": {
         "type": "variable",
         "name": "p-box-t",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 288,
@@ -19705,7 +19243,7 @@
       "context": {
         "type": "variable",
         "name": "p-box-r",
-        "value": "1.25rem",
+        "value": "1.25em",
         "scope": "default",
         "line": {
           "start": 290,
@@ -19730,7 +19268,7 @@
       "context": {
         "type": "variable",
         "name": "p-box-b",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 292,
@@ -19780,7 +19318,7 @@
       "context": {
         "type": "variable",
         "name": "p-message-t",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 296,
@@ -19805,7 +19343,7 @@
       "context": {
         "type": "variable",
         "name": "p-message-r",
-        "value": "3.25rem",
+        "value": "3.25em",
         "scope": "default",
         "line": {
           "start": 298,
@@ -19830,7 +19368,7 @@
       "context": {
         "type": "variable",
         "name": "p-message-b",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 300,
@@ -19855,7 +19393,7 @@
       "context": {
         "type": "variable",
         "name": "p-message-l",
-        "value": "1rem",
+        "value": "1em",
         "scope": "default",
         "line": {
           "start": 302,
@@ -19880,7 +19418,7 @@
       "context": {
         "type": "variable",
         "name": "p-table-t",
-        "value": "0.5rem",
+        "value": "0.5em",
         "scope": "default",
         "line": {
           "start": 304,
@@ -19905,7 +19443,7 @@
       "context": {
         "type": "variable",
         "name": "p-table-r",
-        "value": "2rem",
+        "value": "2em",
         "scope": "default",
         "line": {
           "start": 306,
@@ -19930,7 +19468,7 @@
       "context": {
         "type": "variable",
         "name": "p-table-b",
-        "value": "0.5rem",
+        "value": "0.5em",
         "scope": "default",
         "line": {
           "start": 308,
@@ -19980,7 +19518,7 @@
       "context": {
         "type": "variable",
         "name": "p-button-t",
-        "value": "0.425em",
+        "value": "0.375em",
         "scope": "default",
         "line": {
           "start": 312,
@@ -20030,7 +19568,7 @@
       "context": {
         "type": "variable",
         "name": "p-button-b",
-        "value": "0.425em",
+        "value": "0.375em",
         "scope": "default",
         "line": {
           "start": 316,
@@ -20080,7 +19618,7 @@
       "context": {
         "type": "variable",
         "name": "p-input-t",
-        "value": "0.5rem",
+        "value": "0.375em",
         "scope": "default",
         "line": {
           "start": 320,
@@ -20105,7 +19643,7 @@
       "context": {
         "type": "variable",
         "name": "p-input-r",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 322,
@@ -20130,7 +19668,7 @@
       "context": {
         "type": "variable",
         "name": "p-input-b",
-        "value": "0.5rem",
+        "value": "0.375em",
         "scope": "default",
         "line": {
           "start": 324,
@@ -20155,7 +19693,7 @@
       "context": {
         "type": "variable",
         "name": "p-input-l",
-        "value": "0.75rem",
+        "value": "0.75em",
         "scope": "default",
         "line": {
           "start": 326,

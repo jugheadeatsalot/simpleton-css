@@ -178,11 +178,11 @@ $line-heights: map-merge(
 //
 
 ///
-$color-primary: #dc2f3c !default;
+$color-primary: #209ed5 !default;
 ///
-$color-dark-accent: #587b98 !default;
+$color-dark-accent: #002f5b !default;
 ///
-$color-light-accent: #76b1df !default;
+$color-light-accent: #e6f4f1 !default;
 ///
 $color-background: #ffffff !default;
 ///
@@ -273,7 +273,7 @@ $colors: map-merge(
 //
 
 ///
-$space: $font-size-general * $line-height-general !default;
+$space: 1rem !default;
 ///
 $alley: 30px !default;
 ///

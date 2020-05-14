@@ -1,14 +1,14 @@
 :root {
-    --content-width:800px;
+    --content-width: 800px;
 }
 
 @mixin container-padding-horizontal {
-    padding-right:space();
-    padding-left:space();
+    padding-right: alley(0.5);
+    padding-left: alley(0.5);
 
     @include min($breakpoint-s) {
-        padding-right:space(2);
-        padding-left:space(2);
+        padding-right: alley();
+        padding-left: alley();
     }
 }
 
@@ -19,93 +19,93 @@ html body #container#container#container {
 #container {
     @include container-padding-horizontal();
 
-    display:flex;
-    flex-direction:column;
-    margin:0 auto;
-    min-height:100vh;
-    max-width:var(--content-width);
-    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: var(--content-width);
+    width: 100%;
 }
 
 .icon {
-    display:inline-block;
-    width:1em;
-    height:1em;
-    fill:var(--color-contrast);
-    stroke:var(--color-contrast);
-    stroke-width:0;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    fill: var(--color-contrast);
+    stroke: var(--color-contrast);
+    stroke-width: 0;
 }
 
 .site-header {
-    position:fixed;
-    top:0;
-    left:0;
-    overflow-y:auto;
-    padding:space(3.375) space() space(4.375);
-    width:200px;
-    height:100%;
-    background-color:var(--color-background);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    padding: space(3.375) space() space(4.375);
+    width: 180px;
+    height: 100%;
+    background-color: var(--color-background);
 
     nav {
         @include min($breakpoint-s) {
-            max-width:calc(var(--content-width) - #{alley(2)});
+            max-width: calc(var(--content-width) - #{alley(2)});
         }
 
         > * {
-            text-transform:uppercase;
-            font-size:var(--font-size-small);
+            text-transform: uppercase;
+            font-size: var(--font-size-small);
         }
     }
 
     .site-name {
-        margin-bottom:space(1.5);
-        font-weight:var(--font-weight-normal);
-        line-height:var(--line-height-general);
+        margin-bottom: space(1.5);
+        font-weight: var(--font-weight-normal);
+        line-height: var(--line-height-general);
     }
 
     ul {
-        margin-left:0;
-        list-style-type:none;
+        margin-left: 0;
+        list-style-type: none;
     }
 }
 
 main {
-    flex:1;
-    margin-top:space(3);
-    margin-bottom:space(4);
+    flex: 1;
+    margin-top: space(3);
+    margin-bottom: space(4);
 
     > h1 {
-        margin-bottom:space(2.125);
+        margin-bottom: space(2.125);
     }
 
     > section {
         > h2 {
-            font-size:var(--font-size-xsmall);
-            line-height:var(--line-height-general);
-            font-weight:var(--font-weight-normal);
-            margin-bottom:space();
-            padding-bottom:space(0.25);
-            border-bottom:5px solid var(--color-contrast-lowest);
+            font-size: var(--font-size-xsmall);
+            line-height: var(--line-height-general);
+            font-weight: var(--font-weight-normal);
+            margin-bottom: space(1.25);
+            padding-bottom: space(0.25);
+            border-bottom: 0.25rem solid var(--color-contrast-lowest);
         }
     }
 }
 
 .doc-block {
-    margin-bottom:space(2);
+    margin-bottom: space(2);
 
     h3 {
-        text-transform:uppercase;
-        font-weight:var(--font-weight-normal);
-        font-size:var(--font-size-general);
-        line-height:var(--line-height-general);
+        text-transform: uppercase;
+        font-weight: var(--font-weight-normal);
+        font-size: var(--font-size-general);
+        line-height: var(--line-height-general);
 
         .icon {
-            float:right;
+            float: right;
         }
     }
 
     table {
-        table-layout:fixed;
+        table-layout: fixed;
 
         th,
         td {
@@ -113,64 +113,68 @@ main {
         }
 
         code {
-            padding:0;
-            background-color:transparent;
+            padding: 0;
+            background-color: transparent;
         }
     }
 
     .anchor {
-        padding-top:var(--space-5xlarge);
-        font-weight:var(--font-weight-normal);
+        padding-top: var(--space-5xlarge);
+        font-weight: var(--font-weight-normal);
     }
 }
 
 .site-footer {
-    display:flex;
-    align-items:center;
-    height:4.2rem;
-    border-top:1px solid var(--color-contrast-low);
+    display: flex;
+    align-items: center;
+    height: 4.2rem;
+    border-top: 1px solid var(--color-contrast-low);
 }
 
 .copyright {
-    text-transform:uppercase;
-    font-size:var(--font-size-xxsmall);
+    text-transform: uppercase;
+    font-size: var(--font-size-xxsmall);
 }
 
 .colorbox {
-    width:42px;
-    height:42px;
-    border:1px solid var(--color-contrast-lower);
-    border-radius:50%;
-    box-shadow:0 0 0 4px #ffffff inset;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--color-contrast-lower);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #ffffff inset;
 }
 
 .decoy {
-    min-height:4rem;
-    background:linear-gradient(90deg, var(--color-contrast-lower) 0%, var(--color-contrast-lowest) 100%);
+    min-height: 4rem;
+    background: linear-gradient(
+        90deg,
+        var(--color-contrast-lower) 0%,
+        var(--color-contrast-lowest) 100%
+    );
 }
 
 ._404 {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     .inner {
-        position:absolute;
-        top:50%;
-        left:50%;
-        margin-top:-2rem;
-        text-align:center;
-        transform:translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -2rem;
+        text-align: center;
+        transform: translate(-50%, -50%);
     }
 
     h1 {
-        font-size:8rem;
+        font-size: 8rem;
     }
 
     p {
-        text-transform:uppercase;
-        font-size:$font-size-small;
+        text-transform: uppercase;
+        font-size: $font-size-small;
     }
 }

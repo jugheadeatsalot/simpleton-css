@@ -16,8 +16,10 @@
         <link rel="stylesheet" href="/assets/css/simpleton.min.css?v={{version}}">
         <link rel="stylesheet" href="/assets/css/docs.min.css?v={{version}}">
     {{else}}
-        <link rel="stylesheet" href="/assets/css/simpleton.css?v={{version}}">
-        <link rel="stylesheet" href="/assets/css/docs.css?v={{version}}">
+        <script>
+            document.write(`<link rel="stylesheet" href="/assets/css/simpleton.css?v=${Date.now()}">`);
+            document.write(`<link rel="stylesheet" href="/assets/css/docs.css?v=${Date.now()}">`);
+        </script>
     {{/if}}
 </head>
 <body>
@@ -53,8 +55,11 @@
     <script src='/assets/js/docs.min.js?v={{version}}'></script>
 {{else}}
     <script src="http://localhost:35729/livereload.js"></script>
-    <script src='/assets/js/simpleton.js?v={{version}}'></script>
-    <script src='/assets/js/docs.js?v={{version}}'></script>
+
+    <script>
+        document.write(`<script src='/assets/js/simpleton.js?v=${Date.now()}'><\/script>`);
+        document.write(`<script src='/assets/js/docs.js?v=${Date.now()}'><\/script>`);
+    </script>
 {{/if}}
 </body>
 </html>
