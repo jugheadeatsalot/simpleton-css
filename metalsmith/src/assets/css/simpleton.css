@@ -1,9 +1,9 @@
 :root {
   --font-stack-serif: Constantia, Lucida Bright, Lucidabright, Georgia, serif;
-  --font-stack-sansserif: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-stack-general: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-stack-heading: Helvetica Neue, Helvetica, Arial, sans-serif;
-  --font-stack-monospace: Consolas, Ubuntu Mono, Lucida Console, Courier New, Courier, monospace;
+  --font-stack-sansserif: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-stack-general: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-stack-heading: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-stack-monospace: Consolas, Lucida Console, Courier New, monospace;
   --font-size-base: 16px;
   --font-size-general: 1rem;
   --font-size-big: 1.125em;
@@ -140,7 +140,7 @@ body {
   word-wrap: break-word;
   font-weight: 400;
   font-weight: var(--font-weight-normal);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-general);
   line-height: 1.5;
   line-height: var(--line-height-general);
@@ -217,7 +217,7 @@ h5,
 h6 {
   font-weight: 700;
   font-weight: var(--font-weight-heading);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
 }
 
@@ -397,12 +397,10 @@ var {
 }
 
 pre {
+  font-family: Consolas, Lucida Console, Courier New, monospace;
+  font-family: var(--font-stack-monospace);
   font-size: 0.889em;
   font-size: var(--font-size-small);
-  line-height: 1.55;
-  line-height: var(--line-height-small);
-  font-family: Consolas, Ubuntu Mono, Lucida Console, Courier New, Courier, monospace;
-  font-family: var(--font-stack-monospace);
   overflow: auto;
   padding: 0.75em 1.25em 0.75em 1rem;
   padding: var(--padding-box);
@@ -418,14 +416,14 @@ pre code {
 }
 
 blockquote {
+  font-size: 1.266em;
+  font-size: var(--font-size-xbig);
+  line-height: 1.4;
+  line-height: var(--line-height-xbig);
   padding: 0.75em 1.25em 0.75em 1rem;
   padding: var(--padding-box);
   border-left: 0.25rem solid #209ed5;
   border-left: 0.25rem solid var(--color-primary);
-  font-size: 1.266em;
-  font-size: var(--font-size-h4);
-  line-height: 1.4;
-  line-height: var(--line-height-h4);
 }
 
 code,
@@ -435,16 +433,16 @@ kbd,
 samp {
   font-size: 0.889em;
   font-size: var(--font-size-small);
-  font-family: Consolas, Ubuntu Mono, Lucida Console, Courier New, Courier, monospace;
+  font-family: Consolas, Lucida Console, Courier New, monospace;
   font-family: var(--font-stack-monospace);
 }
 
 cite {
+  font-size: 0.889em;
+  font-size: var(--font-size-small);
   font-weight: 400;
   font-weight: var(--font-weight-normal);
   font-style: italic;
-  font-size: 0.889em;
-  font-size: var(--font-size-small);
 }
 
 abbr,
@@ -470,10 +468,10 @@ sup {
 
 sub,
 sup {
-  position: relative;
-  vertical-align: baseline;
   font-size: 0.79em;
   font-size: var(--font-size-xsmall);
+  position: relative;
+  vertical-align: baseline;
 }
 
 ::-moz-focus-inner {
@@ -640,7 +638,9 @@ figcaption {
 }
 
 .group {
+  margin: 0 auto;
   max-width: 1200px;
+  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
 }
@@ -1584,7 +1584,7 @@ button.youtube,
   font-weight: var(--font-weight-heading);
   font-size: 1.802em;
   font-size: var(--font-size-h1);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
   line-height: 1.25;
   line-height: var(--line-height-h1);
@@ -1603,7 +1603,7 @@ button.youtube,
   font-weight: var(--font-weight-heading);
   font-size: 1.602em;
   font-size: var(--font-size-h2);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
   line-height: 1.3;
   line-height: var(--line-height-h2);
@@ -1622,7 +1622,7 @@ button.youtube,
   font-weight: var(--font-weight-heading);
   font-size: 1.424em;
   font-size: var(--font-size-h3);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
   line-height: 1.35;
   line-height: var(--line-height-h3);
@@ -1641,7 +1641,7 @@ button.youtube,
   font-weight: var(--font-weight-heading);
   font-size: 1.266em;
   font-size: var(--font-size-h4);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
   line-height: 1.4;
   line-height: var(--line-height-h4);
@@ -1660,7 +1660,7 @@ button.youtube,
   font-weight: var(--font-weight-heading);
   font-size: 1.125em;
   font-size: var(--font-size-h5);
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-family: var(--font-stack-heading);
   line-height: 1.45;
   line-height: var(--line-height-h5);
@@ -1787,7 +1787,7 @@ button,
   color: #ffffff;
   color: var(--color-background);
   cursor: pointer;
-  transition: box-shadow 0.2s, color 0.2s;
+  transition: box-shadow 0.25s, color 0.25s;
 }
 
 input[type='button'][disabled],
@@ -1795,8 +1795,8 @@ input[type='submit'][disabled],
 input[type='reset'][disabled],
 button[disabled],
 .button[disabled] {
-  background-color: #d9d9d9;
-  background-color: var(--color-contrast-lower);
+  cursor: not-allowed;
+  box-shadow: inset 0 0 0 100vh rgba(255, 255, 255, 0.375);
 }
 
 input[type='button'][disabled]:hover,
@@ -1804,7 +1804,7 @@ input[type='submit'][disabled]:hover,
 input[type='reset'][disabled]:hover,
 button[disabled]:hover,
 .button[disabled]:hover {
-  box-shadow: none;
+  box-shadow: inset 0 0 0 100vh rgba(255, 255, 255, 0.375);
 }
 
 input[type='button']:hover,
@@ -1812,7 +1812,7 @@ input[type='submit']:hover,
 input[type='reset']:hover,
 button:hover,
 .button:hover {
-  box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.125);
 }
 
 input[type='button']:focus,
@@ -1888,7 +1888,7 @@ input[type='password']:focus,
 input[type='url']:focus,
 input[type='week']:focus {
   outline: none;
-  border-color: #4d90fe;
+  border-color: transparent;
   box-shadow: 0 0 0.25rem 0 #4d90fe;
 }
 
@@ -1918,7 +1918,7 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border-color: #4d90fe;
+  border-color: transparent;
   box-shadow: 0 0 0.25rem 0 #4d90fe;
 }
 
@@ -1931,13 +1931,23 @@ select {
   border: 1px solid #d9d9d9;
   border: var(--border-size) solid var(--color-contrast-lower);
   border-radius: 0.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 1.875em;
+  padding-right: calc(var(--p-input-r)*2.5);
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.1875em);
+  background-position: calc(100% - var(--p-input-r)*0.25);
   min-height: calc(2.25em + 2px);
   min-height: calc(2.25em + var(--border-size)*2);
 }
 
 select:focus {
   outline: none;
-  border-color: #4d90fe;
+  border-color: transparent;
   box-shadow: 0 0 0.25rem 0 #4d90fe;
 }
 

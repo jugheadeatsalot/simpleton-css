@@ -10,7 +10,6 @@ layout: layout.hbs
     <div class="output mgb-175">
         <div class="mgbch-25">
             <button class="button">default</button>
-            <button class="button" disabled>disabled</button>
             {{#each sassVars.colors}}
                 <button class="button {{@key}}">{{@key}}</button>
             {{/each}}
@@ -20,7 +19,6 @@ layout: layout.hbs
         <!--@formatter:off-->
         <pre><code class="lang-html">```<div class="mgbch-25">
     <button class="button">default</button>
-    <button class="button" disabled>disabled</button>
     {{#each sassVars.colors}}
     <button class="button {{@key}}">{{@key}}</button>
     {{/each}}

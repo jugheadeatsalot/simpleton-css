@@ -6,14 +6,13 @@
 ///
 $font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia, serif !default;
 ///
-$font-stack-sansserif: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$font-stack-sansserif: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 ///
 $font-stack-general: $font-stack-sansserif !default;
 ///
 $font-stack-heading: $font-stack-general !default;
 ///
-$font-stack-monospace: Consolas, 'Ubuntu Mono', 'Lucida Console', 'Courier New',
-    Courier, monospace !default;
+$font-stack-monospace: Consolas, 'Lucida Console', 'Courier New', monospace !default;
 ///
 $font-stacks: () !default;
 ///

@@ -80,7 +80,9 @@ figcaption {
 }
 
 .group {
+    margin: 0 auto;
     max-width: $max-site-width;
+    width: 100%;
     padding-right: $alley / 2;
     padding-left: $alley / 2;
 

@@ -16,124 +16,113 @@ html body #container#container#container {
     @include controlled();
 }
 
-#container {
-    @include container-padding-horizontal();
-
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    min-height: 100vh;
-    max-width: var(--content-width);
-    width: 100%;
-}
-
-.icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    fill: var(--color-contrast);
-    stroke: var(--color-contrast);
-    stroke-width: 0;
-}
-
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    padding: space(3.375) space() space(4.375);
-    width: 180px;
-    height: 100%;
-    background-color: var(--color-background);
-
-    nav {
-        @include min($breakpoint-s) {
-            max-width: calc(var(--content-width) - #{alley(2)});
-        }
-
-        > * {
-            text-transform: uppercase;
-            font-size: var(--font-size-small);
-        }
-    }
-
-    .site-name {
-        margin-bottom: space(1.5);
-        font-weight: var(--font-weight-normal);
-        line-height: var(--line-height-general);
-    }
-
-    ul {
-        margin-left: 0;
-        list-style-type: none;
-    }
-}
-
-main {
-    flex: 1;
-    margin-top: space(3);
-    margin-bottom: space(4);
-
-    > h1 {
-        margin-bottom: space(2.125);
-    }
-
-    > section {
-        > h2 {
-            font-size: var(--font-size-xsmall);
-            line-height: var(--line-height-general);
-            font-weight: var(--font-weight-normal);
-            margin-bottom: space(1.25);
-            padding-bottom: space(0.25);
-            border-bottom: 0.25rem solid var(--color-contrast-lowest);
-        }
-    }
-}
-
-.doc-block {
-    margin-bottom: space(2);
-
-    h3 {
-        text-transform: uppercase;
-        font-weight: var(--font-weight-normal);
-        font-size: var(--font-size-general);
-        line-height: var(--line-height-general);
-
-        .icon {
-            float: right;
-        }
-    }
-
-    table {
-        table-layout: fixed;
-
-        th,
-        td {
-            @include ellipsis();
-        }
-
-        code {
-            padding: 0;
-            background-color: transparent;
-        }
-    }
-
-    .anchor {
-        padding-top: var(--space-5xlarge);
-        font-weight: var(--font-weight-normal);
-    }
-}
-
-.site-footer {
-    display: flex;
-    align-items: center;
-    height: 4.2rem;
-    border-top: 1px solid var(--color-contrast-low);
-}
+//#container {
+//    @include container-padding-horizontal();
+//
+//    display: flex;
+//    flex-direction: column;
+//    margin: 0 auto;
+//    min-height: 100vh;
+//    max-width: var(--content-width);
+//    width: 100%;
+//}
+//
+//.icon {
+//    display: inline-block;
+//    width: 1em;
+//    height: 1em;
+//    fill: var(--color-contrast);
+//    stroke: var(--color-contrast);
+//    stroke-width: 0;
+//}
+//
+//.site-header {
+//    padding: space(3) space() space(4);
+//    width: 180px;
+//    height: 100%;
+//    background-color: var(--color-background);
+//
+//    nav {
+//        @include min($breakpoint-s) {
+//            max-width: calc(var(--content-width) - #{alley(2)});
+//        }
+//    }
+//
+//    .site-name {
+//        margin-bottom: space(1.5);
+//    }
+//
+//    ul {
+//        margin-left: 0;
+//        list-style-type: none;
+//    }
+//}
+//
+//main {
+//    flex: 1;
+//    margin-top: space(3);
+//    margin-bottom: space(4);
+//
+//    > h1 {
+//        margin-bottom: space(2.125);
+//    }
+//
+//    > section {
+//        > h2 {
+//            @include h(6);
+//
+//            margin-bottom: space(1.25);
+//            padding-bottom: space(0.25);
+//            border-bottom: var(--border-size) solid var(--color-contrast-lowest);
+//        }
+//    }
+//}
+//
+//.doc-block {
+//    margin-bottom: space(2);
+//
+//    h3 {
+//        text-transform: uppercase;
+//        font-weight: var(--font-weight-normal);
+//        font-size: var(--font-size-general);
+//        line-height: var(--line-height-general);
+//
+//        .icon {
+//            float: right;
+//        }
+//    }
+//
+//    table {
+//        table-layout: fixed;
+//
+//        th,
+//        td {
+//            @include ellipsis();
+//        }
+//
+//        code {
+//            padding: 0;
+//            background-color: transparent;
+//        }
+//    }
+//
+//    .anchor {
+//        padding-top: var(--space-5xlarge);
+//        font-weight: var(--font-weight-normal);
+//    }
+//}
+//
+//.site-footer {
+//    display: flex;
+//    align-items: center;
+//    height: 4.2rem;
+//    border-top: 1px solid var(--color-contrast-low);
+//}
 
 .copyright {
+    @include xxsmall();
+
     text-transform: uppercase;
-    font-size: var(--font-size-xxsmall);
 }
 
 .colorbox {

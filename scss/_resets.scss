@@ -248,9 +248,8 @@ var {
 }
 
 pre {
-    @include small();
-
     font-family: var(--font-stack-monospace);
+    font-size: var(--font-size-small);
     overflow: auto;
     padding: var(--padding-box);
     border-left: 0.25rem solid var(--color-dark-accent);
@@ -263,10 +262,10 @@ pre {
 }
 
 blockquote {
+    @include xbig();
+
     padding: var(--padding-box);
     border-left: 0.25rem solid var(--color-primary);
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-h4);
 }
 
 code,
@@ -279,9 +278,9 @@ samp {
 }
 
 cite {
+    font-size: var(--font-size-small);
     font-weight: var(--font-weight-normal);
     font-style: italic;
-    font-size: var(--font-size-small);
 }
 
 abbr,
@@ -307,9 +306,9 @@ sup {
 
 sub,
 sup {
+    font-size: var(--font-size-xsmall);
     position: relative;
     vertical-align: baseline;
-    font-size: var(--font-size-xsmall);
 }
 
 ::-moz-focus-inner {
