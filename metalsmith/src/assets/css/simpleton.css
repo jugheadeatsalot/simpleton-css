@@ -79,8 +79,7 @@
   --p-inline-r: 0.25em;
   --p-inline-b: 0.125em;
   --p-inline-l: 0.25em;
-  --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b)
-        var(--p-inline-l);
+  --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b) var(--p-inline-l);
   --p-box-t: 0.75em;
   --p-box-r: 1.25em;
   --p-box-b: 0.75em;
@@ -90,26 +89,22 @@
   --p-message-r: 3.25em;
   --p-message-b: 0.75em;
   --p-message-l: 1em;
-  --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b)
-        var(--p-message-l);
+  --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b) var(--p-message-l);
   --p-table-t: 0.5em;
   --p-table-r: 2em;
   --p-table-b: 0.5em;
   --p-table-l: 0;
-  --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
-        var(--p-table-l);
+  --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b) var(--p-table-l);
   --p-button-t: 0.375em;
   --p-button-r: 1em;
   --p-button-b: 0.375em;
   --p-button-l: 1em;
-  --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b)
-        var(--p-button-l);
+  --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b) var(--p-button-l);
   --p-input-t: 0.375em;
   --p-input-r: 0.75em;
   --p-input-b: 0.375em;
   --p-input-l: 0.75em;
-  --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b)
-        var(--p-input-l);
+  --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l);
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
   --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
   --default-easing: cubic-bezier(1, 0, 0, 1);
@@ -364,8 +359,7 @@ small {
 }
 
 ins {
-  padding: 0.125em 0.25em 0.125em
-        0.25em;
+  padding: 0.125em 0.25em 0.125em 0.25em;
   padding: var(--padding-inline);
   background-color: #209ed5;
   background-color: var(--color-primary);
@@ -375,8 +369,7 @@ ins {
 }
 
 mark {
-  padding: 0.125em 0.25em 0.125em
-        0.25em;
+  padding: 0.125em 0.25em 0.125em 0.25em;
   padding: var(--padding-inline);
   background-color: #209ed5;
   background-color: var(--color-primary);
@@ -385,8 +378,7 @@ mark {
 }
 
 code {
-  padding: 0.125em 0.25em 0.125em
-        0.25em;
+  padding: 0.125em 0.25em 0.125em 0.25em;
   padding: var(--padding-inline);
   background-color: #f2f2f2;
   background-color: var(--color-contrast-lowest);
@@ -622,8 +614,7 @@ th {
 
 th,
 td {
-  padding: 0.5em 2em 0.5em
-        0;
+  padding: 0.5em 2em 0.5em 0;
   padding: var(--padding-table);
 }
 
@@ -653,6 +644,8 @@ figcaption {
 }
 
 .table-container {
+  margin-bottom: 1rem;
+  margin-bottom: var(--space);
   overflow-x: auto;
 }
 
@@ -1775,8 +1768,7 @@ button,
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
-  padding: 0.375em 1em 0.375em
-        1em;
+  padding: 0.375em 1em 0.375em 1em;
   padding: var(--padding-button);
   min-height: calc(2.25em + 2px);
   min-height: calc(2.25em + var(--border-size)*2);
@@ -1840,8 +1832,7 @@ input[type='month'],
 input[type='password'],
 input[type='url'],
 input[type='week'] {
-  padding: 0.375em 0.75em 0.375em
-        0.75em;
+  padding: 0.375em 0.75em 0.375em 0.75em;
   padding: var(--padding-input);
   min-height: 2.25em;
   width: 100%;
@@ -1906,8 +1897,7 @@ input[type='checkbox'] {
 }
 
 textarea {
-  padding: 0.375em 0.75em 0.375em
-        0.75em;
+  padding: 0.375em 0.75em 0.375em 0.75em;
   padding: var(--padding-input);
   min-height: 2.25em;
   width: 100%;
@@ -1923,8 +1913,7 @@ textarea:focus {
 }
 
 select {
-  padding: 0.375em 0.75em 0.375em
-        0.75em;
+  padding: 0.375em 0.75em 0.375em 0.75em;
   padding: var(--padding-input);
   min-height: 2.25em;
   width: 100%;
